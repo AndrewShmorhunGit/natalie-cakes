@@ -1,7 +1,5 @@
-interface ILogos {
-  width: string;
+export interface ILogos {
   height: string;
-  fill?: string;
+  width: string;
+  fill: string;
 }
-
-export type { ILogos };

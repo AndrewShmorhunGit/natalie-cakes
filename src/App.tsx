@@ -6,7 +6,7 @@ import {
   Information,
   Modal,
   Navigation,
-} from "./components";
+} from "./components/imports";
 import "./styles/App.css";
 
 function App() {

@@ -1,4 +1,4 @@
-import { ILogos } from "interfaces/ILogos";
+import { ILogos } from "interfaces/imports";
 
 function MainLogo({
   width = "48",
