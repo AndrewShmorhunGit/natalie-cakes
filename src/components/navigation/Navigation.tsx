@@ -3,35 +3,15 @@ import { MainLogo } from "components/logos/Logos";
 import { css } from "@emotion/css";
 import { container, colorSys, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { useState } from "react";
-import { content } from "content/content";
+import { IContentBox } from "interfaces/IContent";
+// import { useState } from "react";
+// import { content } from "content/content";
 
-export function Navigation(): EmotionJSX.Element {
-  // Language functionality
-  const [isLanguage, setLanguage] = useState("en");
-  const { contentEn, contentRu } = content;
-
-  function checkLanguage(language: string) {
-    if (language === "en") {
-      return contentEn;
-    }
-    if (language === "ru") {
-      return contentRu;
-    }
-    return contentEn;
-  }
-
-  const language = checkLanguage(isLanguage);
-  const en: string = "en";
-  const ru: string = "ru";
-  // Active language button styles
-
-  const active = (language: string) =>
-    isLanguage === language && {
-      backgroundColor: colorSys.main_primary_dark,
-      color: colorSys.white,
-    };
-
+export function Navigation({
+  contentBox,
+}: {
+  contentBox: IContentBox;
+}): EmotionJSX.Element {
   // Component
 
   return (
@@ -72,9 +52,9 @@ export function Navigation(): EmotionJSX.Element {
           },
         })}
       >
-        <Button variant="secondary">{language.about}</Button>
-        <Button variant="secondary">{language.contacts}</Button>
-        <Button variant="primary">{language.makeSweet}</Button>
+        <Button variant="secondary">{contentBox.innerContent.about}</Button>
+        <Button variant="secondary">{contentBox.innerContent.contacts}</Button>
+        <Button variant="primary">{contentBox.innerContent.makeSweet}</Button>
         <div
           className={css({
             display: "flex",
@@ -88,17 +68,17 @@ export function Navigation(): EmotionJSX.Element {
         >
           <Button
             variant="language"
-            onClick={() => setLanguage("en")}
-            className={css(active(en))}
+            onClick={() => contentBox.setLanguage("en")}
+            className={css(contentBox.activeCheck(contentBox.en))}
           >
-            {en}
+            {contentBox.en}
           </Button>
           <Button
             variant="language"
-            onClick={() => setLanguage("ru")}
-            className={css(active(ru))}
+            onClick={() => contentBox.setLanguage("ru")}
+            className={css(contentBox.activeCheck(contentBox.ru))}
           >
-            {ru}
+            {contentBox.ru}
           </Button>
         </div>
       </div>

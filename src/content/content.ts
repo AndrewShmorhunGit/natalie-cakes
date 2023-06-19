@@ -1,11 +1,13 @@
-const contentEn = {
+import { IInnerContent } from "interfaces/IContent";
+
+const contentEn: IInnerContent = {
   // Navigation
   about: "about",
   contacts: "contacts",
   makeSweet: "make sweet",
   // Hero
   mainHeader: "make your life sweet!",
-  text: "tagline",
+  text: "Tagline,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur dolorum nemo. Deserunt praesentium veniam expedita fugiat eos possimus obcaecati, autem esse nihil itaque et, impedit omnis fuga perspiciatis. Modi impedit delectus nostrum vitae. Officia inventore voluptatem eveniet nostrum ex, sed tempora sunt accusamus reiciendis nulla nesciunt laudantium, perferendis fugit.",
   menu: "choose the way",
   birthdayCake: "birthday cake",
   cakesAndPies: "cakes and pies",
@@ -19,8 +21,7 @@ const contentEn = {
   },
   design: "design",
 };
-
-const contentRu = {
+const contentRu: IInnerContent = {
   // Navigation
   about: "про нас",
   contacts: "контакты",
@@ -39,6 +40,7 @@ const contentRu = {
     p1: "В нашем меню вы найдете торты, как от известных шеф-поваров, так и отработанные годами рецепты и классические сочетания. Мы используем только качественные ингредиенты - 82% сливочного масла животного происхождения, качественный испанский и бельгийский шоколад, немецкий сливочный сыр и пюре из натуральных ягод и фруктов.",
     p2: "Мы не используем консерванты, стабилизаторы, ароматизаторы, усилители вкуса и эмульгаторы.",
   },
+  design: "design",
 };
 
-export const content = { contentEn, contentRu };
+export const contents = { contentEn, contentRu };
