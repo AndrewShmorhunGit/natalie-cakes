@@ -7,9 +7,9 @@ import { useState } from "react";
 import { content } from "content/content";
 
 export function Navigation(): EmotionJSX.Element {
-  const { contentEn, contentRu } = content;
-
+  // Language functionality
   const [isLanguage, setLanguage] = useState("en");
+  const { contentEn, contentRu } = content;
 
   function checkLanguage(language: string) {
     if (language === "en") {
@@ -22,18 +22,32 @@ export function Navigation(): EmotionJSX.Element {
   }
 
   const language = checkLanguage(isLanguage);
+  const en: string = "en";
+  const ru: string = "ru";
+  // Active language button styles
+
+  const active = (language: string) =>
+    isLanguage === language && {
+      backgroundColor: colorSys.main_primary_dark,
+      color: colorSys.white,
+    };
+
+  // Component
 
   return (
     <div
       className={css({
         ...container,
+        width: "100%",
         background: colorSys.main_primary,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        position: "fixed",
+        top: "0",
+        transition: "width 2sec",
       })}
     >
-      {/* <h2>Navigation</h2> */}
       <div
         className={css({
           minWidth: "32rem",
@@ -47,25 +61,41 @@ export function Navigation(): EmotionJSX.Element {
         <MainLogo width="80" height="80" fill={colorSys.white} />
         <MainLogoText textColor={colorSys.white} />
       </div>
-      <Button variant="language" onClick={() => setLanguage("en")}>
-        en
-      </Button>
-      <Button variant="language" onClick={() => setLanguage("ru")}>
-        ru
-      </Button>
 
       <div
         className={css({
-          width: "60%",
+          width: "minmax(30rem, 45rem)",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-between",
-          // rowGap: "12rem",
+          gap: "1.2rem",
         })}
       >
         <Button variant="secondary">{language.about}</Button>
         <Button variant="secondary">{language.contacts}</Button>
         <Button variant="primary">{language.makeSweet}</Button>
+        <div
+          className={css({
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.4rem",
+            paddingLeft: "1.2rem",
+          })}
+        >
+          <Button
+            variant="language"
+            onClick={() => setLanguage("en")}
+            className={css(active(en))}
+          >
+            {en}
+          </Button>
+          <Button
+            variant="language"
+            onClick={() => setLanguage("ru")}
+            className={css(active(ru))}
+          >
+            {ru}
+          </Button>
+        </div>
       </div>
     </div>
   );

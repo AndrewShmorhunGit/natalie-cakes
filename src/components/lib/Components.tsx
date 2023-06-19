@@ -11,7 +11,7 @@ const buttonVariants: any = {
     background: colorSys.white,
     border: `0.3rem solid ${colorSys.main_primary_dark}`,
     fontSize: "2.4rem",
-    color: colorSys.main_primary,
+    color: colorSys.main_primary_dark,
     "&:hover": {
       background: colorSys.background_second,
       border: `0.2rem solid ${colorSys.main_primary_dark}`,
@@ -21,15 +21,17 @@ const buttonVariants: any = {
     fontSize: "2rem",
     background: colorSys.main_primary,
     color: colorSys.white,
-    border: "0",
+    // border: "0",
+    border: `0.2rem solid ${colorSys.white}`,
   },
 
   language: {
-    fontSize: "1.2rem",
-    background: colorSys.white,
-    border: `0.3rem solid ${colorSys.main_primary_dark}`,
-    padding: "0.6rem 1.2rem",
+    fontSize: "1.8rem",
+    // background: colorSys.white,
+    border: `0.2rem solid ${colorSys.main_primary_dark}`,
+    padding: "0.2rem 0.8rem",
     textTransform: "none",
+    borderRadius: "0.4rem",
   },
 };
 
@@ -40,11 +42,15 @@ const Button = styled.button(
     fontFamily: "Galada",
     fontStyle: "normal",
     fontWeight: "400",
-    transition: "all 1s ease",
+    transition: "all 0.5s ease",
     textTransform: "capitalize",
     "&:hover": {
-      transform: "translateY(-0.2rem)",
+      transform: "translateY(-0.1rem)",
       boxShadow: appShadows.button,
+    },
+    "&:active": {
+      transform: "translateY(-0.1rem)",
+      boxShadow: appShadows.buttonActive,
     },
   },
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
