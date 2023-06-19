@@ -23,6 +23,14 @@ const buttonVariants: any = {
     color: colorSys.white,
     border: "0",
   },
+
+  language: {
+    fontSize: "1.2rem",
+    background: colorSys.white,
+    border: `0.3rem solid ${colorSys.main_primary_dark}`,
+    padding: "0.6rem 1.2rem",
+    textTransform: "none",
+  },
 };
 
 const Button = styled.button(
@@ -33,6 +41,7 @@ const Button = styled.button(
     fontStyle: "normal",
     fontWeight: "400",
     transition: "all 1s ease",
+    textTransform: "capitalize",
     "&:hover": {
       transform: "translateY(-0.2rem)",
       boxShadow: appShadows.button,
@@ -40,18 +49,6 @@ const Button = styled.button(
   },
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
 );
-
-// const MainLogoText = styled.div({
-//   ...fonts.fontsLancelot,
-//   ...flexCenter,
-//   flexDirection: "column",
-//   gap: "1.2rem",
-//   "&:h3": {
-//     fontSize: "4.2rem",
-//     content: "Natalie Cakes",
-//   },
-//   "&:h4": { fontSize: "2.2rem", content: "Homemade Baking" },
-// });
 
 function MainLogoText({
   textColor = colorSys.text_dark,
