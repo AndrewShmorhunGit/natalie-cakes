@@ -14,15 +14,10 @@ export const container = {
 
 // FONTS
 
-const fontsLancelot = {
-  fontFamily: "Lancelot",
-};
-
 const fontsGalada = {
   fontFamily: "Galada",
 };
 
 export const fonts = {
-  fontsLancelot,
   fontsGalada,
 };

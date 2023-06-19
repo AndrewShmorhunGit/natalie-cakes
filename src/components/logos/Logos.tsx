@@ -1,4 +1,4 @@
-import { ILogos } from "interfaces/imports";
+import { ILogos } from "interfaces/ILogos";
 import { css } from "@emotion/css";
 import { mq } from "styles/media-queries";
 
@@ -10,13 +10,14 @@ function MainLogo({
   return (
     <svg
       className={css({
+        transition: "all 0.5s ease",
         [mq.medium]: {
-          maxWidth: "7.2rem",
-          maxHeight: "7.2rem",
+          maxWidth: "6.4rem",
+          maxHeight: "6.4rem",
         },
         [mq.small]: {
-          maxWidth: "6rem",
-          maxHeight: "6rem",
+          maxWidth: "5.8rem",
+          maxHeight: "5.8rem",
         },
       })}
       width={`${width}`}

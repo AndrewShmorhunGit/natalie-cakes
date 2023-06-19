@@ -1,7 +1,9 @@
 import styled from "@emotion/styled/macro";
-import { colorSys, flexCenter, fonts, appShadows, mq } from "styles/imports";
+import { colorSys, flexCenter, appShadows, mq } from "styles/imports";
 import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
+
+// STYLED COMPONENTS
 
 const buttonVariants: any = {
   primary: {
@@ -29,13 +31,12 @@ const buttonVariants: any = {
     [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
     [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
   },
-
   language: {
     width: "3.2rem",
     height: "3.2rem",
     fontSize: "1.6rem",
     border: `0.2rem solid ${colorSys.main_primary_dark}`,
-    // textTransform: "uppercase",
+    textTransform: "none",
     borderRadius: "0.4rem",
     [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
     [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
@@ -44,9 +45,8 @@ const buttonVariants: any = {
 
 const Button = styled.button(
   {
-    // padding: "1.2rem 2.4rem",
     borderRadius: "1.2rem",
-    fontFamily: "Galada",
+    fontFamily: "inherit",
     fontStyle: "normal",
     fontWeight: "400",
     transition: "all 0.5s ease",
@@ -61,7 +61,14 @@ const Button = styled.button(
     },
   },
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
+  // ({language = 'en'}: {language: string}) => languageBtnVariants[language],
 );
+
+const MainHeader = styled.h1({
+  fontSize: "6rem",
+});
+
+// COMPONENTS
 
 function MainLogoText({
   textColor = colorSys.text_dark,
@@ -71,35 +78,34 @@ function MainLogoText({
   return (
     <div
       className={css({
+        transition: "all 0.5s ease",
         color: textColor,
-        ...fonts.fontsLancelot,
         ...flexCenter,
         flexDirection: "column",
-        gap: "1.2rem",
+        gap: "0.8rem",
+        lineHeight: "1",
         h3: {
+          fontWeight: "400",
           textAlign: "center",
-          fontSize: "4.2rem",
+          fontSize: "3.2rem",
         },
-        h4: {
-          textAlign: "center",
-          fontSize: "2.2rem",
-        },
+        h4: { textAlign: "center", fontSize: "1.8rem", fontWeight: "300" },
         [mq.medium]: {
-          gap: "0.8rem",
+          // gap: "0.8rem",
           h3: {
-            fontSize: "3.6rem",
+            fontSize: "2.8rem",
           },
           h4: {
-            fontSize: "1.8rem",
+            fontSize: "1.6rem",
           },
         },
         [mq.small]: {
-          gap: "0.8rem",
+          // gap: "0.8rem",
           h3: {
-            fontSize: "3rem",
+            fontSize: "2.4rem",
           },
           h4: {
-            fontSize: "1.3rem",
+            fontSize: "1.4rem",
           },
         },
       })}
@@ -110,4 +116,4 @@ function MainLogoText({
   );
 }
 
-export { Button, MainLogoText };
+export { Button, MainHeader, MainLogoText };

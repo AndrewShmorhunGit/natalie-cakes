@@ -1,7 +1,12 @@
-export function Hero() {
+// import { css } from "@emotion/css";
+import { MainHeader } from "components/lib/Components";
+import { IContentBox } from "interfaces/IContent";
+
+export function Hero({ contentBox }: { contentBox: IContentBox }) {
+  const data = contentBox.innerContent;
   return (
     <div>
-      <h1>main header!</h1>
+      <MainHeader>{data.mainHeader}</MainHeader>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
         consectetur dolorum nemo. Deserunt praesentium veniam expedita fugiat
@@ -10,7 +15,7 @@ export function Hero() {
         voluptatem eveniet nostrum ex, sed tempora sunt accusamus reiciendis
         nulla nesciunt laudantium, perferendis fugit.
       </p>
-      <h2>chose the way</h2>
+      <h2>{data.menu}</h2>
       <div>underline</div>
       <div>Menu objects</div>
     </div>

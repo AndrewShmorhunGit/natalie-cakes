@@ -1,39 +1,15 @@
 import { Button, MainLogoText } from "components/lib/Components";
-import { MainLogo } from "components/logos/Logos";
+import { MainLogo } from "components/imports";
 import { css } from "@emotion/css";
 import { container, colorSys, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { useState } from "react";
-import { content } from "content/content";
+import { IContentBox } from "interfaces/IContent";
 
-export function Navigation(): EmotionJSX.Element {
-  // Language functionality
-  const [isLanguage, setLanguage] = useState("en");
-  const { contentEn, contentRu } = content;
-
-  function checkLanguage(language: string) {
-    if (language === "en") {
-      return contentEn;
-    }
-    if (language === "ru") {
-      return contentRu;
-    }
-    return contentEn;
-  }
-
-  const language = checkLanguage(isLanguage);
-  const en: string = "en";
-  const ru: string = "ru";
-  // Active language button styles
-
-  const active = (language: string) =>
-    isLanguage === language && {
-      backgroundColor: colorSys.main_primary_dark,
-      color: colorSys.white,
-    };
-
-  // Component
-
+export function Navigation({
+  contentBox,
+}: {
+  contentBox: IContentBox;
+}): EmotionJSX.Element {
   return (
     <div
       className={css({
@@ -53,11 +29,10 @@ export function Navigation(): EmotionJSX.Element {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          // justifyContent: "space-between",
           gap: "2rem",
         })}
       >
-        <MainLogo width="80" height="80" fill={colorSys.white} />
+        <MainLogo width="64" height="64" fill={colorSys.white} />
         <MainLogoText textColor={colorSys.white} />
       </div>
 
@@ -73,30 +48,37 @@ export function Navigation(): EmotionJSX.Element {
           },
         })}
       >
-        <Button variant="secondary">{language.about}</Button>
-        <Button variant="secondary">{language.contacts}</Button>
-        <Button variant="primary">{language.makeSweet}</Button>
+        <Button variant="secondary">{contentBox.innerContent.about}</Button>
+        <Button variant="secondary">{contentBox.innerContent.contacts}</Button>
+        <Button variant="primary">{contentBox.innerContent.makeSweet}</Button>
         <div
           className={css({
             display: "flex",
             flexDirection: "column",
             gap: "0.4rem",
             paddingLeft: "1.2rem",
+            [mq.small]: {
+              gap: "0.2rem",
+            },
           })}
         >
           <Button
             variant="language"
-            onClick={() => setLanguage("en")}
-            className={css(active(en))}
+            onClick={() => contentBox.setLanguage("en")}
+            className={css(
+              contentBox.activeCheck(contentBox.en, contentBox.activeStyle)
+            )}
           >
-            {en}
+            {contentBox.en}
           </Button>
           <Button
             variant="language"
-            onClick={() => setLanguage("ru")}
-            className={css(active(ru))}
+            onClick={() => contentBox.setLanguage("ru")}
+            className={css(
+              contentBox.activeCheck(contentBox.ru, contentBox.activeStyle)
+            )}
           >
-            {ru}
+            {contentBox.ru}
           </Button>
         </div>
       </div>
