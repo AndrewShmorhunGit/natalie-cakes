@@ -9,7 +9,7 @@ export const flexCenter = {
 // CONTAINERS
 
 export const container = {
-  padding: "2rem 6rem",
+  padding: "1.2rem 6rem",
 };
 
 // FONTS

@@ -1,4 +1,6 @@
 import { ILogos } from "interfaces/imports";
+import { css } from "@emotion/css";
+import { mq } from "styles/media-queries";
 
 function MainLogo({
   width = "48",
@@ -7,6 +9,16 @@ function MainLogo({
 }: ILogos): JSX.Element {
   return (
     <svg
+      className={css({
+        [mq.medium]: {
+          maxWidth: "7.2rem",
+          maxHeight: "7.2rem",
+        },
+        [mq.small]: {
+          maxWidth: "6rem",
+          maxHeight: "6rem",
+        },
+      })}
       width={`${width}`}
       height={`${height}`}
       viewBox="0 0 48 48"

@@ -5,39 +5,46 @@ import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 
 const buttonVariants: any = {
   primary: {
-    ...flexCenter,
-    width: "22.5rem",
+    width: "22.4rem",
     height: "6rem",
     background: colorSys.white,
     border: `0.3rem solid ${colorSys.main_primary_dark}`,
     fontSize: "2.4rem",
+    fontWeight: "600",
     color: colorSys.main_primary_dark,
     "&:hover": {
       background: colorSys.background_second,
       border: `0.2rem solid ${colorSys.main_primary_dark}`,
     },
+    [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
+    [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
   },
   secondary: {
+    width: "12rem",
+    height: "4.8rem",
     fontSize: "2rem",
     background: colorSys.main_primary,
     color: colorSys.white,
-    // border: "0",
     border: `0.2rem solid ${colorSys.white}`,
+    [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
+    [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
   },
 
   language: {
-    fontSize: "1.8rem",
-    // background: colorSys.white,
+    width: "3.2rem",
+    height: "3.2rem",
+    fontSize: "1.6rem",
     border: `0.2rem solid ${colorSys.main_primary_dark}`,
-    padding: "0.2rem 0.8rem",
-    textTransform: "none",
+    // textTransform: "uppercase",
     borderRadius: "0.4rem",
+    [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
+    [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
   },
 };
 
 const Button = styled.button(
   {
-    padding: "1.2rem 2.4rem",
+    // padding: "1.2rem 2.4rem",
     borderRadius: "1.2rem",
     fontFamily: "Galada",
     fontStyle: "normal",

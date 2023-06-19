@@ -1,7 +1,7 @@
 import { Button, MainLogoText } from "components/lib/Components";
 import { MainLogo } from "components/logos/Logos";
 import { css } from "@emotion/css";
-import { container, colorSys } from "styles/imports";
+import { container, colorSys, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { useState } from "react";
 import { content } from "content/content";
@@ -38,14 +38,13 @@ export function Navigation(): EmotionJSX.Element {
     <div
       className={css({
         ...container,
-        width: "100%",
+        width: "auto",
         background: colorSys.main_primary,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        position: "fixed",
-        top: "0",
-        transition: "width 2sec",
+        overflow: "hidden",
+        // top: "0",
       })}
     >
       <div
@@ -68,6 +67,10 @@ export function Navigation(): EmotionJSX.Element {
           display: "flex",
           flexDirection: "row",
           gap: "1.2rem",
+          alignItems: "center",
+          [mq.small]: {
+            gap: "0.8rem",
+          },
         })}
       >
         <Button variant="secondary">{language.about}</Button>
