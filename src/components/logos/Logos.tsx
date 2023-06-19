@@ -1,4 +1,4 @@
-import { ILogos } from "interfaces/imports";
+import { ILogos } from "interfaces/ILogos";
 import { css } from "@emotion/css";
 import { mq } from "styles/media-queries";
 

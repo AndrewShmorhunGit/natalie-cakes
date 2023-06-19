@@ -65,14 +65,18 @@ export function Navigation({
           <Button
             variant="language"
             onClick={() => contentBox.setLanguage("en")}
-            className={css(contentBox.activeCheck(contentBox.en))}
+            className={css(
+              contentBox.activeCheck(contentBox.en, contentBox.activeStyle)
+            )}
           >
             {contentBox.en}
           </Button>
           <Button
             variant="language"
             onClick={() => contentBox.setLanguage("ru")}
-            className={css(contentBox.activeCheck(contentBox.ru))}
+            className={css(
+              contentBox.activeCheck(contentBox.ru, contentBox.activeStyle)
+            )}
           >
             {contentBox.ru}
           </Button>
