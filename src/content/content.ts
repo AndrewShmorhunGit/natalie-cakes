@@ -25,7 +25,7 @@ const contentRu: IInnerContent = {
   // Navigation
   about: "про нас",
   contacts: "контакты",
-  makeSweet: "подсластить",
+  makeSweet: "подсластить!",
   // Hero
   mainHeader: "сделай свой день действительно сладким!",
   text: "слоган",

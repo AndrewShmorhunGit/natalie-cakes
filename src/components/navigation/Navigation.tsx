@@ -1,19 +1,15 @@
 import { Button, MainLogoText } from "components/lib/Components";
-import { MainLogo } from "components/logos/Logos";
+import { MainLogo } from "components/imports";
 import { css } from "@emotion/css";
 import { container, colorSys, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { IContentBox } from "interfaces/IContent";
-// import { useState } from "react";
-// import { content } from "content/content";
 
 export function Navigation({
   contentBox,
 }: {
   contentBox: IContentBox;
 }): EmotionJSX.Element {
-  // Component
-
   return (
     <div
       className={css({

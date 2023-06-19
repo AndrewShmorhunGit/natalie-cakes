@@ -1,20 +1,5 @@
 /* Global */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Galada", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
 /*Fonts*/
 
 @font-face {
@@ -29,6 +14,28 @@ body {
     url("./styles/fonts/Galada/Galada-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url("./styles/fonts/Lobster/Lobster-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lobster", "Galada", "Franklin Gothic Medium", "Arial Narrow",
+    Arial, sans-serif;
 }
 
 /* Custom Classes */

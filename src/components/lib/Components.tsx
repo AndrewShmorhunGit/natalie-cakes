@@ -45,9 +45,8 @@ const buttonVariants: any = {
 
 const Button = styled.button(
   {
-    // padding: "1.2rem 2.4rem",
     borderRadius: "1.2rem",
-    fontFamily: "Galada",
+    fontFamily: "inherit",
     fontStyle: "normal",
     fontWeight: "400",
     transition: "all 0.5s ease",
@@ -62,6 +61,7 @@ const Button = styled.button(
     },
   },
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
+  // ({language = 'en'}: {language: string}) => languageBtnVariants[language],
 );
 
 const MainHeader = styled.h1({
@@ -80,7 +80,6 @@ function MainLogoText({
       className={css({
         transition: "all 0.5s ease",
         color: textColor,
-        // ...fonts.fontsLancelot,
         ...flexCenter,
         flexDirection: "column",
         gap: "0.8rem",

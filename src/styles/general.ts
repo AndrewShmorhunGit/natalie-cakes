@@ -14,17 +14,10 @@ export const container = {
 
 // FONTS
 
-const fontsLancelot = {
-  fontFamily: "Lancelot",
-  fontWight: "normal",
-  fontStyle: "normal",
-};
-
 const fontsGalada = {
   fontFamily: "Galada",
 };
 
 export const fonts = {
-  fontsLancelot,
   fontsGalada,
 };
