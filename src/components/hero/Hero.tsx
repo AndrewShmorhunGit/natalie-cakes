@@ -1,7 +1,10 @@
+// import { css } from "@emotion/css";
+import { MainHeader } from "components/lib/Components";
+
 export function Hero() {
   return (
     <div>
-      <h1>main header!</h1>
+      <MainHeader>main header!</MainHeader>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
         consectetur dolorum nemo. Deserunt praesentium veniam expedita fugiat

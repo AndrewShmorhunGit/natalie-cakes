@@ -16,6 +16,8 @@ export const container = {
 
 const fontsLancelot = {
   fontFamily: "Lancelot",
+  fontWight: "normal",
+  fontStyle: "normal",
 };
 
 const fontsGalada = {

@@ -53,11 +53,10 @@ export function Navigation(): EmotionJSX.Element {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          // justifyContent: "space-between",
           gap: "2rem",
         })}
       >
-        <MainLogo width="80" height="80" fill={colorSys.white} />
+        <MainLogo width="64" height="64" fill={colorSys.white} />
         <MainLogoText textColor={colorSys.white} />
       </div>
 
@@ -82,6 +81,9 @@ export function Navigation(): EmotionJSX.Element {
             flexDirection: "column",
             gap: "0.4rem",
             paddingLeft: "1.2rem",
+            [mq.small]: {
+              gap: "0.2rem",
+            },
           })}
         >
           <Button

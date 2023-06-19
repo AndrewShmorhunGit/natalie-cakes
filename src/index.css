@@ -10,4 +10,25 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  font-family: "Galada", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/*Fonts*/
+
+@font-face {
+  font-family: "Galada";
+  src: url("./styles/fonts/Galada/Galada-Regular.eot");
+  src: local("./styles/fonts/Galada/Galada Regular"),
+    local("./styles/fonts/Galada/Galada-Regular"),
+    url("./styles/fonts/Galada/Galada-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("./styles/fonts/Galada/Galada-Regular.woff2") format("woff2"),
+    url("./styles/fonts/Galada/Galada-Regular.woff") format("woff"),
+    url("./styles/fonts/Galada/Galada-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Custom Classes */
