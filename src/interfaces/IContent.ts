@@ -45,6 +45,7 @@ export interface IInnerContent {
     email: string;
   };
   footerOther: {
+    contacts: string;
     question: string;
     callBack: string;
     follow: string;

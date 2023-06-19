@@ -3,14 +3,19 @@ import { MainHeader } from "components/lib/Components";
 import { IContentBox } from "interfaces/IContent";
 
 export function Hero({ contentBox }: { contentBox: IContentBox }) {
-  const data = contentBox.innerContent;
+  const content = contentBox.innerContent;
   return (
     <div>
-      <MainHeader>{data.mainHeader}</MainHeader>
-      <p>{data.heroTagline}</p>
-      <h2>{data.slogan}</h2>
+      <MainHeader>{content.mainHeader}</MainHeader>
+      <p>{content.heroTagline}</p>
+      <h2>{content.slogan}</h2>
       <div>Deco</div>
-      <div></div>
+      <div>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>forth</div>
+      </div>
     </div>
   );
 }

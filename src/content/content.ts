@@ -55,6 +55,7 @@ const contentEn: IInnerContent = {
   },
 
   footerOther: {
+    contacts: "contacts",
     question: "still have a question?",
     callBack: "We will call you back!",
     follow: "follow",
@@ -112,7 +113,8 @@ const contentRu: IInnerContent = {
   },
 
   footerOther: {
-    question: "еще есть вопрос?",
+    contacts: "контакты",
+    question: "еще есть вопросы?",
     callBack: "мы перезвоним вам!",
     follow: "подписаться",
     menu: "меню",
