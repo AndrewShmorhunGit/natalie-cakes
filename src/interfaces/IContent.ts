@@ -8,12 +8,14 @@ export interface IInnerContent {
   contacts: string;
   makeSweet: string;
   mainHeader: string;
-  text: string;
-  menu: string;
-  birthdayCake: string;
-  cakesAndPies: string;
-  cupCakes: string;
-  gingerBread: string;
+  heroTagline: string;
+  slogan: string;
+  icons: {
+    birthdayCake: string;
+    cakesAndPies: string;
+    cupCakes: string;
+    gingerBread: string;
+  };
   ingredients: string;
   ingredientsText: {
     p1: string;

@@ -12,12 +12,16 @@ const contentEn: IInnerContent = {
   makeSweet: "make sweet",
   // Hero
   mainHeader: "make your life sweet!",
-  text: "Tagline,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur dolorum nemo. Deserunt praesentium veniam expedita fugiat eos possimus obcaecati, autem esse nihil itaque et, impedit omnis fuga perspiciatis. Modi impedit delectus nostrum vitae. Officia inventore voluptatem eveniet nostrum ex, sed tempora sunt accusamus reiciendis nulla nesciunt laudantium, perferendis fugit.",
-  menu: "choose the way",
-  birthdayCake: "birthday cake",
-  cakesAndPies: "cakes and pies",
-  cupCakes: "cup cakes",
-  gingerBread: "gingerbread",
+  heroTagline:
+    "Delight yourself and your loved ones with birthday cakes from famous chefs, as well as from recipes and classic combinations worked out over the years.",
+  slogan: "choose the way",
+  icons: {
+    birthdayCake: "birthday cake",
+    cakesAndPies: "cakes and pies",
+    cupCakes: "cup cakes",
+    gingerBread: "gingerbread",
+  },
+
   /// Info
   ingredients: "ingredients",
   ingredientsText: {
@@ -66,12 +70,15 @@ const contentRu: IInnerContent = {
   makeSweet: "подсластить!",
   // Hero
   mainHeader: "Сделай свой день сладким!",
-  text: "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями",
-  menu: "сделай себе праздник",
-  birthdayCake: "торт ко дню рождения",
-  cakesAndPies: "торты и пироги",
-  cupCakes: "капкейки",
-  gingerBread: "пряники",
+  heroTagline:
+    "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями",
+  slogan: "сделай себе праздник",
+  icons: {
+    birthdayCake: "торт ко дню рождения",
+    cakesAndPies: "торты и пироги",
+    cupCakes: "капкейки",
+    gingerBread: "пряники",
+  },
   /// Info
   ingredients: "ингредиенты",
   ingredientsText: {
