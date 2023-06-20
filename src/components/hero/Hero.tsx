@@ -1,10 +1,12 @@
 import { css } from "@emotion/css";
 import {
+  BackDropFilterContainer,
   DecoContainer,
   FlexCenterContainer,
   FlexColumnContainer,
   FlexRowContainer,
   HeroSection,
+  HeroSelectorDecoContainer,
   MainHeader,
 } from "components/lib/StyledComponents";
 import {
@@ -14,7 +16,7 @@ import {
   HeroGingerbreadLogo,
 } from "components/logos/Logos";
 import { IContentBox, IInnerContent } from "interfaces/IContent";
-import { IHeroSelectors } from "interfaces/IHero";
+import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
 
 import { container, flexCenter, paddingTopBottom } from "styles/general";
@@ -25,17 +27,25 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
   const textColor: string = colorSys.white;
 
   const logoProps: ILogos = {
-    width: "48",
-    height: "48",
+    width: "72",
+    height: "72",
   };
 
-  const selectorParams = {
+  const selectorParams: ISelectorParams = {
     width: 16,
     height: 16,
     step: 2,
     font: "3.2rem",
     color: colorSys.white,
     ringColor: colorSys.main_primary,
+    decoProps: {
+      borderRadius: "50%",
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: "-1",
+    },
   };
 
   const heroSelectors: IHeroSelectors[] = [
@@ -60,15 +70,7 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
         color: textColor,
       })}
     >
-      <div
-        className={css({
-          ...paddingTopBottom(12, 18),
-          height: "100%",
-          background: "rgb(0,0,0,0.3)",
-          backdropFilter: "blur(1.6rem)",
-          // backdropFilter: "sepia(90%);",
-        })}
-      >
+      <BackDropFilterContainer>
         <FlexColumnContainer
           className={css({
             ...container,
@@ -83,7 +85,7 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
           </MainHeader>
           <p
             className={css({
-              ...flexCenter,
+              // ...flexCenter,
               ...paddingTopBottom(8, 10),
               width: "60rem",
               fontSize: "2.8rem",
@@ -116,89 +118,21 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
           <FlexCenterContainer>
             <FlexRowContainer
               className={css({
-                // ...paddingLeftRight(2),
+                ...paddingTopBottom(6),
                 gap: "6rem",
               })}
             >
               {/* HeroSelectors */}
-              <div
-                className={css({
-                  position: "relative",
-                })}
-              >
-                <div
-                  className={css({
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    transform: "translate(-50%, -50%)",
-                  })}
-                >
-                  {heroSelectors[0].icon}
-                </div>
-                <DecoContainer
-                  width={selectorParams.width}
-                  height={selectorParams.width}
-                  color={selectorParams.color}
-                  props={{
-                    borderRadius: "50%",
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: "-1",
-                  }}
+              {heroSelectors.map((selector) => (
+                <HeroSelectorDecoContainer
+                  selector={selector}
+                  selectorParams={selectorParams}
                 />
-                <DecoContainer
-                  width={selectorParams.width - selectorParams.step}
-                  height={selectorParams.width - selectorParams.step}
-                  color={selectorParams.ringColor}
-                  props={{
-                    borderRadius: "50%",
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: "-1",
-                  }}
-                />
-                <DecoContainer
-                  width={selectorParams.width - 2 * selectorParams.step}
-                  height={selectorParams.width - 2 * selectorParams.step}
-                  color={selectorParams.color}
-                  props={{
-                    borderRadius: "50%",
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: "-1",
-                  }}
-                />
-
-                <p
-                  className={css({
-                    textTransform: "capitalize",
-                    transform: "translateY(11.2rem)",
-                    fontSize: `${selectorParams.font}`,
-                  })}
-                >
-                  {content.heroSelectors.birthdayCake}
-                </p>
-              </div>
-              <div>
-                <p>{content.heroSelectors.cakesAndPies}</p>
-              </div>
-              <div>
-                <p>{content.heroSelectors.cupCakes}</p>
-              </div>
-              <div>
-                <p>{content.heroSelectors.gingerBread}</p>
-              </div>
+              ))}
             </FlexRowContainer>
           </FlexCenterContainer>
         </FlexColumnContainer>
-      </div>
+      </BackDropFilterContainer>
     </HeroSection>
   );
 }

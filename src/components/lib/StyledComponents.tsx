@@ -2,7 +2,8 @@ import styled from "@emotion/styled/macro";
 import { colorSys, flexCenter, appShadows, mq } from "styles/imports";
 import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { wideContainer } from "styles/general";
+import { paddingTopBottom, wideContainer } from "styles/general";
+import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 
 // STYLED GENERAL CUSTOM COMPONENTS
 
@@ -99,6 +100,17 @@ const HeroSection = styled.main({
 
 // CONTAINERS
 
+const RelativeContainer = styled.div({
+  position: "relative",
+});
+
+const AbsoluteCenterContainer = styled.div({
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+});
+
 const FlexRowContainer = styled.div({
   display: "flex",
   flexDirection: "row",
@@ -110,6 +122,13 @@ const FlexColumnContainer = styled.div({
 });
 const FlexCenterContainer = styled.div({
   ...flexCenter,
+});
+
+const BackDropFilterContainer = styled.div({
+  ...paddingTopBottom(12, 18),
+  height: "100%",
+  background: "rgb(0,0,0,0.3)",
+  backdropFilter: "blur(1.6rem)",
 });
 
 // COMPONENTS
@@ -135,6 +154,56 @@ function DecoContainer({
       })}
     ></FlexCenterContainer>
   );
+}
+
+function HeroSelectorDecoContainer({
+  selector,
+  selectorParams,
+}: {
+  selector: IHeroSelectors;
+  selectorParams: ISelectorParams;
+}) {
+  {
+    return (
+      <RelativeContainer>
+        <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
+        <DecoContainer
+          width={selectorParams.width}
+          height={selectorParams.width}
+          color={selectorParams.color}
+          props={{
+            ...selectorParams.decoProps,
+          }}
+        />
+        <DecoContainer
+          width={selectorParams.width - selectorParams.step}
+          height={selectorParams.width - selectorParams.step}
+          color={selectorParams.ringColor}
+          props={{
+            ...selectorParams.decoProps,
+          }}
+        />
+        <DecoContainer
+          width={selectorParams.width - 2 * selectorParams.step}
+          height={selectorParams.width - 2 * selectorParams.step}
+          color={selectorParams.color}
+          props={{
+            ...selectorParams.decoProps,
+          }}
+        />
+
+        <p
+          className={css({
+            textTransform: "capitalize",
+            transform: "translateY(11.2rem)",
+            fontSize: `${selectorParams.font}`,
+          })}
+        >
+          {selector.name}
+        </p>
+      </RelativeContainer>
+    );
+  }
 }
 
 function MainLogoText({
@@ -187,9 +256,13 @@ export {
   MainHeader,
   NavigationSection,
   HeroSection,
+  RelativeContainer,
+  AbsoluteCenterContainer,
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  BackDropFilterContainer,
   MainLogoText,
   DecoContainer,
+  HeroSelectorDecoContainer,
 };

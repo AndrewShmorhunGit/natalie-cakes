@@ -4,13 +4,18 @@ import { mq } from "./media-queries";
 
 // CONTAINERS
 
-export const heroSelectorDecoStyle = {
-  borderRadius: "50%",
+export const absoluteCenter = {
   position: "absolute",
   left: "50%",
   top: "50%",
   transform: "translate(-50%, -50%)",
 };
+
+export const heroSelectorDecoStyle = {
+  borderRadius: "50%",
+  ...absoluteCenter,
+};
+
 export function paddingLeftRight(
   left: number | string,
   right: number | string = left
