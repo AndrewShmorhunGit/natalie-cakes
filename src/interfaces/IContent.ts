@@ -10,7 +10,7 @@ export interface IInnerContent {
   mainHeader: string;
   heroTagline: string;
   slogan: string;
-  icons: {
+  heroSelectors: {
     birthdayCake: string;
     cakesAndPies: string;
     cupCakes: string;

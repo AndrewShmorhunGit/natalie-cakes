@@ -11,6 +11,10 @@ export function paddingTopBottom(top: number, bottom: number = top): any {
   };
 }
 
+export const uppercaseFirstLetter = {
+  ":first-letter": { textTransform: "uppercase" },
+};
+
 export const marginCenter = {
   marginLeft: "auto",
   marginRight: "auto",
@@ -29,16 +33,13 @@ export const wideContainer = {
 export const container = {
   ...marginCenter,
   maxWidth: "140rem",
-  [mq.medium]: { padding: "1.2rem 12rem" },
+  padding: "1.2rem 12rem",
+  [mq.medium]: { maxWidth: "120rem", padding: "1.2rem 12rem" },
   [mq.small]: { padding: "1.2rem 6rem" },
 };
 
 // FONTS
 
-const fontsGalada = {
-  fontFamily: "Galada",
-};
-
 export const fonts = {
-  fontsGalada,
+  fontFamily: "Lobster",
 };

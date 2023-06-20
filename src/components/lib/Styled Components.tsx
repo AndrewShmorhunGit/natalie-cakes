@@ -76,7 +76,10 @@ const MainHeader = styled.h1({
 
 const NavigationBar = styled.main({
   ...wideContainer,
-  width: "auto",
+  position: "fixed",
+  top: 0,
+  zIndex: 99,
+  width: "100%",
   background: "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)",
   backgroundColor:
     "radial-gradient(562% 18036% at 115.87% 50%, #FF8E8E 0%, #995555 100%)",
@@ -97,9 +100,31 @@ const FlexColumnContainer = styled.div({
   display: "flex",
   flexDirection: "column",
 });
-const FlexCenterContainer = styled.div({});
+const FlexCenterContainer = styled.div({
+  ...flexCenter,
+});
 
 // COMPONENTS
+
+function DecoLine({
+  width,
+  height,
+  color,
+}: {
+  width: number;
+  height: number;
+  color: string;
+}) {
+  return (
+    <FlexCenterContainer
+      className={css({
+        width: `${width}rem`,
+        height: `${height}rem`,
+        background: `${color}`,
+      })}
+    ></FlexCenterContainer>
+  );
+}
 
 function MainLogoText({
   textColor = colorSys.text_dark,
@@ -107,11 +132,10 @@ function MainLogoText({
   textColor: string;
 }): EmotionJSX.Element {
   return (
-    <div
+    <FlexCenterContainer
       className={css({
         transition: "all 0.5s ease",
         color: textColor,
-        ...flexCenter,
         flexDirection: "column",
         gap: "0.8rem",
         lineHeight: "1",
@@ -143,7 +167,7 @@ function MainLogoText({
     >
       <h3>Natalie Cakes</h3>
       <h4>Homemade Baking</h4>
-    </div>
+    </FlexCenterContainer>
   );
 }
 
@@ -155,4 +179,5 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   MainLogoText,
+  DecoLine,
 };

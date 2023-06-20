@@ -9,13 +9,13 @@ const contentEn: IInnerContent = {
   // Navigation
   about: "about",
   contacts: "contacts",
-  makeSweet: "make sweet",
+  makeSweet: "make sweet!",
   // Hero
-  mainHeader: "make your life sweet!",
+  mainHeader: "Make your life sweet!",
   heroTagline:
     "Delight yourself and your loved ones with birthday cakes from famous chefs, as well as from recipes and classic combinations worked out over the years.",
-  slogan: "choose the way",
-  icons: {
+  slogan: "Choose the way",
+  heroSelectors: {
     birthdayCake: "birthday cake",
     cakesAndPies: "cakes and pies",
     cupCakes: "cup cakes",
@@ -70,11 +70,11 @@ const contentRu: IInnerContent = {
   contacts: "контакты",
   makeSweet: "подсластить!",
   // Hero
-  mainHeader: "Сделай свой день сладким!",
+  mainHeader: "Сделайте свой день сладким!",
   heroTagline:
-    "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями",
-  slogan: "сделай себе праздник",
-  icons: {
+    "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями.",
+  slogan: "Cделайте себе праздник",
+  heroSelectors: {
     birthdayCake: "торт ко дню рождения",
     cakesAndPies: "торты и пироги",
     cupCakes: "капкейки",
