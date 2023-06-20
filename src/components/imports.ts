@@ -6,7 +6,7 @@ import { Information } from "./information/Information";
 import { Modal } from "./modals/Modal";
 import { Navigation } from "./navigation/Navigation";
 import { Cart } from "./cart/Cart";
-
+import { MainLogo } from "./logos/Logos";
 export {
   CallToAction,
   Footer,
@@ -16,4 +16,5 @@ export {
   Modal,
   Navigation,
   Cart,
+  MainLogo,
 };
