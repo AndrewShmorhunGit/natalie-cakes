@@ -9,15 +9,19 @@ const contentEn: IInnerContent = {
   // Navigation
   about: "about",
   contacts: "contacts",
-  makeSweet: "make sweet",
+  makeSweet: "make sweet!",
   // Hero
-  mainHeader: "make your life sweet!",
-  text: "Tagline,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur dolorum nemo. Deserunt praesentium veniam expedita fugiat eos possimus obcaecati, autem esse nihil itaque et, impedit omnis fuga perspiciatis. Modi impedit delectus nostrum vitae. Officia inventore voluptatem eveniet nostrum ex, sed tempora sunt accusamus reiciendis nulla nesciunt laudantium, perferendis fugit.",
-  menu: "choose the way",
-  birthdayCake: "birthday cake",
-  cakesAndPies: "cakes and pies",
-  cupCakes: "cup cakes",
-  gingerBread: "gingerbread",
+  mainHeader: "Make your life sweet!",
+  heroTagline:
+    "Delight yourself and your loved ones with birthday cakes from famous chefs, as well as from recipes and classic combinations worked out over the years.",
+  slogan: "Choose the way",
+  heroSelectors: {
+    birthdayCake: "birthday cake",
+    cakesAndPies: "cakes and pies",
+    cupCakes: "cup cakes",
+    gingerBread: "gingerbread",
+  },
+
   /// Info
   ingredients: "ingredients",
   ingredientsText: {
@@ -51,6 +55,7 @@ const contentEn: IInnerContent = {
   },
 
   footerOther: {
+    contacts: "contacts",
     question: "still have a question?",
     callBack: "We will call you back!",
     follow: "follow",
@@ -65,13 +70,16 @@ const contentRu: IInnerContent = {
   contacts: "контакты",
   makeSweet: "подсластить!",
   // Hero
-  mainHeader: "Сделай свой день сладким!",
-  text: "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями",
-  menu: "сделай себе праздник",
-  birthdayCake: "торт ко дню рождения",
-  cakesAndPies: "торты и пироги",
-  cupCakes: "капкейки",
-  gingerBread: "пряники",
+  mainHeader: "Сделайте свой день сладким!",
+  heroTagline:
+    "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями.",
+  slogan: "Cделайте себе праздник",
+  heroSelectors: {
+    birthdayCake: "торт ко дню рождения",
+    cakesAndPies: "торты и пироги",
+    cupCakes: "капкейки",
+    gingerBread: "пряники",
+  },
   /// Info
   ingredients: "ингредиенты",
   ingredientsText: {
@@ -105,7 +113,8 @@ const contentRu: IInnerContent = {
   },
 
   footerOther: {
-    question: "еще есть вопрос?",
+    contacts: "контакты",
+    question: "еще есть вопросы?",
     callBack: "мы перезвоним вам!",
     follow: "подписаться",
     menu: "меню",

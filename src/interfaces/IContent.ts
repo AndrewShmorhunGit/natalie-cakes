@@ -8,12 +8,14 @@ export interface IInnerContent {
   contacts: string;
   makeSweet: string;
   mainHeader: string;
-  text: string;
-  menu: string;
-  birthdayCake: string;
-  cakesAndPies: string;
-  cupCakes: string;
-  gingerBread: string;
+  heroTagline: string;
+  slogan: string;
+  heroSelectors: {
+    birthdayCake: string;
+    cakesAndPies: string;
+    cupCakes: string;
+    gingerBread: string;
+  };
   ingredients: string;
   ingredientsText: {
     p1: string;
@@ -43,6 +45,7 @@ export interface IInnerContent {
     email: string;
   };
   footerOther: {
+    contacts: string;
     question: string;
     callBack: string;
     follow: string;

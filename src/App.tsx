@@ -62,10 +62,10 @@ function App() {
     <div>
       <Navigation contentBox={contentBox}></Navigation>
       <Hero contentBox={contentBox}></Hero>
-      <Information></Information>
+      <Information contentBox={contentBox}></Information>
       <CallToAction></CallToAction>
       <Gallery></Gallery>
-      <Footer></Footer>
+      <Footer contentBox={contentBox}></Footer>
       <Modal></Modal>
     </div>
   );
