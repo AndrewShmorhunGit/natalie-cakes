@@ -3,8 +3,8 @@ import {
   FlexColumnContainer,
   FlexRowContainer,
   MainLogoText,
-  NavigationBar,
-} from "components/lib/Styled Components";
+  NavigationSection,
+} from "components/lib/StyledComponents";
 import { MainLogo } from "components/imports";
 import { css } from "@emotion/css";
 import { colorSys, mq } from "styles/imports";
@@ -17,7 +17,7 @@ export function Navigation({
   contentBox: IContentBox;
 }): EmotionJSX.Element {
   return (
-    <NavigationBar>
+    <NavigationSection>
       <FlexRowContainer
         className={css({
           gap: "2rem",
@@ -69,6 +69,6 @@ export function Navigation({
           </Button>
         </FlexColumnContainer>
       </FlexRowContainer>
-    </NavigationBar>
+    </NavigationSection>
   );
 }

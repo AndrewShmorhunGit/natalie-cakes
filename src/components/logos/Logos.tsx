@@ -74,8 +74,8 @@ function MainLogo({
 function HeroCakesAndPiesLogo({ width = "48", height = "48" }: ILogos) {
   return (
     <svg
-      width="76"
-      height="76"
+      width={`${width}`}
+      height={`${height}`}
       viewBox="0 0 76 76"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -105,8 +105,8 @@ function HeroCakesAndPiesLogo({ width = "48", height = "48" }: ILogos) {
 function HeroCupCakesLogo({ width = "48", height = "48" }: ILogos) {
   return (
     <svg
-      width="76"
-      height="76"
+      width={`${width}`}
+      height={`${height}`}
       viewBox="0 0 76 76"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -178,8 +178,8 @@ function HeroCupCakesLogo({ width = "48", height = "48" }: ILogos) {
 function HeroGingerbreadLogo({ width = "48", height = "48" }: ILogos) {
   return (
     <svg
-      width="77"
-      height="90"
+      width={`${width}`}
+      height={`${height}`}
       viewBox="0 0 77 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -234,8 +234,8 @@ function HeroGingerbreadLogo({ width = "48", height = "48" }: ILogos) {
 function HeroBirthdayCakesLogo({ width = "48", height = "48" }: ILogos) {
   return (
     <svg
-      width="76"
-      height="76"
+      width={`${width}`}
+      height={`${height}`}
       viewBox="0 0 76 76"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

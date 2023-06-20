@@ -1,11 +1,12 @@
 import { css } from "@emotion/css";
 import {
-  DecoLine,
+  DecoContainer,
   FlexCenterContainer,
   FlexColumnContainer,
   FlexRowContainer,
+  HeroSection,
   MainHeader,
-} from "components/lib/Styled Components";
+} from "components/lib/StyledComponents";
 import {
   HeroBirthdayCakesLogo,
   HeroCakesAndPiesLogo,
@@ -28,6 +29,15 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
     height: "48",
   };
 
+  const selectorParams = {
+    width: 16,
+    height: 16,
+    step: 2,
+    font: "3.2rem",
+    color: colorSys.white,
+    ringColor: colorSys.main_primary,
+  };
+
   const heroSelectors: IHeroSelectors[] = [
     {
       name: content.heroSelectors.birthdayCake,
@@ -45,12 +55,9 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
   ];
 
   return (
-    <main
+    <HeroSection
       className={css({
         color: textColor,
-        backgroundImage: `url("https://media.istockphoto.com/id/700712598/uk/%D1%84%D0%BE%D1%82%D0%BE/%D0%B4%D0%B5%D0%BD%D1%8C-%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BC%D0%B8%D0%BB%D0%BE%D1%97-%D0%B4%D0%B8%D1%82%D0%B8%D0%BD%D0%B8.jpg?s=612x612&w=0&k=20&c=OkG9eyPfm3xVB0KHWiuLnQl2P4lUIOBRHvehsHR9BI4=")`,
-        backgroundRepeat: "none",
-        backgroundSize: "cover",
       })}
     >
       <div
@@ -69,9 +76,7 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
         >
           <MainHeader
             className={css({
-              ...flexCenter,
-              ...paddingTopBottom(6),
-              fontWeight: 400,
+              ...paddingTopBottom(6, 4),
             })}
           >
             {content.mainHeader}
@@ -79,9 +84,9 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
           <p
             className={css({
               ...flexCenter,
-              ...paddingTopBottom(8, 12),
+              ...paddingTopBottom(8, 10),
               width: "60rem",
-              fontSize: "2.4rem",
+              fontSize: "2.8rem",
               fontWeight: 400,
             })}
           >
@@ -91,7 +96,7 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
             className={css({
               ...flexCenter,
               ...paddingTopBottom(0, 2),
-              fontSize: "4rem",
+              fontSize: "4.4rem",
               fontWeight: 400,
             })}
           >
@@ -102,17 +107,84 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
               ...paddingTopBottom(0, 8),
             })}
           >
-            <DecoLine
+            <DecoContainer
               width={contentBox.isLanguage === "ru" ? 26 : 16}
               height={0.8}
               color={textColor}
             />
           </FlexCenterContainer>
           <FlexCenterContainer>
-            <FlexRowContainer>
-              {/* HeroSelector */}
-              <div>
-                <p>{content.heroSelectors.birthdayCake}</p>
+            <FlexRowContainer
+              className={css({
+                // ...paddingLeftRight(2),
+                gap: "6rem",
+              })}
+            >
+              {/* HeroSelectors */}
+              <div
+                className={css({
+                  position: "relative",
+                })}
+              >
+                <div
+                  className={css({
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                  })}
+                >
+                  {heroSelectors[0].icon}
+                </div>
+                <DecoContainer
+                  width={selectorParams.width}
+                  height={selectorParams.width}
+                  color={selectorParams.color}
+                  props={{
+                    borderRadius: "50%",
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    zIndex: "-1",
+                  }}
+                />
+                <DecoContainer
+                  width={selectorParams.width - selectorParams.step}
+                  height={selectorParams.width - selectorParams.step}
+                  color={selectorParams.ringColor}
+                  props={{
+                    borderRadius: "50%",
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    zIndex: "-1",
+                  }}
+                />
+                <DecoContainer
+                  width={selectorParams.width - 2 * selectorParams.step}
+                  height={selectorParams.width - 2 * selectorParams.step}
+                  color={selectorParams.color}
+                  props={{
+                    borderRadius: "50%",
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    zIndex: "-1",
+                  }}
+                />
+
+                <p
+                  className={css({
+                    textTransform: "capitalize",
+                    transform: "translateY(11.2rem)",
+                    fontSize: `${selectorParams.font}`,
+                  })}
+                >
+                  {content.heroSelectors.birthdayCake}
+                </p>
               </div>
               <div>
                 <p>{content.heroSelectors.cakesAndPies}</p>
@@ -127,6 +199,6 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
           </FlexCenterContainer>
         </FlexColumnContainer>
       </div>
-    </main>
+    </HeroSection>
   );
 }

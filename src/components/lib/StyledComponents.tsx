@@ -4,25 +4,19 @@ import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { wideContainer } from "styles/general";
 
-// STYLED COMPONENTS
+// STYLED GENERAL CUSTOM COMPONENTS
 
+// BUTTONS
 const buttonVariants: any = {
   primary: {
     width: "22.4rem",
     height: "6rem",
-
-    backgroundColor:
-      "linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 50%);",
-
     border: `0.3rem solid ${colorSys.main_primary_dark}`,
     fontSize: "2.4rem",
     fontWeight: "600",
     color: colorSys.main_primary_dark,
     "&:hover": {
-      // background: colorSys.background_second,
-      backgroundColor:
-        "linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);",
-      transition: "background-color 1000ms linear",
+      background: colorSys.background_second,
     },
     [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
     [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
@@ -67,14 +61,20 @@ const Button = styled.button(
     },
   },
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
-  // ({language = 'en'}: {language: string}) => languageBtnVariants[language],
 );
 
+// HEADERS
+
 const MainHeader = styled.h1({
-  fontSize: "6rem",
+  fontSize: "6.8rem",
+  ...flexCenter,
+  fontWeight: 400,
 });
 
-const NavigationBar = styled.main({
+// STYLED APP COMPONENTS
+
+// NAV
+const NavigationSection = styled.main({
   ...wideContainer,
   position: "fixed",
   top: 0,
@@ -87,6 +87,14 @@ const NavigationBar = styled.main({
   alignItems: "center",
   justifyContent: "space-between",
   overflow: "hidden",
+});
+
+// HERO
+const HeroSection = styled.main({
+  // backgroundImage: `url("content/images/hero/hero-background-img.jpg")`,
+  backgroundImage: `url("https://media.istockphoto.com/id/700712598/uk/%D1%84%D0%BE%D1%82%D0%BE/%D0%B4%D0%B5%D0%BD%D1%8C-%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BC%D0%B8%D0%BB%D0%BE%D1%97-%D0%B4%D0%B8%D1%82%D0%B8%D0%BD%D0%B8.jpg?s=612x612&w=0&k=20&c=OkG9eyPfm3xVB0KHWiuLnQl2P4lUIOBRHvehsHR9BI4=")`,
+  backgroundRepeat: "none",
+  backgroundSize: "cover",
 });
 
 // CONTAINERS
@@ -106,14 +114,16 @@ const FlexCenterContainer = styled.div({
 
 // COMPONENTS
 
-function DecoLine({
+function DecoContainer({
   width,
   height,
   color,
+  props,
 }: {
   width: number;
   height: number;
   color: string;
+  props?: React.CSSProperties | undefined;
 }) {
   return (
     <FlexCenterContainer
@@ -121,6 +131,7 @@ function DecoLine({
         width: `${width}rem`,
         height: `${height}rem`,
         background: `${color}`,
+        ...props,
       })}
     ></FlexCenterContainer>
   );
@@ -174,10 +185,11 @@ function MainLogoText({
 export {
   Button,
   MainHeader,
-  NavigationBar,
+  NavigationSection,
+  HeroSection,
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
   MainLogoText,
-  DecoLine,
+  DecoContainer,
 };

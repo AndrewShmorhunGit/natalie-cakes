@@ -4,10 +4,30 @@ import { mq } from "./media-queries";
 
 // CONTAINERS
 
-export function paddingTopBottom(top: number, bottom: number = top): any {
+export const heroSelectorDecoStyle = {
+  borderRadius: "50%",
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+};
+export function paddingLeftRight(
+  left: number | string,
+  right: number | string = left
+): any {
   return {
-    paddingTop: `${top}rem`,
-    paddingBottom: `${bottom}rem`,
+    paddingLeft: typeof left === "string" ? left : `${left}rem`,
+    paddingRight: typeof right === "string" ? right : `${right}rem`,
+  };
+}
+
+export function paddingTopBottom(
+  top: number | string,
+  bottom: number | string = top
+): any {
+  return {
+    paddingTop: typeof top === "string" ? top : `${top}rem`,
+    paddingBottom: typeof bottom === "string" ? bottom : `${bottom}rem`,
   };
 }
 
