@@ -163,47 +163,47 @@ function HeroSelectorDecoContainer({
   selector: IHeroSelectors;
   selectorParams: ISelectorParams;
 }) {
-  {
-    return (
-      <RelativeContainer>
-        <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
-        <DecoContainer
-          width={selectorParams.width}
-          height={selectorParams.width}
-          color={selectorParams.color}
-          props={{
-            ...selectorParams.decoProps,
-          }}
-        />
-        <DecoContainer
-          width={selectorParams.width - selectorParams.step}
-          height={selectorParams.width - selectorParams.step}
-          color={selectorParams.ringColor}
-          props={{
-            ...selectorParams.decoProps,
-          }}
-        />
-        <DecoContainer
-          width={selectorParams.width - 2 * selectorParams.step}
-          height={selectorParams.width - 2 * selectorParams.step}
-          color={selectorParams.color}
-          props={{
-            ...selectorParams.decoProps,
-          }}
-        />
+  return (
+    <RelativeContainer>
+      <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
+      <DecoContainer
+        width={selectorParams.width}
+        height={selectorParams.height}
+        color={selectorParams.color}
+        props={{
+          ...selectorParams.decoProps,
+        }}
+      />
+      <DecoContainer
+        width={selectorParams.width - selectorParams.step}
+        height={selectorParams.height - selectorParams.step}
+        color={selectorParams.ringColor}
+        props={{
+          ...selectorParams.decoProps,
+        }}
+      />
+      <DecoContainer
+        width={selectorParams.width - 2 * selectorParams.step}
+        height={selectorParams.height - 2 * selectorParams.step}
+        color={selectorParams.color}
+        props={{
+          ...selectorParams.decoProps,
+        }}
+      />
 
-        <p
-          className={css({
-            textTransform: "capitalize",
-            transform: "translateY(11.2rem)",
-            fontSize: `${selectorParams.font}`,
-          })}
-        >
-          {selector.name}
-        </p>
-      </RelativeContainer>
-    );
-  }
+      <p
+        className={css({
+          width: "12rem",
+          textAlign: "center",
+          textTransform: "capitalize",
+          transform: "translate(0, 12.4rem)",
+          fontSize: `${selectorParams.font}`,
+        })}
+      >
+        {selector.name}
+      </p>
+    </RelativeContainer>
+  );
 }
 
 function MainLogoText({

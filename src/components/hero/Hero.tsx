@@ -34,15 +34,15 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
   const selectorParams: ISelectorParams = {
     width: 16,
     height: 16,
-    step: 2,
-    font: "3.2rem",
+    step: 3,
+    font: "2.2rem",
     color: colorSys.white,
     ringColor: colorSys.main_primary,
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
-      left: "50%",
       top: "50%",
+      left: "50%",
       transform: "translate(-50%, -50%)",
       zIndex: "-1",
     },
@@ -115,22 +115,23 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
               color={textColor}
             />
           </FlexCenterContainer>
-          <FlexCenterContainer>
-            <FlexRowContainer
-              className={css({
-                ...paddingTopBottom(6),
-                gap: "6rem",
-              })}
-            >
-              {/* HeroSelectors */}
-              {heroSelectors.map((selector) => (
-                <HeroSelectorDecoContainer
-                  selector={selector}
-                  selectorParams={selectorParams}
-                />
-              ))}
-            </FlexRowContainer>
-          </FlexCenterContainer>
+
+          <FlexRowContainer
+            className={css({
+              justifyContent: "space-between",
+              ...paddingTopBottom(6),
+              // gap: "6rem",
+            })}
+          >
+            {/* HeroSelectors */}
+            {heroSelectors.map((selector) => (
+              <HeroSelectorDecoContainer
+                key={selector.name}
+                selector={selector}
+                selectorParams={selectorParams}
+              />
+            ))}
+          </FlexRowContainer>
         </FlexColumnContainer>
       </BackDropFilterContainer>
     </HeroSection>
