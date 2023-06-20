@@ -2,6 +2,7 @@ import styled from "@emotion/styled/macro";
 import { colorSys, flexCenter, appShadows, mq } from "styles/imports";
 import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
+import { wideContainer } from "styles/general";
 
 // STYLED COMPONENTS
 
@@ -9,14 +10,19 @@ const buttonVariants: any = {
   primary: {
     width: "22.4rem",
     height: "6rem",
-    background: colorSys.white,
+
+    backgroundColor:
+      "linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 50%);",
+
     border: `0.3rem solid ${colorSys.main_primary_dark}`,
     fontSize: "2.4rem",
     fontWeight: "600",
     color: colorSys.main_primary_dark,
     "&:hover": {
-      background: colorSys.background_second,
-      border: `0.2rem solid ${colorSys.main_primary_dark}`,
+      // background: colorSys.background_second,
+      backgroundColor:
+        "linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);",
+      transition: "background-color 1000ms linear",
     },
     [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
     [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
@@ -25,7 +31,7 @@ const buttonVariants: any = {
     width: "12rem",
     height: "4.8rem",
     fontSize: "2rem",
-    background: colorSys.main_primary,
+    backgroundColor: colorSys.main_primary,
     color: colorSys.white,
     border: `0.2rem solid ${colorSys.white}`,
     [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
@@ -49,7 +55,7 @@ const Button = styled.button(
     fontFamily: "inherit",
     fontStyle: "normal",
     fontWeight: "400",
-    transition: "all 0.5s ease",
+    transition: "all 0.5s ease-out",
     textTransform: "capitalize",
     "&:hover": {
       transform: "translateY(-0.1rem)",
@@ -67,6 +73,31 @@ const Button = styled.button(
 const MainHeader = styled.h1({
   fontSize: "6rem",
 });
+
+const NavigationBar = styled.main({
+  ...wideContainer,
+  width: "auto",
+  background: "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)",
+  backgroundColor:
+    "radial-gradient(562% 18036% at 115.87% 50%, #FF8E8E 0%, #995555 100%)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  overflow: "hidden",
+});
+
+// CONTAINERS
+
+const FlexRowContainer = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+});
+const FlexColumnContainer = styled.div({
+  display: "flex",
+  flexDirection: "column",
+});
+const FlexCenterContainer = styled.div({});
 
 // COMPONENTS
 
@@ -116,4 +147,12 @@ function MainLogoText({
   );
 }
 
-export { Button, MainHeader, MainLogoText };
+export {
+  Button,
+  MainHeader,
+  NavigationBar,
+  FlexRowContainer,
+  FlexColumnContainer,
+  FlexCenterContainer,
+  MainLogoText,
+};

@@ -1,5 +1,5 @@
 import { MainLogo } from "components/imports";
-import { MainLogoText } from "components/lib/Components";
+import { MainLogoText } from "components/lib/Styled Components";
 import { IContentBox } from "interfaces/IContent";
 import { colorSys } from "styles/colors";
 

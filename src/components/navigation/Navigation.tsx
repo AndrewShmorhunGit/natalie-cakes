@@ -1,7 +1,13 @@
-import { Button, MainLogoText } from "components/lib/Components";
+import {
+  Button,
+  FlexColumnContainer,
+  FlexRowContainer,
+  MainLogoText,
+  NavigationBar,
+} from "components/lib/Styled Components";
 import { MainLogo } from "components/imports";
 import { css } from "@emotion/css";
-import { container, colorSys, mq } from "styles/imports";
+import { colorSys, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { IContentBox } from "interfaces/IContent";
 
@@ -11,38 +17,21 @@ export function Navigation({
   contentBox: IContentBox;
 }): EmotionJSX.Element {
   return (
-    <div
-      className={css({
-        ...container,
-        width: "auto",
-        background: colorSys.main_primary,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        overflow: "hidden",
-        // top: "0",
-      })}
-    >
-      <div
+    <NavigationBar>
+      <FlexRowContainer
         className={css({
-          minWidth: "32rem",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
           gap: "2rem",
+          minWidth: "32rem",
         })}
       >
         <MainLogo width="64" height="64" fill={colorSys.white} />
         <MainLogoText textColor={colorSys.white} />
-      </div>
+      </FlexRowContainer>
 
-      <div
+      <FlexRowContainer
         className={css({
           width: "minmax(30rem, 45rem)",
-          display: "flex",
-          flexDirection: "row",
           gap: "1.2rem",
-          alignItems: "center",
           [mq.small]: {
             gap: "0.8rem",
           },
@@ -51,10 +40,8 @@ export function Navigation({
         <Button variant="secondary">{contentBox.innerContent.about}</Button>
         <Button variant="secondary">{contentBox.innerContent.contacts}</Button>
         <Button variant="primary">{contentBox.innerContent.makeSweet}</Button>
-        <div
+        <FlexColumnContainer
           className={css({
-            display: "flex",
-            flexDirection: "column",
             gap: "0.4rem",
             paddingLeft: "1.2rem",
             [mq.small]: {
@@ -80,8 +67,8 @@ export function Navigation({
           >
             {contentBox.ru}
           </Button>
-        </div>
-      </div>
-    </div>
+        </FlexColumnContainer>
+      </FlexRowContainer>
+    </NavigationBar>
   );
 }
