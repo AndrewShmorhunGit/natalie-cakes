@@ -52,6 +52,7 @@ const Button = styled.button(
     fontWeight: "400",
     transition: "all 0.5s ease-out",
     textTransform: "capitalize",
+    cursor: "pointer",
     "&:hover": {
       transform: "translateY(-0.1rem)",
       boxShadow: appShadows.button,
@@ -65,11 +66,28 @@ const Button = styled.button(
 );
 
 // TEXT Components
+const InfoHeader = styled.h3({
+  textAlign: "center",
+  textTransform: "capitalize",
+  fontSize: "3.2rem",
+  [mq.medium]: {
+    fontSize: "3rem",
+  },
+  [mq.small]: {
+    fontSize: "2.8rem",
+  },
+});
 
 const InfoParagraph = styled.p({
   fontSize: "2rem",
-  fontWeight: 600,
-  paddingLeft: "4rem",
+  fontWeight: 400,
+  textAlign: "center",
+  [mq.medium]: {
+    fontSize: "1.6rem",
+  },
+  [mq.small]: {
+    fontSize: "1.4rem",
+  },
 });
 
 const MainHeader = styled.h1({
@@ -104,14 +122,30 @@ const HeroSection = styled.main({
   backgroundSize: "cover",
 });
 
+// FOOTER
+
+const FooterSection = styled.div({
+  backgroundColor: colorSys.background_second,
+  borderTop: `0.2rem solid ${colorSys.main_primary_dark}`,
+});
+
 // CONTAINERS
 
-const BlockContainer = styled.div({
-  display: "block",
+// const BlockContainer = styled.div({
+//   display: "block",
+// });
+const Container = styled.div({
+  marginLeft: "auto",
+  marginRight: "auto",
 });
 
 const RelativeContainer = styled.div({
   position: "relative",
+});
+
+const AbsoluteBottomContainer = styled.div({
+  position: "absolute",
+  bottom: 0,
 });
 
 const AbsoluteCenterContainer = styled.div({
@@ -151,9 +185,12 @@ function IconAndTextContainer({
   text: string;
 }) {
   return (
-    <BlockContainer className={css({ ...paddingTopBottom(2) })}>
-      {icon} <InfoParagraph>{text}</InfoParagraph>
-    </BlockContainer>
+    <FlexRowContainer>
+      {icon}
+      <InfoParagraph className={css({ paddingLeft: "2rem" })}>
+        {text}
+      </InfoParagraph>
+    </FlexRowContainer>
   );
 }
 
@@ -281,12 +318,17 @@ export {
   MainHeader,
   NavigationSection,
   HeroSection,
+  FooterSection,
+  Container,
   RelativeContainer,
   AbsoluteCenterContainer,
+  AbsoluteBottomContainer,
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
   BackDropFilterContainer,
+  InfoHeader,
+  InfoParagraph,
   IconAndTextContainer,
   MainLogoText,
   DecoContainer,

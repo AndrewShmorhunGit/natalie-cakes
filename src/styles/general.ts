@@ -1,9 +1,6 @@
-// FLEX
-
 import { mq } from "./media-queries";
 
-// CONTAINERS
-
+// Absolute
 export const absoluteCenter = {
   position: "absolute",
   left: "50%",
@@ -11,10 +8,48 @@ export const absoluteCenter = {
   transform: "translate(-50%, -50%)",
 };
 
-export const heroSelectorDecoStyle = {
-  borderRadius: "50%",
-  ...absoluteCenter,
+// Flex
+
+export const flexCenter = {
+  display: "flex",
+  alginItems: "center",
+  justifyContent: "center",
 };
+
+// Grid
+
+export function createGrid(columns: number | string, rows: number | string) {
+  return {
+    display: "grid",
+    gridTemplateColumns: `${
+      typeof columns === "number" ? `repeat(${columns}, 1fr)}` : `${columns}`
+    }`,
+    gridTemplateRows: `${
+      typeof rows === "number" ? `repeat(${rows}, 1fr)}` : `${rows}`
+    }`,
+  };
+}
+
+// Containers
+
+export const wideContainer = {
+  padding: "1.2rem 4rem",
+};
+
+export const marginCenter = {
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
+export const container = {
+  ...marginCenter,
+  maxWidth: "140rem",
+  padding: "1.2rem 12rem",
+  [mq.medium]: { maxWidth: "120rem", padding: "1.2rem 12rem" },
+  [mq.small]: { padding: "1.2rem 6rem" },
+};
+
+//Container Styling
 
 export function paddingLeftRight(
   left: number | string,
@@ -36,31 +71,17 @@ export function paddingTopBottom(
   };
 }
 
+export function setWidth(min: number, max: number = min) {
+  return {
+    minWidth: `${min}rem`,
+    maxWidth: `${max}rem`,
+  };
+}
+
+// Text Styling
+
 export const uppercaseFirstLetter = {
   ":first-letter": { textTransform: "uppercase" },
-};
-
-export const marginCenter = {
-  marginLeft: "auto",
-  marginRight: "auto",
-};
-
-export const flexCenter = {
-  display: "flex",
-  alginItems: "center",
-  justifyContent: "center",
-};
-
-export const wideContainer = {
-  padding: "1.2rem 4rem",
-};
-
-export const container = {
-  ...marginCenter,
-  maxWidth: "140rem",
-  padding: "1.2rem 12rem",
-  [mq.medium]: { maxWidth: "120rem", padding: "1.2rem 12rem" },
-  [mq.small]: { padding: "1.2rem 6rem" },
 };
 
 // FONTS

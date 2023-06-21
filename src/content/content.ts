@@ -3,7 +3,8 @@ import { IInnerContent } from "interfaces/IContent";
 const address = "Natalie 23 str, Eilat, Israel";
 const phone = "+972 54-283-07777";
 const email = "natalie@gmail.com";
-const rights = "Natalie Cakes, all rights reserved. Eilat 2023.";
+const rights =
+  "Natalie Cakes, all rights reserved. Designed and developed by Andrew Shmorhun. 2023";
 
 const contentEn: IInnerContent = {
   // Navigation
@@ -75,8 +76,8 @@ const contentRu: IInnerContent = {
     "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями.",
   slogan: "Cделайте себе праздник",
   heroSelectors: {
-    birthdayCake: "торт ко дню рождения",
-    cakesAndPies: "торты и пироги",
+    birthdayCake: "авторские торты",
+    cakesAndPies: "торты & пироги",
     cupCakes: "капкейки",
     gingerBread: "пряники",
   },
@@ -115,7 +116,7 @@ const contentRu: IInnerContent = {
   footerOther: {
     contacts: "контакты",
     question: "еще есть вопросы?",
-    callBack: "мы перезвоним вам!",
+    callBack: "Мы перезвоним вам!",
     follow: "подписаться",
     menu: "меню",
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],

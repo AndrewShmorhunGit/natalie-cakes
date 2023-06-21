@@ -17,6 +17,9 @@ import {
   IInnerContent,
 } from "interfaces/IContent";
 import { Interpolation, Theme } from "@emotion/react";
+import { Container } from "components/lib/StyledComponents";
+import { css } from "@emotion/css";
+import { createGrid } from "styles/general";
 
 function App() {
   const [isLanguage, setLanguage] = useState("en");
@@ -59,15 +62,21 @@ function App() {
   };
 
   return (
-    <div>
+    <Container
+      className={css({
+        minHeight: "100vh",
+        ...createGrid(1, 8),
+      })}
+    >
       <Navigation contentBox={contentBox}></Navigation>
       <Hero contentBox={contentBox}></Hero>
       <Information contentBox={contentBox}></Information>
-      <CallToAction></CallToAction>
       <Gallery></Gallery>
-      <Footer contentBox={contentBox}></Footer>
       <Modal></Modal>
-    </div>
+      <CallToAction></CallToAction>
+      <Container>WhiteSpace</Container>
+      <Footer contentBox={contentBox}></Footer>
+    </Container>
   );
 }
 
