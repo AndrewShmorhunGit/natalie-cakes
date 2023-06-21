@@ -1,5 +1,3 @@
-import { IMedia } from "./IApp";
-
 export interface IContent {
   contentEn: IInnerContent;
   contentRu: IInnerContent;
@@ -60,17 +58,4 @@ export interface IInnerContent {
 export interface IActiveBtnStyle {
   backgroundColor: string;
   color: string;
-}
-
-export interface IAppBox {
-  isLanguage: string;
-  setLanguage: React.Dispatch<React.SetStateAction<string>>;
-  innerContent: IInnerContent;
-  en: string;
-  ru: string;
-  activeCheck: any;
-  activeStyle: IActiveBtnStyle;
-  windowSize: number;
-  media: IMedia;
-  setParamsFromMedia: Function;
 }

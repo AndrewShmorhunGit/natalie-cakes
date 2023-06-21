@@ -11,12 +11,12 @@ import {
 import "./styles/App.css";
 import { contents } from "content/content";
 import { useEffect, useState } from "react";
-import { IActiveBtnStyle, IAppBox, IInnerContent } from "interfaces/IContent";
+import { IActiveBtnStyle, IInnerContent } from "interfaces/IContent";
 import { Interpolation, Theme } from "@emotion/react";
 import { Container } from "components/lib/StyledComponents";
 import { css } from "@emotion/css";
 import { createGrid } from "styles/general";
-import { IMedia } from "interfaces/IApp";
+import { IAppBox, IMedia } from "interfaces/IApp";
 
 export function App() {
   // Set JS Media Queries //
@@ -80,7 +80,7 @@ export function App() {
     language: string,
     action: any
   ): Interpolation<Theme> | null => isLanguage === language && action;
-  const AppBox: IAppBox = {
+  const appBox: IAppBox = {
     isLanguage,
     setLanguage,
     innerContent,
@@ -101,14 +101,14 @@ export function App() {
         ...createGrid(1, 8),
       })}
     >
-      <Navigation contentBox={AppBox} width={windowSize || 0}></Navigation>
-      <Hero contentBox={AppBox}></Hero>
-      <Information contentBox={AppBox}></Information>
+      <Navigation appBox={appBox} width={windowSize || 0}></Navigation>
+      <Hero appBox={appBox}></Hero>
+      <Information appBox={appBox}></Information>
       <Gallery></Gallery>
       <Modal></Modal>
       <CallToAction></CallToAction>
       <Container>WhiteSpace</Container>
-      <Footer contentBox={AppBox}></Footer>
+      <Footer appBox={appBox}></Footer>
     </Container>
   );
 }

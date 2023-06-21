@@ -6,7 +6,6 @@ import {
   DecoContainer,
   FlexCenterContainer,
   FlexColumnContainer,
-  FlexRowContainer,
   FooterSection,
   IconAndTextContainer,
   InfoHeader,
@@ -19,7 +18,7 @@ import {
   LocationLogo,
   PhoneLogo,
 } from "components/logos/Logos";
-import { IAppBox } from "interfaces/IContent";
+import { IAppBox } from "interfaces/IApp";
 import { IFooterContacts } from "interfaces/IFooter";
 import { ILogos } from "interfaces/ILogos";
 import { colorSys } from "styles/colors";
@@ -30,7 +29,7 @@ import {
   paddingTopBottom,
 } from "styles/general";
 
-export function Footer({ contentBox }: { contentBox: IAppBox }) {
+export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
   const content = contentBox.innerContent;
 
   const logoPropsContacts: ILogos = {
@@ -124,7 +123,7 @@ export function Footer({ contentBox }: { contentBox: IAppBox }) {
               color={colorSys.main_primary_dark}
             />
           </FlexCenterContainer>
-          <FlexRowContainer
+          <FlexCenterContainer
             className={css({ ...paddingTopBottom(2), gap: "0rem" })}
           >
             {content.footerOther.cart.map((position) => {
@@ -144,7 +143,7 @@ export function Footer({ contentBox }: { contentBox: IAppBox }) {
                 </Container>
               );
             })}
-          </FlexRowContainer>
+          </FlexCenterContainer>
         </FlexColumnContainer>
         <p
           className={css({

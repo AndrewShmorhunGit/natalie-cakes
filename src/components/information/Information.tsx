@@ -1,8 +1,8 @@
 import { css } from "@emotion/css";
-import { IAppBox } from "interfaces/IContent";
+import { IAppBox } from "interfaces/IApp";
 
-export function Information({ contentBox }: { contentBox: IAppBox }) {
-  const content = contentBox.innerContent;
+export function Information({ appBox: appBox }: { appBox: IAppBox }) {
+  const content = appBox.innerContent;
   return (
     <main className={css({ backgroundColor: "red" })}>
       <div>

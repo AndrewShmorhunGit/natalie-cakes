@@ -15,20 +15,21 @@ import {
   HeroCupCakesLogo,
   HeroGingerbreadLogo,
 } from "components/logos/Logos";
-import { IAppBox, IInnerContent } from "interfaces/IContent";
+import { IAppBox } from "interfaces/IApp";
+import { IInnerContent } from "interfaces/IContent";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
 import { container, flexCenter, paddingTopBottom } from "styles/general";
 import { colorSys } from "styles/imports";
 
-export function Hero({ contentBox }: { contentBox: IAppBox }) {
+export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
   const content: IInnerContent = contentBox.innerContent;
   const textColor: string = colorSys.white;
   const mediaDeps = contentBox.setParamsFromMedia;
 
   const logoProps: ILogos = {
-    width: "72",
-    height: "72",
+    width: mediaDeps("72", "60", "52"),
+    height: mediaDeps("72", "60", "52"),
   };
 
   const selectorParams: ISelectorParams = {
@@ -111,7 +112,7 @@ export function Hero({ contentBox }: { contentBox: IAppBox }) {
           >
             <DecoContainer
               width={contentBox.isLanguage === "ru" ? 26 : 16}
-              height={0.8}
+              height={0.2}
               color={textColor}
             />
           </FlexCenterContainer>

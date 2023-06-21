@@ -69,5 +69,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 // To do:
 
-- [ ] Footer Icon hover
-- [ ] Global Grid setup
+- [ ] Footer icon hover
+  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
+  - [useHover](https://usehooks.com/usehover)
+- [ ] Global grid setup
+- [ ] Set up language dependencies function
