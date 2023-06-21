@@ -1,37 +1,60 @@
+import { css } from "@emotion/css";
 import { MainLogo } from "components/imports";
-import { MainLogoText } from "components/lib/StyledComponents";
+import {
+  FlexCenterContainer,
+  FlexColumnContainer,
+  FlexRowContainer,
+  // FlexColumnContainer,
+  MainLogoText,
+} from "components/lib/StyledComponents";
 import { IContentBox } from "interfaces/IContent";
 import { colorSys } from "styles/colors";
+import { container, paddingTopBottom } from "styles/general";
 
 export function Footer({ contentBox }: { contentBox: IContentBox }) {
   const content = contentBox.innerContent;
   return (
-    <div>
-      <div>
+    <div
+      className={css({
+        ...container,
+      })}
+    >
+      <FlexColumnContainer>
         <MainLogoText textColor={colorSys.text_dark} />
-        <MainLogo width="6rem" height="6rem" fill={colorSys.text_dark} />
-      </div>
-      <div>
-        <div>
+        <FlexCenterContainer className={css({ ...paddingTopBottom(2.4, 6) })}>
+          <MainLogo width="6rem" height="6rem" fill={colorSys.text_dark} />
+        </FlexCenterContainer>
+      </FlexColumnContainer>
+      <FlexCenterContainer
+        className={css({
+          alignItems: "space-between",
+          ...paddingTopBottom(8, 2),
+        })}
+      >
+        <FlexColumnContainer>
           <h3>{content.footerOther.contacts}</h3>
           <p>{content.footerContacts.address}</p>
           <p>{content.footerContacts.phone}</p>
           <p>{content.footerContacts.email}</p>
-        </div>
-        <div>
+        </FlexColumnContainer>
+        <FlexColumnContainer>
           <h3>{content.footerOther.question}</h3>
-        </div>
-        <div>
+        </FlexColumnContainer>
+        <FlexColumnContainer>
           <h3>{content.footerOther.follow}</h3>
-        </div>
-      </div>
-      <div>
+        </FlexColumnContainer>
+      </FlexCenterContainer>
+      <FlexColumnContainer>
         <h3>{content.footerOther.menu}</h3>
-        {content.footerOther.cart.map((position) => {
-          return <p>{position}</p>;
-        })}
-      </div>
-      <p>&copy; {content.footerOther.rights}</p>
+        <FlexRowContainer>
+          {content.footerOther.cart.map((position) => {
+            return <p>{position}</p>;
+          })}
+        </FlexRowContainer>
+      </FlexColumnContainer>
+      <p className={css({ textAlign: "center", ...paddingTopBottom(8, 2) })}>
+        &copy; {content.footerOther.rights}
+      </p>
     </div>
   );
 }

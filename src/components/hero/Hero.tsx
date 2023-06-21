@@ -18,7 +18,6 @@ import {
 import { IContentBox, IInnerContent } from "interfaces/IContent";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
-
 import { container, flexCenter, paddingTopBottom } from "styles/general";
 import { colorSys } from "styles/imports";
 
@@ -32,9 +31,9 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
   };
 
   const selectorParams: ISelectorParams = {
-    width: 16,
-    height: 16,
-    step: 3,
+    width: 17,
+    height: 17,
+    step: 2,
     font: "2.2rem",
     color: colorSys.white,
     ringColor: colorSys.main_primary,

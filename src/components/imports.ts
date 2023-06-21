@@ -5,7 +5,7 @@ import { Hero } from "./hero/Hero";
 import { Information } from "./information/Information";
 import { Modal } from "./modals/Modal";
 import { Navigation } from "./navigation/Navigation";
-import { Cart } from "./cart/Cart";
+import { Menu } from "./menu/Menu";
 import { MainLogo } from "./logos/Logos";
 export {
   CallToAction,
@@ -15,6 +15,6 @@ export {
   Information,
   Modal,
   Navigation,
-  Cart,
+  Menu,
   MainLogo,
 };

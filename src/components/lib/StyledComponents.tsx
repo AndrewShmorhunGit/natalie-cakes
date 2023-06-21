@@ -64,7 +64,13 @@ const Button = styled.button(
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
 );
 
-// HEADERS
+// TEXT Components
+
+const InfoParagraph = styled.p({
+  fontSize: "2rem",
+  fontWeight: 600,
+  paddingLeft: "4rem",
+});
 
 const MainHeader = styled.h1({
   fontSize: "6.8rem",
@@ -100,6 +106,10 @@ const HeroSection = styled.main({
 
 // CONTAINERS
 
+const BlockContainer = styled.div({
+  display: "block",
+});
+
 const RelativeContainer = styled.div({
   position: "relative",
 });
@@ -132,6 +142,20 @@ const BackDropFilterContainer = styled.div({
 });
 
 // COMPONENTS
+
+function IconAndTextContainer({
+  icon,
+  text,
+}: {
+  icon: EmotionJSX.Element;
+  text: string;
+}) {
+  return (
+    <BlockContainer className={css({ ...paddingTopBottom(2) })}>
+      {icon} <InfoParagraph>{text}</InfoParagraph>
+    </BlockContainer>
+  );
+}
 
 function DecoContainer({
   width,
@@ -180,6 +204,7 @@ function HeroSelectorDecoContainer({
         color={selectorParams.ringColor}
         props={{
           ...selectorParams.decoProps,
+          // '&:hover':'',
         }}
       />
       <DecoContainer
@@ -262,6 +287,7 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   BackDropFilterContainer,
+  IconAndTextContainer,
   MainLogoText,
   DecoContainer,
   HeroSelectorDecoContainer,
