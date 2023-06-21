@@ -92,8 +92,14 @@ const InfoParagraph = styled.p({
 
 const MainHeader = styled.h1({
   fontSize: "6.8rem",
-  ...flexCenter,
+  // ...flexCenter,
   fontWeight: 400,
+  [mq.medium]: {
+    fontSize: "6.4rem",
+  },
+  [mq.small]: {
+    fontSize: "5.6rem",
+  },
 });
 
 // STYLED APP COMPONENTS

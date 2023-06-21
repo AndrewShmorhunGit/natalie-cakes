@@ -10,26 +10,58 @@ import {
 } from "./components/imports";
 import "./styles/App.css";
 import { contents } from "content/content";
-import { useState } from "react";
-import {
-  IActiveBtnStyle,
-  IContentBox,
-  IInnerContent,
-} from "interfaces/IContent";
+import { useEffect, useState } from "react";
+import { IActiveBtnStyle, IAppBox, IInnerContent } from "interfaces/IContent";
 import { Interpolation, Theme } from "@emotion/react";
 import { Container } from "components/lib/StyledComponents";
 import { css } from "@emotion/css";
 import { createGrid } from "styles/general";
+import { IMedia } from "interfaces/IApp";
 
-function App() {
+export function App() {
+  // Set JS Media Queries //
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  // Set MQ state
+  const [isMQ, setIsMQ] = useState<"big" | "medium" | "small">("big");
+
+  const handleWindowResize = () => {
+    const size = window.innerWidth;
+    setWindowSize(size);
+    if (size >= 1200) return setIsMQ("big");
+    if (size < 1200 && size >= 960) return setIsMQ("medium");
+    if (size < 960) return setIsMQ("small");
+    return;
+  };
+
+  const media: IMedia = {
+    big: isMQ === "big",
+    medium: isMQ === "medium",
+    small: isMQ === "small",
+  };
+
+  function setParamsFromMedia(
+    bigParam: number | string,
+    mediumParam: number | string,
+    smallParam: number | string
+  ): string | number {
+    return media.big ? bigParam : media.medium ? mediumParam : smallParam;
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
+  /////////////////////
+
+  // Set Language Content & Functionality//
   const [isLanguage, setLanguage] = useState("en");
   const { contentEn, contentRu } = contents;
-
   const activeStyle: IActiveBtnStyle = {
     backgroundColor: colorSys.main_primary_dark,
     color: colorSys.white,
   };
-
   function checkLanguage(language: string): IInnerContent {
     if (language === "en") {
       return contentEn;
@@ -39,19 +71,16 @@ function App() {
     }
     return contentEn;
   }
-
+  // Set languages
   const innerContent = checkLanguage(isLanguage);
   const en: string = "en";
   const ru: string = "ru";
-
   // Active language button styles
-
   const activeCheck = (
     language: string,
     action: any
   ): Interpolation<Theme> | null => isLanguage === language && action;
-
-  const contentBox: IContentBox = {
+  const AppBox: IAppBox = {
     isLanguage,
     setLanguage,
     innerContent,
@@ -59,7 +88,11 @@ function App() {
     ru,
     activeCheck,
     activeStyle,
+    windowSize,
+    media,
+    setParamsFromMedia,
   };
+  /////////////////////////////////////////
 
   return (
     <Container
@@ -68,14 +101,14 @@ function App() {
         ...createGrid(1, 8),
       })}
     >
-      <Navigation contentBox={contentBox}></Navigation>
-      <Hero contentBox={contentBox}></Hero>
-      <Information contentBox={contentBox}></Information>
+      <Navigation contentBox={AppBox} width={windowSize || 0}></Navigation>
+      <Hero contentBox={AppBox}></Hero>
+      <Information contentBox={AppBox}></Information>
       <Gallery></Gallery>
       <Modal></Modal>
       <CallToAction></CallToAction>
       <Container>WhiteSpace</Container>
-      <Footer contentBox={contentBox}></Footer>
+      <Footer contentBox={AppBox}></Footer>
     </Container>
   );
 }

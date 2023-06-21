@@ -19,7 +19,7 @@ import {
   LocationLogo,
   PhoneLogo,
 } from "components/logos/Logos";
-import { IContentBox } from "interfaces/IContent";
+import { IAppBox } from "interfaces/IContent";
 import { IFooterContacts } from "interfaces/IFooter";
 import { ILogos } from "interfaces/ILogos";
 import { colorSys } from "styles/colors";
@@ -30,7 +30,7 @@ import {
   paddingTopBottom,
 } from "styles/general";
 
-export function Footer({ contentBox }: { contentBox: IContentBox }) {
+export function Footer({ contentBox }: { contentBox: IAppBox }) {
   const content = contentBox.innerContent;
 
   const logoPropsContacts: ILogos = {
@@ -85,8 +85,8 @@ export function Footer({ contentBox }: { contentBox: IContentBox }) {
             <InfoHeader>{content.footerOther.contacts}</InfoHeader>
             {footerContacts.map(({ name, icon }) => {
               return (
-                <Container className={css({ cursor: "pointer" })}>
-                  <IconAndTextContainer icon={icon} text={name} key={name} />
+                <Container className={css({ cursor: "pointer" })} key={name}>
+                  <IconAndTextContainer icon={icon} text={name} />
                 </Container>
               );
             })}

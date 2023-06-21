@@ -9,15 +9,19 @@ import { MainLogo } from "components/imports";
 import { css } from "@emotion/css";
 import { colorSys, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { IContentBox } from "interfaces/IContent";
+import { IAppBox } from "interfaces/IContent";
 
 export function Navigation({
   contentBox,
+  width,
 }: {
-  contentBox: IContentBox;
+  contentBox: IAppBox;
+  width: number;
 }): EmotionJSX.Element {
   return (
-    <NavigationSection>
+    <NavigationSection className={css({ position: "relative" })}>
+      {width}
+
       <FlexRowContainer
         className={css({
           gap: "2rem",

@@ -15,15 +15,16 @@ import {
   HeroCupCakesLogo,
   HeroGingerbreadLogo,
 } from "components/logos/Logos";
-import { IContentBox, IInnerContent } from "interfaces/IContent";
+import { IAppBox, IInnerContent } from "interfaces/IContent";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
 import { container, flexCenter, paddingTopBottom } from "styles/general";
 import { colorSys } from "styles/imports";
 
-export function Hero({ contentBox }: { contentBox: IContentBox }) {
+export function Hero({ contentBox }: { contentBox: IAppBox }) {
   const content: IInnerContent = contentBox.innerContent;
   const textColor: string = colorSys.white;
+  const mediaDeps = contentBox.setParamsFromMedia;
 
   const logoProps: ILogos = {
     width: "72",
@@ -31,9 +32,9 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
   };
 
   const selectorParams: ISelectorParams = {
-    width: 17,
-    height: 17,
-    step: 2,
+    width: mediaDeps(14, 12, 10),
+    height: mediaDeps(14, 12, 10),
+    step: 1.6,
     font: "2.2rem",
     color: colorSys.white,
     ringColor: colorSys.main_primary,

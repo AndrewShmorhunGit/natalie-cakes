@@ -1,9 +1,10 @@
-import { IContentBox } from "interfaces/IContent";
+import { css } from "@emotion/css";
+import { IAppBox } from "interfaces/IContent";
 
-export function Information({ contentBox }: { contentBox: IContentBox }) {
+export function Information({ contentBox }: { contentBox: IAppBox }) {
   const content = contentBox.innerContent;
   return (
-    <div>
+    <main className={css({ backgroundColor: "red" })}>
       <div>
         <div>
           <h3>{content.ingredients}</h3>
@@ -31,6 +32,6 @@ export function Information({ contentBox }: { contentBox: IContentBox }) {
           <p>{content.importantText.p2}</p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
