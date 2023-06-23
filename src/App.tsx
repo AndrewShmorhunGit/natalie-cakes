@@ -99,6 +99,7 @@ export function App() {
       className={css({
         minHeight: "100vh",
         ...createGrid(1, 8),
+        color: colorSys.text_dark,
       })}
     >
       <Navigation appBox={appBox} width={windowSize || 0}></Navigation>

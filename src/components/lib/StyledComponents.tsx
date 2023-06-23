@@ -66,29 +66,6 @@ const Button = styled.button(
 );
 
 // TEXT Components
-const InfoHeader = styled.h3({
-  textAlign: "center",
-  textTransform: "capitalize",
-  fontSize: "3.2rem",
-  [mq.medium]: {
-    fontSize: "3rem",
-  },
-  [mq.small]: {
-    fontSize: "2.8rem",
-  },
-});
-
-const InfoParagraph = styled.p({
-  fontSize: "2rem",
-  fontWeight: 400,
-  textAlign: "center",
-  [mq.medium]: {
-    fontSize: "1.6rem",
-  },
-  [mq.small]: {
-    fontSize: "1.4rem",
-  },
-});
 
 const MainHeader = styled.h1({
   fontSize: "6.8rem",
@@ -128,11 +105,85 @@ const HeroSection = styled.main({
   backgroundSize: "cover",
 });
 
+// INFO
+
+const InfoContainer = styled.div({
+  margin: "1.2rem",
+  padding: "1.6rem",
+  border: `solid ${colorSys.main_primary_dark} 0.2rem`,
+  borderRadius: "1.2rem",
+  backgroundColor: colorSys.background_second,
+});
+
+const InfoHeader = styled.ul({
+  textAlign: "center",
+  textTransform: "capitalize",
+  fontSize: "3.2rem",
+  paddingBottom: "1.2rem",
+  [mq.medium]: {
+    fontSize: "3rem",
+  },
+  [mq.small]: {
+    fontSize: "2.8rem",
+  },
+});
+
+const InfoSubHeader = styled.h4({
+  // textAlign: "center",
+  textTransform: "capitalize",
+  fontSize: "2.4rem",
+  fontWeight: 400,
+  paddingBottom: "0.4rem",
+  paddingTop: "1.2rem",
+  [mq.medium]: {
+    fontSize: "2rem",
+  },
+  [mq.small]: {
+    fontSize: "1.8rem",
+  },
+});
+
+const InfoParagraph = styled.li({
+  fontSize: "2rem",
+  fontWeight: 400,
+  paddingLeft: "1.2rem",
+  [mq.medium]: {
+    fontSize: "1.6rem",
+  },
+  [mq.small]: {
+    fontSize: "1.4rem",
+  },
+});
+
+const FooterHeader = styled.h3({
+  textAlign: "center",
+  textTransform: "capitalize",
+  fontSize: "3.2rem",
+  [mq.medium]: {
+    fontSize: "3rem",
+  },
+  [mq.small]: {
+    fontSize: "2.8rem",
+  },
+});
+
 // FOOTER
 
 const FooterSection = styled.div({
   backgroundColor: colorSys.background_second,
   borderTop: `0.2rem solid ${colorSys.main_primary_dark}`,
+});
+
+const FooterParagraph = styled.p({
+  fontSize: "2rem",
+  fontWeight: 400,
+  // textAlign: "center",
+  [mq.medium]: {
+    fontSize: "1.6rem",
+  },
+  [mq.small]: {
+    fontSize: "1.4rem",
+  },
 });
 
 // CONTAINERS
@@ -183,7 +234,7 @@ const BackDropFilterContainer = styled.div({
 
 // COMPONENTS
 
-function IconAndTextContainer({
+function IconAndTextFooterContacts({
   icon,
   text,
 }: {
@@ -193,9 +244,9 @@ function IconAndTextContainer({
   return (
     <FlexRowContainer>
       {icon}
-      <InfoParagraph className={css({ paddingLeft: "2rem" })}>
+      <FooterParagraph className={css({ paddingLeft: "2rem" })}>
         {text}
-      </InfoParagraph>
+      </FooterParagraph>
     </FlexRowContainer>
   );
 }
@@ -217,6 +268,7 @@ function DecoContainer({
         width: `${width}rem`,
         height: `${height}rem`,
         background: `${color}`,
+        borderRadius: "1rem",
         ...props,
       })}
     ></FlexCenterContainer>
@@ -325,6 +377,8 @@ export {
   NavigationSection,
   HeroSection,
   FooterSection,
+  FooterParagraph,
+  FooterHeader,
   Container,
   RelativeContainer,
   AbsoluteCenterContainer,
@@ -333,9 +387,11 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   BackDropFilterContainer,
+  InfoContainer,
+  InfoSubHeader,
   InfoHeader,
   InfoParagraph,
-  IconAndTextContainer,
+  IconAndTextFooterContacts,
   MainLogoText,
   DecoContainer,
   HeroSelectorDecoContainer,

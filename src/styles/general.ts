@@ -16,6 +16,11 @@ export const flexCenter = {
   justifyContent: "center",
 };
 
+export const flexColumn = {
+  display: "flex",
+  flexDirection: "column",
+};
+
 // Grid
 
 export function createGrid(columns: number | string, rows: number | string) {

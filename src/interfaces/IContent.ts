@@ -18,12 +18,16 @@ export interface IInnerContent {
   };
   ingredients: string;
   ingredientsText: {
+    h1: string;
     p1: string;
+    h2: string;
     p2: string;
   };
   design: string;
   designText: {
+    h1: string;
     p1: string;
+    h2: string;
     p2: string;
   };
   order: string;

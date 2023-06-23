@@ -7,10 +7,10 @@ import {
   FlexCenterContainer,
   FlexColumnContainer,
   FooterSection,
-  IconAndTextContainer,
-  InfoHeader,
-  InfoParagraph,
+  FooterHeader,
+  FooterParagraph,
   MainLogoText,
+  IconAndTextFooterContacts,
 } from "components/lib/StyledComponents";
 import {
   EnvelopLogo,
@@ -81,11 +81,11 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({ gridColumn: "1/2", gap: "2rem" })}
           >
-            <InfoHeader>{content.footerOther.contacts}</InfoHeader>
+            <FooterHeader>{content.footerOther.contacts}</FooterHeader>
             {footerContacts.map(({ name, icon }) => {
               return (
                 <Container className={css({ cursor: "pointer" })} key={name}>
-                  <IconAndTextContainer icon={icon} text={name} />
+                  <IconAndTextFooterContacts icon={icon} text={name} />
                 </Container>
               );
             })}
@@ -93,10 +93,10 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({ gridColumn: "2/3", gap: "2rem" })}
           >
-            <InfoHeader>{content.footerOther.question}</InfoHeader>
-            <InfoParagraph className={css({ textAlign: "center" })}>
+            <FooterHeader>{content.footerOther.question}</FooterHeader>
+            <FooterParagraph className={css({ textAlign: "center" })}>
               {content.footerOther.callBack}
-            </InfoParagraph>
+            </FooterParagraph>
             <FlexCenterContainer>
               <Button variant="primary">Take a call</Button>
             </FlexCenterContainer>
@@ -104,7 +104,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({ gridColumn: "3/-1", gap: "2rem" })}
           >
-            <InfoHeader>{content.footerOther.follow}</InfoHeader>
+            <FooterHeader>{content.footerOther.follow}</FooterHeader>
             <FlexCenterContainer className={css({ cursor: "pointer" })}>
               <InstagramLogo
                 height={"36 "}
@@ -115,7 +115,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           </FlexColumnContainer>
         </Container>
         <FlexColumnContainer className={css({ ...paddingTopBottom(6, 2) })}>
-          <InfoHeader>{content.footerOther.menu}</InfoHeader>
+          <FooterHeader>{content.footerOther.menu}</FooterHeader>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
             <DecoContainer
               width={30}
@@ -139,7 +139,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
                     },
                   })}
                 >
-                  <InfoParagraph>{position}</InfoParagraph>
+                  <FooterParagraph>{position}</FooterParagraph>
                 </Container>
               );
             })}
