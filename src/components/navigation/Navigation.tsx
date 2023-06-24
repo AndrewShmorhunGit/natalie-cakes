@@ -11,6 +11,7 @@ import { css } from "@emotion/css";
 import { palette, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { IAppBox } from "interfaces/IApp";
+import { activeStyle } from "styles/styles";
 
 export function Navigation({
   appBox: appBox,
@@ -68,16 +69,16 @@ export function Navigation({
           <Button
             variant="language"
             onClick={() => appBox.setLanguage("en")}
-            className={css(appBox.activeCheck(appBox.en, appBox.activeStyle))}
+            className={css(appBox.isLanguage === "en" ? activeStyle : null)}
           >
-            {appBox.en}
+            {appBox.languages.en}
           </Button>
           <Button
             variant="language"
             onClick={() => appBox.setLanguage("ru")}
-            className={css(appBox.activeCheck(appBox.ru, appBox.activeStyle))}
+            className={css(appBox.isLanguage === "ru" ? activeStyle : null)}
           >
-            {appBox.ru}
+            {appBox.languages.ru}
           </Button>
         </FlexColumnContainer>
       </FlexRowContainer>

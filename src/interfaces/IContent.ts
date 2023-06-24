@@ -59,7 +59,7 @@ export interface IInnerContent {
   };
 }
 
-export interface IActiveBtnStyle {
+export interface IActiveLanguageBtnStyle {
   backgroundColor: string;
   color: string;
 }

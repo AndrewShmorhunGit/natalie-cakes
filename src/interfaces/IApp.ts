@@ -1,4 +1,4 @@
-import { IActiveBtnStyle, IInnerContent } from "./IContent";
+import { IInnerContent } from "./IContent";
 
 export interface IMedia {
   big: boolean;
@@ -6,15 +6,15 @@ export interface IMedia {
   small: boolean;
   mini: boolean;
 }
-
+export interface ILanguages {
+  en: string;
+  ru: string;
+}
 export interface IAppBox {
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
   innerContent: IInnerContent;
-  en: string;
-  ru: string;
-  activeCheck: any;
-  activeStyle: IActiveBtnStyle;
+  languages: ILanguages;
   windowSize: number;
   media: IMedia;
   setMedia(
