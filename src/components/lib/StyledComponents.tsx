@@ -40,7 +40,7 @@ const buttonVariants: any = {
     textTransform: "none",
     borderRadius: "0.4rem",
     [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
-    [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
+    // [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
   },
 };
 
@@ -64,20 +64,6 @@ const Button = styled.button(
   },
   ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
 );
-
-// TEXT Components
-
-const MainHeader = styled.h1({
-  fontSize: "6.8rem",
-  // ...flexCenter,
-  fontWeight: 400,
-  [mq.medium]: {
-    fontSize: "6.4rem",
-  },
-  [mq.small]: {
-    fontSize: "5.6rem",
-  },
-});
 
 // STYLED APP COMPONENTS
 
@@ -105,11 +91,43 @@ const HeroSection = styled.main({
   backgroundSize: "cover",
 });
 
+const MainHeader = styled.h1({
+  fontSize: "6.8rem",
+  fontWeight: 400,
+  [mq.medium]: {
+    fontSize: "6.2rem",
+  },
+  [mq.small]: {
+    fontSize: "5.4rem",
+  },
+  [mq.mini]: {
+    fontSize: "4.8rem",
+  },
+});
+
+const HeroTagLine = styled.h2({
+  ...paddingTopBottom(8, 10),
+  width: "60rem",
+  fontSize: "2.8rem",
+  fontWeight: 400,
+
+  [mq.small]: {
+    fontSize: "2.4rem",
+    width: "50rem",
+  },
+  [mq.mini]: {
+    width: "40rem",
+    fontSize: "2rem",
+  },
+});
+
 // INFO
 
 const InfoContainer = styled.div({
+  display: "flex",
+  // height: "auto",
   margin: "1.2rem",
-  padding: "1.6rem",
+  padding: "1.6rem 1.6rem 3.6rem",
   border: `solid ${colorSys.main_primary_dark} 0.2rem`,
   borderRadius: "1.2rem",
   backgroundColor: colorSys.background_second,
@@ -124,6 +142,9 @@ const InfoHeader = styled.ul({
     fontSize: "3rem",
   },
   [mq.small]: {
+    fontSize: "2.8rem",
+  },
+  [mq.mini]: {
     fontSize: "2.8rem",
   },
 });
@@ -141,6 +162,9 @@ const InfoSubHeader = styled.h4({
   [mq.small]: {
     fontSize: "1.8rem",
   },
+  [mq.mini]: {
+    fontSize: "1.8rem",
+  },
 });
 
 const InfoParagraph = styled.li({
@@ -153,6 +177,9 @@ const InfoParagraph = styled.li({
   [mq.small]: {
     fontSize: "1.4rem",
   },
+  [mq.mini]: {
+    fontSize: "1.4rem",
+  },
 });
 
 const FooterHeader = styled.h3({
@@ -163,6 +190,9 @@ const FooterHeader = styled.h3({
     fontSize: "3rem",
   },
   [mq.small]: {
+    fontSize: "2.8rem",
+  },
+  [mq.mini]: {
     fontSize: "2.8rem",
   },
 });
@@ -184,6 +214,9 @@ const FooterParagraph = styled.p({
   [mq.small]: {
     fontSize: "1.4rem",
   },
+  [mq.mini]: {
+    fontSize: "1.4rem",
+  },
 });
 
 // CONTAINERS
@@ -194,6 +227,9 @@ const FooterParagraph = styled.p({
 const Container = styled.div({
   marginLeft: "auto",
   marginRight: "auto",
+  // display: "flex",
+  // overflow: "hidden",
+  // height: "auto",
 });
 
 const RelativeContainer = styled.div({
@@ -310,18 +346,23 @@ function HeroSelectorDecoContainer({
           ...selectorParams.decoProps,
         }}
       />
-
-      <p
+      <Container
         className={css({
-          width: "12rem",
-          textAlign: "center",
-          textTransform: "capitalize",
-          transform: "translate(0, 12.4rem)",
-          fontSize: `${selectorParams.font}`,
+          ...flexCenter,
+          transform: `translateY(${selectorParams.textPadding}rem)`,
         })}
       >
-        {selector.name}
-      </p>
+        <p
+          className={css({
+            width: `12rem`,
+            textAlign: "center",
+            textTransform: "capitalize",
+            fontSize: `${selectorParams.font}`,
+          })}
+        >
+          {selector.name}
+        </p>
+      </Container>
     </RelativeContainer>
   );
 }
@@ -363,6 +404,15 @@ function MainLogoText({
             fontSize: "1.4rem",
           },
         },
+        [mq.mini]: {
+          // gap: "0.8rem",
+          h3: {
+            fontSize: "2.4rem",
+          },
+          h4: {
+            fontSize: "1.4rem",
+          },
+        },
       })}
     >
       <h3>Natalie Cakes</h3>
@@ -376,6 +426,7 @@ export {
   MainHeader,
   NavigationSection,
   HeroSection,
+  HeroTagLine,
   FooterSection,
   FooterParagraph,
   FooterHeader,

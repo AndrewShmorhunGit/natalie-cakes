@@ -50,8 +50,9 @@ export const container = {
   ...marginCenter,
   maxWidth: "140rem",
   padding: "1.2rem 12rem",
-  [mq.medium]: { maxWidth: "120rem", padding: "1.2rem 12rem" },
-  [mq.small]: { padding: "1.2rem 6rem" },
+  [mq.medium]: { maxWidth: "120rem", padding: "1.2rem 8rem" },
+  [mq.small]: { padding: "1.2rem  3.2rem" },
+  [mq.mini]: { padding: "1.2rem 3.2rem" },
 };
 
 //Container Styling

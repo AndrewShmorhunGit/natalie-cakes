@@ -4,6 +4,7 @@ export interface IMedia {
   big: boolean;
   medium: boolean;
   small: boolean;
+  mini: boolean;
 }
 
 export interface IAppBox {

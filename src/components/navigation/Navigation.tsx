@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   FlexColumnContainer,
   FlexRowContainer,
   MainLogoText,
@@ -15,7 +16,6 @@ export function Navigation({
   appBox: appBox,
 }: {
   appBox: IAppBox;
-  width: number;
 }): EmotionJSX.Element {
   return (
     <NavigationSection>
@@ -33,14 +33,29 @@ export function Navigation({
         className={css({
           width: "minmax(30rem, 45rem)",
           gap: "1.2rem",
-          [mq.small]: {
-            gap: "0.8rem",
-          },
+          // [mq.mini]: {
+          //   gap: "0.8rem",
+          // },
         })}
       >
-        <Button variant="secondary">{appBox.innerContent.about}</Button>
-        <Button variant="secondary">{appBox.innerContent.contacts}</Button>
-        <Button variant="primary">{appBox.innerContent.makeSweet}</Button>
+        <Container
+          className={css({
+            [mq.small]: { display: "none" },
+            [mq.mini]: { display: "none" },
+          })}
+        >
+          <Button variant="secondary">{appBox.innerContent.about}</Button>
+          <Button variant="secondary">{appBox.innerContent.contacts}</Button>
+          <Button variant="primary">{appBox.innerContent.makeSweet}</Button>
+        </Container>
+        <Container
+          className={css({
+            [mq.large]: { display: "none" },
+            [mq.medium]: { display: "none" },
+          })}
+        >
+          <h3>(Burger)</h3>
+        </Container>
         <FlexColumnContainer
           className={css({
             gap: "0.4rem",

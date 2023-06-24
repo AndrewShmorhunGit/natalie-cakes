@@ -20,32 +20,19 @@ import { IAppBox, IMedia } from "interfaces/IApp";
 
 export function App() {
   // Set JS Media Queries //
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [isWindowSize, setWindowSize] = useState<number>(window.innerWidth);
   // Set MQ state
-  const [isMQ, setIsMQ] = useState<"big" | "medium" | "small">("big");
+  const [isMQ, setIsMQ] = useState<"big" | "medium" | "small" | "mini">("big");
 
   const handleWindowResize = () => {
     const size = window.innerWidth;
     setWindowSize(size);
     if (size >= 1200) return setIsMQ("big");
     if (size < 1200 && size >= 960) return setIsMQ("medium");
-    if (size < 960) return setIsMQ("small");
+    if (size < 960 && size >= 660) return setIsMQ("small");
+    if (size < 660) return setIsMQ("mini");
     return;
   };
-
-  const media: IMedia = {
-    big: isMQ === "big",
-    medium: isMQ === "medium",
-    small: isMQ === "small",
-  };
-
-  function setParamsFromMedia(
-    bigParam: number | string,
-    mediumParam: number | string,
-    smallParam: number | string
-  ): string | number {
-    return media.big ? bigParam : media.medium ? mediumParam : smallParam;
-  }
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
@@ -53,6 +40,29 @@ export function App() {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, [handleWindowResize]);
+
+  const media: IMedia = {
+    big: isMQ === "big",
+    medium: isMQ === "medium",
+    small: isMQ === "small",
+    mini: isMQ === "mini",
+  };
+
+  function setParamsFromMedia(
+    bigParam: number | string,
+    mediumParam: number | string = bigParam,
+    smallParam: number | string = mediumParam,
+    minParam: number | string = smallParam
+  ): string | number {
+    return media.big
+      ? bigParam
+      : media.medium
+      ? mediumParam
+      : media.small
+      ? smallParam
+      : minParam;
+  }
+
   /////////////////////
 
   // Set Language Content & Functionality//
@@ -80,7 +90,10 @@ export function App() {
     language: string,
     action: any
   ): Interpolation<Theme> | null => isLanguage === language && action;
+  /////////////////////////////////////////
+  // Main Application params and functions Box
   const appBox: IAppBox = {
+    // useLanguage
     isLanguage,
     setLanguage,
     innerContent,
@@ -88,21 +101,23 @@ export function App() {
     ru,
     activeCheck,
     activeStyle,
-    windowSize,
+    // useMedia
+    windowSize: isWindowSize,
     media,
     setParamsFromMedia,
   };
+
   /////////////////////////////////////////
 
   return (
     <Container
       className={css({
         minHeight: "100vh",
-        ...createGrid(1, 8),
+        ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),
         color: colorSys.text_dark,
       })}
     >
-      <Navigation appBox={appBox} width={windowSize || 0}></Navigation>
+      <Navigation appBox={appBox}></Navigation>
       <Hero appBox={appBox}></Hero>
       <Information appBox={appBox}></Information>
       <Gallery></Gallery>

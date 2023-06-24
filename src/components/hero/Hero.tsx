@@ -1,12 +1,14 @@
 import { css } from "@emotion/css";
 import {
   BackDropFilterContainer,
+  Container,
   DecoContainer,
   FlexCenterContainer,
   FlexColumnContainer,
-  FlexRowContainer,
+  // FlexRowContainer,
   HeroSection,
   HeroSelectorDecoContainer,
+  HeroTagLine,
   MainHeader,
 } from "components/lib/StyledComponents";
 import {
@@ -15,11 +17,17 @@ import {
   HeroCupCakesLogo,
   HeroGingerbreadLogo,
 } from "components/logos/Logos";
+// import { create } from "domain";
 import { IAppBox } from "interfaces/IApp";
 import { IInnerContent } from "interfaces/IContent";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
-import { container, flexCenter, paddingTopBottom } from "styles/general";
+import {
+  container,
+  createGrid,
+  flexCenter,
+  paddingTopBottom,
+} from "styles/general";
 import { colorSys } from "styles/imports";
 
 export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
@@ -39,6 +47,7 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
     font: "2.2rem",
     color: colorSys.white,
     ringColor: colorSys.main_primary,
+    textPadding: mediaDeps(12, 10, 8),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
@@ -84,7 +93,7 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
           >
             {content.mainHeader}
           </MainHeader>
-          <p
+          <HeroTagLine
             className={css({
               // ...flexCenter,
               ...paddingTopBottom(8, 10),
@@ -94,7 +103,7 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
             })}
           >
             {content.heroTagline}
-          </p>
+          </HeroTagLine>
           <h2
             className={css({
               ...flexCenter,
@@ -117,11 +126,10 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
             />
           </FlexCenterContainer>
 
-          <FlexRowContainer
+          <Container
             className={css({
-              justifyContent: "space-between",
+              ...createGrid(`repeat(4,${mediaDeps(20, 18, 12)}rem)`, 1),
               ...paddingTopBottom(6),
-              // gap: "6rem",
             })}
           >
             {/* HeroSelectors */}
@@ -132,7 +140,7 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
                 selectorParams={selectorParams}
               />
             ))}
-          </FlexRowContainer>
+          </Container>
         </FlexColumnContainer>
       </BackDropFilterContainer>
     </HeroSection>

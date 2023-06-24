@@ -28,10 +28,11 @@ import {
   paddingLeftRight,
   paddingTopBottom,
 } from "styles/general";
+// import { mq } from "styles/media-queries";
 
 export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
   const content = contentBox.innerContent;
-
+  const mediaDeps = contentBox.setParamsFromMedia;
   const logoPropsContacts: ILogos = {
     width: "32",
     height: "32",
@@ -73,25 +74,44 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
         </FlexCenterContainer>
         <Container
           className={css({
-            ...createGrid("1fr 1.2fr 1fr", 1),
-            ...paddingTopBottom(0, 6),
+            // ...createGrid("1fr 1.2fr 1fr", 1),
+            ...createGrid(
+              mediaDeps("1fr 2fr 1fr", "1fr 1.5fr 1fr", "1fr 1.2fr 1fr", "1fr"),
+              mediaDeps(1, 1, 1, "repeat(3, auto)")
+            ),
+            rowGap: "4rem",
+
+            // ...paddingTopBottom(0, 6),
             placeItems: "center",
           })}
         >
           <FlexColumnContainer
-            className={css({ gridColumn: "1/2", gap: "2rem" })}
+            className={css({
+              gridColumn: "1/2",
+              gridRow: mediaDeps("1"),
+              gap: mediaDeps("2rem", "1.6rem", "1.2rem"),
+            })}
           >
             <FooterHeader>{content.footerOther.contacts}</FooterHeader>
             {footerContacts.map(({ name, icon }) => {
               return (
-                <Container className={css({ cursor: "pointer" })} key={name}>
+                <Container
+                  className={css({
+                    cursor: "pointer",
+                  })}
+                  key={name}
+                >
                   <IconAndTextFooterContacts icon={icon} text={name} />
                 </Container>
               );
             })}
           </FlexColumnContainer>
           <FlexColumnContainer
-            className={css({ gridColumn: "2/3", gap: "2rem" })}
+            className={css({
+              gridColumn: mediaDeps("2/3", "2/3", "2/3", "1"),
+              gridRow: mediaDeps("1", "1", "1", "2"),
+              gap: mediaDeps("2rem", "1.6rem", "1.2rem"),
+            })}
           >
             <FooterHeader>{content.footerOther.question}</FooterHeader>
             <FooterParagraph className={css({ textAlign: "center" })}>
@@ -102,7 +122,11 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
             </FlexCenterContainer>
           </FlexColumnContainer>
           <FlexColumnContainer
-            className={css({ gridColumn: "3/-1", gap: "2rem" })}
+            className={css({
+              gridColumn: mediaDeps("3/-1", "3/-1", "3/-1", "1"),
+              gridRow: mediaDeps("1", "1", "1", "3"),
+              gap: mediaDeps("2rem", "1.6rem", "1.2rem"),
+            })}
           >
             <FooterHeader>{content.footerOther.follow}</FooterHeader>
             <FlexCenterContainer className={css({ cursor: "pointer" })}>
@@ -114,7 +138,9 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
             </FlexCenterContainer>
           </FlexColumnContainer>
         </Container>
-        <FlexColumnContainer className={css({ ...paddingTopBottom(6, 2) })}>
+        <FlexColumnContainer
+          className={css({ ...paddingTopBottom(mediaDeps(8, 6, 4), 2) })}
+        >
           <FooterHeader>{content.footerOther.menu}</FooterHeader>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
             <DecoContainer
@@ -148,7 +174,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
         <p
           className={css({
             textAlign: "center",
-            ...paddingTopBottom(8, 1.2),
+            ...paddingTopBottom(mediaDeps(8, 6, 4), 1.2),
           })}
         >
           &copy; {content.footerOther.rights}
