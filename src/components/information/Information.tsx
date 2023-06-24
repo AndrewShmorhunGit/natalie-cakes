@@ -9,8 +9,8 @@ import {
   InfoSubHeader,
 } from "components/lib/StyledComponents";
 import { IAppBox } from "interfaces/IApp";
-import { colorSys } from "styles/colors";
-import { createGrid, paddingTopBottom } from "styles/general";
+import { palette } from "styles/palette";
+import { createGrid, paddingTopBottom } from "styles/styles";
 
 export function Information({ appBox: appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent;
@@ -19,7 +19,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
     <main
       className={css({
         background: "linear-gradient(180deg, #53352C 0%, #FFF4F4 100%)",
-        borderTop: `0.2rem solid ${colorSys.main_primary_dark}`,
+        borderTop: `0.2rem solid ${palette.main_primary_dark}`,
         padding: "4rem",
       })}
     >
@@ -44,7 +44,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
             <DecoContainer
               width={18}
               height={0.2}
-              color={colorSys.main_primary}
+              color={palette.main_primary}
             />
           </FlexCenterContainer>
           <InfoSubHeader>{content.ingredientsText.h1}</InfoSubHeader>
@@ -71,7 +71,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
             <DecoContainer
               width={18}
               height={0.2}
-              color={colorSys.main_primary}
+              color={palette.main_primary}
             />
           </FlexCenterContainer>
           <InfoSubHeader>{content.designText.h1}</InfoSubHeader>
@@ -92,7 +92,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
             <DecoContainer
               width={18}
               height={0.2}
-              color={colorSys.main_primary}
+              color={palette.main_primary}
             />
           </FlexCenterContainer>
           <InfoSubHeader>{content.orderText.h1}</InfoSubHeader>
@@ -122,7 +122,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
             <DecoContainer
               width={18}
               height={0.2}
-              color={colorSys.main_primary}
+              color={palette.main_primary}
               // props={{
               //   gridColumn: "1/2",
               //   gridRow: "1",

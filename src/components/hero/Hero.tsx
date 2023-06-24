@@ -27,27 +27,27 @@ import {
   createGrid,
   flexCenter,
   paddingTopBottom,
-} from "styles/general";
-import { colorSys } from "styles/imports";
+} from "styles/styles";
+import { palette } from "styles/imports";
 
 export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
   const content: IInnerContent = contentBox.innerContent;
-  const textColor: string = colorSys.white;
-  const mediaDeps = contentBox.setParamsFromMedia;
+  const textColor: string = palette.white;
+  const mediaDeps = contentBox.setMedia;
 
   const logoProps: ILogos = {
-    width: mediaDeps("72", "60", "52"),
-    height: mediaDeps("72", "60", "52"),
+    width: mediaDeps(72, 60, 52, 48),
+    height: mediaDeps(72, 60, 52, 48),
   };
 
   const selectorParams: ISelectorParams = {
-    width: mediaDeps(14, 12, 10),
-    height: mediaDeps(14, 12, 10),
+    width: +mediaDeps(14, 12, 10),
+    height: +mediaDeps(14, 12, 10),
     step: 1.6,
     font: "2.2rem",
-    color: colorSys.white,
-    ringColor: colorSys.main_primary,
-    textPadding: mediaDeps(12, 10, 8),
+    color: palette.white,
+    ringColor: palette.main_primary,
+    textPadding: +mediaDeps(12, 10, 8),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",

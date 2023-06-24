@@ -1,8 +1,8 @@
 import styled from "@emotion/styled/macro";
-import { colorSys, flexCenter, appShadows, mq } from "styles/imports";
+import { palette, flexCenter, appShadows, mq } from "styles/imports";
 import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { paddingTopBottom, wideContainer } from "styles/general";
+import { paddingTopBottom, wideContainer } from "styles/styles";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 
 // STYLED GENERAL CUSTOM COMPONENTS
@@ -12,12 +12,12 @@ const buttonVariants: any = {
   primary: {
     width: "22.4rem",
     height: "6rem",
-    border: `0.3rem solid ${colorSys.main_primary_dark}`,
+    border: `0.3rem solid ${palette.main_primary_dark}`,
     fontSize: "2.4rem",
     fontWeight: "600",
-    color: colorSys.main_primary_dark,
+    color: palette.main_primary_dark,
     "&:hover": {
-      background: colorSys.background_second,
+      background: palette.background_second,
     },
     [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
     [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
@@ -26,9 +26,9 @@ const buttonVariants: any = {
     width: "12rem",
     height: "4.8rem",
     fontSize: "2rem",
-    backgroundColor: colorSys.main_primary,
-    color: colorSys.white,
-    border: `0.2rem solid ${colorSys.white}`,
+    backgroundColor: palette.main_primary,
+    color: palette.white,
+    border: `0.2rem solid ${palette.white}`,
     [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
     [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
   },
@@ -36,7 +36,7 @@ const buttonVariants: any = {
     width: "3.2rem",
     height: "3.2rem",
     fontSize: "1.6rem",
-    border: `0.2rem solid ${colorSys.main_primary_dark}`,
+    border: `0.2rem solid ${palette.main_primary_dark}`,
     textTransform: "none",
     borderRadius: "0.4rem",
     [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
@@ -91,6 +91,13 @@ const HeroSection = styled.main({
   backgroundSize: "cover",
 });
 
+const HeroBackDropFilterContainer = styled.div({
+  ...paddingTopBottom(12, 18),
+  height: "100%",
+  background: "rgb(0,0,0,0.3)",
+  backdropFilter: "blur(1.6rem)",
+});
+
 const MainHeader = styled.h1({
   fontSize: "6.8rem",
   fontWeight: 400,
@@ -121,6 +128,62 @@ const HeroTagLine = styled.h2({
   },
 });
 
+function HeroSelectorDecoContainer({
+  selector,
+  selectorParams,
+}: {
+  selector: IHeroSelectors;
+  selectorParams: ISelectorParams;
+}) {
+  return (
+    <RelativeContainer>
+      <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
+      <DecoContainer
+        width={selectorParams.width}
+        height={selectorParams.height}
+        color={selectorParams.color}
+        props={{
+          ...selectorParams.decoProps,
+        }}
+      />
+      <DecoContainer
+        width={selectorParams.width - selectorParams.step}
+        height={selectorParams.height - selectorParams.step}
+        color={selectorParams.ringColor}
+        props={{
+          ...selectorParams.decoProps,
+          // '&:hover':'',
+        }}
+      />
+      <DecoContainer
+        width={selectorParams.width - 2 * selectorParams.step}
+        height={selectorParams.height - 2 * selectorParams.step}
+        color={selectorParams.color}
+        props={{
+          ...selectorParams.decoProps,
+        }}
+      />
+      <Container
+        className={css({
+          ...flexCenter,
+          transform: `translateY(${selectorParams.textPadding}rem)`,
+        })}
+      >
+        <p
+          className={css({
+            width: `12rem`,
+            textAlign: "center",
+            textTransform: "capitalize",
+            fontSize: `${selectorParams.font}`,
+          })}
+        >
+          {selector.name}
+        </p>
+      </Container>
+    </RelativeContainer>
+  );
+}
+
 // INFO
 
 const InfoContainer = styled.div({
@@ -128,9 +191,9 @@ const InfoContainer = styled.div({
   // height: "auto",
   margin: "1.2rem",
   padding: "1.6rem 1.6rem 3.6rem",
-  border: `solid ${colorSys.main_primary_dark} 0.2rem`,
+  border: `solid ${palette.main_primary_dark} 0.2rem`,
   borderRadius: "1.2rem",
-  backgroundColor: colorSys.background_second,
+  backgroundColor: palette.background_second,
 });
 
 const InfoHeader = styled.ul({
@@ -182,6 +245,13 @@ const InfoParagraph = styled.li({
   },
 });
 
+// FOOTER
+
+const FooterSection = styled.div({
+  backgroundColor: palette.background_second,
+  borderTop: `0.2rem solid ${palette.main_primary_dark}`,
+});
+
 const FooterHeader = styled.h3({
   textAlign: "center",
   textTransform: "capitalize",
@@ -195,13 +265,6 @@ const FooterHeader = styled.h3({
   [mq.mini]: {
     fontSize: "2.8rem",
   },
-});
-
-// FOOTER
-
-const FooterSection = styled.div({
-  backgroundColor: colorSys.background_second,
-  borderTop: `0.2rem solid ${colorSys.main_primary_dark}`,
 });
 
 const FooterParagraph = styled.p({
@@ -261,13 +324,6 @@ const FlexCenterContainer = styled.div({
   ...flexCenter,
 });
 
-const BackDropFilterContainer = styled.div({
-  ...paddingTopBottom(12, 18),
-  height: "100%",
-  background: "rgb(0,0,0,0.3)",
-  backdropFilter: "blur(1.6rem)",
-});
-
 // COMPONENTS
 
 function IconAndTextFooterContacts({
@@ -311,64 +367,10 @@ function DecoContainer({
   );
 }
 
-function HeroSelectorDecoContainer({
-  selector,
-  selectorParams,
-}: {
-  selector: IHeroSelectors;
-  selectorParams: ISelectorParams;
-}) {
-  return (
-    <RelativeContainer>
-      <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
-      <DecoContainer
-        width={selectorParams.width}
-        height={selectorParams.height}
-        color={selectorParams.color}
-        props={{
-          ...selectorParams.decoProps,
-        }}
-      />
-      <DecoContainer
-        width={selectorParams.width - selectorParams.step}
-        height={selectorParams.height - selectorParams.step}
-        color={selectorParams.ringColor}
-        props={{
-          ...selectorParams.decoProps,
-          // '&:hover':'',
-        }}
-      />
-      <DecoContainer
-        width={selectorParams.width - 2 * selectorParams.step}
-        height={selectorParams.height - 2 * selectorParams.step}
-        color={selectorParams.color}
-        props={{
-          ...selectorParams.decoProps,
-        }}
-      />
-      <Container
-        className={css({
-          ...flexCenter,
-          transform: `translateY(${selectorParams.textPadding}rem)`,
-        })}
-      >
-        <p
-          className={css({
-            width: `12rem`,
-            textAlign: "center",
-            textTransform: "capitalize",
-            fontSize: `${selectorParams.font}`,
-          })}
-        >
-          {selector.name}
-        </p>
-      </Container>
-    </RelativeContainer>
-  );
-}
+// COMMON
 
 function MainLogoText({
-  textColor = colorSys.text_dark,
+  textColor = palette.text_dark,
 }: {
   textColor: string;
 }): EmotionJSX.Element {
@@ -437,7 +439,7 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
-  BackDropFilterContainer,
+  HeroBackDropFilterContainer as BackDropFilterContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,

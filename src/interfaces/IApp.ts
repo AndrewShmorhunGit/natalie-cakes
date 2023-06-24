@@ -17,5 +17,10 @@ export interface IAppBox {
   activeStyle: IActiveBtnStyle;
   windowSize: number;
   media: IMedia;
-  setParamsFromMedia: Function;
+  setMedia(
+    bigParam: number | string,
+    mediumParam?: number | string,
+    smallParam?: number | string,
+    minParam?: number | string
+  ): string | number;
 }

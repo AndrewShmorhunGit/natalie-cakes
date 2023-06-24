@@ -1,8 +1,11 @@
 export class MediaService {
   large: string = "@media (min-width: 75em)"; // 1200
-  medium: string = "@media (min-width: 60em) and (max-width: 74.995em)";
+
+  medium: string = "@media (min-width: 60em) and (max-width: 74.995em)"; // 1200 - 960
+
   small: string = "@media (min-width: 41.25em) and (max-width: 59.995em) "; // 960
-  mini: string = "@media (max-width: 41.24em)"; // 660
+
+  mini: string = "@media (max-width: 41.24em)"; // 960 - 660
 
   setMQ(maxWidth: number, minWidth: number | null = null): string {
     if (minWidth === null) {

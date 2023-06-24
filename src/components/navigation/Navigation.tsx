@@ -8,7 +8,7 @@ import {
 } from "components/lib/StyledComponents";
 import { MainLogo } from "components/imports";
 import { css } from "@emotion/css";
-import { colorSys, mq } from "styles/imports";
+import { palette, mq } from "styles/imports";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { IAppBox } from "interfaces/IApp";
 
@@ -25,8 +25,8 @@ export function Navigation({
           minWidth: "32rem",
         })}
       >
-        <MainLogo width="64" height="64" fill={colorSys.white} />
-        <MainLogoText textColor={colorSys.white} />
+        <MainLogo width="64" height="64" fill={palette.white} />
+        <MainLogoText textColor={palette.white} />
       </FlexRowContainer>
 
       <FlexRowContainer

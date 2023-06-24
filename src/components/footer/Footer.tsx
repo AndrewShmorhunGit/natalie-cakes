@@ -21,22 +21,22 @@ import {
 import { IAppBox } from "interfaces/IApp";
 import { IFooterContacts } from "interfaces/IFooter";
 import { ILogos } from "interfaces/ILogos";
-import { colorSys } from "styles/colors";
+import { palette } from "styles/palette";
 import {
   container,
   createGrid,
   paddingLeftRight,
   paddingTopBottom,
-} from "styles/general";
+} from "styles/styles";
 // import { mq } from "styles/media-queries";
 
 export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
   const content = contentBox.innerContent;
-  const mediaDeps = contentBox.setParamsFromMedia;
+  const mediaDeps = contentBox.setMedia;
   const logoPropsContacts: ILogos = {
     width: "32",
     height: "32",
-    fill: colorSys.main_primary_dark,
+    fill: palette.main_primary_dark,
   };
 
   const footerContacts: IFooterContacts[] = [
@@ -59,7 +59,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
       <Container
         className={css({
           ...container,
-          color: colorSys.text_dark,
+          color: palette.text_dark,
         })}
       >
         <FlexCenterContainer className={css({ ...paddingTopBottom(2, 5.2) })}>
@@ -68,9 +68,9 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
               ...paddingLeftRight(0, 1.6),
             })}
           >
-            <MainLogo width="6rem" height="6rem" fill={colorSys.text_dark} />
+            <MainLogo width="6rem" height="6rem" fill={palette.text_dark} />
           </FlexCenterContainer>
-          <MainLogoText textColor={colorSys.text_dark} />
+          <MainLogoText textColor={palette.text_dark} />
         </FlexCenterContainer>
         <Container
           className={css({
@@ -133,7 +133,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
               <InstagramLogo
                 height={"36 "}
                 width={"36"}
-                fill={colorSys.main_primary_dark}
+                fill={palette.main_primary_dark}
               />
             </FlexCenterContainer>
           </FlexColumnContainer>
@@ -146,7 +146,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
             <DecoContainer
               width={30}
               height={0.2}
-              color={colorSys.main_primary_dark}
+              color={palette.main_primary_dark}
             />
           </FlexCenterContainer>
           <FlexCenterContainer
@@ -158,10 +158,10 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
                   key={position}
                   className={css({
                     textTransform: "capitalize",
-                    color: colorSys.main_primary_dark,
+                    color: palette.main_primary_dark,
                     cursor: "pointer",
                     "&:hover": {
-                      color: colorSys.text_dark,
+                      color: palette.text_dark,
                     },
                   })}
                 >
