@@ -144,6 +144,9 @@ function HeroSelectorDecoContainer({
         color={selectorParams.color}
         props={{
           ...selectorParams.decoProps,
+          // border: `solid ${palette.main_primary_dark} .2rem`,
+
+          boxShadow: appShadows.buttonActive,
         }}
       />
       <DecoContainer
@@ -188,10 +191,12 @@ function HeroSelectorDecoContainer({
 
 const InfoContainer = styled.div({
   display: "flex",
-  // height: "auto",
+  minWidth: "32rem",
+  maxWidth: "80rem",
   margin: "1.2rem",
   padding: "1.6rem 1.6rem 3.6rem",
-  border: `solid ${palette.main_primary_dark} 0.2rem`,
+  border: `solid ${palette.main_primary_dark} .2rem`,
+  boxShadow: appShadows.buttonActive,
   borderRadius: "1.2rem",
   backgroundColor: palette.background_second,
 });

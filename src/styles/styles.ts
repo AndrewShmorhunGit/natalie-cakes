@@ -2,6 +2,7 @@ import { palette } from "./imports";
 import { mq } from "./media-queries";
 
 // Absolute
+
 export const absoluteCenter = {
   position: "absolute",
   left: "50%",

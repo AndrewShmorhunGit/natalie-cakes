@@ -7,10 +7,16 @@ import {
   InfoHeader,
   InfoParagraph,
   InfoSubHeader,
+  MainHeader,
 } from "components/lib/StyledComponents";
 import { IAppBox } from "interfaces/IApp";
 import { palette } from "styles/palette";
-import { createGrid, paddingTopBottom } from "styles/styles";
+import {
+  appShadows,
+  container,
+  createGrid,
+  paddingTopBottom,
+} from "styles/styles";
 
 export function Information({ appBox: appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent;
@@ -23,126 +29,201 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
         padding: "4rem",
       })}
     >
+      <MainHeader
+        className={css({ color: palette.white, ...paddingTopBottom(1.2, 4) })}
+      >
+        Information
+      </MainHeader>
+
       <Container
         className={css({
           ...createGrid(1, 4),
-          columnGap: "2rem",
-          rowGap: "3rem",
+          ...container,
+          gap: "12rem",
         })}
       >
-        <InfoContainer
+        <Container
           className={css({
-            // gridColumn: "1/3",
             gridRow: "1",
-            display: "flex",
-            flexDirection: "column",
+            ...createGrid("2fr 1fr", 1),
           })}
         >
-          <InfoHeader className={css({})}>{content.ingredients}</InfoHeader>
+          <InfoContainer
+            className={css({
+              display: "flex",
+              flexDirection: "column",
+              zIndex: "2",
+            })}
+          >
+            <InfoHeader className={css({})}>{content.ingredients}</InfoHeader>
 
-          <FlexCenterContainer>
+            <FlexCenterContainer>
+              <DecoContainer
+                width={18}
+                height={0.2}
+                color={palette.main_primary}
+              />
+            </FlexCenterContainer>
+
+            <InfoSubHeader>{content.ingredientsText.h1}</InfoSubHeader>
+            <InfoParagraph>{content.ingredientsText.p1}</InfoParagraph>
+            <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
+            <InfoParagraph>{content.ingredientsText.p2}</InfoParagraph>
+          </InfoContainer>
+          <Container
+            className={css({
+              position: "relative",
+            })}
+          >
             <DecoContainer
-              width={18}
-              height={0.2}
+              width={+setMedia(24, 20, 16, 14)}
+              height={+setMedia(24, 20, 16, 14)}
               color={palette.main_primary}
+              props={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(calc(-50% - 2rem ), calc(-50%))",
+                borderRadius: "50%",
+                border: `solid ${palette.main_primary_dark} .2rem`,
+                boxShadow: appShadows.buttonActive,
+              }}
             />
-          </FlexCenterContainer>
-          <InfoSubHeader>{content.ingredientsText.h1}</InfoSubHeader>
-          <InfoParagraph>{content.ingredientsText.p1}</InfoParagraph>
-          <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
-          <InfoParagraph>{content.ingredientsText.p2}</InfoParagraph>
-        </InfoContainer>
-        <DecoContainer
-          width={10}
-          height={10}
-          color={"red"}
-          props={{ gridColumn: "3/-1", gridRow: "1" }}
-        />
-        <InfoContainer
+          </Container>
+        </Container>
+
+        <Container
           className={css({
-            // gridColumn: "2/-1",
             gridRow: "2",
-            display: "flex",
-            flexDirection: "column",
+            ...createGrid("1fr 2fr", 1),
           })}
         >
-          <InfoHeader className={css({})}>{content.design}</InfoHeader>
-          <FlexCenterContainer>
+          <Container className={css({ position: "relative" })}>
             <DecoContainer
-              width={18}
-              height={0.2}
+              width={+setMedia(24, 20, 16, 14)}
+              height={+setMedia(24, 20, 16, 14)}
               color={palette.main_primary}
+              props={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(calc(-50% + 2rem ), calc(-50%))",
+                borderRadius: "50%",
+                border: `solid ${palette.main_primary_dark} .2rem`,
+                boxShadow: appShadows.buttonActive,
+              }}
             />
-          </FlexCenterContainer>
-          <InfoSubHeader>{content.designText.h1}</InfoSubHeader>
-          <InfoParagraph>{content.designText.p1}</InfoParagraph>
-          <InfoSubHeader>{content.designText.h2}</InfoSubHeader>
-          <InfoParagraph>{content.designText.p2}</InfoParagraph>
-        </InfoContainer>
-        <InfoContainer
-          className={css({
-            // gridColumn: "1/3",
-            gridRow: "3",
-            display: "flex",
-            flexDirection: "column",
-          })}
-        >
-          <InfoHeader>{content.order}</InfoHeader>
-          <FlexCenterContainer>
-            <DecoContainer
-              width={18}
-              height={0.2}
-              color={palette.main_primary}
-            />
-          </FlexCenterContainer>
-          <InfoSubHeader>{content.orderText.h1}</InfoSubHeader>
-          <InfoParagraph>{content.orderText.p1}</InfoParagraph>
-          <InfoSubHeader>{content.orderText.h2}</InfoSubHeader>
-          <InfoParagraph>{content.orderText.p2}</InfoParagraph>
-        </InfoContainer>
+          </Container>
+          <InfoContainer
+            className={css({
+              display: "flex",
+              flexDirection: "column",
+              zIndex: "2",
+            })}
+          >
+            <InfoHeader>{content.design}</InfoHeader>
 
-        <InfoContainer
+            <FlexCenterContainer>
+              <DecoContainer
+                width={18}
+                height={0.2}
+                color={palette.main_primary}
+              />
+            </FlexCenterContainer>
+
+            <InfoSubHeader>{content.designText.h1}</InfoSubHeader>
+            <InfoParagraph>{content.designText.p1}</InfoParagraph>
+            <InfoSubHeader>{content.designText.h2}</InfoSubHeader>
+            <InfoParagraph>{content.designText.p2}</InfoParagraph>
+          </InfoContainer>
+        </Container>
+
+        <Container
           className={css({
-            gridColumn: "1/-1",
-            gridRow: "4",
-            ...createGrid("1fr 4fr ", 2),
-            // position: "relative",
+            gridRow: "3",
           })}
         >
-          <Container>
-            <InfoHeader
+          <Container
+            className={css({
+              ...createGrid("2fr 1fr", 1),
+            })}
+          >
+            <InfoContainer
               className={css({
-                // gridColumn: "1/2",
-                // gridRow: "1",
-                ...paddingTopBottom(2, 0),
+                display: "flex",
+                flexDirection: "column",
               })}
             >
-              {content.important}
-            </InfoHeader>
-            <DecoContainer
-              width={18}
-              height={0.2}
-              color={palette.main_primary}
-              // props={{
-              //   gridColumn: "1/2",
-              //   gridRow: "1",
-              // }}
-            />
-            <InfoHeader
+              <InfoHeader>{content.order}</InfoHeader>
+              <FlexCenterContainer>
+                <DecoContainer
+                  width={18}
+                  height={0.2}
+                  color={palette.main_primary}
+                />
+              </FlexCenterContainer>
+              <InfoSubHeader>{content.orderText.h1}</InfoSubHeader>
+              <InfoParagraph>{content.orderText.p1}</InfoParagraph>
+              <InfoSubHeader>{content.orderText.h2}</InfoSubHeader>
+              <InfoParagraph>{content.orderText.p2}</InfoParagraph>
+            </InfoContainer>
+            <Container
               className={css({
-                // gridColumn: "1/2",
-                // gridRow: "1",
-                ...paddingTopBottom(0, 4),
+                position: "relative",
               })}
             >
-              {content.importantText.h1}
-            </InfoHeader>
+              <DecoContainer
+                width={+setMedia(24, 20, 16, 14)}
+                height={+setMedia(24, 20, 16, 14)}
+                color={palette.main_primary}
+                props={{
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(calc(-50% - 2rem ), calc(-50%))",
+                  borderRadius: "50%",
+                  border: `solid ${palette.main_primary_dark} .2rem`,
+                  boxShadow: appShadows.buttonActive,
+                }}
+              />
+            </Container>
           </Container>
-          <Container className={css({ gridColumn: "2/-1", gridRow: "1/-1" })}>
-            <InfoParagraph>{content.importantText.p1}</InfoParagraph>
-            <InfoParagraph>{content.importantText.p2}</InfoParagraph>
-          </Container>
-        </InfoContainer>
+        </Container>
+        <FlexCenterContainer>
+          <InfoContainer
+            className={css({
+              gridColumn: "1/-1",
+              gridRow: "4",
+              ...createGrid("1fr 4fr ", 2),
+            })}
+          >
+            <Container>
+              <InfoHeader
+                className={css({
+                  ...paddingTopBottom(2, 0),
+                })}
+              >
+                {content.important}
+              </InfoHeader>
+              <DecoContainer
+                width={18}
+                height={0.2}
+                color={palette.main_primary}
+              />
+              <InfoHeader
+                className={css({
+                  ...paddingTopBottom(0, 4),
+                })}
+              >
+                {content.importantText.h1}
+              </InfoHeader>
+            </Container>
+            <Container className={css({ gridColumn: "2/-1", gridRow: "1/-1" })}>
+              <InfoParagraph>{content.importantText.p1}</InfoParagraph>
+              <InfoParagraph>{content.importantText.p2}</InfoParagraph>
+            </Container>
+          </InfoContainer>
+        </FlexCenterContainer>
       </Container>
     </main>
   );
