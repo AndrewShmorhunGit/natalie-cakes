@@ -39,24 +39,17 @@ export function Navigation({
           // },
         })}
       >
-        <Container
-          className={css({
-            [mq.small]: { display: "none" },
-            [mq.mini]: { display: "none" },
-          })}
-        >
-          <Button variant="secondary">{appBox.innerContent.about}</Button>
-          <Button variant="secondary">{appBox.innerContent.contacts}</Button>
-          <Button variant="primary">{appBox.innerContent.makeSweet}</Button>
-        </Container>
-        <Container
-          className={css({
-            [mq.large]: { display: "none" },
-            [mq.medium]: { display: "none" },
-          })}
-        >
-          <h3>(Burger)</h3>
-        </Container>
+        {appBox.isMedia === "big" || appBox.isMedia === "medium" ? (
+          <Container>
+            <Button variant="secondary">{appBox.innerContent.about}</Button>
+            <Button variant="secondary">{appBox.innerContent.contacts}</Button>
+            <Button variant="primary">{appBox.innerContent.makeSweet}</Button>
+          </Container>
+        ) : (
+          <Container>
+            <h3>(Burger)</h3>
+          </Container>
+        )}
         <FlexColumnContainer
           className={css({
             gap: "0.4rem",

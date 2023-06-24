@@ -30,24 +30,24 @@ import {
 } from "styles/styles";
 import { palette } from "styles/imports";
 
-export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
-  const content: IInnerContent = contentBox.innerContent;
+export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
+  const content: IInnerContent = appBox.innerContent;
   const textColor: string = palette.white;
-  const mediaDeps = contentBox.setMedia;
+  const setMedia = appBox.setMedia;
 
   const logoProps: ILogos = {
-    width: mediaDeps(72, 60, 52, 48),
-    height: mediaDeps(72, 60, 52, 48),
+    width: setMedia(72, 60, 52, 48),
+    height: setMedia(72, 60, 52, 48),
   };
 
   const selectorParams: ISelectorParams = {
-    width: +mediaDeps(14, 12, 10),
-    height: +mediaDeps(14, 12, 10),
+    width: +setMedia(14, 12, 10),
+    height: +setMedia(14, 12, 10),
     step: 1.6,
     font: "2.2rem",
     color: palette.white,
     ringColor: palette.main_primary,
-    textPadding: +mediaDeps(12, 10, 8),
+    textPadding: +setMedia(12, 10, 8),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
@@ -120,7 +120,7 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
             })}
           >
             <DecoContainer
-              width={contentBox.isLanguage === "ru" ? 26 : 16}
+              width={appBox.isLanguage === "ru" ? 26 : 16}
               height={0.2}
               color={textColor}
             />
@@ -128,7 +128,7 @@ export function Hero({ appBox: contentBox }: { appBox: IAppBox }) {
 
           <Container
             className={css({
-              ...createGrid(`repeat(4,${mediaDeps(20, 18, 12)}rem)`, 1),
+              ...createGrid(`repeat(4,${setMedia(20, 18, 12)}rem)`, 1),
               ...paddingTopBottom(6),
             })}
           >

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 interface IMediaSettings {
   windowSize: number;
-  media: IMedia;
+  isMedia: string;
   setMedia(
     bigParam: number | string,
     mediumParam?: number | string,
@@ -14,8 +14,19 @@ interface IMediaSettings {
 
 export const useMedia = (): IMediaSettings => {
   const [isWindowSize, setWindowSize] = useState<number>(window.innerWidth);
+
+  const checkMQSize = (): "big" | "medium" | "small" | "mini" => {
+    if (isWindowSize >= 1200) return "big";
+    if (isWindowSize < 1200 && isWindowSize >= 960) return "medium";
+    if (isWindowSize < 960 && isWindowSize >= 660) return "small";
+    if (isWindowSize < 660) return "mini";
+    return "big";
+  };
+
   // Set MQ state
-  const [isMQ, setIsMQ] = useState<"big" | "medium" | "small" | "mini">("big");
+  const [isMQ, setIsMQ] = useState<"big" | "medium" | "small" | "mini">(
+    checkMQSize()
+  );
 
   const handleWindowResize = () => {
     const size = window.innerWidth;
@@ -41,12 +52,12 @@ export const useMedia = (): IMediaSettings => {
     mini: isMQ === "mini",
   };
 
-  function setMedia(
+  const setMedia = (
     bigParam: number | string,
     mediumParam: number | string = bigParam,
     smallParam: number | string = mediumParam,
     minParam: number | string = smallParam
-  ): string | number {
+  ): string | number => {
     if (typeof bigParam === "undefined") {
       return "";
     }
@@ -60,7 +71,7 @@ export const useMedia = (): IMediaSettings => {
       : minParam;
 
     return result;
-  }
+  };
 
-  return { windowSize: isWindowSize, media, setMedia };
+  return { windowSize: isWindowSize, isMedia: isMQ, setMedia };
 };

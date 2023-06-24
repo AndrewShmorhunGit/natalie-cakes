@@ -32,7 +32,7 @@ export function App() {
     languages: languageSettings.languages,
     // useMedia
     windowSize: mediaSettings.windowSize,
-    media: mediaSettings.media,
+    isMedia: mediaSettings.isMedia,
     setMedia: mediaSettings.setMedia,
   };
 

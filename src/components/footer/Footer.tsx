@@ -32,7 +32,7 @@ import {
 
 export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
   const content = contentBox.innerContent;
-  const mediaDeps = contentBox.setMedia;
+  const setMedia = contentBox.setMedia;
   const logoPropsContacts: ILogos = {
     width: "32",
     height: "32",
@@ -76,8 +76,8 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           className={css({
             // ...createGrid("1fr 1.2fr 1fr", 1),
             ...createGrid(
-              mediaDeps("1fr 2fr 1fr", "1fr 1.5fr 1fr", "1fr 1.2fr 1fr", "1fr"),
-              mediaDeps(1, 1, 1, "repeat(3, auto)")
+              setMedia("1fr 2fr 1fr", "1fr 1.5fr 1fr", "1fr 1.2fr 1fr", "1fr"),
+              setMedia(1, 1, 1, "repeat(3, auto)")
             ),
             rowGap: "4rem",
 
@@ -88,8 +88,8 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({
               gridColumn: "1/2",
-              gridRow: mediaDeps("1"),
-              gap: mediaDeps("2rem", "1.6rem", "1.2rem"),
+              gridRow: setMedia("1"),
+              gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >
             <FooterHeader>{content.footerOther.contacts}</FooterHeader>
@@ -108,9 +108,9 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           </FlexColumnContainer>
           <FlexColumnContainer
             className={css({
-              gridColumn: mediaDeps("2/3", "2/3", "2/3", "1"),
-              gridRow: mediaDeps("1", "1", "1", "2"),
-              gap: mediaDeps("2rem", "1.6rem", "1.2rem"),
+              gridColumn: setMedia("2/3", "2/3", "2/3", "1"),
+              gridRow: setMedia("1", "1", "1", "2"),
+              gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >
             <FooterHeader>{content.footerOther.question}</FooterHeader>
@@ -123,9 +123,9 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           </FlexColumnContainer>
           <FlexColumnContainer
             className={css({
-              gridColumn: mediaDeps("3/-1", "3/-1", "3/-1", "1"),
-              gridRow: mediaDeps("1", "1", "1", "3"),
-              gap: mediaDeps("2rem", "1.6rem", "1.2rem"),
+              gridColumn: setMedia("3/-1", "3/-1", "3/-1", "1"),
+              gridRow: setMedia("1", "1", "1", "3"),
+              gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >
             <FooterHeader>{content.footerOther.follow}</FooterHeader>
@@ -139,7 +139,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
           </FlexColumnContainer>
         </Container>
         <FlexColumnContainer
-          className={css({ ...paddingTopBottom(mediaDeps(8, 6, 4), 2) })}
+          className={css({ ...paddingTopBottom(setMedia(8, 6, 4), 2) })}
         >
           <FooterHeader>{content.footerOther.menu}</FooterHeader>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
@@ -174,7 +174,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
         <p
           className={css({
             textAlign: "center",
-            ...paddingTopBottom(mediaDeps(8, 6, 4), 1.2),
+            ...paddingTopBottom(setMedia(8, 6, 4), 1.2),
           })}
         >
           &copy; {content.footerOther.rights}

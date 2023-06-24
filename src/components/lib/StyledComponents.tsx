@@ -1,5 +1,5 @@
 import styled from "@emotion/styled/macro";
-import { palette, flexCenter, appShadows, mq } from "styles/imports";
+import { palette, appShadows, mq, styles } from "styles/imports";
 import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import { paddingTopBottom, wideContainer } from "styles/styles";
@@ -165,7 +165,7 @@ function HeroSelectorDecoContainer({
       />
       <Container
         className={css({
-          ...flexCenter,
+          ...styles.flexCenter,
           transform: `translateY(${selectorParams.textPadding}rem)`,
         })}
       >
@@ -321,7 +321,7 @@ const FlexColumnContainer = styled.div({
   flexDirection: "column",
 });
 const FlexCenterContainer = styled.div({
-  ...flexCenter,
+  ...styles.flexCenter,
 });
 
 // COMPONENTS

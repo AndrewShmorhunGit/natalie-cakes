@@ -1,6 +1,6 @@
 import { palette } from "./palette";
 import { mq } from "./media-queries";
-import { flexCenter, container, fonts } from "./styles";
+import * as styles from "./styles";
 import { appShadows } from "./styles";
 
-export { palette, mq, flexCenter, container, appShadows, fonts };
+export { palette, mq, styles, appShadows };

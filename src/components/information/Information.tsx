@@ -14,7 +14,7 @@ import { createGrid, paddingTopBottom } from "styles/styles";
 
 export function Information({ appBox: appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent;
-
+  const setMedia = appBox.setMedia;
   return (
     <main
       className={css({
@@ -52,12 +52,12 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
           <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
           <InfoParagraph>{content.ingredientsText.p2}</InfoParagraph>
         </InfoContainer>
-        {/* <DecoContainer
+        <DecoContainer
           width={10}
           height={10}
           color={"red"}
           props={{ gridColumn: "3/-1", gridRow: "1" }}
-        /> */}
+        />
         <InfoContainer
           className={css({
             // gridColumn: "2/-1",
