@@ -20,7 +20,8 @@ import {
 
 export function Information({ appBox: appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent;
-  const setMedia = appBox.setMedia;
+  const { setMedia, isMedia } = appBox;
+
   return (
     <main
       className={css({
@@ -37,9 +38,10 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
 
       <Container
         className={css({
-          ...createGrid(1, 4),
+          display: "flex",
+          flexDirection: "column",
           ...container,
-          gap: "12rem",
+          rowGap: "4rem",
         })}
       >
         <Container
@@ -55,7 +57,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
               zIndex: "2",
             })}
           >
-            <InfoHeader className={css({})}>{content.ingredients}</InfoHeader>
+            <InfoHeader>{content.ingredients}</InfoHeader>
 
             <FlexCenterContainer>
               <DecoContainer
@@ -152,6 +154,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
               className={css({
                 display: "flex",
                 flexDirection: "column",
+                zIndex: "2",
               })}
             >
               <InfoHeader>{content.order}</InfoHeader>
@@ -191,36 +194,58 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
         </Container>
         <FlexCenterContainer>
           <InfoContainer
-            className={css({
-              gridColumn: "1/-1",
-              gridRow: "4",
-              ...createGrid("1fr 4fr ", 2),
-            })}
+            className={css(
+              isMedia.mini
+                ? { display: "flex", flexDirection: "column" }
+                : {
+                    gridColumn: "1/-1",
+                    gridRow: "4",
+                    ...createGrid(`1fr ${setMedia(3, 4, 5, 0)}fr`, 2),
+                    marginLeft: "2rem",
+                  }
+            )}
           >
-            <Container>
+            <Container
+              className={css({
+                ...createGrid(1, 2),
+              })}
+            >
+              <Container>
+                <InfoHeader className={css({ paddingTop: "4rem" })}>
+                  {content.important}
+                </InfoHeader>
+                <FlexCenterContainer>
+                  <DecoContainer
+                    width={18}
+                    height={0.2}
+                    color={palette.main_primary}
+                  />
+                </FlexCenterContainer>
+              </Container>
               <InfoHeader
-                className={css({
-                  ...paddingTopBottom(2, 0),
-                })}
-              >
-                {content.important}
-              </InfoHeader>
-              <DecoContainer
-                width={18}
-                height={0.2}
-                color={palette.main_primary}
-              />
-              <InfoHeader
-                className={css({
-                  ...paddingTopBottom(0, 4),
-                })}
+                className={css(
+                  isMedia.mini && {
+                    paddingTop: "4rem",
+                  }
+                )}
               >
                 {content.importantText.h1}
               </InfoHeader>
             </Container>
-            <Container className={css({ gridColumn: "2/-1", gridRow: "1/-1" })}>
-              <InfoParagraph>{content.importantText.p1}</InfoParagraph>
-              <InfoParagraph>{content.importantText.p2}</InfoParagraph>
+            <Container
+            // className={css({ gridColumn: "2/-1", gridRow: "1/-1" })}
+            >
+              <FlexCenterContainer
+                className={css({
+                  flexDirection: "column",
+                  gap: "3.2rem",
+                  // paddingTop: "3.6rem",
+                  padding: `${isMedia.mini ? "1.6" : "4.4"}rem`,
+                })}
+              >
+                <InfoParagraph>{content.importantText.p1}</InfoParagraph>
+                <InfoParagraph>{content.importantText.p2}</InfoParagraph>
+              </FlexCenterContainer>
             </Container>
           </InfoContainer>
         </FlexCenterContainer>

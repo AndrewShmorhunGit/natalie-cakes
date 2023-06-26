@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 interface IMediaSettings {
   windowSize: number;
-  isMedia: string;
+  isMedia: IMedia;
   setMedia(
     bigParam: number | string,
     mediumParam?: number | string,
@@ -73,5 +73,5 @@ export const useMedia = (): IMediaSettings => {
     return result;
   };
 
-  return { windowSize: isWindowSize, isMedia: isMQ, setMedia };
+  return { windowSize: isWindowSize, isMedia: media, setMedia };
 };

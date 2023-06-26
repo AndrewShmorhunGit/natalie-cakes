@@ -16,7 +16,7 @@ export interface IAppBox {
   innerContent: IInnerContent;
   languages: ILanguages;
   windowSize: number;
-  isMedia: string;
+  isMedia: IMedia;
   setMedia(
     bigParam: number | string,
     mediumParam?: number | string,

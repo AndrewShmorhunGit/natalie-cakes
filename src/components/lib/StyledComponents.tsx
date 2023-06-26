@@ -192,7 +192,7 @@ function HeroSelectorDecoContainer({
 const InfoContainer = styled.div({
   display: "flex",
   minWidth: "32rem",
-  maxWidth: "80rem",
+  maxWidth: "120rem",
   margin: "1.2rem",
   padding: "1.6rem 1.6rem 3.6rem",
   border: `solid ${palette.main_primary_dark} .2rem`,
@@ -220,15 +220,15 @@ const InfoHeader = styled.ul({
 const InfoSubHeader = styled.h4({
   // textAlign: "center",
   textTransform: "capitalize",
-  fontSize: "2.4rem",
+  fontSize: "2.8rem",
   fontWeight: 400,
   paddingBottom: "0.4rem",
   paddingTop: "1.2rem",
   [mq.medium]: {
-    fontSize: "2rem",
+    fontSize: "2.4rem",
   },
   [mq.small]: {
-    fontSize: "1.8rem",
+    fontSize: "2rem",
   },
   [mq.mini]: {
     fontSize: "1.8rem",
@@ -243,10 +243,10 @@ const InfoParagraph = styled.li({
     fontSize: "1.6rem",
   },
   [mq.small]: {
-    fontSize: "1.4rem",
+    fontSize: "1.5rem",
   },
   [mq.mini]: {
-    fontSize: "1.4rem",
+    fontSize: "1.5rem",
   },
 });
 

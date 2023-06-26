@@ -18,6 +18,8 @@ export function Navigation({
 }: {
   appBox: IAppBox;
 }): EmotionJSX.Element {
+  const setMedia = appBox.setMedia;
+
   return (
     <NavigationSection>
       <FlexRowContainer
@@ -26,7 +28,11 @@ export function Navigation({
           minWidth: "32rem",
         })}
       >
-        <MainLogo width="64" height="64" fill={palette.white} />
+        <MainLogo
+          width={setMedia(64, 62, 60, 58)}
+          height={setMedia(64, 62, 60, 58)}
+          fill={palette.white}
+        />
         <MainLogoText textColor={palette.white} />
       </FlexRowContainer>
 
@@ -39,10 +45,12 @@ export function Navigation({
           // },
         })}
       >
-        {appBox.isMedia === "big" || appBox.isMedia === "medium" ? (
+        {appBox.isMedia.big || appBox.isMedia.medium ? (
           <Container>
             <Button variant="secondary">{appBox.innerContent.about}</Button>
-            <Button variant="secondary">{appBox.innerContent.contacts}</Button>
+            <Button variant="secondary" className={css({ margin: "0 3.6rem" })}>
+              {appBox.innerContent.contacts}
+            </Button>
             <Button variant="primary">{appBox.innerContent.makeSweet}</Button>
           </Container>
         ) : (
