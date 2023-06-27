@@ -48,7 +48,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
     font: "2.2rem",
     color: palette.white,
     ringColor: palette.main_primary,
-    textPadding: +setMedia(12, 10, 8),
+    textPadding: +setMedia(12, 10, 8, 16),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
@@ -105,16 +105,19 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
           >
             {content.heroTagline}
           </HeroTagLine>
-          <h2
-            className={css({
-              ...flexCenter,
-              ...paddingTopBottom(0, 2),
-              fontSize: "4.4rem",
-              fontWeight: 400,
-            })}
-          >
-            {content.slogan}:
-          </h2>
+          <Container className={css({ display: "grid" })}>
+            <h2
+              className={css({
+                alignSelf: "center",
+                // ...flexCenter,
+                ...paddingTopBottom(0, 2),
+                fontSize: "4.4rem",
+                fontWeight: 400,
+              })}
+            >
+              {content.slogan}:
+            </h2>
+          </Container>
           <FlexCenterContainer
             className={css({
               ...paddingTopBottom(0, 8),
@@ -128,15 +131,20 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
           </FlexCenterContainer>
 
           <Container
-            className={css({
-              ...createGrid(`repeat(4,${setMedia(20, 18, 12)}rem)`, 1),
-              ...paddingTopBottom(6),
-            })}
+            className={css(
+              appBox.isMedia.mini
+                ? { ...createGrid("repeat(2, 16rem)", "repeat(2, 20rem)") }
+                : {
+                    ...createGrid(`repeat(4,${setMedia(20, 18, 12)}rem)`, 1),
+                    ...paddingTopBottom(6),
+                  }
+            )}
           >
             {/* HeroSelectors */}
             {heroSelectors.map((selector) => (
               <HeroSelectorDecoContainer
                 key={selector.name}
+                clickHandler={() => console.log(selector.name)}
                 selector={selector}
                 selectorParams={selectorParams}
               />

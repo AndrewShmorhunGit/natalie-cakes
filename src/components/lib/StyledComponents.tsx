@@ -131,18 +131,27 @@ const HeroTagLine = styled.h2({
 function HeroSelectorDecoContainer({
   selector,
   selectorParams,
+  clickHandler,
+  style,
 }: {
   selector: IHeroSelectors;
   selectorParams: ISelectorParams;
-}) {
+  clickHandler?: () => void;
+  style?: React.CSSProperties | undefined;
+}): EmotionJSX.Element {
   return (
-    <RelativeContainer>
+    <RelativeContainer
+      className={css({ cursor: "pointer" })}
+      onClick={(e) => {
+        typeof clickHandler !== "undefined" && clickHandler();
+      }}
+    >
       <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
       <DecoContainer
         width={selectorParams.width}
         height={selectorParams.height}
         color={selectorParams.color}
-        props={{
+        style={{
           ...selectorParams.decoProps,
           // border: `solid ${palette.main_primary_dark} .2rem`,
 
@@ -153,7 +162,7 @@ function HeroSelectorDecoContainer({
         width={selectorParams.width - selectorParams.step}
         height={selectorParams.height - selectorParams.step}
         color={selectorParams.ringColor}
-        props={{
+        style={{
           ...selectorParams.decoProps,
           // '&:hover':'',
         }}
@@ -162,7 +171,7 @@ function HeroSelectorDecoContainer({
         width={selectorParams.width - 2 * selectorParams.step}
         height={selectorParams.height - 2 * selectorParams.step}
         color={selectorParams.color}
-        props={{
+        style={{
           ...selectorParams.decoProps,
         }}
       />
@@ -248,6 +257,13 @@ const InfoParagraph = styled.li({
   [mq.mini]: {
     fontSize: "1.5rem",
   },
+});
+
+const InfoImage = styled.img({
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(calc(-50% - 2rem ), calc(-50%))",
 });
 
 // FOOTER
@@ -352,12 +368,12 @@ function DecoContainer({
   width,
   height,
   color,
-  props,
+  style,
 }: {
   width: number;
   height: number;
   color: string;
-  props?: React.CSSProperties | undefined;
+  style?: React.CSSProperties | undefined;
 }) {
   return (
     <FlexCenterContainer
@@ -366,7 +382,7 @@ function DecoContainer({
         height: `${height}rem`,
         background: `${color}`,
         borderRadius: "1rem",
-        ...props,
+        ...style,
       })}
     ></FlexCenterContainer>
   );
@@ -445,6 +461,7 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   HeroBackDropFilterContainer as BackDropFilterContainer,
+  InfoImage,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,

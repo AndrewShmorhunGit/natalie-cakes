@@ -77,4 +77,20 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 // Marks
 
-- Horizontal scroll appear in Information section
+<!-- - Horizontal scroll appear in Information section -->
+
+### Information Section
+
+- [ ] Cards create template
+- [ ] Styled Decoration of Important area
+
+## Styling
+
+- [ ] Add gradients to the palette
+
+## General
+
+- [ ] Set Up page routing in `./public` folder
+- [ ] Use "Dialog" for modals
+- [ ] Use local storage for current lang
+- [ ] Burger

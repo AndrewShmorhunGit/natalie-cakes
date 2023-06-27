@@ -1,10 +1,12 @@
 import { css } from "@emotion/css";
+// import one from "content/images/information/one.png";
 import {
   Container,
   DecoContainer,
   FlexCenterContainer,
   InfoContainer,
   InfoHeader,
+  InfoImage,
   InfoParagraph,
   InfoSubHeader,
   MainHeader,
@@ -18,7 +20,7 @@ import {
   paddingTopBottom,
 } from "styles/styles";
 
-export function Information({ appBox: appBox }: { appBox: IAppBox }) {
+export function Information({ appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent;
   const { setMedia, isMedia } = appBox;
 
@@ -77,11 +79,21 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
               position: "relative",
             })}
           >
+            <InfoImage
+              // src={one}
+              alt="number 1 from gingerbread"
+              className={css({
+                width: "10rem",
+                height: "10rem",
+                zIndex: "2",
+              })}
+            />
+
             <DecoContainer
               width={+setMedia(24, 20, 16, 14)}
               height={+setMedia(24, 20, 16, 14)}
-              color={palette.main_primary}
-              props={{
+              color={palette.white}
+              style={{
                 position: "absolute",
                 left: "50%",
                 top: "50%",
@@ -105,7 +117,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
               width={+setMedia(24, 20, 16, 14)}
               height={+setMedia(24, 20, 16, 14)}
               color={palette.main_primary}
-              props={{
+              style={{
                 position: "absolute",
                 left: "50%",
                 top: "50%",
@@ -179,7 +191,7 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
                 width={+setMedia(24, 20, 16, 14)}
                 height={+setMedia(24, 20, 16, 14)}
                 color={palette.main_primary}
-                props={{
+                style={{
                   position: "absolute",
                   left: "50%",
                   top: "50%",
@@ -222,15 +234,53 @@ export function Information({ appBox: appBox }: { appBox: IAppBox }) {
                   />
                 </FlexCenterContainer>
               </Container>
-              <InfoHeader
-                className={css(
-                  isMedia.mini && {
-                    paddingTop: "4rem",
-                  }
-                )}
+              <Container
+                className={css({
+                  display: "grid",
+                  minWidth: `${setMedia(32, 30, 28)}rem`,
+                  height: "8rem",
+                  // maxHeight: `16rem`,
+                  borderRadius: "4rem",
+                  border: `solid 0.2rem ${palette.text_dark}`,
+                  marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
+                  marginBottom: `${isMedia.mini ? "4rem" : "2rem"}`,
+                  backgroundColor: palette.background_third,
+                  overflow: "hidden",
+                  position: "relative",
+                })}
               >
-                {content.importantText.h1}
-              </InfoHeader>
+                <DecoContainer
+                  width={4}
+                  height={30}
+                  color={palette.main_primary}
+                  style={{
+                    position: "absolute",
+                    left: "calc(50% - 4rem)",
+                    bottom: "-7rem",
+                    transform: "rotate(45deg)",
+                  }}
+                />
+                <DecoContainer
+                  width={4}
+                  height={30}
+                  color={palette.main_primary}
+                  style={{
+                    position: "absolute",
+                    left: "calc(50% + 8rem)",
+                    bottom: "-7rem",
+                    transform: "rotate(45deg)",
+                  }}
+                />
+                <InfoHeader
+                  className={css({
+                    textAlign: "center",
+                    alignSelf: "center",
+                    zIndex: "2",
+                  })}
+                >
+                  {content.importantText.h1}
+                </InfoHeader>
+              </Container>
             </Container>
             <Container
             // className={css({ gridColumn: "2/-1", gridRow: "1/-1" })}
