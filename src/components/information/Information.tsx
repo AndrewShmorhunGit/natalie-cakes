@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-// import path from "content/images/information/gb_num_1.png";
 import {
   Container,
   DecoContainer,
@@ -10,6 +9,7 @@ import {
   InfoSubHeader,
   MainHeader,
 } from "components/lib/StyledComponents";
+import { DesignLogo, IngredientsLogo, OrderLogo } from "components/logos/Logos";
 import { IAppBox } from "interfaces/IApp";
 import { palette } from "styles/palette";
 import {
@@ -73,30 +73,36 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
             <InfoParagraph>{content.ingredientsText.p2}</InfoParagraph>
           </InfoContainer>
+
           <Container
             className={css({
               position: "relative",
             })}
           >
-            {/* <InfoImage
-              src={path}
-              alt="number 1 gingerbread"
+            <Container
               className={css({
-                // width: "10rem",
-                // height: "10rem",
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(calc(-50% - 2rem), -50%)",
                 zIndex: "2",
               })}
-            /> */}
+            >
+              <IngredientsLogo
+                height={setMedia(128, 100, 84, 78)}
+                width={setMedia(128, 100, 84, 78)}
+              />
+            </Container>
 
             <DecoContainer
               width={+setMedia(24, 20, 16, 14)}
               height={+setMedia(24, 20, 16, 14)}
-              color={palette.white}
+              color={palette.main_primary}
               style={{
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                transform: "translate(calc(-50% - 2rem ), calc(-50%))",
+                transform: "translate(calc(-50% - 2rem ), -50%)",
                 borderRadius: "50%",
                 border: `solid ${palette.main_primary_dark} .2rem`,
                 boxShadow: appShadows.buttonActive,
@@ -120,12 +126,26 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                transform: "translate(calc(-50% + 2rem ), calc(-50%))",
+                transform: "translate(calc(-50% + 2rem ), -50%)",
                 borderRadius: "50%",
                 border: `solid ${palette.main_primary_dark} .2rem`,
                 boxShadow: appShadows.buttonActive,
               }}
             />
+            <Container
+              className={css({
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(calc(-50% + 2rem), -50%)",
+                zIndex: "2",
+              })}
+            >
+              <DesignLogo
+                height={setMedia(128, 100, 84, 78)}
+                width={setMedia(128, 100, 84, 78)}
+              />
+            </Container>
           </Container>
           <InfoContainer
             className={css({
@@ -186,6 +206,20 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                 position: "relative",
               })}
             >
+              <Container
+                className={css({
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(calc(-50% - 2rem), -50%)",
+                  zIndex: "2",
+                })}
+              >
+                <OrderLogo
+                  height={setMedia(128, 100, 84, 78)}
+                  width={setMedia(128, 100, 84, 78)}
+                />
+              </Container>
               <DecoContainer
                 width={+setMedia(24, 20, 16, 14)}
                 height={+setMedia(24, 20, 16, 14)}

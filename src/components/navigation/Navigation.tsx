@@ -4,6 +4,7 @@ import {
   FlexColumnContainer,
   FlexRowContainer,
   MainLogoText,
+  NavBurger,
   NavigationSection,
 } from "components/lib/StyledComponents";
 import { MainLogo } from "components/imports";
@@ -55,7 +56,7 @@ export function Navigation({
           </Container>
         ) : (
           <Container>
-            <h3>(Burger)</h3>
+            <NavBurger />
           </Container>
         )}
         <FlexColumnContainer

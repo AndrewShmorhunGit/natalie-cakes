@@ -83,6 +83,82 @@ const NavigationSection = styled.main({
   overflow: "hidden",
 });
 
+function NavBurger({
+  gap = 0.8,
+  lineHight = 0.4,
+  lineWidth = 2.8,
+  circleRadius = 5.2,
+}) {
+  return (
+    <Container
+      className={css({
+        display: "grid",
+        // transform: "",
+      })}
+    >
+      <RelativeContainer
+        className={css({
+          width: "12rem",
+          alignSelf: "center",
+          transition: "all 1s ease",
+          "&:hover": {
+            transform: "rotate(0.5turn)",
+            // boxShadow: appShadows.buttonActive,
+          },
+        })}
+      >
+        <DecoContainer
+          width={circleRadius}
+          height={circleRadius}
+          color={palette.background_main}
+          style={{
+            borderRadius: "50%",
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            // translate: "all 1s ease",
+            transform: "translate(-50%, -50%)",
+            border: `solid 0.2rem ${palette.main_primary_dark}`,
+          }}
+        />
+        <DecoContainer
+          width={lineWidth}
+          height={lineHight}
+          color={palette.main_primary_dark}
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: `translate(-50%, calc(-50% + ${gap}rem))`,
+          }}
+        />
+        <DecoContainer
+          width={lineWidth}
+          height={lineHight}
+          color={palette.main_primary_dark}
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50% , -50%)",
+          }}
+        />
+        <DecoContainer
+          width={lineWidth}
+          height={lineHight}
+          color={palette.main_primary_dark}
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: `translate(-50%, calc(-50% - ${gap}rem))`,
+          }}
+        />
+      </RelativeContainer>
+    </Container>
+  );
+}
+
 // HERO
 const HeroSection = styled.main({
   // backgroundImage: `url("content/images/hero/hero-background-img.jpg")`,
@@ -467,6 +543,7 @@ export {
   InfoHeader,
   InfoParagraph,
   IconAndTextFooterContacts,
+  NavBurger,
   MainLogoText,
   DecoContainer,
   HeroSelectorDecoContainer,
