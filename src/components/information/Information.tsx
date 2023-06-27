@@ -1,12 +1,11 @@
 import { css } from "@emotion/css";
-// import one from "content/images/information/one.png";
+// import path from "content/images/information/gb_num_1.png";
 import {
   Container,
   DecoContainer,
   FlexCenterContainer,
   InfoContainer,
   InfoHeader,
-  InfoImage,
   InfoParagraph,
   InfoSubHeader,
   MainHeader,
@@ -79,15 +78,15 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               position: "relative",
             })}
           >
-            <InfoImage
-              // src={one}
-              alt="number 1 from gingerbread"
+            {/* <InfoImage
+              src={path}
+              alt="number 1 gingerbread"
               className={css({
-                width: "10rem",
-                height: "10rem",
+                // width: "10rem",
+                // height: "10rem",
                 zIndex: "2",
               })}
-            />
+            /> */}
 
             <DecoContainer
               width={+setMedia(24, 20, 16, 14)}
