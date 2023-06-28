@@ -67,14 +67,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-// To do:
-
-- [ ] Footer icon hover
-  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
-  - [useHover](https://usehooks.com/usehover)
-- [ ] Global grid setup
-- [ ] Set up language dependencies function
-
 // Marks
 
 <!-- - Horizontal scroll appear in Information section -->
@@ -97,9 +89,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] LTR Interface
 - [x] Remove `File Loader` from deps if it will not help..
 - [ ] Prepare images for Info section
-
-```js
-  "devDependencies": {
-    "file-loader": "^6.2.0"
-  }
-```
+- [ ] Hovering main icons(Fix empty space hover)
+- [ ] Add use hover hook
+- [x] Footer icon hover
+  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
+  - [useHover](https://usehooks.com/usehover)
+- [ ] Global grid setup
+- [ ] Set up language dependencies function

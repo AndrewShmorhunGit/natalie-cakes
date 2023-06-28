@@ -190,7 +190,7 @@ const MainHeader = styled.h1({
 
 const HeroTagLine = styled.h2({
   ...paddingTopBottom(8, 10),
-  width: "60rem",
+  // width: "60rem",
   fontSize: "2.8rem",
   fontWeight: 400,
 
@@ -278,12 +278,13 @@ const InfoContainer = styled.div({
   display: "flex",
   minWidth: "32rem",
   maxWidth: "120rem",
-  margin: "1.2rem",
+  // margin: "1.2rem",
   padding: "1.6rem 1.6rem 3.6rem",
   border: `solid ${palette.main_primary_dark} .2rem`,
   boxShadow: appShadows.buttonActive,
   borderRadius: "1.2rem",
-  backgroundColor: palette.background_second,
+  backgroundColor: `${palette.background_second}`,
+  opacity: 0.9,
 });
 
 const InfoHeader = styled.ul({
@@ -335,12 +336,12 @@ const InfoParagraph = styled.li({
   },
 });
 
-const InfoImage = styled.img({
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  transform: "translate(calc(-50% - 2rem ), calc(-50%))",
-});
+// const InfoImage = styled.img({
+//   position: "absolute",
+//   left: "50%",
+//   top: "50%",
+//   transform: "translate(calc(-50% - 2rem ), calc(-50%))",
+// });
 
 // FOOTER
 
@@ -537,7 +538,7 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   HeroBackDropFilterContainer as BackDropFilterContainer,
-  InfoImage,
+  // InfoImage,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,

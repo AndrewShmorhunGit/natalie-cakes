@@ -5,7 +5,6 @@ import {
   DecoContainer,
   FlexCenterContainer,
   FlexColumnContainer,
-  // FlexRowContainer,
   HeroSection,
   HeroSelectorDecoContainer,
   HeroTagLine,
@@ -17,17 +16,11 @@ import {
   HeroCupCakesLogo,
   HeroGingerbreadLogo,
 } from "components/logos/Logos";
-// import { create } from "domain";
 import { IAppBox } from "interfaces/IApp";
 import { IInnerContent } from "interfaces/IContent";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
-import {
-  // appShadows,
-  container,
-  createGrid,
-  paddingTopBottom,
-} from "styles/styles";
+import { container, createGrid, paddingTopBottom } from "styles/styles";
 import { palette } from "styles/imports";
 
 export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
@@ -95,9 +88,8 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
           </MainHeader>
           <HeroTagLine
             className={css({
-              // ...flexCenter,
               ...paddingTopBottom(8, 10),
-              width: "60rem",
+              maxWidth: `${setMedia(68, 56, 52, 32)}rem`,
               fontSize: "2.8rem",
               fontWeight: 400,
             })}
@@ -108,7 +100,6 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
             <h2
               className={css({
                 alignSelf: "center",
-                // ...flexCenter,
                 ...paddingTopBottom(0, 2),
                 fontSize: "4.4rem",
                 fontWeight: 400,

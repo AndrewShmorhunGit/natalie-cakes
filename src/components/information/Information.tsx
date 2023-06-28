@@ -15,6 +15,7 @@ import { palette } from "styles/palette";
 import {
   appShadows,
   container,
+  // container,
   createGrid,
   paddingTopBottom,
 } from "styles/styles";
@@ -31,31 +32,32 @@ export function Information({ appBox }: { appBox: IAppBox }) {
         padding: "4rem",
       })}
     >
-      <MainHeader
-        className={css({ color: palette.white, ...paddingTopBottom(1.2, 4) })}
-      >
-        Information
-      </MainHeader>
-
       <Container
         className={css({
           display: "flex",
           flexDirection: "column",
-          ...container,
-          rowGap: "4rem",
+          rowGap: isMedia.mini ? "8.4rem" : "12.4rem",
         })}
       >
+        <MainHeader
+          className={css({
+            ...container,
+            color: palette.white,
+            ...paddingTopBottom(1.2, 4),
+          })}
+        >
+          Information
+        </MainHeader>
         <Container
           className={css({
             gridRow: "1",
-            ...createGrid("2fr 1fr", 1),
+            ...createGrid("3fr 1fr", 1),
           })}
         >
           <InfoContainer
             className={css({
               display: "flex",
               flexDirection: "column",
-              zIndex: "2",
             })}
           >
             <InfoHeader>{content.ingredients}</InfoHeader>
@@ -82,26 +84,26 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             <Container
               className={css({
                 position: "absolute",
-                left: "50%",
-                top: "50%",
+                left: "0",
+                top: isMedia.mini ? "0" : "50%",
                 transform: "translate(calc(-50% - 2rem), -50%)",
                 zIndex: "2",
               })}
             >
               <IngredientsLogo
-                height={setMedia(128, 100, 84, 78)}
-                width={setMedia(128, 100, 84, 78)}
+                height={setMedia(128, 100, 84, 48)}
+                width={setMedia(128, 100, 84, 48)}
               />
             </Container>
 
             <DecoContainer
-              width={+setMedia(24, 20, 16, 14)}
-              height={+setMedia(24, 20, 16, 14)}
+              width={+setMedia(24, 20, 16, 8)}
+              height={+setMedia(24, 20, 16, 8)}
               color={palette.main_primary}
               style={{
                 position: "absolute",
                 left: "50%",
-                top: "50%",
+                top: isMedia.mini ? "0" : "50%",
                 transform: "translate(calc(-50% - 2rem ), -50%)",
                 borderRadius: "50%",
                 border: `solid ${palette.main_primary_dark} .2rem`,
@@ -114,18 +116,18 @@ export function Information({ appBox }: { appBox: IAppBox }) {
         <Container
           className={css({
             gridRow: "2",
-            ...createGrid("1fr 2fr", 1),
+            ...createGrid("1fr 3fr", 1),
           })}
         >
-          <Container className={css({ position: "relative" })}>
+          <Container className={css({ position: "relative", zIndex: "2" })}>
             <DecoContainer
-              width={+setMedia(24, 20, 16, 14)}
-              height={+setMedia(24, 20, 16, 14)}
+              width={+setMedia(24, 20, 16, 8)}
+              height={+setMedia(24, 20, 16, 8)}
               color={palette.main_primary}
               style={{
                 position: "absolute",
-                left: "50%",
-                top: "50%",
+                left: "0",
+                top: isMedia.mini ? "0" : "50%",
                 transform: "translate(calc(-50% + 2rem ), -50%)",
                 borderRadius: "50%",
                 border: `solid ${palette.main_primary_dark} .2rem`,
@@ -135,15 +137,15 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             <Container
               className={css({
                 position: "absolute",
-                left: "50%",
-                top: "50%",
+                left: "0",
+                top: isMedia.mini ? "0" : "50%",
                 transform: "translate(calc(-50% + 2rem), -50%)",
                 zIndex: "2",
               })}
             >
               <DesignLogo
-                height={setMedia(128, 100, 84, 78)}
-                width={setMedia(128, 100, 84, 78)}
+                height={setMedia(128, 100, 84, 48)}
+                width={setMedia(128, 100, 84, 48)}
               />
             </Container>
           </Container>
@@ -151,7 +153,6 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             className={css({
               display: "flex",
               flexDirection: "column",
-              zIndex: "2",
             })}
           >
             <InfoHeader>{content.design}</InfoHeader>
@@ -178,14 +179,13 @@ export function Information({ appBox }: { appBox: IAppBox }) {
         >
           <Container
             className={css({
-              ...createGrid("2fr 1fr", 1),
+              ...createGrid("3fr 1fr", 1),
             })}
           >
             <InfoContainer
               className={css({
                 display: "flex",
                 flexDirection: "column",
-                zIndex: "2",
               })}
             >
               <InfoHeader>{content.order}</InfoHeader>
@@ -209,25 +209,25 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               <Container
                 className={css({
                   position: "absolute",
-                  left: "50%",
-                  top: "50%",
+                  left: "0",
+                  top: isMedia.mini ? "0" : "50%",
                   transform: "translate(calc(-50% - 2rem), -50%)",
                   zIndex: "2",
                 })}
               >
                 <OrderLogo
-                  height={setMedia(128, 100, 84, 78)}
-                  width={setMedia(128, 100, 84, 78)}
+                  height={setMedia(128, 100, 84, 48)}
+                  width={setMedia(128, 100, 84, 48)}
                 />
               </Container>
               <DecoContainer
-                width={+setMedia(24, 20, 16, 14)}
-                height={+setMedia(24, 20, 16, 14)}
+                width={+setMedia(24, 20, 16, 8)}
+                height={+setMedia(24, 20, 16, 8)}
                 color={palette.main_primary}
                 style={{
                   position: "absolute",
-                  left: "50%",
-                  top: "50%",
+                  left: "0",
+                  top: isMedia.mini ? "0" : "50%",
                   transform: "translate(calc(-50% - 2rem ), calc(-50%))",
                   borderRadius: "50%",
                   border: `solid ${palette.main_primary_dark} .2rem`,
