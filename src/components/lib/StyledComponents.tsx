@@ -2,7 +2,11 @@ import styled from "@emotion/styled/macro";
 import { palette, appShadows, mq, styles } from "styles/imports";
 import { css } from "@emotion/css";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { paddingTopBottom, wideContainer } from "styles/styles";
+import {
+  infoLogoContainerAbsoluteSettings,
+  paddingTopBottom,
+  wideContainer,
+} from "styles/styles";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 
 // STYLED GENERAL CUSTOM COMPONENTS
@@ -336,12 +340,90 @@ const InfoParagraph = styled.li({
   },
 });
 
-// const InfoImage = styled.img({
-//   position: "absolute",
-//   left: "50%",
-//   top: "50%",
-//   transform: "translate(calc(-50% - 2rem ), calc(-50%))",
-// });
+function InfoLogoContainer({
+  Logo,
+  type,
+  isCondition,
+  step,
+  big = 24,
+  medium = 20,
+  small = 16,
+  mini = 8,
+  setMedia,
+}: {
+  Logo: EmotionJSX.Element;
+  type: "left" | "right";
+  isCondition: boolean;
+  big?: number;
+  medium?: number;
+  small?: number;
+  mini?: number;
+  step: number;
+  setMedia: (
+    bigParam: string | number,
+    mediumParam?: string | number | undefined,
+    smallParam?: string | number | undefined,
+    minParam?: string | number | undefined
+  ) => string | number;
+}) {
+  return (
+    <Container className={css({ position: "relative", zIndex: "2" })}>
+      <DecoContainer
+        width={+setMedia(big, medium, small, mini)}
+        height={+setMedia(big, medium, small, mini)}
+        color={palette.main_primary}
+        style={{
+          position: "absolute",
+          ...infoLogoContainerAbsoluteSettings(isCondition, type),
+          // border: `solid ${palette.main_primary_dark} .2rem`,
+          boxShadow: appShadows.buttonActive,
+        }}
+      />
+      <DecoContainer
+        width={+setMedia(big - step, medium - step, small - step, mini - step)}
+        height={+setMedia(big - step, medium - step, small - step, mini - step)}
+        color={palette.white}
+        style={{
+          position: "absolute",
+
+          ...infoLogoContainerAbsoluteSettings(isCondition, type),
+        }}
+      />
+      <DecoContainer
+        width={
+          +setMedia(
+            big - step * 2,
+            medium - step * 2,
+            small - step * 2,
+            mini - step * 2
+          )
+        }
+        height={
+          +setMedia(
+            big - step * 2,
+            medium - step * 2,
+            small - step * 2,
+            mini - step * 2
+          )
+        }
+        color={palette.main_primary}
+        style={{
+          position: "absolute",
+          ...infoLogoContainerAbsoluteSettings(isCondition, type),
+        }}
+      />
+      <Container
+        className={css({
+          position: "absolute",
+          ...infoLogoContainerAbsoluteSettings(isCondition, type),
+          zIndex: "2",
+        })}
+      >
+        {Logo}
+      </Container>
+    </Container>
+  );
+}
 
 // FOOTER
 
@@ -538,7 +620,7 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   HeroBackDropFilterContainer as BackDropFilterContainer,
-  // InfoImage,
+  InfoLogoContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,

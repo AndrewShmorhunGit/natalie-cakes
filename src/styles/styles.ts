@@ -3,11 +3,18 @@ import { mq } from "./media-queries";
 
 // Absolute
 
-export const absoluteCenter = {
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  transform: "translate(-50%, -50%)",
+export const infoLogoContainerAbsoluteSettings = (
+  isCondition: boolean,
+  type: "left" | "right"
+) => {
+  return {
+    left: "0",
+    top: isCondition ? "0" : "50%",
+    transform: `translate(calc(-50% ${
+      type === "left" ? "+" : "-"
+    } 2rem ), -50%)`,
+    borderRadius: "50%",
+  };
 };
 
 // Flex

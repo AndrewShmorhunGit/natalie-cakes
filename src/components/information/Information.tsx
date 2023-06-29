@@ -5,6 +5,7 @@ import {
   FlexCenterContainer,
   InfoContainer,
   InfoHeader,
+  InfoLogoContainer,
   InfoParagraph,
   InfoSubHeader,
   MainHeader,
@@ -12,18 +13,12 @@ import {
 import { DesignLogo, IngredientsLogo, OrderLogo } from "components/logos/Logos";
 import { IAppBox } from "interfaces/IApp";
 import { palette } from "styles/palette";
-import {
-  appShadows,
-  container,
-  // container,
-  createGrid,
-  paddingTopBottom,
-} from "styles/styles";
+import { container, createGrid, paddingTopBottom } from "styles/styles";
 
 export function Information({ appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent;
   const { setMedia, isMedia } = appBox;
-
+  const logoSettings = setMedia(128, 100, 84, 48);
   return (
     <main
       className={css({
@@ -75,42 +70,15 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
             <InfoParagraph>{content.ingredientsText.p2}</InfoParagraph>
           </InfoContainer>
-
-          <Container
-            className={css({
-              position: "relative",
-            })}
-          >
-            <Container
-              className={css({
-                position: "absolute",
-                left: "0",
-                top: isMedia.mini ? "0" : "50%",
-                transform: "translate(calc(-50% - 2rem), -50%)",
-                zIndex: "2",
-              })}
-            >
-              <IngredientsLogo
-                height={setMedia(128, 100, 84, 48)}
-                width={setMedia(128, 100, 84, 48)}
-              />
-            </Container>
-
-            <DecoContainer
-              width={+setMedia(24, 20, 16, 8)}
-              height={+setMedia(24, 20, 16, 8)}
-              color={palette.main_primary}
-              style={{
-                position: "absolute",
-                left: "50%",
-                top: isMedia.mini ? "0" : "50%",
-                transform: "translate(calc(-50% - 2rem ), -50%)",
-                borderRadius: "50%",
-                border: `solid ${palette.main_primary_dark} .2rem`,
-                boxShadow: appShadows.buttonActive,
-              }}
-            />
-          </Container>
+          <InfoLogoContainer
+            Logo={
+              <IngredientsLogo height={logoSettings} width={logoSettings} />
+            }
+            isCondition={isMedia.mini}
+            setMedia={setMedia}
+            type={"right"}
+            step={+setMedia(2.4, 2, 1.6, 1)}
+          />
         </Container>
 
         <Container
@@ -119,36 +87,13 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             ...createGrid("1fr 3fr", 1),
           })}
         >
-          <Container className={css({ position: "relative", zIndex: "2" })}>
-            <DecoContainer
-              width={+setMedia(24, 20, 16, 8)}
-              height={+setMedia(24, 20, 16, 8)}
-              color={palette.main_primary}
-              style={{
-                position: "absolute",
-                left: "0",
-                top: isMedia.mini ? "0" : "50%",
-                transform: "translate(calc(-50% + 2rem ), -50%)",
-                borderRadius: "50%",
-                border: `solid ${palette.main_primary_dark} .2rem`,
-                boxShadow: appShadows.buttonActive,
-              }}
-            />
-            <Container
-              className={css({
-                position: "absolute",
-                left: "0",
-                top: isMedia.mini ? "0" : "50%",
-                transform: "translate(calc(-50% + 2rem), -50%)",
-                zIndex: "2",
-              })}
-            >
-              <DesignLogo
-                height={setMedia(128, 100, 84, 48)}
-                width={setMedia(128, 100, 84, 48)}
-              />
-            </Container>
-          </Container>
+          <InfoLogoContainer
+            Logo={<DesignLogo height={logoSettings} width={logoSettings} />}
+            isCondition={isMedia.mini}
+            setMedia={setMedia}
+            type={"left"}
+            step={+setMedia(2.4, 2, 1.6, 1)}
+          />
           <InfoContainer
             className={css({
               display: "flex",
@@ -201,40 +146,13 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               <InfoSubHeader>{content.orderText.h2}</InfoSubHeader>
               <InfoParagraph>{content.orderText.p2}</InfoParagraph>
             </InfoContainer>
-            <Container
-              className={css({
-                position: "relative",
-              })}
-            >
-              <Container
-                className={css({
-                  position: "absolute",
-                  left: "0",
-                  top: isMedia.mini ? "0" : "50%",
-                  transform: "translate(calc(-50% - 2rem), -50%)",
-                  zIndex: "2",
-                })}
-              >
-                <OrderLogo
-                  height={setMedia(128, 100, 84, 48)}
-                  width={setMedia(128, 100, 84, 48)}
-                />
-              </Container>
-              <DecoContainer
-                width={+setMedia(24, 20, 16, 8)}
-                height={+setMedia(24, 20, 16, 8)}
-                color={palette.main_primary}
-                style={{
-                  position: "absolute",
-                  left: "0",
-                  top: isMedia.mini ? "0" : "50%",
-                  transform: "translate(calc(-50% - 2rem ), calc(-50%))",
-                  borderRadius: "50%",
-                  border: `solid ${palette.main_primary_dark} .2rem`,
-                  boxShadow: appShadows.buttonActive,
-                }}
-              />
-            </Container>
+            <InfoLogoContainer
+              Logo={<OrderLogo height={logoSettings} width={logoSettings} />}
+              isCondition={isMedia.mini}
+              setMedia={setMedia}
+              type={"right"}
+              step={+setMedia(2.4, 2, 1.6, 1)}
+            />
           </Container>
         </Container>
         <FlexCenterContainer>
@@ -272,7 +190,6 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   display: "grid",
                   minWidth: `${setMedia(32, 30, 28)}rem`,
                   height: "8rem",
-                  // maxHeight: `16rem`,
                   borderRadius: "4rem",
                   border: `solid 0.2rem ${palette.text_dark}`,
                   marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
@@ -315,14 +232,11 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                 </InfoHeader>
               </Container>
             </Container>
-            <Container
-            // className={css({ gridColumn: "2/-1", gridRow: "1/-1" })}
-            >
+            <Container>
               <FlexCenterContainer
                 className={css({
                   flexDirection: "column",
                   gap: "3.2rem",
-                  // paddingTop: "3.6rem",
                   padding: `${isMedia.mini ? "1.6" : "4.4"}rem`,
                 })}
               >

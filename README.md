@@ -84,6 +84,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [ ] Set Up page routing in `./public` folder
 - [ ] Use "Dialog" for modals
+      Have problems with React 18v
 - [ ] Use local storage for current lang
 - [x] Burger
 - [ ] LTR Interface
