@@ -8,6 +8,7 @@ import {
   wideContainer,
 } from "styles/styles";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
+import heroBgImage from "content/images/hero/hero-background-img.jpg";
 
 // STYLED GENERAL CUSTOM COMPONENTS
 
@@ -165,17 +166,17 @@ function NavBurger({
 
 // HERO
 const HeroSection = styled.main({
-  // backgroundImage: `url("content/images/hero/hero-background-img.jpg")`,
-  backgroundImage: `url("https://media.istockphoto.com/id/700712598/uk/%D1%84%D0%BE%D1%82%D0%BE/%D0%B4%D0%B5%D0%BD%D1%8C-%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BC%D0%B8%D0%BB%D0%BE%D1%97-%D0%B4%D0%B8%D1%82%D0%B8%D0%BD%D0%B8.jpg?s=612x612&w=0&k=20&c=OkG9eyPfm3xVB0KHWiuLnQl2P4lUIOBRHvehsHR9BI4=")`,
+  backgroundImage: `url(${heroBgImage})`,
   backgroundRepeat: "none",
   backgroundSize: "cover",
+  paddingBottom: "12rem",
 });
 
 const HeroBackDropFilterContainer = styled.div({
   ...paddingTopBottom(12, 18),
   height: "100%",
   background: "rgb(0,0,0,0.3)",
-  backdropFilter: "blur(1.6rem)",
+  backdropFilter: "blur(0.4rem)",
 });
 
 const MainHeader = styled.h1({
@@ -282,13 +283,10 @@ const InfoContainer = styled.div({
   display: "flex",
   minWidth: "32rem",
   maxWidth: "120rem",
-  // margin: "1.2rem",
   padding: "1.6rem 1.6rem 3.6rem",
-  border: `solid ${palette.main_primary_dark} .2rem`,
-  boxShadow: appShadows.buttonActive,
+  boxShadow: appShadows.button,
   borderRadius: "1.2rem",
   backgroundColor: `${palette.background_second}`,
-  opacity: 0.9,
 });
 
 const InfoHeader = styled.ul({
@@ -375,8 +373,7 @@ function InfoLogoContainer({
         style={{
           position: "absolute",
           ...infoLogoContainerAbsoluteSettings(isCondition, type),
-          // border: `solid ${palette.main_primary_dark} .2rem`,
-          boxShadow: appShadows.buttonActive,
+          boxShadow: appShadows.button,
         }}
       />
       <DecoContainer
@@ -425,6 +422,14 @@ function InfoLogoContainer({
   );
 }
 
+function InfoDecoLine() {
+  return (
+    <FlexCenterContainer>
+      <DecoContainer width={18} height={0.2} color={palette.main_primary} />
+    </FlexCenterContainer>
+  );
+}
+
 // FOOTER
 
 const FooterSection = styled.div({
@@ -461,6 +466,23 @@ const FooterParagraph = styled.p({
     fontSize: "1.4rem",
   },
 });
+
+function IconAndTextFooterContacts({
+  icon,
+  text,
+}: {
+  icon: EmotionJSX.Element;
+  text: string;
+}) {
+  return (
+    <FlexRowContainer>
+      {icon}
+      <FooterParagraph className={css({ paddingLeft: "2rem" })}>
+        {text}
+      </FooterParagraph>
+    </FlexRowContainer>
+  );
+}
 
 // CONTAINERS
 
@@ -505,23 +527,6 @@ const FlexCenterContainer = styled.div({
 });
 
 // COMPONENTS
-
-function IconAndTextFooterContacts({
-  icon,
-  text,
-}: {
-  icon: EmotionJSX.Element;
-  text: string;
-}) {
-  return (
-    <FlexRowContainer>
-      {icon}
-      <FooterParagraph className={css({ paddingLeft: "2rem" })}>
-        {text}
-      </FooterParagraph>
-    </FlexRowContainer>
-  );
-}
 
 function DecoContainer({
   width,
@@ -620,11 +625,12 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   HeroBackDropFilterContainer as BackDropFilterContainer,
-  InfoLogoContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,
+  InfoLogoContainer,
+  InfoDecoLine,
   IconAndTextFooterContacts,
   NavBurger,
   MainLogoText,
