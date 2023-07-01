@@ -279,14 +279,26 @@ function HeroSelectorDecoContainer({
 
 // INFO
 
+const InformationSection = styled.main({
+  marginTop: "-12rem",
+  background: "linear-gradient(180deg, rgb(57,36,28,0.95) 0%, #FFF4F4 100%)",
+  // background: "transparent",
+  borderTop: `0.4rem solid ${palette.main_primary_dark}`,
+
+  // padding: "4rem",
+  backdropFilter: "blur(0.4rem)",
+});
+
 const InfoContainer = styled.div({
   display: "flex",
   minWidth: "32rem",
   maxWidth: "120rem",
   padding: "1.6rem 1.6rem 3.6rem",
+  margin: "0 2.4rem",
   boxShadow: appShadows.button,
   borderRadius: "1.2rem",
   backgroundColor: `${palette.background_second}`,
+  [mq.mini]: { margin: "0" },
 });
 
 const InfoHeader = styled.ul({
@@ -625,6 +637,7 @@ export {
   FlexColumnContainer,
   FlexCenterContainer,
   HeroBackDropFilterContainer as BackDropFilterContainer,
+  InformationSection,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,

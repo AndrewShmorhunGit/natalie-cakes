@@ -77,6 +77,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
         <FlexColumnContainer
           className={css({
             ...container,
+            ...paddingTopBottom(0, 12),
           })}
         >
           <MainHeader

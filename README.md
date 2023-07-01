@@ -89,7 +89,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [x] Burger
 - [ ] LTR Interface
 - [x] Remove `File Loader` from deps if it will not help..
-- [ ] Prepare images for Info section
+- [x] Prepare images for Info section
 - [ ] Hovering main icons(Fix empty space hover)
 - [ ] Add use hover hook
 - [x] Footer icon hover

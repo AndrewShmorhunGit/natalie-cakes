@@ -9,6 +9,7 @@ import {
   InfoLogoContainer,
   InfoParagraph,
   InfoSubHeader,
+  InformationSection,
   MainHeader,
 } from "components/lib/StyledComponents";
 import { DesignLogo, IngredientsLogo, OrderLogo } from "components/logos/Logos";
@@ -22,18 +23,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
   const { setMedia, isMedia } = appBox;
   const logoSettings = setMedia(128, 100, 84, 48);
   return (
-    <main
-      className={css({
-        marginTop: "-12rem",
-        background:
-          "linear-gradient(180deg, rgb(57,36,28,0.95) 0%, #FFF4F4 100%)",
-        // background: "transparent",
-        borderTop: `0.4rem solid ${palette.main_primary_dark}`,
-
-        // padding: "4rem",
-        backdropFilter: "blur(0.4rem)",
-      })}
-    >
+    <InformationSection>
       <Container className={css({ height: "12rem" })}>
         <MainHeader
           className={css({
@@ -59,7 +49,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             display: "flex",
             flexDirection: "column",
             rowGap: isMedia.mini ? "8.4rem" : "12.4rem",
-            [mq.mini]: { padding: "1.2rem 0rem" },
+            [mq.mini]: { padding: "1.2rem 1.6rem" },
           })}
         >
           <Container
@@ -243,6 +233,6 @@ export function Information({ appBox }: { appBox: IAppBox }) {
           </FlexCenterContainer>
         </Container>
       </Container>
-    </main>
+    </InformationSection>
   );
 }

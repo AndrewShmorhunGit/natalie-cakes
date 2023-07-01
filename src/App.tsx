@@ -52,7 +52,6 @@ export function App() {
       <Gallery></Gallery>
       <Modal></Modal>
       <CallToAction></CallToAction>
-      <Container>WhiteSpace</Container>
       <Footer appBox={appBox}></Footer>
     </Container>
   );
