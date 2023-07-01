@@ -1,6 +1,19 @@
-export interface IContent {
-  contentEn: IInnerContent;
-  contentRu: IInnerContent;
+export interface IActiveLanguageBtnStyle {
+  backgroundColor: string;
+  color: string;
+}
+
+interface IMenuItemData {
+  itemName: string;
+  description: string;
+  tasteAccent: string;
+}
+
+export interface IMenuContent {
+  moussesCakes: {
+    name: string;
+    chocolatePassionFruit: IMenuItemData;
+  };
 }
 
 export interface IInnerContent {
@@ -57,9 +70,10 @@ export interface IInnerContent {
     cart: string[];
     rights: string;
   };
+  menuContent: IMenuContent;
 }
 
-export interface IActiveLanguageBtnStyle {
-  backgroundColor: string;
-  color: string;
+export interface IContent {
+  contentEn: IInnerContent;
+  contentRu: IInnerContent;
 }

@@ -1,4 +1,5 @@
 import { IInnerContent } from "interfaces/IContent";
+import { menuContentEn, menuContentRu } from "./menu.content";
 
 const address = "Natalie 23 str, Eilat";
 const phone = "+972 54-283-07777";
@@ -68,7 +69,10 @@ const contentEn: IInnerContent = {
     cart: ["biscuits cakes", "classical cakes", "cheese cakes", "musses cakes"],
     rights,
   },
+
+  menuContent: menuContentEn,
 };
+
 const contentRu: IInnerContent = {
   // Navigation
   about: "про нас",
@@ -130,6 +134,7 @@ const contentRu: IInnerContent = {
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     rights,
   },
+  menuContent: menuContentRu,
 };
 
 export const contents = { contentEn, contentRu };

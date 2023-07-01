@@ -5,11 +5,12 @@ import {
   Gallery,
   Hero,
   Information,
+  Menu,
   Modal,
   Navigation,
 } from "./components/imports";
 import "./styles/App.css";
-import { contents } from "content/content";
+import { contents } from "content/text.content";
 import { Container } from "components/lib/StyledComponents";
 import { css } from "@emotion/css";
 import { createGrid } from "styles/styles";
@@ -49,6 +50,7 @@ export function App() {
       <Navigation appBox={appBox}></Navigation>
       <Hero appBox={appBox}></Hero>
       <Information appBox={appBox}></Information>
+      <Menu appBox={appBox}></Menu>
       <Gallery></Gallery>
       <Modal></Modal>
       <CallToAction></CallToAction>
