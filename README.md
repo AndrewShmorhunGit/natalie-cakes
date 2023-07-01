@@ -97,3 +97,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
   - [useHover](https://usehooks.com/usehover)
 - [ ] Global grid setup
 - [ ] Set up language dependencies function
+- [ ] Add 'Information' to the content list

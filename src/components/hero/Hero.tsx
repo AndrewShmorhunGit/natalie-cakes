@@ -106,7 +106,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
                 fontWeight: 400,
               })}
             >
-              {content.slogan}:
+              {content.slogan}
             </h2>
           </Container>
           <FlexCenterContainer

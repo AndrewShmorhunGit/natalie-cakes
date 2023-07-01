@@ -41,6 +41,7 @@ export function App() {
 
   return (
     <Container
+      // dir="rtl"
       className={css({
         minHeight: "100vh",
         ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),
