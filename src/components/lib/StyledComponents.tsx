@@ -10,69 +10,9 @@ import {
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 
-// STYLED GENERAL CUSTOM COMPONENTS
-
-// BUTTONS
-const buttonVariants: any = {
-  primary: {
-    width: "22.4rem",
-    height: "6rem",
-    border: `0.3rem solid ${palette.main_primary_dark}`,
-    fontSize: "2.4rem",
-    fontWeight: "600",
-    color: palette.main_primary_dark,
-    "&:hover": {
-      background: palette.background_second,
-    },
-    [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
-    [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
-  },
-  secondary: {
-    width: "12rem",
-    height: "4.8rem",
-    fontSize: "2rem",
-    backgroundColor: palette.main_primary,
-    color: palette.white,
-    border: `0.2rem solid ${palette.white}`,
-    [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
-    [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
-  },
-  language: {
-    width: "3.2rem",
-    height: "3.2rem",
-    fontSize: "1.6rem",
-    border: `0.2rem solid ${palette.main_primary_dark}`,
-    textTransform: "none",
-    borderRadius: "0.4rem",
-    [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
-    // [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
-  },
-};
-
-const Button = styled.button(
-  {
-    borderRadius: "1.2rem",
-    fontFamily: "inherit",
-    fontStyle: "normal",
-    fontWeight: "400",
-    transition: "all 0.5s ease-out",
-    textTransform: "capitalize",
-    cursor: "pointer",
-    "&:hover": {
-      transform: "translateY(-0.1rem)",
-      boxShadow: appShadows.button,
-    },
-    "&:active": {
-      transform: "translateY(-0.1rem)",
-      boxShadow: appShadows.buttonActive,
-    },
-  },
-  ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
-);
-
-// STYLED APP COMPONENTS
-
+// STYLED APP COMPONENTS //
 // NAV
+
 const NavigationSection = styled.main({
   ...wideContainer,
   position: "fixed",
@@ -165,6 +105,7 @@ function NavBurger({
 }
 
 // HERO
+
 const HeroSection = styled.main({
   backgroundImage: `url(${heroBgImage})`,
   backgroundRepeat: "none",
@@ -442,6 +383,14 @@ function InfoDecoLine() {
   );
 }
 
+// MENU
+
+const MenuCategoryHeader = styled.div({});
+
+const MenuPosition = styled.div({});
+
+const PositionVariant = styled.div({});
+
 // FOOTER
 
 const FooterSection = styled.div({
@@ -495,12 +444,67 @@ function IconAndTextFooterContacts({
     </FlexRowContainer>
   );
 }
+// STYLED COMPONENTS
+// BUTTONS
+const buttonVariants: any = {
+  primary: {
+    width: "22.4rem",
+    height: "6rem",
+    border: `0.3rem solid ${palette.main_primary_dark}`,
+    fontSize: "2.4rem",
+    fontWeight: "600",
+    color: palette.main_primary_dark,
+    "&:hover": {
+      background: palette.background_second,
+    },
+    [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
+    [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
+  },
+  secondary: {
+    width: "12rem",
+    height: "4.8rem",
+    fontSize: "2rem",
+    backgroundColor: palette.main_primary,
+    color: palette.white,
+    border: `0.2rem solid ${palette.white}`,
+    [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
+    [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
+  },
+  language: {
+    width: "3.2rem",
+    height: "3.2rem",
+    fontSize: "1.6rem",
+    border: `0.2rem solid ${palette.main_primary_dark}`,
+    textTransform: "none",
+    borderRadius: "0.4rem",
+    [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
+    // [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
+  },
+};
+
+const Button = styled.button(
+  {
+    borderRadius: "1.2rem",
+    fontFamily: "inherit",
+    fontStyle: "normal",
+    fontWeight: "400",
+    transition: "all 0.5s ease-out",
+    textTransform: "capitalize",
+    cursor: "pointer",
+    "&:hover": {
+      transform: "translateY(-0.1rem)",
+      boxShadow: appShadows.button,
+    },
+    "&:active": {
+      transform: "translateY(-0.1rem)",
+      boxShadow: appShadows.buttonActive,
+    },
+  },
+  ({ variant = "secondary" }: { variant: string }) => buttonVariants[variant]
+);
 
 // CONTAINERS
 
-// const BlockContainer = styled.div({
-//   display: "block",
-// });
 const Container = styled.div({
   marginLeft: "auto",
   marginRight: "auto",
@@ -621,22 +625,18 @@ function MainLogoText({
 }
 
 export {
-  Button,
-  MainHeader,
+  // Navigation
   NavigationSection,
+  NavBurger,
+
+  // Hero
   HeroSection,
+  HeroBackDropFilterContainer,
   HeroTagLine,
-  FooterSection,
-  FooterParagraph,
-  FooterHeader,
-  Container,
-  RelativeContainer,
-  AbsoluteCenterContainer,
-  AbsoluteBottomContainer,
-  FlexRowContainer,
-  FlexColumnContainer,
-  FlexCenterContainer,
-  HeroBackDropFilterContainer as BackDropFilterContainer,
+  MainHeader,
+  HeroSelectorDecoContainer,
+
+  // Information
   InformationSection,
   InfoContainer,
   InfoSubHeader,
@@ -644,9 +644,27 @@ export {
   InfoParagraph,
   InfoLogoContainer,
   InfoDecoLine,
+
+  // Menu
+  MenuCategoryHeader,
+  MenuPosition,
+  PositionVariant,
+
+  // Footer
+  FooterSection,
+  FooterParagraph,
+  FooterHeader,
   IconAndTextFooterContacts,
-  NavBurger,
+
+  // Styled and Custom Reusable Components
+  Button,
+  Container,
+  RelativeContainer,
+  AbsoluteCenterContainer,
+  AbsoluteBottomContainer,
+  FlexRowContainer,
+  FlexColumnContainer,
+  FlexCenterContainer,
   MainLogoText,
   DecoContainer,
-  HeroSelectorDecoContainer,
 };

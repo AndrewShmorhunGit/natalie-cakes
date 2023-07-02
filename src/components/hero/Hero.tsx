@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 import {
-  BackDropFilterContainer,
+  HeroBackDropFilterContainer,
   Container,
   DecoContainer,
   FlexCenterContainer,
@@ -73,7 +73,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
         color: textColor,
       })}
     >
-      <BackDropFilterContainer>
+      <HeroBackDropFilterContainer>
         <FlexColumnContainer
           className={css({
             ...container,
@@ -142,7 +142,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
             ))}
           </Container>
         </FlexColumnContainer>
-      </BackDropFilterContainer>
+      </HeroBackDropFilterContainer>
     </HeroSection>
   );
 }
