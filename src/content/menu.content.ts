@@ -2,7 +2,7 @@ import { IMenuContent } from "interfaces/IContent";
 
 export const menuContentEn: IMenuContent = {
   moussesCakes: {
-    name: "mousses cakes",
+    name: "mousse cakes",
     chocolatePassionFruit: {
       itemName: "chocolate - passion fruit",
       description: "will be created from description function",

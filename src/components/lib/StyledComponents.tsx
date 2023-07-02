@@ -107,6 +107,7 @@ function NavBurger({
 // HERO
 
 const HeroSection = styled.main({
+  // minHeight: "100vh",
   backgroundImage: `url(${heroBgImage})`,
   backgroundRepeat: "none",
   backgroundSize: "cover",
@@ -163,7 +164,18 @@ function HeroSelectorDecoContainer({
 }): EmotionJSX.Element {
   return (
     <RelativeContainer
-      className={css({ cursor: "pointer" })}
+      className={css({
+        cursor: "pointer",
+        // overflow: "hidden",
+        position: "absolute",
+        width: `${selectorParams.width}rem`,
+        height: `${selectorParams.height}rem`,
+        borderRadius: "50%",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        boxShadow: appShadows.buttonActive,
+      })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
       }}
@@ -176,8 +188,6 @@ function HeroSelectorDecoContainer({
         style={{
           ...selectorParams.decoProps,
           // border: `solid ${palette.main_primary_dark} .2rem`,
-
-          boxShadow: appShadows.buttonActive,
         }}
       />
       <DecoContainer
@@ -234,7 +244,7 @@ const InfoContainer = styled.div({
   display: "flex",
   minWidth: "32rem",
   maxWidth: "120rem",
-  padding: "1.6rem 1.6rem 3.6rem",
+  padding: "1.6rem 1.6rem 3.2rem 3.2rem",
   margin: "0 2.4rem",
   boxShadow: appShadows.button,
   borderRadius: "1.2rem",
@@ -246,7 +256,9 @@ const InfoHeader = styled.ul({
   textAlign: "center",
   textTransform: "capitalize",
   fontSize: "3.2rem",
-  paddingBottom: "1.2rem",
+  fontWeight: "600",
+  alignSelf: "center",
+  zIndex: "2",
   [mq.medium]: {
     fontSize: "3rem",
   },
@@ -259,7 +271,6 @@ const InfoHeader = styled.ul({
 });
 
 const InfoSubHeader = styled.h4({
-  // textAlign: "center",
   textTransform: "capitalize",
   fontSize: "2.8rem",
   fontWeight: 400,
@@ -277,6 +288,7 @@ const InfoSubHeader = styled.h4({
 });
 
 const InfoParagraph = styled.li({
+  listStyleType: "circle",
   fontSize: "2rem",
   fontWeight: 400,
   paddingLeft: "1.2rem",

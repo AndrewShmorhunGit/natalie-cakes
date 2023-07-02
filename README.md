@@ -98,3 +98,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Global grid setup
 - [ ] Set up language dependencies function
 - [ ] Add 'Information' to the content list and align center
+- [ ] Handle Fonts

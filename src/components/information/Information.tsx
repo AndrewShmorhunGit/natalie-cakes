@@ -24,17 +24,21 @@ export function Information({ appBox }: { appBox: IAppBox }) {
   const logoSettings = setMedia(128, 100, 84, 48);
   return (
     <InformationSection>
-      <Container className={css({ height: "12rem" })}>
+      <div
+        className={css({
+          justifyContent: "start",
+          alignContent: "center",
+        })}
+      >
         <MainHeader
           className={css({
             ...container,
             color: palette.white,
-            ...paddingTopBottom(1.2, 4),
           })}
         >
           Information
         </MainHeader>
-      </Container>
+      </div>
       <Container
         className={css({
           background:
@@ -206,15 +210,8 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                       transform: "rotate(45deg)",
                     }}
                   />
-                  <InfoHeader
-                    className={css({
-                      textAlign: "center",
-                      alignSelf: "center",
-                      zIndex: "2",
-                    })}
-                  >
-                    {content.importantText.h1}
-                  </InfoHeader>
+
+                  <InfoHeader>{content.importantText.h1}</InfoHeader>
                 </Container>
               </Container>
               <Container>

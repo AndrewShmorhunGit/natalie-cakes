@@ -7,7 +7,7 @@ import {
   FlexColumnContainer,
   HeroSection,
   HeroSelectorDecoContainer,
-  HeroTagLine,
+  // HeroTagLine,
   MainHeader,
 } from "components/lib/StyledComponents";
 import {
@@ -40,7 +40,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
     font: "2.2rem",
     color: palette.white,
     ringColor: palette.main_primary,
-    textPadding: +setMedia(12, 10, 8, 16),
+    textPadding: +setMedia(16, 12.6, 11.2, 12),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
@@ -77,31 +77,31 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
         <FlexColumnContainer
           className={css({
             ...container,
-            ...paddingTopBottom(0, 12),
           })}
         >
           <MainHeader
             className={css({
-              ...paddingTopBottom(6, 4),
+              textAlign: "center",
+              ...paddingTopBottom(8, setMedia(6.8, 6, 4, 0)),
             })}
           >
             {content.mainHeader}
           </MainHeader>
-          <HeroTagLine
+          {/* <HeroTagLine
             className={css({
-              ...paddingTopBottom(8, 10),
+              // ...paddingTopBottom(4, 4),
               maxWidth: `${setMedia(68, 56, 52, 32)}rem`,
               fontSize: "2.8rem",
               fontWeight: 400,
             })}
           >
             {content.heroTagline}
-          </HeroTagLine>
+          </HeroTagLine> */}
           <Container className={css({ display: "grid" })}>
             <h2
               className={css({
                 alignSelf: "center",
-                ...paddingTopBottom(0, 2),
+                ...paddingTopBottom(2),
                 fontSize: "4.4rem",
                 fontWeight: 400,
               })}
@@ -111,7 +111,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
           </Container>
           <FlexCenterContainer
             className={css({
-              ...paddingTopBottom(0, 8),
+              ...paddingTopBottom(0, 6),
             })}
           >
             <DecoContainer
@@ -126,7 +126,7 @@ export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
               appBox.isMedia.mini
                 ? { ...createGrid("repeat(2, 16rem)", "repeat(2, 20rem)") }
                 : {
-                    ...createGrid(`repeat(4,${setMedia(20, 18, 12)}rem)`, 1),
+                    ...createGrid(`repeat(4,${setMedia(20, 18, 14)}rem)`, 1),
                     ...paddingTopBottom(6),
                   }
             )}
