@@ -1,12 +1,13 @@
 import { css } from "@emotion/css";
 import {
-  BackDropFilterContainer,
+  HeroBackDropFilterContainer,
+  Container,
   DecoContainer,
   FlexCenterContainer,
   FlexColumnContainer,
-  FlexRowContainer,
   HeroSection,
   HeroSelectorDecoContainer,
+  // HeroTagLine,
   MainHeader,
 } from "components/lib/StyledComponents";
 import {
@@ -15,29 +16,31 @@ import {
   HeroCupCakesLogo,
   HeroGingerbreadLogo,
 } from "components/logos/Logos";
-import { IContentBox, IInnerContent } from "interfaces/IContent";
+import { IAppBox } from "interfaces/IApp";
+import { IInnerContent } from "interfaces/IContent";
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
 import { ILogos } from "interfaces/ILogos";
+import { container, createGrid, paddingTopBottom } from "styles/styles";
+import { palette } from "styles/imports";
 
-import { container, flexCenter, paddingTopBottom } from "styles/general";
-import { colorSys } from "styles/imports";
-
-export function Hero({ contentBox }: { contentBox: IContentBox }) {
-  const content: IInnerContent = contentBox.innerContent;
-  const textColor: string = colorSys.white;
+export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
+  const content: IInnerContent = appBox.innerContent;
+  const textColor: string = palette.white;
+  const setMedia = appBox.setMedia;
 
   const logoProps: ILogos = {
-    width: "72",
-    height: "72",
+    width: setMedia(72, 60, 52, 48),
+    height: setMedia(72, 60, 52, 48),
   };
 
   const selectorParams: ISelectorParams = {
-    width: 16,
-    height: 16,
-    step: 3,
+    width: +setMedia(14, 12, 10),
+    height: +setMedia(14, 12, 10),
+    step: 1.6,
     font: "2.2rem",
-    color: colorSys.white,
-    ringColor: colorSys.main_primary,
+    color: palette.white,
+    ringColor: palette.main_primary,
+    textPadding: +setMedia(16, 12.6, 11.2, 12),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
@@ -70,7 +73,7 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
         color: textColor,
       })}
     >
-      <BackDropFilterContainer>
+      <HeroBackDropFilterContainer>
         <FlexColumnContainer
           className={css({
             ...container,
@@ -78,62 +81,68 @@ export function Hero({ contentBox }: { contentBox: IContentBox }) {
         >
           <MainHeader
             className={css({
-              ...paddingTopBottom(6, 4),
+              textAlign: "center",
+              ...paddingTopBottom(8, setMedia(6.8, 6, 4, 0)),
             })}
           >
             {content.mainHeader}
           </MainHeader>
-          <p
+          {/* <HeroTagLine
             className={css({
-              // ...flexCenter,
-              ...paddingTopBottom(8, 10),
-              width: "60rem",
+              // ...paddingTopBottom(4, 4),
+              maxWidth: `${setMedia(68, 56, 52, 32)}rem`,
               fontSize: "2.8rem",
               fontWeight: 400,
             })}
           >
             {content.heroTagline}
-          </p>
-          <h2
-            className={css({
-              ...flexCenter,
-              ...paddingTopBottom(0, 2),
-              fontSize: "4.4rem",
-              fontWeight: 400,
-            })}
-          >
-            {content.slogan}:
-          </h2>
+          </HeroTagLine> */}
+          <Container className={css({ display: "grid" })}>
+            <h2
+              className={css({
+                alignSelf: "center",
+                ...paddingTopBottom(2),
+                fontSize: "4.4rem",
+                fontWeight: 400,
+              })}
+            >
+              {content.slogan}
+            </h2>
+          </Container>
           <FlexCenterContainer
             className={css({
-              ...paddingTopBottom(0, 8),
+              ...paddingTopBottom(0, 6),
             })}
           >
             <DecoContainer
-              width={contentBox.isLanguage === "ru" ? 26 : 16}
-              height={0.8}
+              width={appBox.isLanguage === "ru" ? 26 : 16}
+              height={0.2}
               color={textColor}
             />
           </FlexCenterContainer>
 
-          <FlexRowContainer
-            className={css({
-              justifyContent: "space-between",
-              ...paddingTopBottom(6),
-              // gap: "6rem",
-            })}
+          <Container
+            className={css(
+              appBox.isMedia.mini
+                ? { ...createGrid("repeat(2, 16rem)", "repeat(2, 20rem)") }
+                : {
+                    ...createGrid(`repeat(4,${setMedia(20, 18, 14)}rem)`, 1),
+                    ...paddingTopBottom(6),
+                  }
+            )}
           >
             {/* HeroSelectors */}
             {heroSelectors.map((selector) => (
               <HeroSelectorDecoContainer
                 key={selector.name}
+                clickHandler={() => console.log(selector.name)}
                 selector={selector}
                 selectorParams={selectorParams}
               />
             ))}
-          </FlexRowContainer>
+          </Container>
         </FlexColumnContainer>
-      </BackDropFilterContainer>
+      </HeroBackDropFilterContainer>
     </HeroSection>
   );
 }
