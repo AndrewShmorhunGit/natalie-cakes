@@ -12,6 +12,7 @@ export interface ISelectorParams {
   font: string;
   color: string;
   ringColor: string;
+  textPadding: number;
   decoProps: {
     borderRadius: string;
     position: "absolute";

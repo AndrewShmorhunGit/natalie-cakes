@@ -1,6 +1,19 @@
-export interface IContent {
-  contentEn: IInnerContent;
-  contentRu: IInnerContent;
+export interface IActiveLanguageBtnStyle {
+  backgroundColor: string;
+  color: string;
+}
+
+interface IMenuItemData {
+  itemName: string;
+  description: string;
+  tasteAccent: string;
+}
+
+export interface IMenuContent {
+  moussesCakes: {
+    name: string;
+    chocolatePassionFruit: IMenuItemData;
+  };
 }
 
 export interface IInnerContent {
@@ -18,12 +31,16 @@ export interface IInnerContent {
   };
   ingredients: string;
   ingredientsText: {
+    h1: string;
     p1: string;
+    h2: string;
     p2: string;
   };
   design: string;
   designText: {
+    h1: string;
     p1: string;
+    h2: string;
     p2: string;
   };
   order: string;
@@ -53,19 +70,10 @@ export interface IInnerContent {
     cart: string[];
     rights: string;
   };
+  menuContent: IMenuContent;
 }
 
-export interface IActiveBtnStyle {
-  backgroundColor: string;
-  color: string;
-}
-
-export interface IContentBox {
-  isLanguage: string;
-  setLanguage: React.Dispatch<React.SetStateAction<string>>;
-  innerContent: IInnerContent;
-  en: string;
-  ru: string;
-  activeCheck: any;
-  activeStyle: IActiveBtnStyle;
+export interface IContent {
+  contentEn: IInnerContent;
+  contentRu: IInnerContent;
 }

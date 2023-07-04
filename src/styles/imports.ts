@@ -1,6 +1,6 @@
-import { colorSys } from "./colors";
+import { palette } from "./palette";
 import { mq } from "./media-queries";
-import { flexCenter, container, fonts } from "./general";
-import { appShadows } from "./shadow";
+import * as styles from "./styles";
+import { appShadows } from "./styles";
 
-export { colorSys, mq, flexCenter, container, appShadows, fonts };
+export { palette, mq, styles, appShadows };

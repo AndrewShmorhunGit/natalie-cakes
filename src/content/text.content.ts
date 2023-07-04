@@ -1,9 +1,11 @@
 import { IInnerContent } from "interfaces/IContent";
+import { menuContentEn, menuContentRu } from "./menu.content";
 
-const address = "Natalie 23 str, Eilat, Israel";
+const address = "Natalie 23 str, Eilat";
 const phone = "+972 54-283-07777";
-const email = "natalie@gmail.com";
-const rights = "Natalie Cakes, all rights reserved. Eilat 2023.";
+const email = "nataliecakes@gmail.com";
+const rights =
+  "Natalie Cakes, all rights reserved. Designed and developed by Andrew Shmorhun. 2023";
 
 const contentEn: IInnerContent = {
   // Navigation
@@ -25,12 +27,16 @@ const contentEn: IInnerContent = {
   /// Info
   ingredients: "ingredients",
   ingredientsText: {
+    h1: "Only high quality",
     p1: "In our menu you will find cakes, both from famous chefs, as well as our recipes developed over the years and classic combinations. We use only high-quality ingredients - 82% butter, animal origin, high-quality Spanish and Belgian chocolate, German cream cheese and puree of natural berries and fruits.",
+    h2: "We don't use",
     p2: "We do not use preservatives, stabilizers, aromatizers, flavor enhancers or emulsifiers.",
   },
   design: "design",
   designText: {
+    h1: "Base Decorations",
     p1: "Depending on the wishes, the cake can be of any color or shade, mousse cakes are covered with a mirror glaze, sponge cakes with cream based on cream cheese. The decoration price includes a laconic décor, it can be a small composition of pasta, bizet, a simple chocolate décor(feathers, spheres), an inscription on the cake with white or dark chocolate.",
+    h2: "Author's decor",
     p2: "Additional décor is paid separately - fresh flowers, berry décor, thematic images printing, author's gingerbread, glaze drawing etc..",
   },
   order: "order",
@@ -63,7 +69,10 @@ const contentEn: IInnerContent = {
     cart: ["biscuits cakes", "classical cakes", "cheese cakes", "musses cakes"],
     rights,
   },
+
+  menuContent: menuContentEn,
 };
+
 const contentRu: IInnerContent = {
   // Navigation
   about: "про нас",
@@ -75,20 +84,24 @@ const contentRu: IInnerContent = {
     "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями.",
   slogan: "Cделайте себе праздник",
   heroSelectors: {
-    birthdayCake: "торт ко дню рождения",
-    cakesAndPies: "торты и пироги",
+    birthdayCake: "авторские торты",
+    cakesAndPies: "торты & пироги",
     cupCakes: "капкейки",
     gingerBread: "пряники",
   },
   /// Info
   ingredients: "ингредиенты",
   ingredientsText: {
+    h1: "Только лучшие продукты",
     p1: "В нашем меню вы найдете торты, как от известных шеф-поваров, так и отработанные годами рецепты и классические сочетания. Мы используем только качественные ингредиенты - 82% сливочного масла животного происхождения, качественный испанский и бельгийский шоколад, немецкий сливочный сыр и пюре из натуральных ягод и фруктов.",
+    h2: "Не используем",
     p2: "Мы не используем консерванты, стабилизаторы, ароматизаторы, усилители вкуса и эмульгаторы.",
   },
   design: "дизайн",
   designText: {
+    h1: "Базовый декор",
     p1: "В зависимости от пожеланий торт может быть любого цвета и оттенка, муссовые коржи покрываются зеркальной глазурью, бисквитные с кремом на основе сливочного сыра. В стоимость украшения входит лаконичный декор, это может быть небольшая композиция из макарон, бизе, простой шоколадный декор (перья, шары), надпись на торте белым или темным шоколадом.",
+    h2: "Aвторский декор",
     p2: "Дополнительный декор оплачивается отдельно - живые цветы, ягодный декор, печать тематических изображений, авторские пряники, рисунок глазурью и т.д.",
   },
   order: "Заказ",
@@ -115,12 +128,13 @@ const contentRu: IInnerContent = {
   footerOther: {
     contacts: "контакты",
     question: "еще есть вопросы?",
-    callBack: "мы перезвоним вам!",
+    callBack: "Мы перезвоним вам!",
     follow: "подписаться",
     menu: "меню",
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     rights,
   },
+  menuContent: menuContentRu,
 };
 
 export const contents = { contentEn, contentRu };
