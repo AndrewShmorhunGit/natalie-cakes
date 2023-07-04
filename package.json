@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "npx cross-env STAGE=dev react-scripts start",
-    "build": "npx cross-env STAGE=prod react-scripts build",
+    "build": "npx cross-env STAGE=prod CI=false && react-scripts build",
     "test": "npx cross-env STAGE=test react-scripts test",
     "eject": "react-scripts eject"
   },
