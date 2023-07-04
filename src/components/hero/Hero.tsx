@@ -23,7 +23,7 @@ import { ILogos } from "interfaces/ILogos";
 import { container, createGrid, paddingTopBottom } from "styles/styles";
 import { palette } from "styles/imports";
 
-export function Hero({ appBox: appBox }: { appBox: IAppBox }) {
+export function Hero({ appBox }: { appBox: IAppBox }) {
   const content: IInnerContent = appBox.innerContent;
   const textColor: string = palette.white;
   const setMedia = appBox.setMedia;

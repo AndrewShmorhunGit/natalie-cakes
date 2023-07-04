@@ -1,5 +1,5 @@
 import { IMedia } from "interfaces/IApp";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 interface IMediaSettings {
   windowSize: number;
@@ -27,17 +27,15 @@ export const useMedia = (): IMediaSettings => {
   const [isMQ, setIsMQ] = useState<"big" | "medium" | "small" | "mini">(
     checkMQSize()
   );
-
-  const handleWindowResize = () => {
-    const size = window.innerWidth;
+  const size = window.innerWidth;
+  const handleWindowResize = useCallback(() => {
     setWindowSize(size);
     if (size >= 1200) return setIsMQ("big");
     if (size < 1200 && size >= 960) return setIsMQ("medium");
     if (size < 960 && size >= 660) return setIsMQ("small");
     if (size < 660) return setIsMQ("mini");
     return;
-  };
-
+  }, [size]);
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
     return () => {

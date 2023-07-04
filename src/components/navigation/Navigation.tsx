@@ -15,7 +15,7 @@ import { IAppBox } from "interfaces/IApp";
 import { activeStyle } from "styles/styles";
 
 export function Navigation({
-  appBox: appBox,
+  appBox,
 }: {
   appBox: IAppBox;
 }): EmotionJSX.Element {
