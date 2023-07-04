@@ -27,15 +27,16 @@ export const useMedia = (): IMediaSettings => {
   const [isMQ, setIsMQ] = useState<"big" | "medium" | "small" | "mini">(
     checkMQSize()
   );
-  const size = window.innerWidth;
   const handleWindowResize = useCallback(() => {
+    const size = window.innerWidth;
     setWindowSize(size);
     if (size >= 1200) return setIsMQ("big");
     if (size < 1200 && size >= 960) return setIsMQ("medium");
     if (size < 960 && size >= 660) return setIsMQ("small");
     if (size < 660) return setIsMQ("mini");
     return;
-  }, [size]);
+  }, [isWindowSize]);
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
     return () => {

@@ -4,6 +4,8 @@
 
 - Goods and services.
 
+[Depliyed App](https://natalie-cakes.netlify.app/)
+
 ## Content
 
 Structure:
