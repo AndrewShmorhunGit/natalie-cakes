@@ -23,7 +23,7 @@ export const useLanguage = (contents: IContent): ILanguageSettings => {
       }
       return contentEn;
     },
-    [isLanguage]
+    [contentRu, contentEn]
   );
 
   // Set languages

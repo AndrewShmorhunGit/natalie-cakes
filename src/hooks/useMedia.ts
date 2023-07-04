@@ -35,7 +35,7 @@ export const useMedia = (): IMediaSettings => {
     if (size < 960 && size >= 660) return setIsMQ("small");
     if (size < 660) return setIsMQ("mini");
     return;
-  }, [isWindowSize]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
