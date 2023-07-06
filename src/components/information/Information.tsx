@@ -34,9 +34,10 @@ export function Information({ appBox }: { appBox: IAppBox }) {
           className={css({
             ...container,
             color: palette.white,
+            textTransform: "capitalize",
           })}
         >
-          Information
+          {content.infoHeader}
         </MainHeader>
       </div>
       <Container

@@ -10,7 +10,7 @@ import {
   Navigation,
 } from "./components/imports";
 import "./styles/App.css";
-import { contents } from "content/text.content";
+import { contents } from "content/text/text.content";
 import { Container } from "components/lib/StyledComponents";
 import { css } from "@emotion/css";
 import { createGrid } from "styles/styles";
@@ -41,7 +41,7 @@ export function App() {
 
   return (
     <Container
-      // dir="rtl"
+      dir={appBox.isLanguage === "hb" ? "rtl" : "ltr"}
       className={css({
         minHeight: "100vh",
         ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),

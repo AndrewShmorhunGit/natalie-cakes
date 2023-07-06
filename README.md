@@ -71,18 +71,26 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 // Marks
 
-<!-- - Horizontal scroll appear in Information section -->
+### Current Task (feachure/content)
+
+- [x] Fix content
+- [x] Add LTR interface and update content to hebrew
 
 ### Information Section
 
-- [ ] Cards create template
-- [ ] Styled Decoration of Important area
+- [x] Cards create template
+- [x] Styled Decoration of Important area
 
-## Styling
+### Footer
+
+- [ ] Add menu icon
+- [ ] Fix menu list under the menu
+
+### Styling
 
 - [ ] Add gradients to the palette
 
-## General
+### General
 
 - [ ] Set Up page routing in `./public` folder
 - [ ] Use "Dialog" for modals
@@ -91,13 +99,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [x] Burger
 - [ ] LTR Interface
 - [x] Remove `File Loader` from deps if it will not help..
-- [x] Prepare images for Info section
-- [ ] Hovering main icons(Fix empty space hover)
+  <!-- - [x] Prepare images for Info section -->
+  <!-- - [x] Hovering main icons(Fix empty space hover) -->
 - [ ] Add use hover hook
 - [x] Footer icon hover
   - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
   - [useHover](https://usehooks.com/usehover)
 - [ ] Global grid setup
 - [ ] Set up language dependencies function
-- [ ] Add 'Information' to the content list and align center
+- [x] Add 'Information' to the content list and align center
 - [ ] Handle Fonts

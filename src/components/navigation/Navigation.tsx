@@ -80,6 +80,13 @@ export function Navigation({
               >
                 {appBox.languages.ru}
               </Button>
+              <Button
+                variant="language"
+                onClick={() => appBox.setLanguage("hb")}
+                className={css(appBox.isLanguage === "hb" ? activeStyle : null)}
+              >
+                {appBox.languages.hb}
+              </Button>
             </FlexColumnContainer>
           </>
         ) : (

@@ -9,6 +9,7 @@ export interface IMedia {
 export interface ILanguages {
   en: string;
   ru: string;
+  hb: string;
 }
 export interface IAppBox {
   isLanguage: string;

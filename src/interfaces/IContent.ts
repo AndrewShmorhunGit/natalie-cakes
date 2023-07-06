@@ -17,9 +17,12 @@ export interface IMenuContent {
 }
 
 export interface IInnerContent {
+  // Nav
   about: string;
   contacts: string;
   makeSweet: string;
+
+  // Hero
   mainHeader: string;
   heroTagline: string;
   slogan: string;
@@ -29,6 +32,9 @@ export interface IInnerContent {
     cupCakes: string;
     gingerBread: string;
   };
+
+  // Info
+  infoHeader: string;
   ingredients: string;
   ingredientsText: {
     h1: string;
@@ -56,6 +62,9 @@ export interface IInnerContent {
     p1: string;
     p2: string;
   };
+
+  // Footer
+
   footerContacts: {
     address: string;
     phone: string;
@@ -70,10 +79,12 @@ export interface IInnerContent {
     cart: string[];
     rights: string;
   };
+  callBackBtn: string;
   menuContent: IMenuContent;
 }
 
 export interface IContent {
   contentEn: IInnerContent;
   contentRu: IInnerContent;
+  contentHb: IInnerContent;
 }

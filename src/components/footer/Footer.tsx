@@ -118,7 +118,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
               {content.footerOther.callBack}
             </FooterParagraph>
             <FlexCenterContainer>
-              <Button variant="primary">Take a call</Button>
+              <Button variant="primary">{content.callBackBtn}</Button>
             </FlexCenterContainer>
           </FlexColumnContainer>
           <FlexColumnContainer
