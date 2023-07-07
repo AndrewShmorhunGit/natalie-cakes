@@ -74,16 +74,14 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Current Task (feachure/content)
 
 - [ ] Add hebrew text
-
-### Footer
-
+      Footer:
 - [ ] Add menu icon
 - [ ] Fix menu list under the menu
 - [ ] Fix icons padding in ltr intrface
 
 ### Menu
 
-- add price corecting variables environment
+- [ ] Add price corecting variables environment
 
 ### Styling
 

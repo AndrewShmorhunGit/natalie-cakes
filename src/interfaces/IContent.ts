@@ -73,6 +73,9 @@ export interface IInnerContent {
   callBackBtn: string;
   // Menu
   menuContent: IMenuContent;
+  sweetness: string;
+  sourness: string;
+  taste: string;
 }
 
 export interface IContent {

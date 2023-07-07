@@ -16,7 +16,6 @@ import {
 } from "components";
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
-
 // Interfaces
 import { IAppBox, IHeroSelectors, ISelectorParams, ILogos } from "interfaces";
 

@@ -23,9 +23,13 @@ import { IAppBox } from "interfaces/IApp";
 import { createMenuData } from "data/menu.data";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
-  const content = appBox.innerContent.menuContent;
-  const { isMedia, setMedia } = appBox;
-  const menuData = createMenuData(content);
+  const {
+    innerContent: { menuContent },
+    innerContent: content,
+    isMedia,
+    setMedia,
+  } = appBox;
+  const menuData = createMenuData(menuContent);
 
   return (
     <div
@@ -123,8 +127,8 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               textTransform: "capitalize",
                             })}
                           >
-                            <p>sourness {item.sourness}</p>
-                            <p>sweetness {item.sweetness}</p>
+                            <p> {`${content.sweetness}: ${item.sweetness}`}</p>
+                            <p>{`${content.sourness}: ${item.sourness}`}</p>
                           </div>
                           <div
                             className={css({
@@ -133,7 +137,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               // flexDirection: "column",
                             })}
                           >
-                            <h3>Taste accent - </h3>
+                            <h3>{content.taste} - </h3>
                             <p>{item.tasteAccent}</p>
                           </div>
                         </FlexRowContainer>

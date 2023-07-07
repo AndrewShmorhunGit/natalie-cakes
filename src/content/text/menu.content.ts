@@ -6,7 +6,7 @@ export const menuContentEn: IMenuContent = {
     chocolatePassionFruit: {
       itemName: "chocolate - passion fruit",
       description: "will be created from description function",
-      tasteAccent: "chocolate with exotic sourness ",
+      tasteAccent: "chocolate with exotic sourness",
     },
   },
 };
@@ -18,6 +18,17 @@ export const menuContentRu: IMenuContent = {
       itemName: "шоколад - маракуя",
       description: "will be created from description function",
       tasteAccent: "шоколад с экзотической кислинкой",
+    },
+  },
+};
+
+export const menuContentHb: IMenuContent = {
+  moussesCakes: {
+    name: "עוגות מוס",
+    chocolatePassionFruit: {
+      itemName: "שוקולד - פסיפלורה",
+      description: "will be created from description function",
+      tasteAccent: "שוקולד עם חמיצות אקזוטית",
     },
   },
 };

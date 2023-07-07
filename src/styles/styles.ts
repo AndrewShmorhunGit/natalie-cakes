@@ -114,6 +114,7 @@ export const appShadows = {
 // BTN's
 
 export const activeBtnStyle = {
+  border: `solid white 2px`,
   backgroundColor: palette.main_primary_dark,
   color: palette.white,
 };
