@@ -1,8 +1,3 @@
-export interface IActiveLanguageBtnStyle {
-  backgroundColor: string;
-  color: string;
-}
-
 interface IMenuItemData {
   itemName: string;
   description: string;
@@ -21,7 +16,6 @@ export interface IInnerContent {
   about: string;
   contacts: string;
   makeSweet: string;
-
   // Hero
   mainHeader: string;
   heroTagline: string;
@@ -32,7 +26,6 @@ export interface IInnerContent {
     cupCakes: string;
     gingerBread: string;
   };
-
   // Info
   infoHeader: string;
   ingredients: string;
@@ -62,9 +55,7 @@ export interface IInnerContent {
     p1: string;
     p2: string;
   };
-
   // Footer
-
   footerContacts: {
     address: string;
     phone: string;
@@ -80,6 +71,7 @@ export interface IInnerContent {
     rights: string;
   };
   callBackBtn: string;
+  // Menu
   menuContent: IMenuContent;
 }
 

@@ -1,5 +1,3 @@
-import { MediaService } from "services/media.services";
+import { MediaSettings } from "settings/media.settings";
 
-const mq = new MediaService();
-
-export { mq };
+export const mq = new MediaSettings();

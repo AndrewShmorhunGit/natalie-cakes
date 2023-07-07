@@ -1,6 +1,8 @@
-import { ILogos } from "interfaces/ILogos";
+// Styles
 import { css } from "@emotion/css";
 import { mq } from "styles/media-queries";
+// Interfaces
+import { ILogos } from "interfaces/ILogos";
 
 // Main Brand Logo
 function MainLogo({

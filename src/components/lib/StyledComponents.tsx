@@ -1,13 +1,19 @@
+// Styles
 import styled from "@emotion/styled/macro";
-import { palette, appShadows, mq, styles } from "styles/imports";
-import { css } from "@emotion/css";
-import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import {
+  css,
+  palette,
+  appShadows,
+  mq,
+  styles,
   infoLogoContainerAbsoluteSettings,
   paddingTopBottom,
   wideContainer,
-} from "styles/styles";
+} from "styles";
+// Interfaces
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
+// Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 
 // STYLED APP COMPONENTS //
@@ -640,14 +646,12 @@ export {
   // Navigation
   NavigationSection,
   NavBurger,
-
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
   HeroTagLine,
   MainHeader,
   HeroSelectorDecoContainer,
-
   // Information
   InformationSection,
   InfoContainer,
@@ -656,18 +660,15 @@ export {
   InfoParagraph,
   InfoLogoContainer,
   InfoDecoLine,
-
   // Menu
   MenuCategoryHeader,
   MenuPosition,
   PositionVariant,
-
   // Footer
   FooterSection,
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
-
   // Styled and Custom Reusable Components
   Button,
   Container,

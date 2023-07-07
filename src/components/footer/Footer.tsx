@@ -1,38 +1,36 @@
-import { css } from "@emotion/css";
-import { MainLogo } from "components/imports";
+// Components
 import {
-  Button,
-  Container,
-  DecoContainer,
-  FlexCenterContainer,
-  FlexColumnContainer,
-  FooterSection,
-  FooterHeader,
-  FooterParagraph,
-  MainLogoText,
-  IconAndTextFooterContacts,
-} from "components/lib/StyledComponents";
-import {
+  MainLogo,
   EnvelopLogo,
   InstagramLogo,
   LocationLogo,
   PhoneLogo,
-} from "components/logos/Logos";
-import { IAppBox } from "interfaces/IApp";
-import { IFooterContacts } from "interfaces/IFooter";
-import { ILogos } from "interfaces/ILogos";
-import { palette } from "styles/palette";
+  FooterSection,
+  Container,
+  FlexCenterContainer,
+  MainLogoText,
+  FlexColumnContainer,
+  FooterHeader,
+  IconAndTextFooterContacts,
+  FooterParagraph,
+  Button,
+  DecoContainer,
+} from "components";
+// Styles
 import {
+  css,
+  palette,
   container,
   createGrid,
   paddingLeftRight,
   paddingTopBottom,
-} from "styles/styles";
-// import { mq } from "styles/media-queries";
+} from "styles";
+// Interfaces
+import { IAppBox, IFooterContacts, ILogos } from "interfaces";
 
-export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
-  const content = contentBox.innerContent;
-  const setMedia = contentBox.setMedia;
+export function Footer({ appBox }: { appBox: IAppBox }) {
+  const { innerContent: content, setMedia } = appBox;
+
   const logoPropsContacts: ILogos = {
     width: "32",
     height: "32",
@@ -74,21 +72,18 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
         </FlexCenterContainer>
         <Container
           className={css({
-            // ...createGrid("1fr 1.2fr 1fr", 1),
             ...createGrid(
               setMedia("1fr 2fr 1fr", "1fr 1.5fr 1fr", "1fr 1.2fr 1fr", "1fr"),
               setMedia(1, 1, 1, "repeat(3, auto)")
             ),
             rowGap: "4rem",
-
-            // ...paddingTopBottom(0, 6),
             placeItems: "center",
           })}
         >
           <FlexColumnContainer
             className={css({
               gridColumn: "1/2",
-              gridRow: setMedia("1"),
+              gridRow: "1",
               gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >

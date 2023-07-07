@@ -73,18 +73,17 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
-- [x] Fix content
-- [x] Add LTR interface and update content to hebrew
-
-### Information Section
-
-- [x] Cards create template
-- [x] Styled Decoration of Important area
+- [ ] Add hebrew text
 
 ### Footer
 
 - [ ] Add menu icon
 - [ ] Fix menu list under the menu
+- [ ] Fix icons padding in ltr intrface
+
+### Menu
+
+- add price corecting variables environment
 
 ### Styling
 
@@ -92,20 +91,29 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### General
 
-- [ ] Set Up page routing in `./public` folder
+- [ ] Add app public icons as 'Bookshelf' example
+- [ ] Manage imports with index.ts (images, styles and interfaces to 😊)
+- [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
       Have problems with React 18v
 - [ ] Use local storage for current lang
-- [x] Burger
-- [ ] LTR Interface
-- [x] Remove `File Loader` from deps if it will not help..
-  <!-- - [x] Prepare images for Info section -->
-  <!-- - [x] Hovering main icons(Fix empty space hover) -->
 - [ ] Add use hover hook
-- [x] Footer icon hover
   - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
   - [useHover](https://usehooks.com/usehover)
 - [ ] Global grid setup
-- [ ] Set up language dependencies function
-- [x] Add 'Information' to the content list and align center
 - [ ] Handle Fonts
+- [ ] Delete Logos from content/logos folder
+- [ ] Remove unused fonts
+
+### Done
+
+- [x] Fix content
+- [x] Add LTR interface and update content to hebrew
+- [x] Add 'Information' to the content list and align center
+- [x] Footer icon hover
+- [x] Remove `File Loader` from deps if it will not help..
+- [x] Burger
+- [x] Cards create template
+- [x] Styled Decoration of Important area
+- [x] Prepare images for Info section
+- [x] Hovering main icons(Fix empty space hover)

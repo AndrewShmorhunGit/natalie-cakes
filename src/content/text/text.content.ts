@@ -23,7 +23,6 @@ const contentEn: IInnerContent = {
     cupCakes: "cup cakes",
     gingerBread: "gingerbread",
   },
-
   /// Info
   infoHeader: "information",
   ingredients: "ingredients",
@@ -54,7 +53,6 @@ const contentEn: IInnerContent = {
     p2: "Some décor (balls, pasta), so as not to fall during transportation, can be attached to toothpicks, be careful when cutting and before giving to children!",
   },
   // Footer
-
   footerContacts: {
     address,
     phone,
@@ -73,6 +71,10 @@ const contentEn: IInnerContent = {
   callBackBtn: "Take a call",
   menuContent: menuContentEn,
 };
+
+///////////////
+/// RUSSIAN ///
+///////////////
 
 const contentRu: IInnerContent = {
   // Navigation
@@ -120,13 +122,11 @@ const contentRu: IInnerContent = {
     p2: "Некоторый декор (шарики, макароны), чтобы не упасть при транспортировке, можно крепить на зубочистки, будьте осторожны при нарезке и перед тем, как давать детям!",
   },
   // Footer
-
   footerContacts: {
     address,
     phone,
     email,
   },
-
   footerOther: {
     contacts: "контакты",
     question: "еще есть вопросы?",
@@ -136,27 +136,29 @@ const contentRu: IInnerContent = {
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     rights,
   },
-
   callBackBtn: "Заказать звонок",
-
   menuContent: menuContentRu,
 };
 
+//////////////
+/// HEBREW ///
+//////////////
+
 const contentHb: IInnerContent = {
   // Navigation
-  about: "про нас",
-  contacts: "контакты",
-  makeSweet: "подсластить!",
+  about: "עלינו",
+  contacts: "אנשי קשר",
+  makeSweet: "לְהַמתִיק",
   // Hero
-  mainHeader: "Сделайте свой день сладким!",
+  mainHeader: "הפוך את היום שלך מתוק",
   heroTagline:
-    "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями.",
-  slogan: "Cделайте себе праздник",
+    "תענגו את עצמכם ואת יקיריכם עם עוגות יום הולדת של שפים מפורסמים, כמו גם ממתכונים ושילובים קלאסיים שעובדו במהלך השנים.",
+  slogan: "תעשה לעצמך חג",
   heroSelectors: {
-    birthdayCake: "авторские торты",
-    cakesAndPies: "торты & пироги",
-    cupCakes: "капкейки",
-    gingerBread: "пряники",
+    birthdayCake: "עוגות של סופר",
+    cakesAndPies: "עוגות ופשטידות",
+    cupCakes: "קאפקייקס",
+    gingerBread: "עוּגיִוֹת זַנגבִיל",
   },
   /// Info
   infoHeader: "информация",
@@ -188,13 +190,11 @@ const contentHb: IInnerContent = {
     p2: "Некоторый декор (шарики, макароны), чтобы не упасть при транспортировке, можно крепить на зубочистки, будьте осторожны при нарезке и перед тем, как давать детям!",
   },
   // Footer
-
   footerContacts: {
     address,
     phone,
     email,
   },
-
   footerOther: {
     contacts: "контакты",
     question: "еще есть вопросы?",
@@ -204,9 +204,7 @@ const contentHb: IInnerContent = {
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     rights,
   },
-
   callBackBtn: "Заказать звонок",
-
   menuContent: menuContentRu,
 };
 

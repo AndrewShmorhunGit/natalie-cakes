@@ -1,4 +1,4 @@
-import { palette } from "styles/palette";
+// Components
 import {
   CallToAction,
   Footer,
@@ -8,15 +8,18 @@ import {
   Menu,
   Modal,
   Navigation,
-} from "./components/imports";
-import "./styles/App.css";
+  Container,
+} from "components";
 import { contents } from "content/text/text.content";
-import { Container } from "components/lib/StyledComponents";
+// Styles
+import "./styles/App.css";
 import { css } from "@emotion/css";
 import { createGrid } from "styles/styles";
+import { palette } from "styles/palette";
+// Interfaces
 import { IAppBox } from "interfaces/IApp";
-import { useMedia } from "hooks/useMedia";
-import { useLanguage } from "hooks/useLanguage";
+// Hooks
+import { useMedia, useLanguage } from "hooks";
 
 export function App() {
   // Set JS Media Queries //
@@ -48,8 +51,10 @@ export function App() {
         color: palette.text_dark,
       })}
     >
+      {/* <div className={css({ height: "calc(100vh + 12rem)" })}> */}
       <Navigation appBox={appBox}></Navigation>
       <Hero appBox={appBox}></Hero>
+      {/* </div> */}
       <Information appBox={appBox}></Information>
       <Menu appBox={appBox}></Menu>
       <Gallery></Gallery>

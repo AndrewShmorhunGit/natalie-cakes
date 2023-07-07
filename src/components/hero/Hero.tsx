@@ -1,32 +1,28 @@
-import { css } from "@emotion/css";
+// Components
 import {
   HeroBackDropFilterContainer,
-  Container,
-  DecoContainer,
-  FlexCenterContainer,
-  FlexColumnContainer,
   HeroSection,
   HeroSelectorDecoContainer,
   // HeroTagLine,
-  MainHeader,
-} from "components/lib/StyledComponents";
-import {
   HeroBirthdayCakesLogo,
   HeroCakesAndPiesLogo,
   HeroCupCakesLogo,
   HeroGingerbreadLogo,
-} from "components/logos/Logos";
-import { IAppBox } from "interfaces/IApp";
-import { IInnerContent } from "interfaces/IContent";
-import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
-import { ILogos } from "interfaces/ILogos";
-import { container, createGrid, paddingTopBottom } from "styles/styles";
-import { palette } from "styles/imports";
+  MainHeader,
+  Container,
+  DecoContainer,
+  FlexCenterContainer,
+  FlexColumnContainer,
+} from "components";
+// Styles
+import { css, palette, container, createGrid, paddingTopBottom } from "styles";
+
+// Interfaces
+import { IAppBox, IHeroSelectors, ISelectorParams, ILogos } from "interfaces";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
-  const content: IInnerContent = appBox.innerContent;
+  const { innerContent: content, setMedia } = appBox;
   const textColor: string = palette.white;
-  const setMedia = appBox.setMedia;
 
   const logoProps: ILogos = {
     width: setMedia(72, 60, 52, 48),

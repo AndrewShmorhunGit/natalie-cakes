@@ -1,24 +1,26 @@
-import { css } from "@emotion/css";
-import {
-  FlexCenterContainer,
-  FlexColumnContainer,
-  FlexRowContainer,
-} from "components/lib/StyledComponents";
+// Components
 import {
   IsraeliShekel,
   PersonsLogo,
   RadiusLogo,
   WeightLogo,
-} from "components/logos/Logos";
-import { createMenuData } from "data/menu.data";
-import { IAppBox } from "interfaces/IApp";
-import { palette } from "styles/palette";
+  FlexCenterContainer,
+  FlexColumnContainer,
+  FlexRowContainer,
+} from "components";
+// Styles
 import {
+  css,
+  palette,
   appShadows,
   container,
   createGrid,
   paddingTopBottom,
-} from "styles/styles";
+} from "styles";
+// Interfaces
+import { IAppBox } from "interfaces/IApp";
+// Data
+import { createMenuData } from "data/menu.data";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const content = appBox.innerContent.menuContent;

@@ -1,3 +1,4 @@
+// Components
 import {
   Button,
   Container,
@@ -6,13 +7,15 @@ import {
   MainLogoText,
   NavBurger,
   NavigationSection,
-} from "components/lib/StyledComponents";
-import { MainLogo } from "components/imports";
+  MainLogo,
+} from "components";
+// Styles
 import { css } from "@emotion/css";
-import { palette, mq } from "styles/imports";
+import { palette, mq } from "styles";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
+import { activeBtnStyle } from "styles/styles";
+// Interfaces
 import { IAppBox } from "interfaces/IApp";
-import { activeStyle } from "styles/styles";
 
 export function Navigation({
   appBox,
@@ -69,21 +72,27 @@ export function Navigation({
               <Button
                 variant="language"
                 onClick={() => appBox.setLanguage("en")}
-                className={css(appBox.isLanguage === "en" ? activeStyle : null)}
+                className={css(
+                  appBox.isLanguage === "en" ? activeBtnStyle : null
+                )}
               >
                 {appBox.languages.en}
               </Button>
               <Button
                 variant="language"
                 onClick={() => appBox.setLanguage("ru")}
-                className={css(appBox.isLanguage === "ru" ? activeStyle : null)}
+                className={css(
+                  appBox.isLanguage === "ru" ? activeBtnStyle : null
+                )}
               >
                 {appBox.languages.ru}
               </Button>
               <Button
                 variant="language"
                 onClick={() => appBox.setLanguage("hb")}
-                className={css(appBox.isLanguage === "hb" ? activeStyle : null)}
+                className={css(
+                  appBox.isLanguage === "hb" ? activeBtnStyle : null
+                )}
               >
                 {appBox.languages.hb}
               </Button>
