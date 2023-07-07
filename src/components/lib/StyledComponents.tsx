@@ -1,13 +1,19 @@
+// Styles
 import styled from "@emotion/styled/macro";
-import { palette, appShadows, mq, styles } from "styles/imports";
-import { css } from "@emotion/css";
-import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 import {
+  css,
+  palette,
+  appShadows,
+  mq,
+  styles,
   infoLogoContainerAbsoluteSettings,
   paddingTopBottom,
   wideContainer,
-} from "styles/styles";
+} from "styles";
+// Interfaces
 import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
+// Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 
 // STYLED APP COMPONENTS //
@@ -168,13 +174,12 @@ function HeroSelectorDecoContainer({
         cursor: "pointer",
         // overflow: "hidden",
         position: "absolute",
-        width: `${selectorParams.width}rem`,
-        height: `${selectorParams.height}rem`,
+        height: "auto",
         borderRadius: "50%",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        boxShadow: appShadows.buttonActive,
+        // boxShadow: appShadows.buttonActive,
       })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
@@ -448,11 +453,9 @@ function IconAndTextFooterContacts({
   text: string;
 }) {
   return (
-    <FlexRowContainer>
+    <FlexRowContainer className={css({ gap: "2rem" })}>
       {icon}
-      <FooterParagraph className={css({ paddingLeft: "2rem" })}>
-        {text}
-      </FooterParagraph>
+      <FooterParagraph>{text}</FooterParagraph>
     </FlexRowContainer>
   );
 }
@@ -460,7 +463,7 @@ function IconAndTextFooterContacts({
 // BUTTONS
 const buttonVariants: any = {
   primary: {
-    width: "22.4rem",
+    width: "24rem",
     height: "6rem",
     border: `0.3rem solid ${palette.main_primary_dark}`,
     fontSize: "2.4rem",
@@ -486,9 +489,9 @@ const buttonVariants: any = {
     width: "3.2rem",
     height: "3.2rem",
     fontSize: "1.6rem",
-    border: `0.2rem solid ${palette.main_primary_dark}`,
+    border: `0.2rem solid ${palette.white}`,
     textTransform: "none",
-    borderRadius: "0.4rem",
+    borderRadius: "50%",
     [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
     // [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
   },
@@ -640,14 +643,12 @@ export {
   // Navigation
   NavigationSection,
   NavBurger,
-
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
   HeroTagLine,
   MainHeader,
   HeroSelectorDecoContainer,
-
   // Information
   InformationSection,
   InfoContainer,
@@ -656,18 +657,15 @@ export {
   InfoParagraph,
   InfoLogoContainer,
   InfoDecoLine,
-
   // Menu
   MenuCategoryHeader,
   MenuPosition,
   PositionVariant,
-
   // Footer
   FooterSection,
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
-
   // Styled and Custom Reusable Components
   Button,
   Container,

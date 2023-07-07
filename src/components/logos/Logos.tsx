@@ -1,6 +1,8 @@
-import { ILogos } from "interfaces/ILogos";
+// Styles
 import { css } from "@emotion/css";
 import { mq } from "styles/media-queries";
+// Interfaces
+import { ILogos } from "interfaces/ILogos";
 
 // Main Brand Logo
 function MainLogo({
@@ -973,8 +975,8 @@ function PhoneLogo({ width = "24", height = "24", fill = "black" }: ILogos) {
 function MenuLogo({ width = "37", height = "48", fill = "black" }: ILogos) {
   return (
     <svg
-      width="37"
-      height="48"
+      width={`${width}`}
+      height={`${height}`}
       viewBox="0 0 37 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

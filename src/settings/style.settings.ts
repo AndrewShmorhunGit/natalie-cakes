@@ -1,4 +1,4 @@
-export class ColorService {
+export class ColorSettings {
   white: string = "white";
   black: string = "black";
   main_primary: string = "#FF8E8E";
@@ -9,4 +9,4 @@ export class ColorService {
   background_third: string = "#F9FFFC";
 }
 
-export class StyleService {}
+export class StyleSettings {}

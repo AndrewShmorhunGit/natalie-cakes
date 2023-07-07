@@ -1,3 +1,3 @@
-import { ColorService } from "services/style.services";
+import { ColorSettings } from "settings/style.settings";
 
-export const palette = new ColorService();
+export const palette = new ColorSettings();

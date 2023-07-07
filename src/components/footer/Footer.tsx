@@ -1,38 +1,37 @@
-import { css } from "@emotion/css";
-import { MainLogo } from "components/imports";
+// Components
 import {
-  Button,
-  Container,
-  DecoContainer,
-  FlexCenterContainer,
-  FlexColumnContainer,
-  FooterSection,
-  FooterHeader,
-  FooterParagraph,
-  MainLogoText,
-  IconAndTextFooterContacts,
-} from "components/lib/StyledComponents";
-import {
+  MainLogo,
   EnvelopLogo,
   InstagramLogo,
   LocationLogo,
   PhoneLogo,
-} from "components/logos/Logos";
-import { IAppBox } from "interfaces/IApp";
-import { IFooterContacts } from "interfaces/IFooter";
-import { ILogos } from "interfaces/ILogos";
-import { palette } from "styles/palette";
+  FooterSection,
+  Container,
+  FlexCenterContainer,
+  MainLogoText,
+  FlexColumnContainer,
+  FooterHeader,
+  IconAndTextFooterContacts,
+  FooterParagraph,
+  Button,
+  DecoContainer,
+  MenuLogo,
+} from "components";
+// Styles
 import {
+  css,
+  palette,
   container,
   createGrid,
   paddingLeftRight,
   paddingTopBottom,
-} from "styles/styles";
-// import { mq } from "styles/media-queries";
+} from "styles";
+// Interfaces
+import { IAppBox, IFooterContacts, ILogos } from "interfaces";
 
-export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
-  const content = contentBox.innerContent;
-  const setMedia = contentBox.setMedia;
+export function Footer({ appBox }: { appBox: IAppBox }) {
+  const { innerContent: content, setMedia } = appBox;
+
   const logoPropsContacts: ILogos = {
     width: "32",
     height: "32",
@@ -74,21 +73,18 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
         </FlexCenterContainer>
         <Container
           className={css({
-            // ...createGrid("1fr 1.2fr 1fr", 1),
             ...createGrid(
               setMedia("1fr 2fr 1fr", "1fr 1.5fr 1fr", "1fr 1.2fr 1fr", "1fr"),
               setMedia(1, 1, 1, "repeat(3, auto)")
             ),
             rowGap: "4rem",
-
-            // ...paddingTopBottom(0, 6),
             placeItems: "center",
           })}
         >
           <FlexColumnContainer
             className={css({
               gridColumn: "1/2",
-              gridRow: setMedia("1"),
+              gridRow: "1",
               gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >
@@ -118,7 +114,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
               {content.footerOther.callBack}
             </FooterParagraph>
             <FlexCenterContainer>
-              <Button variant="primary">Take a call</Button>
+              <Button variant="primary">{content.callBackBtn}</Button>
             </FlexCenterContainer>
           </FlexColumnContainer>
           <FlexColumnContainer
@@ -141,7 +137,17 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
         <FlexColumnContainer
           className={css({ ...paddingTopBottom(setMedia(8, 6, 4), 2) })}
         >
-          <FooterHeader>{content.footerOther.menu}</FooterHeader>
+          <Container
+            className={css({
+              display: "flex",
+              gap: "1.6rem",
+              alignItems: "center",
+              justifyContent: "center",
+            })}
+          >
+            <FooterHeader>{content.footerOther.menu}</FooterHeader>
+            <MenuLogo height={"52"} width={"32"} fill={palette.text_dark} />
+          </Container>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
             <DecoContainer
               width={30}
@@ -149,15 +155,22 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
               color={palette.main_primary_dark}
             />
           </FlexCenterContainer>
-          <FlexCenterContainer
-            className={css({ ...paddingTopBottom(2), gap: "0rem" })}
+          <Container
+            className={css({
+              paddingTop: "3.2rem",
+              columnGap: `${setMedia(12, 10, 8, 4)}rem`,
+              ...createGrid(4, 1),
+            })}
           >
-            {content.footerOther.cart.map((position) => {
+            {content.footerOther.cart.map((position, idx) => {
               return (
                 <Container
                   key={position}
                   className={css({
+                    gridColumn: idx + 1,
+                    alignSelf: "center",
                     textTransform: "capitalize",
+                    textAlign: "center",
                     color: palette.main_primary_dark,
                     cursor: "pointer",
                     "&:hover": {
@@ -169,7 +182,7 @@ export function Footer({ appBox: contentBox }: { appBox: IAppBox }) {
                 </Container>
               );
             })}
-          </FlexCenterContainer>
+          </Container>
         </FlexColumnContainer>
         <p
           className={css({

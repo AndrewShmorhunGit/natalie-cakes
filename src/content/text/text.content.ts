@@ -1,5 +1,5 @@
 import { IInnerContent } from "interfaces/IContent";
-import { menuContentEn, menuContentRu } from "./menu.content";
+import { menuContentEn, menuContentHb, menuContentRu } from "./menu.content";
 
 const address = "Natalie 23 str, Eilat";
 const phone = "+972 54-283-07777";
@@ -23,8 +23,8 @@ const contentEn: IInnerContent = {
     cupCakes: "cup cakes",
     gingerBread: "gingerbread",
   },
-
   /// Info
+  infoHeader: "information",
   ingredients: "ingredients",
   ingredientsText: {
     h1: "Only high quality",
@@ -53,7 +53,6 @@ const contentEn: IInnerContent = {
     p2: "Some décor (balls, pasta), so as not to fall during transportation, can be attached to toothpicks, be careful when cutting and before giving to children!",
   },
   // Footer
-
   footerContacts: {
     address,
     phone,
@@ -66,12 +65,20 @@ const contentEn: IInnerContent = {
     callBack: "We will call you back!",
     follow: "follow",
     menu: "menu",
-    cart: ["biscuits cakes", "classical cakes", "cheese cakes", "musses cakes"],
+    cart: ["biscuits cakes", "classical cakes", "cup cakes", "mousse cakes"],
     rights,
   },
-
+  callBackBtn: "Take a call",
+  //Menu
   menuContent: menuContentEn,
+  sweetness: "sweetness",
+  sourness: "sourness",
+  taste: "taste accent",
 };
+
+///////////////
+/// RUSSIAN ///
+///////////////
 
 const contentRu: IInnerContent = {
   // Navigation
@@ -90,6 +97,7 @@ const contentRu: IInnerContent = {
     gingerBread: "пряники",
   },
   /// Info
+  infoHeader: "информация",
   ingredients: "ингредиенты",
   ingredientsText: {
     h1: "Только лучшие продукты",
@@ -118,13 +126,11 @@ const contentRu: IInnerContent = {
     p2: "Некоторый декор (шарики, макароны), чтобы не упасть при транспортировке, можно крепить на зубочистки, будьте осторожны при нарезке и перед тем, как давать детям!",
   },
   // Footer
-
   footerContacts: {
     address,
     phone,
     email,
   },
-
   footerOther: {
     contacts: "контакты",
     question: "еще есть вопросы?",
@@ -134,7 +140,84 @@ const contentRu: IInnerContent = {
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     rights,
   },
+  callBackBtn: "обратный вызов",
+  //Menu
   menuContent: menuContentRu,
+  sweetness: "сладость",
+  sourness: "кислинка",
+  taste: "вкусовой акцент",
 };
 
-export const contents = { contentEn, contentRu };
+//////////////
+/// HEBREW ///
+//////////////
+
+const contentHb: IInnerContent = {
+  // Navigation
+  about: "עלינו",
+  contacts: "אנשי קשר",
+  makeSweet: "לְהַמתִיק",
+  // Hero
+  mainHeader: "הפוך את היום שלך מתוק",
+  heroTagline:
+    "תענגו את עצמכם ואת יקיריכם עם עוגות יום הולדת של שפים מפורסמים, כמו גם ממתכונים ושילובים קלאסיים שעובדו במהלך השנים.",
+  slogan: "תעשה לעצמך חג",
+  heroSelectors: {
+    birthdayCake: "עוגות של סופר",
+    cakesAndPies: "עוגות ופשטידות",
+    cupCakes: "קאפקייקס",
+    gingerBread: "עוּגיִוֹת זַנגבִיל",
+  },
+  /// Info
+  infoHeader: "מֵידָע",
+  ingredients: "רכיבים",
+  ingredientsText: {
+    h1: "רק המוצרים הטובים ביותר",
+    p1: "בתפריט שלנו תמצאו עוגות של שפים מפורסמים, כמו גם מתכונים שעובדו לאורך השנים ושילובים קלאסיים. אנו משתמשים רק בחומרי גלם איכותיים - 82% חמאה ממקור מן החי, שוקולד ספרדי ובלגי איכותי, גבינת שמנת גרמנית ומחית מפירות יער ופירות טבעיים.",
+    h2: "אנחנו לא משתמשים",
+    p2: "אנו לא משתמשים בחומרים משמרים, מייצבים, חומרי טעם וריח, משפרי טעם וחומרים מתחלבים.",
+  },
+  design: "לְעַצֵב",
+  designText: {
+    h1: "עיצוב בסיסי",
+    p1: "בהתאם לרצונות, העוגה יכולה להיות בכל צבע וגוון, עוגות מוס מכוסות בזיגוג מראה, עוגות ספוג עם גבינת שמנת. עלות הקישוט כוללת תפאורה לקונית, זה יכול להיות הרכב קטן של פסטה, ביזה, תפאורה שוקולדית פשוטה (נוצות, כדורים), כיתוב על העוגה עם שוקולד לבן או מריר.",
+    h2: "תפאורה של המחבר",
+    p2: "תפאורה נוספת בתשלום בנפרד - פרחים טריים, עיצוב פירות יער, הדפסת תמונות נושאיות, לחם זנגביל של סופר, ציור זיגוג וכדומה.",
+  },
+  order: "להזמין",
+  orderText: {
+    h1: "איך להזמין?",
+    p1: "הזמנות מתקבלות 3-7 ימים מראש, בין השעות 10:00-18:00, תוך הודעה מראש על התאריך עבורו נדרשת העוגה. תוך פרק זמן קצר נוכל להציע לכם מספר תוספות זמינות מהתפריט שלנו.",
+    h2: "משלוח ואיסוף.",
+    p2: "בתיאום מראש ניתן לאסוף עוגות בין השעות 10:00-18:00 או להזמין משלוח באילת. משלוח מחושב בנפרד.",
+  },
+  important: "חָשׁוּב!",
+  importantText: {
+    h1: "תשלום מראש 50%",
+    p1: "אם בחרתם בצבעי ציפוי כהים או שמנת, שימו לב שהם עלולים להשאיר סימנים ולהכתים את הלשון. אנו משתמשים בצבעי מאכל איכותיים, אך הם עדיין צובעים!",
+    p2: "קצת תפאורה (כדורים, פסטה), כדי לא ליפול במהלך ההובלה, ניתן לחבר לקיסמים, היזהר בעת חיתוך ולפני מתן לילדים!",
+  },
+  // Footer
+  footerContacts: {
+    address,
+    phone,
+    email,
+  },
+  footerOther: {
+    contacts: "אנשי קשר",
+    question: "עדיין יש לך שאלות?",
+    callBack: "אנחנו נתקשר אליך בחזרה!",
+    follow: "להיות מנוי",
+    menu: "תפריט",
+    cart: ["עוגות ביסקוויטים", "עוגות קלאסיות", "עוגות גבינה", "מוסים"],
+    rights,
+  },
+  callBackBtn: "בקש שיחה",
+  //Menu
+  menuContent: menuContentHb,
+  sweetness: "מֶתֶק",
+  sourness: "חֲמִיצוּת",
+  taste: "מבטא טעם",
+};
+
+export const contents = { contentEn, contentRu, contentHb };
