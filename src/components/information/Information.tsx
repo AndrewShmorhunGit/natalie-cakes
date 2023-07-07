@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+// Components
 import {
   Container,
   DecoContainer,
@@ -11,20 +11,30 @@ import {
   InfoSubHeader,
   InformationSection,
   MainHeader,
-} from "components/lib/StyledComponents";
-import { DesignLogo, IngredientsLogo, OrderLogo } from "components/logos/Logos";
+  DesignLogo,
+  IngredientsLogo,
+  OrderLogo,
+} from "components";
+// Styles
+import {
+  css,
+  mq,
+  palette,
+  container,
+  createGrid,
+  paddingTopBottom,
+} from "styles";
+// Interfaces
 import { IAppBox } from "interfaces/IApp";
-import { mq } from "styles/media-queries";
-import { palette } from "styles/palette";
-import { container, createGrid, paddingTopBottom } from "styles/styles";
 
 export function Information({ appBox }: { appBox: IAppBox }) {
-  const content = appBox.innerContent;
-  const { setMedia, isMedia } = appBox;
+  const { innerContent: content, setMedia, isMedia } = appBox;
+
   const logoSettings = setMedia(128, 100, 84, 48);
+
   return (
     <InformationSection>
-      <div
+      <Container
         className={css({
           justifyContent: "start",
           alignContent: "center",
@@ -34,11 +44,12 @@ export function Information({ appBox }: { appBox: IAppBox }) {
           className={css({
             ...container,
             color: palette.white,
+            textTransform: "capitalize",
           })}
         >
-          Information
+          {content.infoHeader}
         </MainHeader>
-      </div>
+      </Container>
       <Container
         className={css({
           background:
@@ -69,9 +80,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               })}
             >
               <InfoHeader>{content.ingredients}</InfoHeader>
-
               <InfoDecoLine />
-
               <InfoSubHeader>{content.ingredientsText.h1}</InfoSubHeader>
               <InfoParagraph>{content.ingredientsText.p1}</InfoParagraph>
               <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
@@ -87,7 +96,6 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               step={+setMedia(2.4, 2, 1.6, 1)}
             />
           </Container>
-
           <Container
             className={css({
               gridRow: "2",
@@ -108,16 +116,13 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               })}
             >
               <InfoHeader>{content.design}</InfoHeader>
-
               <InfoDecoLine />
-
               <InfoSubHeader>{content.designText.h1}</InfoSubHeader>
               <InfoParagraph>{content.designText.p1}</InfoParagraph>
               <InfoSubHeader>{content.designText.h2}</InfoSubHeader>
               <InfoParagraph>{content.designText.p2}</InfoParagraph>
             </InfoContainer>
           </Container>
-
           <Container
             className={css({
               gridRow: "3",
@@ -210,7 +215,6 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                       transform: "rotate(45deg)",
                     }}
                   />
-
                   <InfoHeader>{content.importantText.h1}</InfoHeader>
                 </Container>
               </Container>

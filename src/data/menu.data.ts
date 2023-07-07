@@ -15,7 +15,7 @@ export function createMenuData(content: IMenuContent) {
             description: content.moussesCakes.chocolatePassionFruit.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: "chocolate with exotic sourness ",
+            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
             variants: [
               { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
               { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
@@ -41,7 +41,7 @@ export function createMenuData(content: IMenuContent) {
             description: content.moussesCakes.chocolatePassionFruit.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: "chocolate with exotic sourness ",
+            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
             variants: [
               { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
               { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
@@ -67,7 +67,7 @@ export function createMenuData(content: IMenuContent) {
             description: content.moussesCakes.chocolatePassionFruit.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: "chocolate with exotic sourness ",
+            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
             variants: [
               { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
               { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
@@ -93,7 +93,7 @@ export function createMenuData(content: IMenuContent) {
             description: content.moussesCakes.chocolatePassionFruit.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: "chocolate with exotic sourness ",
+            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
             variants: [
               { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
               { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
@@ -119,7 +119,7 @@ export function createMenuData(content: IMenuContent) {
             description: content.moussesCakes.chocolatePassionFruit.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: "chocolate with exotic sourness ",
+            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
             variants: [
               { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
               { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },

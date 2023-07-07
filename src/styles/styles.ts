@@ -1,5 +1,4 @@
-import { palette } from "./imports";
-import { mq } from "./media-queries";
+import { palette, mq } from "./index";
 
 // Absolute
 
@@ -114,7 +113,8 @@ export const appShadows = {
 
 // BTN's
 
-export const activeStyle = {
+export const activeBtnStyle = {
+  border: `solid white 2px`,
   backgroundColor: palette.main_primary_dark,
   color: palette.white,
 };

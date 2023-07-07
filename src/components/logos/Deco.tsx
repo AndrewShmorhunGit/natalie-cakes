@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 import { ILogos } from "interfaces/ILogos";
-import { mq } from "styles/imports";
+import { mq } from "styles";
 
 function DecoCake1({
   width = "48",
