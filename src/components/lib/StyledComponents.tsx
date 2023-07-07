@@ -421,11 +421,12 @@ function GetRateStars(
   rate: number,
   max: number,
   content: string,
-  size: number
+  width: number = 10,
+  size: number = 20
 ): EmotionJSX.Element {
   return (
     <FlexRowContainer className={css({ gap: "0.8rem" })}>
-      <p className={css({ width: "10rem" })}>{content}:</p>
+      <p className={css({ width: `${width}rem` })}>{content}:</p>
       <Container
         className={css({ columnGap: "0.4rem", ...createGrid(max, 1) })}
       >

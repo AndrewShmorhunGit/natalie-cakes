@@ -133,13 +133,13 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               item.sweetness,
                               5,
                               content.sweetness,
-                              20
+                              appBox.isLanguage === "hb" ? 6.8 : 10
                             )}
                             {GetRateStars(
                               item.sourness,
                               5,
                               content.sourness,
-                              20
+                              appBox.isLanguage === "hb" ? 6.8 : 10
                             )}
                           </div>
                           <div
