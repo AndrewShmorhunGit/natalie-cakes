@@ -73,8 +73,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
-- [ ] Footer Logo fix rtl gap
-
 ### Menu
 
 - [ ] Add price corecting variables environment
@@ -108,6 +106,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _07.07_
 
+- [x] Footer Logo fix rtl gap
 - [x] Fix hero main selectors rtl shift
 - [x] Add hebrew text content
       Footer:
