@@ -21,6 +21,7 @@ import {
   MenuCategoryHeader,
   MenuPosition,
   PositionVariant,
+  GetRateStars,
   // Footer
   FooterSection,
   FooterParagraph,
@@ -57,6 +58,8 @@ import {
   PersonsLogo,
   WeightLogo,
   IsraeliShekel,
+  RateEmptyStarLogo,
+  RateFilledStarLogo,
 } from "./logos/Logos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
@@ -96,6 +99,8 @@ export {
   PersonsLogo,
   WeightLogo,
   IsraeliShekel,
+  RateEmptyStarLogo,
+  RateFilledStarLogo,
   // Styled Components
   // Navigation
   NavigationSection,
@@ -118,6 +123,7 @@ export {
   MenuCategoryHeader,
   MenuPosition,
   PositionVariant,
+  GetRateStars,
   // Footer
   FooterSection,
   FooterParagraph,

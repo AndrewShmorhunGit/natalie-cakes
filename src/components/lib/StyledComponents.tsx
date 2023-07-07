@@ -1,3 +1,4 @@
+import { RateFilledStarLogo, RateEmptyStarLogo } from "components";
 // Styles
 import styled from "@emotion/styled/macro";
 import {
@@ -9,9 +10,10 @@ import {
   infoLogoContainerAbsoluteSettings,
   paddingTopBottom,
   wideContainer,
+  createGrid,
 } from "styles";
 // Interfaces
-import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
+import { IHeroSelectors, ISelectorParams } from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
@@ -415,6 +417,42 @@ const MenuPosition = styled.div({});
 
 const PositionVariant = styled.div({});
 
+function GetRateStars(
+  rate: number,
+  max: number,
+  content: string,
+  size: number
+): EmotionJSX.Element {
+  return (
+    <FlexRowContainer className={css({ gap: "0.8rem" })}>
+      <p className={css({ width: "10rem" })}>{content}:</p>
+      <Container
+        className={css({ columnGap: "0.4rem", ...createGrid(max, 1) })}
+      >
+        {Array.from(Array(max).keys()).map((num) => {
+          return (
+            <div key={num} className={css({ alignSelf: "center" })}>
+              {num + 1 <= rate ? (
+                <RateFilledStarLogo
+                  height={size}
+                  width={size}
+                  fill={palette.main_primary}
+                />
+              ) : (
+                <RateEmptyStarLogo
+                  height={size}
+                  width={size}
+                  fill={palette.main_primary}
+                />
+              )}
+            </div>
+          );
+        })}
+      </Container>
+    </FlexRowContainer>
+  );
+}
+
 // FOOTER
 
 const FooterSection = styled.div({
@@ -668,6 +706,7 @@ export {
   MenuCategoryHeader,
   MenuPosition,
   PositionVariant,
+  GetRateStars,
   // Footer
   FooterSection,
   FooterParagraph,

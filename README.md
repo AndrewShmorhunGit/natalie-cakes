@@ -75,6 +75,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Menu
 
+- [ ] Rate taste function
 - [ ] Add price corecting variables environment
 - [ ] Refactoring Menu
 

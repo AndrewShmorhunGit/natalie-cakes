@@ -7,6 +7,7 @@ import {
   FlexCenterContainer,
   FlexColumnContainer,
   FlexRowContainer,
+  GetRateStars,
 } from "components";
 // Styles
 import {
@@ -120,6 +121,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             justifyContent: "space-between",
                             padding: "2rem 2rem",
                             fontSize: "2rem",
+                            gap: "2rem",
                           })}
                         >
                           <div
@@ -127,8 +129,18 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               textTransform: "capitalize",
                             })}
                           >
-                            <p> {`${content.sweetness}: ${item.sweetness}`}</p>
-                            <p>{`${content.sourness}: ${item.sourness}`}</p>
+                            {GetRateStars(
+                              item.sweetness,
+                              5,
+                              content.sweetness,
+                              20
+                            )}
+                            {GetRateStars(
+                              item.sourness,
+                              5,
+                              content.sourness,
+                              20
+                            )}
                           </div>
                           <div
                             className={css({
