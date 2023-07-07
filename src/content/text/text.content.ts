@@ -65,7 +65,7 @@ const contentEn: IInnerContent = {
     callBack: "We will call you back!",
     follow: "follow",
     menu: "menu",
-    cart: ["biscuits cakes", "classical cakes", "cheese cakes", "musses cakes"],
+    cart: ["biscuits cakes", "classical cakes", "cup cakes", "mousse cakes"],
     rights,
   },
   callBackBtn: "Take a call",
@@ -140,7 +140,7 @@ const contentRu: IInnerContent = {
     cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     rights,
   },
-  callBackBtn: "Заказать звонок",
+  callBackBtn: "обратный вызов",
   //Menu
   menuContent: menuContentRu,
   sweetness: "сладость",

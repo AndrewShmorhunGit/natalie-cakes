@@ -31,11 +31,11 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
   const selectorParams: ISelectorParams = {
     width: +setMedia(14, 12, 10),
     height: +setMedia(14, 12, 10),
-    step: 1.6,
-    font: "2.2rem",
+    step: +setMedia(1.6, 1.6, 1.4, 1.2),
+    font: `${setMedia(2.2, 2, 1.8)}rem`,
     color: palette.white,
     ringColor: palette.main_primary,
-    textPadding: +setMedia(16, 12.6, 11.2, 12),
+    textPadding: +setMedia(11.6, 10.6, 9.2, 16),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
@@ -77,7 +77,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           <MainHeader
             className={css({
               textAlign: "center",
-              ...paddingTopBottom(8, setMedia(6.8, 6, 4, 0)),
+              ...paddingTopBottom(setMedia(6.8, 6, 4, 3.2)),
             })}
           >
             {content.mainHeader}
@@ -106,7 +106,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           </Container>
           <FlexCenterContainer
             className={css({
-              ...paddingTopBottom(0, 6),
+              ...paddingTopBottom(0, setMedia(10, 8, 4, 2)),
             })}
           >
             <DecoContainer
@@ -119,10 +119,13 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           <Container
             className={css(
               appBox.isMedia.mini
-                ? { ...createGrid("repeat(2, 16rem)", "repeat(2, 20rem)") }
+                ? {
+                    columnGap: "4rem",
+                    ...createGrid("repeat(2, auto)", "repeat(2, 20rem)"),
+                  }
                 : {
+                    padding: `${setMedia("6", "4", "3.2", "2")}rem 0`,
                     ...createGrid(`repeat(4,${setMedia(20, 18, 14)}rem)`, 1),
-                    ...paddingTopBottom(6),
                   }
             )}
           >

@@ -174,13 +174,12 @@ function HeroSelectorDecoContainer({
         cursor: "pointer",
         // overflow: "hidden",
         position: "absolute",
-        width: `${selectorParams.width}rem`,
-        height: `${selectorParams.height}rem`,
+        height: "auto",
         borderRadius: "50%",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        boxShadow: appShadows.buttonActive,
+        // boxShadow: appShadows.buttonActive,
       })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
@@ -454,11 +453,9 @@ function IconAndTextFooterContacts({
   text: string;
 }) {
   return (
-    <FlexRowContainer>
+    <FlexRowContainer className={css({ gap: "2rem" })}>
       {icon}
-      <FooterParagraph className={css({ paddingLeft: "2rem" })}>
-        {text}
-      </FooterParagraph>
+      <FooterParagraph>{text}</FooterParagraph>
     </FlexRowContainer>
   );
 }
@@ -466,7 +463,7 @@ function IconAndTextFooterContacts({
 // BUTTONS
 const buttonVariants: any = {
   primary: {
-    width: "22.4rem",
+    width: "24rem",
     height: "6rem",
     border: `0.3rem solid ${palette.main_primary_dark}`,
     fontSize: "2.4rem",

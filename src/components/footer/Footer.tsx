@@ -15,6 +15,7 @@ import {
   FooterParagraph,
   Button,
   DecoContainer,
+  MenuLogo,
 } from "components";
 // Styles
 import {
@@ -136,7 +137,17 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
         <FlexColumnContainer
           className={css({ ...paddingTopBottom(setMedia(8, 6, 4), 2) })}
         >
-          <FooterHeader>{content.footerOther.menu}</FooterHeader>
+          <Container
+            className={css({
+              display: "flex",
+              gap: "1.6rem",
+              alignItems: "center",
+              justifyContent: "center",
+            })}
+          >
+            <FooterHeader>{content.footerOther.menu}</FooterHeader>
+            <MenuLogo height={"52"} width={"32"} fill={palette.text_dark} />
+          </Container>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
             <DecoContainer
               width={30}
@@ -144,15 +155,22 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               color={palette.main_primary_dark}
             />
           </FlexCenterContainer>
-          <FlexCenterContainer
-            className={css({ ...paddingTopBottom(2), gap: "0rem" })}
+          <Container
+            className={css({
+              paddingTop: "3.2rem",
+              columnGap: `${setMedia(12, 10, 8, 4)}rem`,
+              ...createGrid(4, 1),
+            })}
           >
-            {content.footerOther.cart.map((position) => {
+            {content.footerOther.cart.map((position, idx) => {
               return (
                 <Container
                   key={position}
                   className={css({
+                    gridColumn: idx + 1,
+                    alignSelf: "center",
                     textTransform: "capitalize",
+                    textAlign: "center",
                     color: palette.main_primary_dark,
                     cursor: "pointer",
                     "&:hover": {
@@ -164,7 +182,7 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
                 </Container>
               );
             })}
-          </FlexCenterContainer>
+          </Container>
         </FlexColumnContainer>
         <p
           className={css({

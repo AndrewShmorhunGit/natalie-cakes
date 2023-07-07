@@ -73,15 +73,16 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
-- [ ] Add hebrew text
-      Footer:
-- [ ] Add menu icon
-- [ ] Fix menu list under the menu
-- [ ] Fix icons padding in ltr intrface
+- [ ] Footer Logo fix rtl gap
 
 ### Menu
 
 - [ ] Add price corecting variables environment
+- [ ] Refactoring Menu
+
+### Info
+
+- [ ] Refactoring structure
 
 ### Styling
 
@@ -104,6 +105,17 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Remove unused fonts
 
 ### Done
+
+_07.07_
+
+- [x] Fix hero main selectors rtl shift
+- [x] Add hebrew text content
+      Footer:
+- [x] Add menu icon
+- [x] Fix menu list under the menu
+- [x] Fix icons padding in ltr intrface
+
+_Previous_
 
 - [x] Fix content
 - [x] Add LTR interface and update content to hebrew
