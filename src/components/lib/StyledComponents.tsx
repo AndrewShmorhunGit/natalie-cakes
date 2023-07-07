@@ -172,20 +172,24 @@ function HeroSelectorDecoContainer({
     <RelativeContainer
       className={css({
         cursor: "pointer",
-        // overflow: "hidden",
         position: "absolute",
-        height: "auto",
         borderRadius: "50%",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        // boxShadow: appShadows.buttonActive,
+        [mq.mini]: {
+          top: "0%",
+          left: "0%",
+          transform: "rotate(-45deg)",
+        },
       })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
       }}
     >
-      <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
+      <AbsoluteCenterContainer className={css({ overflow: "hidden" })}>
+        {selector.icon}
+      </AbsoluteCenterContainer>
       <DecoContainer
         width={selectorParams.width}
         height={selectorParams.height}
@@ -216,6 +220,9 @@ function HeroSelectorDecoContainer({
         className={css({
           ...styles.flexCenter,
           transform: `translateY(${selectorParams.textPadding}rem)`,
+          [mq.mini]: {
+            transform: `translateY(11.2rem)`,
+          },
         })}
       >
         <p
