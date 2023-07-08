@@ -75,7 +75,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Menu
 
-- [ ] Rate taste function
+-
 - [ ] Add price corecting variables environment
 - [ ] Refactoring Menu
 
@@ -90,7 +90,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### General
 
 - [ ] Add app public icons as 'Bookshelf' example
-- [ ] Manage imports with index.ts (images, styles and interfaces to 😊)
+- [x] Manage imports with index.ts (images, styles and interfaces to 😊)
 - [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
       Have problems with React 18v
@@ -104,6 +104,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Remove unused fonts
 
 ### Done
+
+_08.07_
+
+- [x] Rate taste function
 
 _07.07_
 

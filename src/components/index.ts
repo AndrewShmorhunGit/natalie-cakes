@@ -18,9 +18,12 @@ import {
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
+  MenuSection,
   MenuCategoryHeader,
-  MenuPosition,
-  PositionVariant,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  RateAndTasteContainer,
   GetRateStars,
   // Footer
   FooterSection,
@@ -120,9 +123,12 @@ export {
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
+  MenuSection,
   MenuCategoryHeader,
-  MenuPosition,
-  PositionVariant,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  RateAndTasteContainer,
   GetRateStars,
   // Footer
   FooterSection,

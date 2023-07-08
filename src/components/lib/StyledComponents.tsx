@@ -36,6 +36,8 @@ const NavigationSection = styled.main({
   overflow: "hidden",
 });
 
+// function UpDownArrow() {}
+
 function NavBurger({
   gap = 0.8,
   lineHight = 0.4,
@@ -46,7 +48,6 @@ function NavBurger({
     <Container
       className={css({
         display: "grid",
-        // transform: "",
       })}
     >
       <RelativeContainer
@@ -56,7 +57,6 @@ function NavBurger({
           transition: "all 1s ease",
           "&:hover": {
             transform: "rotate(0.5turn)",
-            // boxShadow: appShadows.buttonActive,
           },
         })}
       >
@@ -69,9 +69,9 @@ function NavBurger({
             position: "absolute",
             left: "50%",
             top: "50%",
-            // translate: "all 1s ease",
             transform: "translate(-50%, -50%)",
             border: `solid 0.2rem ${palette.main_primary_dark}`,
+            // boxShadow: appShadows.buttonActive,
           }}
         />
         <DecoContainer
@@ -410,12 +410,64 @@ function InfoDecoLine() {
 }
 
 // MENU
+const MenuSection = styled.div({
+  backgroundColor: palette.background_main,
+  ...paddingTopBottom(4),
+});
 
-const MenuCategoryHeader = styled.div({});
+const MenuCategoryHeader = styled.h3({
+  fontSize: "4rem",
+  textTransform: "capitalize",
+  textAlign: "center",
+  alignSelf: "center",
+  zIndex: "2",
+});
 
-const MenuPosition = styled.div({});
+const MenuPositionContainer = styled.div({
+  maxWidth: "80rem",
+  minWidth: "32rem",
+  padding: "2rem",
+  border: `solid .2rem ${palette.main_primary_dark}`,
+  borderRadius: "1.2rem",
+  boxShadow: appShadows.button,
+  backgroundColor: palette.background_third,
+});
 
-const PositionVariant = styled.div({});
+const MenuPositionHeader = styled.h4({
+  fontSize: "2.4rem",
+  textTransform: "capitalize",
+  textAlign: "center",
+  fontWeight: 600,
+});
+
+const PositionVariantContainer = styled.div({
+  minWidth: "100%",
+  padding: "1.2rem",
+  fontSize: "2rem",
+  fontWeight: "600",
+  border: `solid 0.2rem ${palette.main_primary}`,
+  borderRadius: "1.2rem",
+  alignSelf: "center",
+  alignItems: "center",
+  columnGap: "1.6rem",
+  [mq.mini]: {
+    padding: "1rem",
+    fontSize: "1.8rem",
+    columnGap: "1.4rem",
+    minWidth: "34.8rem",
+  },
+});
+
+const RateAndTasteContainer = styled.div({
+  [mq.mini]: {
+    fontSize: "1.6rem",
+    rowGap: "1rem",
+    paddingBottom: "2rem",
+  },
+  fontSize: "2rem",
+  columnGap: "1.2rem",
+  ...paddingTopBottom(0, 2),
+});
 
 function GetRateStars(
   rate: number,
@@ -425,7 +477,7 @@ function GetRateStars(
   size: number = 20
 ): EmotionJSX.Element {
   return (
-    <FlexRowContainer className={css({ gap: "0.8rem" })}>
+    <FlexRowContainer>
       <p className={css({ width: `${width}rem` })}>{content}:</p>
       <Container
         className={css({ columnGap: "0.4rem", ...createGrid(max, 1) })}
@@ -595,10 +647,12 @@ const FlexRowContainer = styled.div({
   flexDirection: "row",
   alignItems: "center",
 });
+
 const FlexColumnContainer = styled.div({
   display: "flex",
   flexDirection: "column",
 });
+
 const FlexCenterContainer = styled.div({
   ...styles.flexCenter,
 });
@@ -704,9 +758,12 @@ export {
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
+  MenuSection,
   MenuCategoryHeader,
-  MenuPosition,
-  PositionVariant,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  RateAndTasteContainer,
   GetRateStars,
   // Footer
   FooterSection,
