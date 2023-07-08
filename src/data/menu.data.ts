@@ -90,7 +90,7 @@ export function createMenuData(content: IMenuContent) {
         ],
       },
       {
-        name: content.moussesCakes.name + "hi",
+        name: content.moussesCakes.name + "_test",
         positions: [
           {
             itemName: content.moussesCakes.chocolatePassionFruit.itemName,

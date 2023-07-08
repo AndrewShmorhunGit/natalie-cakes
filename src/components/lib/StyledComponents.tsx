@@ -50,8 +50,7 @@ function UpDownArrow({
   return (
     <RelativeContainer
       className={css({
-        // // width: "12rem",
-        // alignSelf: "center",
+        cursor: "pointer",
         transition: "all 1s ease",
         transform: `rotate(${rotate}turn)`,
       })}

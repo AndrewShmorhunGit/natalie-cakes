@@ -73,11 +73,12 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
+- [ ] Type problem solution
+- [ ] Burger
+
 ### Menu
 
--
 - [ ] Add price corecting variables environment
-- [ ] Refactoring Menu
 
 ### Info
 
@@ -105,8 +106,15 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Done
 
+_09.07_
+
+- [x] CamelCase isActive menu state props
+- [x] Add toggle transition
+- [x] Add toggle menu catefory functionality
+
 _08.07_
 
+- [x] Refactoring Menu
 - [x] Rate taste function
 
 _07.07_

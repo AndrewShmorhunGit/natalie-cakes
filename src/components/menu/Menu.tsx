@@ -24,6 +24,7 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces/IApp";
 // Data
 import { createMenuData } from "data/menu.data";
+import { toCamelCase } from "utils/functions";
 // React
 import { useState } from "react";
 
@@ -38,16 +39,10 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
   const menuData = createMenuData(menuContent);
 
-  const setStateProp = (str: string): string =>
-    str
-      .split("")
-      .filter((char) => char !== " ")
-      .join("");
-
   const categories: any = menuData.categories.reduce((total, category) => {
     total = {
       ...total,
-      [setStateProp(category.name)]: false,
+      [toCamelCase(category.name)]: false,
     };
     return total;
   }, {});
@@ -65,7 +60,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
       >
         {/* {Iteration from menuData object} */}
         {menuData.categories.map((category) => {
-          const categoryName = setStateProp(category.name);
+          const isArrowProp = toCamelCase(category.name);
           return (
             <FlexColumnContainer key={category.name}>
               <MenuCategoryContainer
@@ -79,20 +74,26 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   onClick={() =>
                     setIsArrow({
                       ...isArrow,
-                      [categoryName]: !isArrow[categoryName],
+                      [isArrowProp]: !isArrow[isArrowProp],
                     })
                   }
                 >
-                  <UpDownArrow rotate={isArrow[categoryName] ? 0.5 : 0} />
+                  <UpDownArrow rotate={isArrow[isArrowProp] ? 0.5 : 0} />
                 </Container>
                 <MenuCategoryHeader>{category.name} </MenuCategoryHeader>
               </MenuCategoryContainer>
 
               <Container
                 className={css({
-                  transition: "height 5s ease",
                   overflow: "hidden",
-                  height: isArrow[categoryName] === true ? "auto" : "0",
+                  // Scale Y
+                  // transform: `scaleY(${isArrow[categoryName] ? 1 : 0})`,
+                  // transformOrigin: "top",
+                  // transition: "transform 1s ease-in",
+                  // Max Hight
+                  maxHeight: `${isArrow[isArrowProp] ? "200rem" : "0"}`,
+                  transition: `max-height .6s ease-out`,
+
                   columnGap: "4rem",
                   rowGap: "4rem",
                   ...createGrid(setMedia(2, 1), 1),
