@@ -15,6 +15,8 @@ import {
   PositionVariantContainer,
   MenuSection,
   RateAndTasteContainer,
+  UpDownArrow,
+  MenuCategoryContainer,
 } from "components";
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
@@ -22,6 +24,8 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces/IApp";
 // Data
 import { createMenuData } from "data/menu.data";
+// React
+import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
@@ -31,7 +35,26 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     setMedia,
     setMediaByStep,
   } = appBox;
+
   const menuData = createMenuData(menuContent);
+
+  const setStateProp = (str: string): string =>
+    str
+      .split("")
+      .filter((char) => char !== " ")
+      .join("");
+
+  const categories: any = menuData.categories.reduce((total, category) => {
+    total = {
+      ...total,
+      [setStateProp(category.name)]: false,
+    };
+    return total;
+  }, {});
+
+  const [isArrow, setIsArrow] = useState({ ...categories });
+
+  console.log(isArrow);
 
   return (
     <MenuSection>
@@ -42,50 +65,36 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
       >
         {/* {Iteration from menuData object} */}
         {menuData.categories.map((category) => {
+          const categoryName = setStateProp(category.name);
           return (
             <FlexColumnContainer key={category.name}>
-              <Container
+              <MenuCategoryContainer
                 className={css({
-                  width: "100%",
-                  display: "grid",
-                  padding: "2rem 2.2rem",
-                  borderLeft: `solid 0.4rem ${palette.main_primary_dark}`,
-                  borderRight: `solid 0.4rem ${palette.main_primary_dark}`,
-                  marginTop: `${isMedia.mini ? "4rem" : "4rem"}`,
-                  marginBottom: `${isMedia.mini ? "4rem" : "8rem"}`,
-                  backgroundColor: palette.background_third,
+                  fontSize: `${setMediaByStep(4, 0.2)}rem`,
+                  ...createGrid("1fr 10fr", 1),
                 })}
               >
-                {/* <DecoContainer
-                  width={4}
-                  height={30}
-                  color={palette.main_primary}
-                  style={{
-                    position: "absolute",
-                    left: "calc(50% - 4rem)",
-                    bottom: "-7rem",
-                    transform: "rotate(45deg)",
-                  }}
-                />
-                <DecoContainer
-                  width={4}
-                  height={30}
-                  color={palette.main_primary}
-                  style={{
-                    position: "absolute",
-                    left: "calc(50% + 8rem)",
-                    bottom: "-7rem",
-                    transform: "rotate(45deg)",
-                  }}
-                /> */}
+                <Container
+                  className={css({ alignSelf: "center" })}
+                  onClick={() =>
+                    setIsArrow({
+                      ...isArrow,
+                      [categoryName]: !isArrow[categoryName],
+                    })
+                  }
+                >
+                  <UpDownArrow rotate={isArrow[categoryName] ? 0.5 : 0} />
+                </Container>
                 <MenuCategoryHeader>{category.name} </MenuCategoryHeader>
-              </Container>
+              </MenuCategoryContainer>
 
               <Container
                 className={css({
+                  transition: "height 5s ease",
+                  overflow: "hidden",
+                  height: isArrow[categoryName] === true ? "auto" : "0",
                   columnGap: "4rem",
                   rowGap: "4rem",
-
                   ...createGrid(setMedia(2, 1), 1),
                 })}
               >
@@ -137,8 +146,8 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             appBox.isLanguage === "hb"
                               ? 6.8
                               : isMedia.mini
-                              ? 8
-                              : 10
+                              ? 8.8
+                              : 11.2
                           )}
                           {GetRateStars(
                             item.sourness,
@@ -147,8 +156,8 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             appBox.isLanguage === "hb"
                               ? 6.8
                               : isMedia.mini
-                              ? 8
-                              : 10
+                              ? 8.8
+                              : 11.2
                           )}
                         </Container>
                         <Container>

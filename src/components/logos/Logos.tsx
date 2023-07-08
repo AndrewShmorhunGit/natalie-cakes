@@ -854,6 +854,31 @@ function RateFilledStarLogo({ width = "12", height = "12", fill }: ILogos) {
     </svg>
   );
 }
+
+function ArrowDownLogo({ width = "12", height = "12", fill }: ILogos) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 60 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M57.7764 2L30.0636 18"
+        stroke={fill}
+        strokeWidth="6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M29.7129 18L2.00008 2"
+        stroke={fill}
+        strokeWidth="6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 //// Footer Logos
 
 function EnvelopLogo({ width = "24", height = "24", fill = "black" }: ILogos) {
@@ -1053,4 +1078,5 @@ export {
   IsraeliShekel,
   RateEmptyStarLogo,
   RateFilledStarLogo,
+  ArrowDownLogo,
 };

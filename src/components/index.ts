@@ -19,12 +19,14 @@ import {
   InfoDecoLine,
   // Menu
   MenuSection,
+  MenuCategoryContainer,
   MenuCategoryHeader,
   MenuPositionContainer,
   MenuPositionHeader,
   PositionVariantContainer,
   RateAndTasteContainer,
   GetRateStars,
+  UpDownArrow,
   // Footer
   FooterSection,
   FooterParagraph,
@@ -63,6 +65,7 @@ import {
   IsraeliShekel,
   RateEmptyStarLogo,
   RateFilledStarLogo,
+  ArrowDownLogo,
 } from "./logos/Logos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
@@ -104,6 +107,7 @@ export {
   IsraeliShekel,
   RateEmptyStarLogo,
   RateFilledStarLogo,
+  ArrowDownLogo,
   // Styled Components
   // Navigation
   NavigationSection,
@@ -124,12 +128,14 @@ export {
   InfoDecoLine,
   // Menu
   MenuSection,
+  MenuCategoryContainer,
   MenuCategoryHeader,
   MenuPositionContainer,
   MenuPositionHeader,
   PositionVariantContainer,
   RateAndTasteContainer,
   GetRateStars,
+  UpDownArrow,
   // Footer
   FooterSection,
   FooterParagraph,

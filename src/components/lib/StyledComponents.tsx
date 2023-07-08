@@ -1,4 +1,8 @@
-import { RateFilledStarLogo, RateEmptyStarLogo } from "components";
+import {
+  RateFilledStarLogo,
+  RateEmptyStarLogo,
+  ArrowDownLogo,
+} from "components";
 // Styles
 import styled from "@emotion/styled/macro";
 import {
@@ -36,7 +40,55 @@ const NavigationSection = styled.main({
   overflow: "hidden",
 });
 
-// function UpDownArrow() {}
+function UpDownArrow({
+  circleRadius = 5.2,
+  rotate,
+}: {
+  circleRadius?: number;
+  rotate: number;
+}) {
+  return (
+    <RelativeContainer
+      className={css({
+        // // width: "12rem",
+        // alignSelf: "center",
+        transition: "all 1s ease",
+        transform: `rotate(${rotate}turn)`,
+      })}
+    >
+      <FlexCenterContainer
+        className={css({
+          zIndex: 1,
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        })}
+      >
+        <ArrowDownLogo
+          height={24}
+          width={28}
+          fill={palette.main_primary_dark}
+        />
+      </FlexCenterContainer>
+      <DecoContainer
+        width={circleRadius}
+        height={circleRadius}
+        color={palette.background_main}
+        style={{
+          borderRadius: "50%",
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          border: `solid 0.2rem ${palette.main_primary_dark}`,
+          zIndex: 0,
+          // boxShadow: appShadows.buttonActive,
+        }}
+      />
+    </RelativeContainer>
+  );
+}
 
 function NavBurger({
   gap = 0.8,
@@ -415,12 +467,24 @@ const MenuSection = styled.div({
   ...paddingTopBottom(4),
 });
 
+const MenuCategoryContainer = styled.div({
+  width: "100%",
+  alignSelf: "center",
+  padding: "2rem 4rem",
+  borderLeft: `solid 0.4rem ${palette.main_primary_dark}`,
+  borderRight: `solid 0.4rem ${palette.main_primary_dark}`,
+  marginTop: "4rem",
+  marginBottom: "8rem",
+  backgroundColor: palette.background_third,
+  [mq.mini]: {
+    marginBottom: "4rem",
+  },
+});
+
 const MenuCategoryHeader = styled.h3({
   fontSize: "4rem",
   textTransform: "capitalize",
   textAlign: "center",
-  alignSelf: "center",
-  zIndex: "2",
 });
 
 const MenuPositionContainer = styled.div({
@@ -759,12 +823,14 @@ export {
   InfoDecoLine,
   // Menu
   MenuSection,
+  MenuCategoryContainer,
   MenuCategoryHeader,
   MenuPositionContainer,
   MenuPositionHeader,
   PositionVariantContainer,
   RateAndTasteContainer,
   GetRateStars,
+  UpDownArrow,
   // Footer
   FooterSection,
   FooterParagraph,
