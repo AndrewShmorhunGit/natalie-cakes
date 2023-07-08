@@ -29,6 +29,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     innerContent: content,
     isMedia,
     setMedia,
+    setMediaByStep,
   } = appBox;
   const menuData = createMenuData(menuContent);
 
@@ -179,7 +180,12 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                                 <h3
                                   className={css({
                                     color: palette.main_primary,
-                                    fontSize: "2.8rem",
+                                    fontSize: `${setMedia(
+                                      2.8,
+                                      2.6,
+                                      2.4,
+                                      2.2
+                                    )}rem`,
                                   })}
                                 >
                                   {variant.size}
@@ -189,7 +195,10 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                                 className={css({ flexDirection: "column" })}
                               >
                                 <FlexCenterContainer>
-                                  <RadiusLogo height={16} width={16} />
+                                  <RadiusLogo
+                                    height={setMediaByStep(16, 1)}
+                                    width={setMediaByStep(16, 1)}
+                                  />
                                 </FlexCenterContainer>
                                 <p className={css({ textAlign: "center" })}>
                                   {variant.radius}mm
@@ -198,19 +207,28 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               <FlexRowContainer
                                 className={css({ gap: ".8rem" })}
                               >
-                                <PersonsLogo height={32} width={32} />
+                                <PersonsLogo
+                                  height={setMediaByStep(32, 2)}
+                                  width={setMediaByStep(32, 2)}
+                                />
                                 <p>{variant.persons}</p>
                               </FlexRowContainer>
                               <FlexRowContainer
                                 className={css({ gap: ".8rem" })}
                               >
-                                <WeightLogo height={24} width={24} />
+                                <WeightLogo
+                                  height={setMediaByStep(24, 2)}
+                                  width={setMediaByStep(24, 2)}
+                                />
                                 <p>{variant.weight}</p>
                               </FlexRowContainer>
                               <FlexRowContainer
                                 className={css({ gap: ".8rem" })}
                               >
-                                <IsraeliShekel height={24} width={24} />
+                                <IsraeliShekel
+                                  height={setMediaByStep(24, 2)}
+                                  width={setMediaByStep(24, 2)}
+                                />
                                 <p>{variant.price}</p>
                               </FlexRowContainer>
                             </PositionVariantContainer>
