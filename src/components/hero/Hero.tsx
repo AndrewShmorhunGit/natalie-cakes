@@ -20,26 +20,26 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox, IHeroSelectors, ISelectorParams, ILogos } from "interfaces";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia } = appBox;
+  const { innerContent: content, setMedia, isMedia, isLanguage } = appBox;
   const textColor: string = palette.white;
 
   const logoProps: ILogos = {
-    width: setMedia(72, 60, 52, 48),
-    height: setMedia(72, 60, 52, 48),
+    width: setMedia(72, 60, 52, 60),
+    height: setMedia(72, 60, 52, 60),
   };
 
   const selectorParams: ISelectorParams = {
-    width: +setMedia(14, 12, 10),
-    height: +setMedia(14, 12, 10),
-    step: +setMedia(1.6, 1.6, 1.4, 1.2),
+    width: +setMedia(14, 12, 10, 16),
+    height: +setMedia(14, 12, 10, 16),
+    step: +setMedia(1.6, 1.6, 1.4, 1.8),
     font: `${setMedia(2.2, 2, 1.8)}rem`,
     color: palette.white,
     ringColor: palette.main_primary,
-    textPadding: +setMedia(11.6, 10.6, 9.2, 16),
+    textPadding: +setMedia(11.6, 10.6, 9.2),
     decoProps: {
       borderRadius: "50%",
       position: "absolute",
-      top: "50%",
+      top: isMedia.mini ? "calc(50% + 2rem)" : "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
       zIndex: "-1",
@@ -66,12 +66,15 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
     <HeroSection
       className={css({
         color: textColor,
+        overflow: "hidden",
       })}
     >
       <HeroBackDropFilterContainer>
         <FlexColumnContainer
           className={css({
             ...container,
+
+            hight: "100%",
           })}
         >
           <MainHeader
@@ -82,6 +85,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           >
             {content.mainHeader}
           </MainHeader>
+
           {/* <HeroTagLine
             className={css({
               // ...paddingTopBottom(4, 4),
@@ -92,25 +96,28 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           >
             {content.heroTagline}
           </HeroTagLine> */}
-          <Container className={css({ display: "grid" })}>
-            <h2
-              className={css({
-                alignSelf: "center",
-                ...paddingTopBottom(2),
-                fontSize: "4.4rem",
-                fontWeight: 400,
-              })}
-            >
-              {content.slogan}
-            </h2>
-          </Container>
+          {!isMedia.mini && (
+            <Container className={css({ display: "grid" })}>
+              <h2
+                className={css({
+                  textAlign: "center",
+                  alignSelf: "center",
+                  ...paddingTopBottom(2),
+                  fontSize: "4.4rem",
+                  fontWeight: 400,
+                })}
+              >
+                {content.slogan}
+              </h2>
+            </Container>
+          )}
           <FlexCenterContainer
             className={css({
-              ...paddingTopBottom(0, setMedia(10, 8, 4, 2)),
+              ...paddingTopBottom(0, setMedia(10, 8, 4, 8)),
             })}
           >
             <DecoContainer
-              width={appBox.isLanguage === "ru" ? 26 : 16}
+              width={isLanguage === "ru" ? 26 : 16}
               height={0.2}
               color={textColor}
             />
@@ -118,13 +125,20 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
 
           <Container
             className={css(
-              appBox.isMedia.mini
+              isMedia.mini
                 ? {
-                    columnGap: "4rem",
-                    ...createGrid("repeat(2, auto)", "repeat(2, 20rem)"),
+                    transform: "rotate(45deg)",
+                    fontWeight: 600,
+                    color: palette.text_dark,
+                    columnGap: "2rem",
+                    rowGap: "2rem",
+                    ...createGrid(
+                      `repeat(2, ${selectorParams.width}rem)`,
+                      `repeat(2, ${selectorParams.height}rem)`
+                    ),
                   }
                 : {
-                    padding: `${setMedia("6", "4", "3.2", "2")}rem 0`,
+                    padding: `${setMedia("6", "4", "3.2")}rem 0`,
                     ...createGrid(`repeat(4,${setMedia(20, 18, 14)}rem)`, 1),
                   }
             )}

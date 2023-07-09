@@ -24,4 +24,5 @@ export interface IAppBox {
     smallParam?: number | string,
     minParam?: number | string
   ): string | number;
+  setMediaByStep(param: number, step: number): number;
 }

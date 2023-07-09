@@ -18,9 +18,15 @@ import {
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
+  MenuSection,
+  MenuCategoryContainer,
   MenuCategoryHeader,
-  MenuPosition,
-  PositionVariant,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  RateAndTasteContainer,
+  GetRateStars,
+  UpDownArrow,
   // Footer
   FooterSection,
   FooterParagraph,
@@ -57,6 +63,9 @@ import {
   PersonsLogo,
   WeightLogo,
   IsraeliShekel,
+  RateEmptyStarLogo,
+  RateFilledStarLogo,
+  ArrowDownLogo,
 } from "./logos/Logos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
@@ -96,6 +105,9 @@ export {
   PersonsLogo,
   WeightLogo,
   IsraeliShekel,
+  RateEmptyStarLogo,
+  RateFilledStarLogo,
+  ArrowDownLogo,
   // Styled Components
   // Navigation
   NavigationSection,
@@ -115,9 +127,15 @@ export {
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
+  MenuSection,
+  MenuCategoryContainer,
   MenuCategoryHeader,
-  MenuPosition,
-  PositionVariant,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  RateAndTasteContainer,
+  GetRateStars,
+  UpDownArrow,
   // Footer
   FooterSection,
   FooterParagraph,

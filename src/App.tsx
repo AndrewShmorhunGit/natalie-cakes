@@ -38,6 +38,7 @@ export function App() {
     windowSize: mediaSettings.windowSize,
     isMedia: mediaSettings.isMedia,
     setMedia: mediaSettings.setMedia,
+    setMediaByStep: mediaSettings.setMediaByStep,
   };
 
   /////////////////////////////////////////

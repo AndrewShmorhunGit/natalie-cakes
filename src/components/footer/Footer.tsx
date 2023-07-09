@@ -18,14 +18,7 @@ import {
   MenuLogo,
 } from "components";
 // Styles
-import {
-  css,
-  palette,
-  container,
-  createGrid,
-  paddingLeftRight,
-  paddingTopBottom,
-} from "styles";
+import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
 import { IAppBox, IFooterContacts, ILogos } from "interfaces";
 
@@ -64,12 +57,12 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
         <FlexCenterContainer className={css({ ...paddingTopBottom(2, 5.2) })}>
           <FlexCenterContainer
             className={css({
-              ...paddingLeftRight(0, 1.6),
+              gap: "1.6rem",
             })}
           >
-            <MainLogo width="6rem" height="6rem" fill={palette.text_dark} />
+            <MainLogo width={60} height={60} fill={palette.text_dark} />
+            <MainLogoText textColor={palette.text_dark} />
           </FlexCenterContainer>
-          <MainLogoText textColor={palette.text_dark} />
         </FlexCenterContainer>
         <Container
           className={css({
