@@ -66,7 +66,7 @@ function UpDownArrow({
       >
         <ArrowDownLogo
           height={24}
-          width={28}
+          width={24}
           fill={palette.main_primary_dark}
         />
       </FlexCenterContainer>
@@ -298,10 +298,7 @@ function HeroSelectorDecoContainer({
 const InformationSection = styled.main({
   marginTop: "-12rem",
   background: "linear-gradient(180deg, rgb(57,36,28,0.95) 0%, #FFF4F4 100%)",
-  // background: "transparent",
   borderTop: `0.4rem solid ${palette.main_primary_dark}`,
-
-  // padding: "4rem",
   backdropFilter: "blur(0.4rem)",
 });
 
@@ -469,19 +466,13 @@ const MenuSection = styled.div({
 const MenuCategoryContainer = styled.div({
   width: "100%",
   alignSelf: "center",
-  padding: "2rem 4rem",
+  padding: "2rem 3.6rem",
   borderLeft: `solid 0.4rem ${palette.main_primary_dark}`,
   borderRight: `solid 0.4rem ${palette.main_primary_dark}`,
-  marginTop: "4rem",
-  marginBottom: "8rem",
-  backgroundColor: palette.background_third,
-  [mq.mini]: {
-    marginBottom: "4rem",
-  },
+  backgroundColor: palette.background_second,
 });
 
 const MenuCategoryHeader = styled.h3({
-  fontSize: "4rem",
   textTransform: "capitalize",
   textAlign: "center",
 });
@@ -493,7 +484,7 @@ const MenuPositionContainer = styled.div({
   border: `solid .2rem ${palette.main_primary_dark}`,
   borderRadius: "1.2rem",
   boxShadow: appShadows.button,
-  backgroundColor: palette.background_third,
+  backgroundColor: palette.background_second,
 });
 
 const MenuPositionHeader = styled.h4({

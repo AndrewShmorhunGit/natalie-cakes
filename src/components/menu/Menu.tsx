@@ -39,6 +39,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
   const menuData = createMenuData(menuContent);
 
+  // Fix types
   const categories: any = menuData.categories.reduce((total, category) => {
     total = {
       ...total,
@@ -49,7 +50,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 
-  console.log(isArrow);
+  // console.log(isArrow);
 
   return (
     <MenuSection>
@@ -66,7 +67,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
               <MenuCategoryContainer
                 className={css({
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
-                  ...createGrid("1fr 10fr", 1),
+                  ...createGrid("1fr 100fr", 1),
                 })}
               >
                 <Container
@@ -78,24 +79,30 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                     })
                   }
                 >
-                  <UpDownArrow rotate={isArrow[isArrowProp] ? 0.5 : 0} />
+                  <UpDownArrow
+                    circleRadius={setMediaByStep(5.2, 0.2)}
+                    rotate={isArrow[isArrowProp] ? 0.5 : 0}
+                  />
                 </Container>
-                <MenuCategoryHeader>{category.name} </MenuCategoryHeader>
+                <MenuCategoryHeader
+                  className={css({
+                    fontSize: `${setMediaByStep(4, 0.4)}rem`,
+                  })}
+                >
+                  {category.name}
+                </MenuCategoryHeader>
               </MenuCategoryContainer>
 
               <Container
                 className={css({
+                  margin: "2rem 0",
                   overflow: "hidden",
-                  // Scale Y
-                  // transform: `scaleY(${isArrow[categoryName] ? 1 : 0})`,
-                  // transformOrigin: "top",
-                  // transition: "transform 1s ease-in",
-                  // Max Hight
                   maxHeight: `${isArrow[isArrowProp] ? "200rem" : "0"}`,
-                  transition: `max-height .6s ease-out`,
-
-                  columnGap: "4rem",
-                  rowGap: "4rem",
+                  transition: `max-height ${
+                    isArrow[isArrowProp] ? ".4s ease-in" : ".8s ease-out"
+                  }`,
+                  columnGap: `${setMediaByStep(4, 0.8)}rem`,
+                  rowGap: `${setMediaByStep(4, 0.8)}rem`,
                   ...createGrid(setMedia(2, 1), 1),
                 })}
               >

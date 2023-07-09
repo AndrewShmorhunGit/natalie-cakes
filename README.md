@@ -90,6 +90,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### General
 
+- [ ] Change arrowUpDown
 - [ ] Add app public icons as 'Bookshelf' example
 - [x] Manage imports with index.ts (images, styles and interfaces to 😊)
 - [ ] Set Up page routing in `./public` folder(optional)
