@@ -1,8 +1,7 @@
 // Styles
-import { css } from "@emotion/css";
-import { mq } from "styles/media-queries";
+import { css, mq, palette } from "styles";
 // Interfaces
-import { ILogos } from "interfaces/ILogos";
+import { ILogos } from "interfaces";
 
 // Main Brand Logo
 function MainLogo({
@@ -473,7 +472,7 @@ function IngredientsLogo({ width = "72", height = "72" }: ILogos) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_366_148)">
+      <g clipPath="url(#clip0_366_148)">
         <path
           d="M23.8554 70.6989H3.03618L1.30115 37.7351H25.5903L23.8554 70.6989Z"
           fill="#F8F8F9"
@@ -545,7 +544,7 @@ function DesignLogo({ width = "72", height = "72" }: ILogos) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_361_24)">
+      <g clipPath="url(#clip0_361_24)">
         <path
           d="M57.4468 47.1064L52.8511 58.9788L57.4468 70.8511H63.5745V53.2341C63.5745 49.85 60.8311 47.1064 57.4468 47.1064Z"
           fill="#E9F1DF"
@@ -643,7 +642,7 @@ function OrderLogo({ width = "72", height = "72" }: ILogos) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_361_46)">
+      <g clipPath="url(#clip0_361_46)">
         <path
           d="M51.0312 56.4427H10.1461C8.81771 56.4427 7.74109 55.3661 7.74109 54.0377V3.53241C7.74109 2.20407 8.81771 1.12744 10.1461 1.12744H51.0312C52.3596 1.12744 53.4362 2.20407 53.4362 3.53241V54.0376C53.4363 55.3659 52.3596 56.4427 51.0312 56.4427Z"
           fill="#F1F4FB"
@@ -749,7 +748,7 @@ function IsraeliShekel({ width = "24", height = "24" }: ILogos) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_39_1884)">
+      <g clipPath="url(#clip0_39_1884)">
         <path
           d="M7.91829 28.009V9.06228H12.1634V23.2505H20.9043C22.0208 23.2505 22.7758 22.864 23.1693 22.091C23.5566 21.317 23.7549 20.2207 23.7549 18.8173V0H28V20.8231C28 23.0317 27.5192 24.7825 26.5576 26.0755C25.5915 27.3615 24.1969 28.009 22.3604 28.009H7.91829ZM20.0817 7.22814V18.9347H15.8366V9.18877C15.8366 7.61665 15.6087 6.47822 15.1712 5.79155C14.7337 5.10487 13.9932 4.74648 12.9655 4.74648H4.24512V28.009H0V0H14.4421C16.265 0 17.6595 0.647521 18.6257 1.94256C19.5918 3.2376 20.0771 4.99344 20.0817 7.21007V7.22814Z"
           fill="#FF8E8E"
@@ -794,9 +793,9 @@ function RadiusLogo({ width = "24", height = "24" }: ILogos) {
         d="M16 9C16 12.866 12.866 16 9 16C5.13401 16 2 12.866 2 9C2 5.13401 5.13401 2 9 2C12.866 2 16 5.13401 16 9Z"
         fill="white"
         stroke="#FF8E8E"
-        stroke-width="2"
+        strokeWidth="2"
       />
-      <path d="M1 17.3369L17.337 0.999919" stroke="#FF8E8E" stroke-width="2" />
+      <path d="M1 17.3369L17.337 0.999919" stroke="#FF8E8E" strokeWidth="2" />
     </svg>
   );
 }
@@ -818,6 +817,67 @@ function PersonsLogo({ width = "24", height = "24" }: ILogos) {
   );
 }
 
+function RateEmptyStarLogo({
+  width = "12",
+  height = "12",
+  fill = palette.main_primary,
+}: ILogos) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 30 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 1.61804L17.8922 10.5193L18.0044 10.8647H18.3677H27.727L20.1552 16.366L19.8613 16.5795L19.9735 16.925L22.8657 25.8262L15.2939 20.325L15 20.1115L14.7061 20.325L7.13428 25.8262L10.0265 16.925L10.1387 16.5795L9.84482 16.366L2.27299 10.8647H11.6323H11.9956L12.1078 10.5193L15 1.61804Z"
+        fill="white"
+        stroke={fill}
+      />
+    </svg>
+  );
+}
+function RateFilledStarLogo({ width = "12", height = "12", fill }: ILogos) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 30 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 0L18.3677 10.3647H29.2658L20.4491 16.7705L23.8168 27.1353L15 20.7295L6.18322 27.1353L9.55093 16.7705L0.734152 10.3647H11.6323L15 0Z"
+        fill={fill}
+      />
+    </svg>
+  );
+}
+
+function ArrowDownLogo({ width = "12", height = "12", fill }: ILogos) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        opacity="0.5"
+        d="M5.00004 6.25C4.68618 6.25 4.40551 6.44543 4.29662 6.73979C4.18773 7.03415 4.27364 7.36519 4.51194 7.56944L11.5119 13.5694C11.7928 13.8102 12.2073 13.8102 12.4881 13.5694L19.4881 7.56944C19.7264 7.36519 19.8123 7.03415 19.7035 6.73979C19.5946 6.44543 19.3139 6.25 19 6.25H5.00004Z"
+        fill={fill}
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M4.43057 10.5119C4.70014 10.1974 5.17361 10.161 5.48811 10.4306L12 16.0122L18.5119 10.4306C18.8264 10.161 19.2999 10.1974 19.5695 10.5119C19.839 10.8264 19.8026 11.2999 19.4881 11.5695L12.4881 17.5695C12.2072 17.8102 11.7928 17.8102 11.5119 17.5695L4.51192 11.5695C4.19743 11.2999 4.161 10.8264 4.43057 10.5119Z"
+        fill={fill}
+      />
+    </svg>
+  );
+}
 //// Footer Logos
 
 function EnvelopLogo({ width = "24", height = "24", fill = "black" }: ILogos) {
@@ -1015,4 +1075,7 @@ export {
   PersonsLogo,
   WeightLogo,
   IsraeliShekel,
+  RateEmptyStarLogo,
+  RateFilledStarLogo,
+  ArrowDownLogo,
 };

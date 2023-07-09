@@ -7,20 +7,26 @@ import {
   FlexCenterContainer,
   FlexColumnContainer,
   FlexRowContainer,
+  GetRateStars,
+  MenuCategoryHeader,
+  Container,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  MenuSection,
+  RateAndTasteContainer,
+  UpDownArrow,
+  MenuCategoryContainer,
 } from "components";
 // Styles
-import {
-  css,
-  palette,
-  appShadows,
-  container,
-  createGrid,
-  paddingTopBottom,
-} from "styles";
+import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
 import { IAppBox } from "interfaces/IApp";
 // Data
 import { createMenuData } from "data/menu.data";
+import { toCamelCase } from "utils/functions";
+// React
+import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
@@ -28,194 +34,232 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     innerContent: content,
     isMedia,
     setMedia,
+    setMediaByStep,
   } = appBox;
+
   const menuData = createMenuData(menuContent);
 
+  // Fix types
+  const categories: any = menuData.categories.reduce((total, category) => {
+    total = {
+      ...total,
+      [toCamelCase(category.name)]: false,
+    };
+    return total;
+  }, {});
+
+  const [isArrow, setIsArrow] = useState({ ...categories });
+
+  // console.log(isArrow);
+
   return (
-    <div
-      className={css({
-        backgroundColor: palette.background_main,
-      })}
-    >
-      <div
+    <MenuSection>
+      <Container
         className={css({
           ...container,
         })}
       >
         {/* {Iteration from menuData object} */}
         {menuData.categories.map((category) => {
+          const isArrowProp = toCamelCase(category.name);
           return (
-            <FlexColumnContainer
-              key={category.name}
-              className={css({
-                // ...createGrid(2, 3),
-              })}
-            >
-              <div
+            <FlexColumnContainer key={category.name}>
+              <MenuCategoryContainer
                 className={css({
-                  fontSize: "4.4rem",
-                  textTransform: "capitalize",
-                  textAlign: "center",
-                  gridColumn: "1/-1",
-                  ...paddingTopBottom(2, 4),
+                  fontSize: `${setMediaByStep(4, 0.2)}rem`,
+                  ...createGrid("1fr 100fr", 1),
                 })}
               >
-                <h3>{category.name}</h3>
-              </div>
-              <div className={css({ display: "grid", alignSelf: "center" })}>
-                <div
+                <Container
+                  className={css({ alignSelf: "center" })}
+                  onClick={() =>
+                    setIsArrow({
+                      ...isArrow,
+                      [isArrowProp]: !isArrow[isArrowProp],
+                    })
+                  }
+                >
+                  <UpDownArrow
+                    circleRadius={setMediaByStep(5.2, 0.2)}
+                    rotate={isArrow[isArrowProp] ? 0.5 : 0}
+                  />
+                </Container>
+                <MenuCategoryHeader
                   className={css({
-                    columnGap: "4rem",
-                    rowGap: "4rem",
-                    ...createGrid(setMedia(2, 1), 1),
+                    fontSize: `${setMediaByStep(4, 0.4)}rem`,
                   })}
                 >
-                  {category.positions.map((item, index) => {
-                    return (
-                      <div
-                        key={item.itemName}
+                  {category.name}
+                </MenuCategoryHeader>
+              </MenuCategoryContainer>
+
+              <Container
+                className={css({
+                  margin: "2rem 0",
+                  overflow: "hidden",
+                  maxHeight: `${isArrow[isArrowProp] ? "200rem" : "0"}`,
+                  transition: `max-height ${
+                    isArrow[isArrowProp] ? ".4s ease-in" : ".8s ease-out"
+                  }`,
+                  columnGap: `${setMediaByStep(4, 0.8)}rem`,
+                  rowGap: `${setMediaByStep(4, 0.8)}rem`,
+                  ...createGrid(setMedia(2, 1), 1),
+                })}
+              >
+                {category.positions.map((item, index) => {
+                  return (
+                    <MenuPositionContainer
+                      key={item.itemName}
+                      className={css({
+                        gridRow: `${
+                          isMedia.big ? ((index + 1) * 2) % 2 : index + 1
+                        }`,
+                      })}
+                    >
+                      <MenuPositionHeader>{item.itemName}</MenuPositionHeader>
+                      <FlexCenterContainer
                         className={css({
-                          gridRow: `${
-                            isMedia.big ? ((index + 1) * 2) % 2 : index + 1
-                          }`,
-                          maxWidth: "80rem",
-                          minWidth: "32rem",
-                          padding: "2rem",
-                          // margin: "0 2rem 4rem 2rem",
-                          border: `solid .2rem ${palette.main_primary_dark}`,
-                          borderRadius: "1.2rem",
-                          boxShadow: appShadows.button,
-                          backgroundColor: palette.background_third,
+                          ...paddingTopBottom(2.4),
+                          height: "auto",
                         })}
                       >
-                        <h4
+                        <img
+                          src={item.imgSrc}
+                          alt={item.description}
                           className={css({
-                            fontSize: "2.8rem",
-                            // textTransform: "uppercase",
+                            height: "100%",
+                            minWidth: "28rem",
+                          })}
+                        />
+                      </FlexCenterContainer>
+                      {/* // From Here // */}
+                      <RateAndTasteContainer
+                        className={css({
+                          ...createGrid(
+                            isMedia.mini ? 1 : 2,
+                            isMedia.mini ? 2 : 1
+                          ),
+                        })}
+                      >
+                        <Container
+                          className={css({
                             textTransform: "capitalize",
-                            textAlign: "center",
-                            fontWeight: 300,
+                            alignSelf: "center",
                           })}
                         >
-                          {item.itemName}
-                        </h4>
-                        <FlexCenterContainer
-                          className={css({
-                            ...paddingTopBottom(2.4),
-                            height: "auto",
-                          })}
-                        >
-                          <img
-                            src={item.imgSrc}
-                            alt={item.description}
+                          {GetRateStars(
+                            item.sweetness,
+                            5,
+                            content.sweetness,
+                            appBox.isLanguage === "hb"
+                              ? 6.8
+                              : isMedia.mini
+                              ? 8.8
+                              : 11.2
+                          )}
+                          {GetRateStars(
+                            item.sourness,
+                            5,
+                            content.sourness,
+                            appBox.isLanguage === "hb"
+                              ? 6.8
+                              : isMedia.mini
+                              ? 8.8
+                              : 11.2
+                          )}
+                        </Container>
+                        <Container>
+                          <h3
                             className={css({
-                              height: "100%",
-                              minWidth: "28rem",
-                            })}
-                          />
-                        </FlexCenterContainer>
-                        <FlexRowContainer
-                          className={css({
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            padding: "2rem 2rem",
-                            fontSize: "2rem",
-                          })}
-                        >
-                          <div
-                            className={css({
-                              textTransform: "capitalize",
+                              ":first-letter": { textTransform: "uppercase" },
                             })}
                           >
-                            <p> {`${content.sweetness}: ${item.sweetness}`}</p>
-                            <p>{`${content.sourness}: ${item.sourness}`}</p>
-                          </div>
-                          <div
-                            className={css({
-                              // display: "flex",
-                              // width: "50%",
-                              // flexDirection: "column",
-                            })}
-                          >
-                            <h3>{content.taste} - </h3>
-                            <p>{item.tasteAccent}</p>
-                          </div>
-                        </FlexRowContainer>
-                        <FlexColumnContainer className={css({ gap: "1.2rem" })}>
-                          {item.variants.map((variant) => {
-                            return (
-                              <div
-                                key={variant.size}
-                                className={css({
-                                  minWidth: "100%",
-                                  padding: "1.2rem",
-                                  fontSize: "2rem",
-                                  // gap: "3.2rem",
-                                  fontWeight: "600",
-                                  border: `solid 0.2rem ${palette.main_primary}`,
-                                  borderRadius: "2rem",
-                                  alignSelf: "center",
-                                  alignItems: "center",
-                                  columnGap: "1.6rem",
-                                  ...createGrid(
-                                    `0.5fr ${
-                                      isMedia.mini ? "1.5fr" : "1fr"
-                                    } 1fr 1fr 1fr`,
-                                    1
-                                  ),
-                                })}
+                            {content.taste} -
+                          </h3>
+                          <p>{item.tasteAccent}</p>
+                        </Container>
+                      </RateAndTasteContainer>
+                      <FlexColumnContainer className={css({ gap: "1.2rem" })}>
+                        {item.variants.map((variant) => {
+                          return (
+                            <PositionVariantContainer
+                              key={variant.size}
+                              className={css({
+                                ...createGrid(
+                                  `0.5fr ${
+                                    isMedia.mini ? "1.5fr" : "1fr"
+                                  } 1fr 1fr 1fr`,
+                                  1
+                                ),
+                              })}
+                            >
+                              <FlexCenterContainer>
+                                <h3
+                                  className={css({
+                                    color: palette.main_primary,
+                                    fontSize: `${setMedia(
+                                      2.8,
+                                      2.6,
+                                      2.4,
+                                      2.2
+                                    )}rem`,
+                                  })}
+                                >
+                                  {variant.size}
+                                </h3>
+                              </FlexCenterContainer>
+                              <FlexCenterContainer
+                                className={css({ flexDirection: "column" })}
                               >
                                 <FlexCenterContainer>
-                                  <h3
-                                    className={css({
-                                      color: palette.main_primary,
-                                      fontSize: "2.8rem",
-                                    })}
-                                  >
-                                    {variant.size}
-                                  </h3>
+                                  <RadiusLogo
+                                    height={setMediaByStep(16, 1)}
+                                    width={setMediaByStep(16, 1)}
+                                  />
                                 </FlexCenterContainer>
-                                <FlexCenterContainer
-                                  className={css({ flexDirection: "column" })}
-                                >
-                                  <FlexCenterContainer>
-                                    <RadiusLogo height={16} width={16} />
-                                  </FlexCenterContainer>
-                                  <p className={css({ textAlign: "center" })}>
-                                    {variant.radius}mm
-                                  </p>
-                                </FlexCenterContainer>
-                                <FlexRowContainer
-                                  className={css({ gap: ".8rem" })}
-                                >
-                                  <PersonsLogo height={32} width={32} />
-                                  <p>{variant.persons}</p>
-                                </FlexRowContainer>
-                                <FlexRowContainer
-                                  className={css({ gap: ".8rem" })}
-                                >
-                                  <WeightLogo height={24} width={24} />
-                                  <p>{variant.weight}</p>
-                                </FlexRowContainer>
-                                <FlexRowContainer
-                                  className={css({ gap: ".8rem" })}
-                                >
-                                  <IsraeliShekel height={24} width={24} />
-                                  <p>{variant.price}</p>
-                                </FlexRowContainer>
-                              </div>
-                            );
-                          })}
-                        </FlexColumnContainer>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+                                <p className={css({ textAlign: "center" })}>
+                                  {variant.radius}mm
+                                </p>
+                              </FlexCenterContainer>
+                              <FlexRowContainer
+                                className={css({ gap: ".8rem" })}
+                              >
+                                <PersonsLogo
+                                  height={setMediaByStep(32, 2)}
+                                  width={setMediaByStep(32, 2)}
+                                />
+                                <p>{variant.persons}</p>
+                              </FlexRowContainer>
+                              <FlexRowContainer
+                                className={css({ gap: ".8rem" })}
+                              >
+                                <WeightLogo
+                                  height={setMediaByStep(24, 2)}
+                                  width={setMediaByStep(24, 2)}
+                                />
+                                <p>{variant.weight}</p>
+                              </FlexRowContainer>
+                              <FlexRowContainer
+                                className={css({ gap: ".8rem" })}
+                              >
+                                <IsraeliShekel
+                                  height={setMediaByStep(24, 2)}
+                                  width={setMediaByStep(24, 2)}
+                                />
+                                <p>{variant.price}</p>
+                              </FlexRowContainer>
+                            </PositionVariantContainer>
+                          );
+                        })}
+                      </FlexColumnContainer>
+                    </MenuPositionContainer>
+                  );
+                })}
+              </Container>
             </FlexColumnContainer>
           );
         })}
-      </div>
-    </div>
+      </Container>
+    </MenuSection>
   );
 }

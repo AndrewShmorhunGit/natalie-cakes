@@ -1,3 +1,8 @@
+import {
+  RateFilledStarLogo,
+  RateEmptyStarLogo,
+  ArrowDownLogo,
+} from "components";
 // Styles
 import styled from "@emotion/styled/macro";
 import {
@@ -9,9 +14,10 @@ import {
   infoLogoContainerAbsoluteSettings,
   paddingTopBottom,
   wideContainer,
+  createGrid,
 } from "styles";
 // Interfaces
-import { IHeroSelectors, ISelectorParams } from "interfaces/IHero";
+import { IHeroSelectors, ISelectorParams } from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
@@ -34,6 +40,55 @@ const NavigationSection = styled.main({
   overflow: "hidden",
 });
 
+function UpDownArrow({
+  circleRadius = 5.2,
+  rotate,
+}: {
+  circleRadius?: number;
+  rotate: number;
+}) {
+  return (
+    <RelativeContainer
+      className={css({
+        cursor: "pointer",
+        transition: "all 1s ease",
+        transform: `rotate(${rotate}turn)`,
+      })}
+    >
+      <FlexCenterContainer
+        className={css({
+          zIndex: 1,
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        })}
+      >
+        <ArrowDownLogo
+          height={24}
+          width={24}
+          fill={palette.main_primary_dark}
+        />
+      </FlexCenterContainer>
+      <DecoContainer
+        width={circleRadius}
+        height={circleRadius}
+        color={palette.background_main}
+        style={{
+          borderRadius: "50%",
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          border: `solid 0.2rem ${palette.main_primary_dark}`,
+          zIndex: 0,
+          // boxShadow: appShadows.buttonActive,
+        }}
+      />
+    </RelativeContainer>
+  );
+}
+
 function NavBurger({
   gap = 0.8,
   lineHight = 0.4,
@@ -44,7 +99,6 @@ function NavBurger({
     <Container
       className={css({
         display: "grid",
-        // transform: "",
       })}
     >
       <RelativeContainer
@@ -54,7 +108,6 @@ function NavBurger({
           transition: "all 1s ease",
           "&:hover": {
             transform: "rotate(0.5turn)",
-            // boxShadow: appShadows.buttonActive,
           },
         })}
       >
@@ -67,9 +120,9 @@ function NavBurger({
             position: "absolute",
             left: "50%",
             top: "50%",
-            // translate: "all 1s ease",
             transform: "translate(-50%, -50%)",
             border: `solid 0.2rem ${palette.main_primary_dark}`,
+            // boxShadow: appShadows.buttonActive,
           }}
         />
         <DecoContainer
@@ -172,20 +225,24 @@ function HeroSelectorDecoContainer({
     <RelativeContainer
       className={css({
         cursor: "pointer",
-        // overflow: "hidden",
         position: "absolute",
-        height: "auto",
         borderRadius: "50%",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        // boxShadow: appShadows.buttonActive,
+        [mq.mini]: {
+          top: "0%",
+          left: "0%",
+          transform: "rotate(-45deg)",
+        },
       })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
       }}
     >
-      <AbsoluteCenterContainer>{selector.icon}</AbsoluteCenterContainer>
+      <AbsoluteCenterContainer className={css({ overflow: "hidden" })}>
+        {selector.icon}
+      </AbsoluteCenterContainer>
       <DecoContainer
         width={selectorParams.width}
         height={selectorParams.height}
@@ -216,6 +273,9 @@ function HeroSelectorDecoContainer({
         className={css({
           ...styles.flexCenter,
           transform: `translateY(${selectorParams.textPadding}rem)`,
+          [mq.mini]: {
+            transform: `translateY(11.2rem)`,
+          },
         })}
       >
         <p
@@ -238,10 +298,7 @@ function HeroSelectorDecoContainer({
 const InformationSection = styled.main({
   marginTop: "-12rem",
   background: "linear-gradient(180deg, rgb(57,36,28,0.95) 0%, #FFF4F4 100%)",
-  // background: "transparent",
   borderTop: `0.4rem solid ${palette.main_primary_dark}`,
-
-  // padding: "4rem",
   backdropFilter: "blur(0.4rem)",
 });
 
@@ -401,12 +458,107 @@ function InfoDecoLine() {
 }
 
 // MENU
+const MenuSection = styled.div({
+  backgroundColor: palette.background_main,
+  ...paddingTopBottom(4),
+});
 
-const MenuCategoryHeader = styled.div({});
+const MenuCategoryContainer = styled.div({
+  width: "100%",
+  alignSelf: "center",
+  padding: "2rem 3.6rem",
+  borderLeft: `solid 0.4rem ${palette.main_primary_dark}`,
+  borderRight: `solid 0.4rem ${palette.main_primary_dark}`,
+  backgroundColor: palette.background_second,
+});
 
-const MenuPosition = styled.div({});
+const MenuCategoryHeader = styled.h3({
+  textTransform: "capitalize",
+  textAlign: "center",
+});
 
-const PositionVariant = styled.div({});
+const MenuPositionContainer = styled.div({
+  maxWidth: "80rem",
+  minWidth: "32rem",
+  padding: "2rem",
+  border: `solid .2rem ${palette.main_primary_dark}`,
+  borderRadius: "1.2rem",
+  boxShadow: appShadows.button,
+  backgroundColor: palette.background_second,
+});
+
+const MenuPositionHeader = styled.h4({
+  fontSize: "2.4rem",
+  textTransform: "capitalize",
+  textAlign: "center",
+  fontWeight: 600,
+});
+
+const PositionVariantContainer = styled.div({
+  minWidth: "100%",
+  padding: "1.2rem",
+  fontSize: "2rem",
+  fontWeight: "600",
+  border: `solid 0.2rem ${palette.main_primary}`,
+  borderRadius: "1.2rem",
+  alignSelf: "center",
+  alignItems: "center",
+  columnGap: "1.6rem",
+  [mq.mini]: {
+    padding: "1rem",
+    fontSize: "1.8rem",
+    columnGap: "1.4rem",
+    minWidth: "34.8rem",
+  },
+});
+
+const RateAndTasteContainer = styled.div({
+  [mq.mini]: {
+    fontSize: "1.6rem",
+    rowGap: "1rem",
+    paddingBottom: "2rem",
+  },
+  fontSize: "2rem",
+  columnGap: "1.2rem",
+  ...paddingTopBottom(0, 2),
+});
+
+function GetRateStars(
+  rate: number,
+  max: number,
+  content: string,
+  width: number = 10,
+  size: number = 20
+): EmotionJSX.Element {
+  return (
+    <FlexRowContainer>
+      <p className={css({ width: `${width}rem` })}>{content}:</p>
+      <Container
+        className={css({ columnGap: "0.4rem", ...createGrid(max, 1) })}
+      >
+        {Array.from(Array(max).keys()).map((num) => {
+          return (
+            <div key={num} className={css({ alignSelf: "center" })}>
+              {num + 1 <= rate ? (
+                <RateFilledStarLogo
+                  height={size}
+                  width={size}
+                  fill={palette.main_primary}
+                />
+              ) : (
+                <RateEmptyStarLogo
+                  height={size}
+                  width={size}
+                  fill={palette.main_primary}
+                />
+              )}
+            </div>
+          );
+        })}
+      </Container>
+    </FlexRowContainer>
+  );
+}
 
 // FOOTER
 
@@ -549,10 +701,12 @@ const FlexRowContainer = styled.div({
   flexDirection: "row",
   alignItems: "center",
 });
+
 const FlexColumnContainer = styled.div({
   display: "flex",
   flexDirection: "column",
 });
+
 const FlexCenterContainer = styled.div({
   ...styles.flexCenter,
 });
@@ -658,9 +812,15 @@ export {
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
+  MenuSection,
+  MenuCategoryContainer,
   MenuCategoryHeader,
-  MenuPosition,
-  PositionVariant,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  PositionVariantContainer,
+  RateAndTasteContainer,
+  GetRateStars,
+  UpDownArrow,
   // Footer
   FooterSection,
   FooterParagraph,

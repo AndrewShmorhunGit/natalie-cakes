@@ -10,6 +10,7 @@ interface IMediaSettings {
     smallParam?: number | string,
     minParam?: number | string
   ): string | number;
+  setMediaByStep(param: number, step: number): number;
 }
 
 export const useMedia = (): IMediaSettings => {
@@ -72,5 +73,17 @@ export const useMedia = (): IMediaSettings => {
     return result;
   };
 
-  return { windowSize: isWindowSize, isMedia: media, setMedia };
+  const setMediaByStep = (param: number, step: number): number => {
+    const result = media.big
+      ? param
+      : media.medium
+      ? param - step
+      : media.small
+      ? param - step * 2
+      : param - step * 3;
+
+    return result;
+  };
+
+  return { windowSize: isWindowSize, isMedia: media, setMedia, setMediaByStep };
 };

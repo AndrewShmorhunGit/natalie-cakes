@@ -73,12 +73,12 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
-- [ ] Footer Logo fix rtl gap
+- [ ] Type problem solution
+- [ ] Burger
 
 ### Menu
 
 - [ ] Add price corecting variables environment
-- [ ] Refactoring Menu
 
 ### Info
 
@@ -90,8 +90,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### General
 
+- [ ] Change arrowUpDown
 - [ ] Add app public icons as 'Bookshelf' example
-- [ ] Manage imports with index.ts (images, styles and interfaces to 😊)
+- [x] Manage imports with index.ts (images, styles and interfaces to 😊)
 - [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
       Have problems with React 18v
@@ -106,11 +107,23 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Done
 
+_09.07_
+
+- [x] CamelCase isActive menu state props
+- [x] Add toggle transition
+- [x] Add toggle menu catefory functionality
+
+_08.07_
+
+- [x] Refactoring Menu
+- [x] Rate taste function
+
 _07.07_
 
 - [x] Fix hero main selectors rtl shift
 - [x] Add hebrew text content
       Footer:
+- [x] Footer Logo fix rtl gap
 - [x] Add menu icon
 - [x] Fix menu list under the menu
 - [x] Fix icons padding in ltr intrface

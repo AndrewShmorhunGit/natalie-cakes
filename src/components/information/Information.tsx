@@ -179,6 +179,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>
+                {/* Reformat This Code */}
                 <Container
                   className={css({
                     display: "grid",
