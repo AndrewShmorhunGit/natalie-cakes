@@ -75,9 +75,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [ ] Type problem solution
 - [ ] Burger modal
+- [ ] Language dropdown
 
 ### Menu
 
+- [ ] Sizes toggle functionality
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
 
@@ -97,7 +99,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### General
 
 - [ ] Add app public icons as 'Bookshelf' example
-- [x] Manage imports with index.ts (images, styles and interfaces to 😊)
 - [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
       Have problems with React 18v
@@ -126,6 +127,7 @@ _08.07_
 
 _07.07_
 
+- [x] Manage imports with index.ts (images, styles and interfaces to 😊)
 - [x] Fix hero main selectors rtl shift
 - [x] Add hebrew text content
       Footer:
