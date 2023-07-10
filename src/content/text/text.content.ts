@@ -2,7 +2,7 @@ import { IInnerContent } from "interfaces/IContent";
 import { menuContentEn, menuContentHb, menuContentRu } from "./menu.content";
 
 const address = "Natalie 23 str, Eilat";
-const phone = "+972 54-283-07777";
+const phone = "972-54-283-07777";
 const email = "nataliecakes@gmail.com";
 const rights =
   "Natalie Cakes, all rights reserved. Designed and developed by Andrew Shmorhun. 2023";

@@ -66,6 +66,10 @@ import {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
+  flagEn,
+  flagRu,
+  flagHb,
+  flagUa,
 } from "./logos/Logos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
@@ -108,6 +112,10 @@ export {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
+  flagEn,
+  flagRu,
+  flagHb,
+  flagUa,
   // Styled Components
   // Navigation
   NavigationSection,

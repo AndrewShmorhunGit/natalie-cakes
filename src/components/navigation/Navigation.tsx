@@ -8,14 +8,15 @@ import {
   NavBurger,
   NavigationSection,
   MainLogo,
+  RelativeContainer,
 } from "components";
 // Styles
 import { css } from "@emotion/css";
 import { palette, mq } from "styles";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import { activeBtnStyle } from "styles/styles";
 // Interfaces
 import { IAppBox } from "interfaces/IApp";
+import { setFlag } from "utils/functions";
 
 export function Navigation({
   appBox,
@@ -60,43 +61,54 @@ export function Navigation({
               </Button>
               <Button variant="primary">{appBox.innerContent.makeSweet}</Button>
             </Container>
-            <FlexColumnContainer
-              className={css({
-                gap: "0.4rem",
-                paddingLeft: "1.2rem",
-                [mq.small]: {
-                  gap: "0.2rem",
-                },
-              })}
-            >
-              <Button
-                variant="language"
-                onClick={() => appBox.setLanguage("en")}
-                className={css(
-                  appBox.isLanguage === "en" ? activeBtnStyle : null
-                )}
+            <RelativeContainer>
+              <FlexColumnContainer
+                className={css({
+                  position: "absolute",
+                  overflow: "hidden",
+                  maxHeight: "4rem",
+                  gap: "0.4rem",
+                  right: appBox.isLanguage === "hb" ? "0" : "-4.2rem",
+                  top: "-2.2rem",
+                  zIndex: 2,
+                  transition: "max-height 1.4s ease-in",
+                  ":hover": {
+                    maxHeight: "100rem",
+                    transition: "max-height 1.4s ease-out",
+                  },
+                })}
               >
-                {appBox.languages.en}
-              </Button>
-              <Button
-                variant="language"
-                onClick={() => appBox.setLanguage("ru")}
-                className={css(
-                  appBox.isLanguage === "ru" ? activeBtnStyle : null
-                )}
-              >
-                {appBox.languages.ru}
-              </Button>
-              <Button
-                variant="language"
-                onClick={() => appBox.setLanguage("hb")}
-                className={css(
-                  appBox.isLanguage === "hb" ? activeBtnStyle : null
-                )}
-              >
-                {appBox.languages.hb}
-              </Button>
-            </FlexColumnContainer>
+                <Button variant="language">{setFlag(appBox.isLanguage)}</Button>
+
+                <Button
+                  variant="language"
+                  onClick={() => appBox.setLanguage("en")}
+                  className={css({
+                    display: `${appBox.isLanguage === "en" ? "none" : "flex"}`,
+                  })}
+                >
+                  {setFlag(appBox.languages.en)}
+                </Button>
+                <Button
+                  variant="language"
+                  onClick={() => appBox.setLanguage("ru")}
+                  className={css({
+                    display: `${appBox.isLanguage === "ru" ? "none" : "flex"}`,
+                  })}
+                >
+                  {setFlag(appBox.languages.ru)}
+                </Button>
+                <Button
+                  variant="language"
+                  onClick={() => appBox.setLanguage("hb")}
+                  className={css({
+                    display: `${appBox.isLanguage === "hb" ? "none" : "flex"}`,
+                  })}
+                >
+                  {setFlag(appBox.languages.hb)}
+                </Button>
+              </FlexColumnContainer>
+            </RelativeContainer>
           </>
         ) : (
           <Container className={css({ width: "8rem" })}>
