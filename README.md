@@ -74,15 +74,21 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Current Task (feachure/content)
 
 - [ ] Type problem solution
-- [ ] Burger
+- [ ] Burger modal
 
 ### Menu
 
 - [ ] Add price corecting variables environment
+- [ ] Manage hero selector classes links
 
 ### Info
 
 - [ ] Refactoring structure
+
+### Nav
+
+- [ ] Language dropdown
+- [ ] Advanced nav with dropdowns
 
 ### Styling
 
@@ -90,7 +96,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### General
 
-- [ ] Change arrowUpDown
 - [ ] Add app public icons as 'Bookshelf' example
 - [x] Manage imports with index.ts (images, styles and interfaces to 😊)
 - [ ] Set Up page routing in `./public` folder(optional)
@@ -109,6 +114,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _09.07_
 
+- [x] Change arrowUpDown
 - [x] CamelCase isActive menu state props
 - [x] Add toggle transition
 - [x] Add toggle menu catefory functionality
