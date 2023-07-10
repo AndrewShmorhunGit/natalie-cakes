@@ -13,8 +13,8 @@ import {
   styles,
   infoLogoContainerAbsoluteSettings,
   paddingTopBottom,
-  wideContainer,
   createGrid,
+  container,
 } from "styles";
 // Interfaces
 import { IHeroSelectors, ISelectorParams } from "interfaces";
@@ -26,18 +26,19 @@ import heroBgImage from "content/images/hero/hero-background-img.jpg";
 // NAV
 
 const NavigationSection = styled.main({
-  ...wideContainer,
+  ...container,
   position: "fixed",
   top: 0,
   zIndex: 99,
-  width: "100%",
+  width: "100vw",
+  minWidth: "100dvw",
   background: "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)",
   backgroundColor:
     "radial-gradient(562% 18036% at 115.87% 50%, #FF8E8E 0%, #995555 100%)",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  overflow: "hidden",
+  // overflow: "hidden",
 });
 
 function UpDownArrow({
@@ -638,14 +639,17 @@ const buttonVariants: any = {
     [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
   },
   language: {
-    width: "3.2rem",
-    height: "3.2rem",
-    fontSize: "1.6rem",
-    border: `0.2rem solid ${palette.white}`,
-    textTransform: "none",
-    borderRadius: "50%",
-    [mq.medium]: { width: "2.8rem", height: "2.8rem", fontSize: "1.2rem" },
-    // [mq.small]: { width: "2.4rem", height: "2.4rem", fontSize: "1rem" },
+    height: "4rem",
+    border: `0.2rem solid ${palette.background_main}`,
+    borderRadius: "0.4rem",
+    background: palette.main_primary,
+    "&:hover": {
+      transform: "translateY(0rem)",
+      background: palette.main_primary_dark,
+    },
+    "&:active": {
+      boxShadow: "none",
+    },
   },
 };
 
