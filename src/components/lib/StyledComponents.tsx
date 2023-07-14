@@ -238,85 +238,74 @@ function HeroSelectorDecoContainer({
         borderRadius: "50%",
         top: "50%",
         left: "50%",
-        transform: "translate(-50%, -50%)",
-
+        transform: `translate(-50%, ${isHover ? "calc(-50% - 1px)" : "-50%"})`,
+        transition: selectorParams.decoProps.transition,
         [mq.mini]: {
           top: "0%",
           left: "0%",
-          transform: "rotate(-45deg)",
+          transform: `rotate(-45deg) translateY(${isHover ? "-1px" : "0"})`,
         },
       })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
       }}
     >
-      <Container
+      <AbsoluteCenterContainer
         className={css({
-          margin: "4.4rem",
-          transition: selectorParams.decoProps.transition,
-          transform: `translateY(${isHover ? "-1px" : "0px"} )`,
+          overflow: "hidden",
         })}
       >
-        <AbsoluteCenterContainer
-          className={css({
-            overflow: "hidden",
-          })}
-        >
-          {selector.icon}
-        </AbsoluteCenterContainer>
-        <DecoContainer
-          width={selectorParams.width}
-          height={selectorParams.height}
-          color={selectorParams.color}
-          style={{
-            ...selectorParams.decoProps,
-            // border: `solid ${palette.main_primary_dark} .2rem`,
-          }}
-        />
+        {selector.icon}
+      </AbsoluteCenterContainer>
+      <DecoContainer
+        width={selectorParams.width}
+        height={selectorParams.height}
+        color={selectorParams.color}
+        style={{
+          ...selectorParams.decoProps,
+          // border: `solid ${palette.main_primary_dark} .2rem`,
+        }}
+      />
 
-        <DecoContainer
-          width={selectorParams.width - selectorParams.step}
-          height={selectorParams.height - selectorParams.step}
-          color={selectorParams.ringColor}
-          style={
-            isHover
-              ? {
-                  ...selectorParams.decoProps,
-                  background: palette.main_primary_dark,
-                }
-              : {
-                  ...selectorParams.decoProps,
-                }
-          }
-        />
-        <DecoContainer
-          width={selectorParams.width - 2 * selectorParams.step}
-          height={selectorParams.height - 2 * selectorParams.step}
-          color={selectorParams.color}
-          style={{
-            ...selectorParams.decoProps,
-          }}
-        />
-        <Container
+      <DecoContainer
+        width={selectorParams.width - selectorParams.step}
+        height={selectorParams.height - selectorParams.step}
+        color={selectorParams.ringColor}
+        style={
+          isHover
+            ? {
+                ...selectorParams.decoProps,
+                background: palette.main_primary_dark,
+              }
+            : {
+                ...selectorParams.decoProps,
+              }
+        }
+      />
+      <DecoContainer
+        width={selectorParams.width - 2 * selectorParams.step}
+        height={selectorParams.height - 2 * selectorParams.step}
+        color={selectorParams.color}
+        style={{
+          ...selectorParams.decoProps,
+        }}
+      />
+      <Container
+        className={css({
+          ...styles.flexCenter,
+          transform: `translateY(${selectorParams.textPadding}rem)`,
+        })}
+      >
+        <p
           className={css({
-            ...styles.flexCenter,
-            transform: `translateY(${selectorParams.textPadding}rem)`,
-            // [mq.mini]: {
-            //   transform: `translateY(11.2rem)`,
-            // },
+            width: `12rem`,
+            textAlign: "center",
+            textTransform: "capitalize",
+            fontSize: `${selectorParams.font}`,
           })}
         >
-          <p
-            className={css({
-              width: `12rem`,
-              textAlign: "center",
-              textTransform: "capitalize",
-              fontSize: `${selectorParams.font}`,
-            })}
-          >
-            {selector.name}
-          </p>
-        </Container>
+          {selector.name}
+        </p>
       </Container>
     </RelativeContainer>
   );

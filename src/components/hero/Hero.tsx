@@ -44,7 +44,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
     font: `${setMedia(2.2, 2, 1.8)}rem`,
     color: palette.white,
     ringColor: palette.main_primary,
-    textPadding: +setMedia(11.6, 10.6, 9.2, 5.2),
+    textPadding: +setMedia(11.6, 10.6, 9.2, 11.2),
     decoProps: {
       transition: "all 0.4s",
       borderRadius: "50%",
