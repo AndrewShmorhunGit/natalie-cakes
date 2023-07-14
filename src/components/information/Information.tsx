@@ -14,6 +14,7 @@ import {
   DesignLogo,
   IngredientsLogo,
   OrderLogo,
+  InformationImportantContainer,
 } from "components";
 // Styles
 import {
@@ -67,6 +68,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             [mq.mini]: { padding: "1.2rem 1.6rem" },
           })}
         >
+          {/* INGREDIENTS */}
           <Container
             className={css({
               gridRow: "1",
@@ -96,6 +98,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               step={+setMedia(2.4, 2, 1.6, 1)}
             />
           </Container>
+          {/* DESIGN */}
           <Container
             className={css({
               gridRow: "2",
@@ -123,6 +126,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               <InfoParagraph>{content.designText.p2}</InfoParagraph>
             </InfoContainer>
           </Container>
+          {/* ORDER */}
           <Container
             className={css({
               gridRow: "3",
@@ -179,19 +183,12 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>
-                {/* Reformat This Code */}
-                <Container
+                {/* IMPORTANT */}
+                <InformationImportantContainer
                   className={css({
-                    display: "grid",
                     minWidth: `${setMedia(32, 30, 28)}rem`,
-                    height: "8rem",
-                    borderRadius: "4rem",
-                    border: `solid 0.2rem ${palette.text_dark}`,
                     marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
                     marginBottom: `${isMedia.mini ? "4rem" : "2rem"}`,
-                    backgroundColor: palette.background_third,
-                    overflow: "hidden",
-                    position: "relative",
                   })}
                 >
                   <DecoContainer
@@ -217,7 +214,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                     }}
                   />
                   <InfoHeader>{content.importantText.h1}</InfoHeader>
-                </Container>
+                </InformationImportantContainer>
               </Container>
               <Container>
                 <FlexCenterContainer

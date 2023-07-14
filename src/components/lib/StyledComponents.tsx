@@ -33,9 +33,8 @@ const NavigationSection = styled.main({
   zIndex: 99,
   width: "100vw",
   minWidth: "100dvw",
-  background: "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)",
-  backgroundColor:
-    "radial-gradient(562% 18036% at 115.87% 50%, #FF8E8E 0%, #995555 100%)",
+  background: palette.gradient_primary_to_primary_dark,
+  backgroundColor: palette.gradient_primary_to_primary_dark,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -263,7 +262,7 @@ function HeroSelectorDecoContainer({
         color={selectorParams.color}
         style={{
           ...selectorParams.decoProps,
-          // border: `solid ${palette.main_primary_dark} .2rem`,
+          boxShadow: isHover ? appShadows.buttonActive : "none",
         }}
       />
 
@@ -275,7 +274,7 @@ function HeroSelectorDecoContainer({
           isHover
             ? {
                 ...selectorParams.decoProps,
-                background: palette.main_primary_dark,
+                transform: `translate(-50%, -50%) rotate(1turn)`,
               }
             : {
                 ...selectorParams.decoProps,
@@ -330,6 +329,16 @@ const InfoContainer = styled.div({
   borderRadius: "1.2rem",
   backgroundColor: `${palette.background_second}`,
   [mq.mini]: { margin: "0" },
+});
+
+const InformationImportantContainer = styled.div({
+  display: "grid",
+  height: "8rem",
+  borderRadius: "4rem",
+  border: `solid 0.2rem ${palette.text_dark}`,
+  backgroundColor: palette.background_third,
+  overflow: "hidden",
+  position: "relative",
 });
 
 const InfoHeader = styled.ul({
@@ -830,6 +839,7 @@ export {
   // Information
   InformationSection,
   InfoContainer,
+  InformationImportantContainer,
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,

@@ -11,6 +11,7 @@ import {
   HeroSelectorDecoContainer,
   // Information
   InformationSection,
+  InformationImportantContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,
@@ -128,6 +129,7 @@ export {
   HeroSelectorDecoContainer,
   // Information
   InformationSection,
+  InformationImportantContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,

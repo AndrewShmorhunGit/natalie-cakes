@@ -73,8 +73,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
+- [ ] Information refactoring
 - [ ] Menu states types problem solution
 - [ ] Burger modal
+
+### Hero
+
+- [ ] Image for large and small screens
 
 ### Menu
 
@@ -96,6 +101,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### General
 
+- [ ] Stylred Components sort by folders
 - [ ] Add app public icons as 'Bookshelf' example
 - [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
