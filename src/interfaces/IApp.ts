@@ -30,4 +30,6 @@ export interface IAppBox {
     elementRef: RefObject<T>
   ): boolean;
   hoverRef: React.MutableRefObject<null>;
+  isModal: boolean;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }

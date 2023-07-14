@@ -20,13 +20,15 @@ import { palette } from "styles/palette";
 import { IAppBox } from "interfaces/IApp";
 // Hooks
 import { useMedia, useLanguage, useHover } from "hooks";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export function App() {
   // Set JS Media Queries //
   const mediaSettings = useMedia();
   // Set Language Content & Functionality//
   const languageSettings = useLanguage(contents);
+  // Modal state
+  const [isModal, setModal] = useState(false);
 
   // Main Application params and functions Box
   const appBox: IAppBox = {
@@ -42,6 +44,8 @@ export function App() {
     setMediaByStep: mediaSettings.setMediaByStep,
     useHover,
     hoverRef: useRef(null),
+    isModal,
+    setModal,
   };
 
   /////////////////////////////////////////
@@ -55,14 +59,12 @@ export function App() {
         color: palette.text_dark,
       })}
     >
-      {/* <div className={css({ height: "calc(100vh + 12rem)" })}> */}
       <Navigation appBox={appBox}></Navigation>
       <Hero appBox={appBox}></Hero>
-      {/* </div> */}
       <Information appBox={appBox}></Information>
       <Menu appBox={appBox}></Menu>
       <Gallery></Gallery>
-      <Modal></Modal>
+      <Modal appBox={appBox}></Modal>
       <CallToAction></CallToAction>
       <Footer appBox={appBox}></Footer>
     </Container>

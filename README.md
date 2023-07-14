@@ -94,13 +94,18 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Nav
 
 - [ ] Advanced nav with dropdowns
+- [ ] Language dropdown refactoring
+
+### Modals
+
+- [ ] useModals hook
+- [ ] dinamicaly create a modals state based on modals data
 
 ### Styling
 
-- [ ] Add gradients to the palette
-
 ### General
 
+- [ ] Custom scroll bar
 - [ ] Stylred Components sort by folders
 - [ ] Add app public icons as 'Bookshelf' example
 - [ ] Set Up page routing in `./public` folder(optional)
@@ -116,6 +121,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _14.07_
 
+- [x] Add gradients to the palette
 - [x] Add use hover hook
   - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
   - [useHover](https://usehooks.com/usehover)

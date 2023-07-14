@@ -26,10 +26,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
     isMedia,
     isLanguage,
     useHover,
-    // hoverRef,
   } = appBox;
-  // const selectorRef = useRef(null)
-  // const isHover = useHover(selectorRef);
   const textColor: string = palette.white;
 
   const logoProps: ILogos = {
@@ -109,6 +106,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           >
             {content.heroTagline}
           </HeroTagLine> */}
+
           {!isMedia.mini && (
             <Container className={css({ display: "grid" })}>
               <h2
@@ -142,7 +140,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
                 ? {
                     transform: "rotate(45deg)",
                     fontWeight: 600,
-                    color: palette.main_primary_dark,
+                    color: palette.black,
                     columnGap: "2rem",
                     rowGap: "2rem",
                     ...createGrid(

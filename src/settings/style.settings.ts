@@ -12,7 +12,7 @@ export class ColorSettings {
   gradient_primary_dark_to_primary: string =
     "linear-gradient(270deg, #995555 0%, #FF8E8E 100%)";
   gradient_background_main_to_second: string =
-    "linear-gradient(270deg, #FBF3F3 0%, #FFFCF3 100%)";
+    "linear-gradient(270deg, #FBF3F3 0%, #FFF 100%)";
 }
 
 export class StyleSettings {}

@@ -3,6 +3,7 @@ import {
   // Navigation
   NavigationSection,
   NavBurger,
+  NavButtonsContainer,
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
@@ -121,6 +122,7 @@ export {
   // Navigation
   NavigationSection,
   NavBurger,
+  NavButtonsContainer,
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,

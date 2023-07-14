@@ -17,7 +17,12 @@ import {
   container,
 } from "styles";
 // Interfaces
-import { IHeroSelectors, ISelectorParams } from "interfaces";
+import {
+  IHeroSelectors,
+  IInnerContent,
+  ILanguages,
+  ISelectorParams,
+} from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
@@ -30,7 +35,7 @@ const NavigationSection = styled.main({
   ...container,
   position: "fixed",
   top: 0,
-  zIndex: 99,
+  zIndex: 2,
   width: "100vw",
   minWidth: "100dvw",
   background: palette.gradient_primary_to_primary_dark,
@@ -90,17 +95,107 @@ function UpDownArrow({
   );
 }
 
+function NavButtonsContainer({
+  content,
+  setFlag,
+  languages,
+  isLanguage,
+  setLanguage,
+  variant,
+}: {
+  content: IInnerContent;
+  setFlag(language: string): string | JSX.Element;
+  languages: ILanguages;
+  isLanguage: string;
+  setLanguage(value: React.SetStateAction<string>): void;
+  variant: string;
+}) {
+  return (
+    <Container>
+      <Container
+        className={css({
+          display: "flex",
+          flexDirection: variant === "navigation" ? "row" : "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "2rem",
+        })}
+      >
+        <Button variant="primary">{content.makeSweet}</Button>
+        <Button variant="secondary">{content.about}</Button>
+        <Button variant="secondary">{content.contacts}</Button>
+        <RelativeContainer>
+          <FlexColumnContainer
+            className={css({
+              position: "absolute",
+              overflow: "hidden",
+              maxHeight: "4rem",
+              left: isLanguage === "hb" ? "-4rem" : 0,
+              top: "-2rem",
+              zIndex: 2,
+              transition: "max-height 1.4s ease-in",
+              ":hover": {
+                maxHeight: "25rem",
+                transition: "max-height 1.4s ease-out",
+              },
+            })}
+          >
+            <Button variant="language">{setFlag(isLanguage)}</Button>
+            <Button
+              variant="language"
+              onClick={() => setLanguage("en")}
+              className={css({
+                display: `${isLanguage === "en" ? "none" : "flex"}`,
+              })}
+            >
+              {setFlag(languages.en)}
+            </Button>
+            <Button
+              variant="language"
+              onClick={() => setLanguage("ru")}
+              className={css({
+                display: `${isLanguage === "ru" ? "none" : "flex"}`,
+              })}
+            >
+              {setFlag(languages.ru)}
+            </Button>
+            <Button
+              variant="language"
+              onClick={() => setLanguage("hb")}
+              className={css({
+                display: `${isLanguage === "hb" ? "none" : "flex"}`,
+              })}
+            >
+              {setFlag(languages.hb)}
+            </Button>
+          </FlexColumnContainer>
+        </RelativeContainer>
+      </Container>
+    </Container>
+  );
+}
+
 function NavBurger({
   gap = 0.8,
   lineHight = 0.4,
   lineWidth = 2.8,
   circleRadius = 5.2,
+  clickHandler,
+}: {
+  gap?: number;
+  lineHight?: number;
+  lineWidth?: number;
+  circleRadius?: number;
+  clickHandler?: () => void;
 }) {
   return (
     <Container
       className={css({
         display: "grid",
       })}
+      onClick={(e) => {
+        typeof clickHandler !== "undefined" && clickHandler();
+      }}
     >
       <RelativeContainer
         className={css({
@@ -830,6 +925,7 @@ export {
   // Navigation
   NavigationSection,
   NavBurger,
+  NavButtonsContainer,
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
