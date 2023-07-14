@@ -73,7 +73,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feachure/content)
 
-- [ ] Type problem solution
+- [ ] Menu states types problem solution
 - [ ] Burger modal
 
 ### Menu
@@ -88,7 +88,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Nav
 
-- [ ] Language dropdown
 - [ ] Advanced nav with dropdowns
 
 ### Styling
@@ -102,15 +101,22 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Use "Dialog" for modals
       Have problems with React 18v
 - [ ] Use local storage for current lang
-- [ ] Add use hover hook
-  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
-  - [useHover](https://usehooks.com/usehover)
 - [ ] Global grid setup
 - [ ] Handle Fonts
 - [ ] Delete Logos from content/logos folder
 - [ ] Remove unused fonts
 
 ### Done
+
+_14.07_
+
+- [x] Add use hover hook
+  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
+  - [useHover](https://usehooks.com/usehover)
+
+_12.07_
+
+- [x] Language dropdown
 
 _10.07_
 

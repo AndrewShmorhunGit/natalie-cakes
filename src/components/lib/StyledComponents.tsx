@@ -230,31 +230,32 @@ function HeroSelectorDecoContainer({
   const hoverRef = useRef(null);
   const isHover = useHover(hoverRef);
   return (
-    <Container
+    <RelativeContainer
+      ref={hoverRef}
       className={css({
-        transition: selectorParams.decoProps.transition,
-        transform: `translateY(${isHover ? "-1px" : "0px"} )`,
-      })}
-    >
-      <RelativeContainer
-        ref={hoverRef}
-        className={css({
-          cursor: "pointer",
-          position: "absolute",
-          borderRadius: "50%",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
+        cursor: "pointer",
+        position: "absolute",
+        borderRadius: "50%",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
 
-          [mq.mini]: {
-            top: "0%",
-            left: "0%",
-            transform: "rotate(-45deg)",
-          },
+        [mq.mini]: {
+          top: "0%",
+          left: "0%",
+          transform: "rotate(-45deg)",
+        },
+      })}
+      onClick={(e) => {
+        typeof clickHandler !== "undefined" && clickHandler();
+      }}
+    >
+      <Container
+        className={css({
+          margin: "4.4rem",
+          transition: selectorParams.decoProps.transition,
+          transform: `translateY(${isHover ? "-1px" : "0px"} )`,
         })}
-        onClick={(e) => {
-          typeof clickHandler !== "undefined" && clickHandler();
-        }}
       >
         <AbsoluteCenterContainer
           className={css({
@@ -282,7 +283,6 @@ function HeroSelectorDecoContainer({
               ? {
                   ...selectorParams.decoProps,
                   background: palette.main_primary_dark,
-                  // border: ` dotted ${selectorParams.step}rem ${palette.white}`,
                 }
               : {
                   ...selectorParams.decoProps,
@@ -301,9 +301,9 @@ function HeroSelectorDecoContainer({
           className={css({
             ...styles.flexCenter,
             transform: `translateY(${selectorParams.textPadding}rem)`,
-            [mq.mini]: {
-              transform: `translateY(11.2rem)`,
-            },
+            // [mq.mini]: {
+            //   transform: `translateY(11.2rem)`,
+            // },
           })}
         >
           <p
@@ -317,8 +317,8 @@ function HeroSelectorDecoContainer({
             {selector.name}
           </p>
         </Container>
-      </RelativeContainer>
-    </Container>
+      </Container>
+    </RelativeContainer>
   );
 }
 
