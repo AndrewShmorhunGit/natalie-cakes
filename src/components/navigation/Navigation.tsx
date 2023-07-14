@@ -69,11 +69,11 @@ export function Navigation({
                   maxHeight: "4rem",
                   gap: "0.4rem",
                   right: appBox.isLanguage === "hb" ? "0" : "-4.2rem",
-                  top: "-2.2rem",
+                  top: "-1.9rem",
                   zIndex: 2,
                   transition: "max-height 1.4s ease-in",
                   ":hover": {
-                    maxHeight: "100rem",
+                    maxHeight: "25rem",
                     transition: "max-height 1.4s ease-out",
                   },
                 })}

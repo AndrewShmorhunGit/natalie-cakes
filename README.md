@@ -75,7 +75,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [ ] Type problem solution
 - [ ] Burger modal
-- [ ] Language dropdown
 
 ### Menu
 
@@ -112,6 +111,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Remove unused fonts
 
 ### Done
+
+_10.07_
+
+- [x] Language dropdown
 
 _09.07_
 

@@ -19,7 +19,8 @@ import { palette } from "styles/palette";
 // Interfaces
 import { IAppBox } from "interfaces/IApp";
 // Hooks
-import { useMedia, useLanguage } from "hooks";
+import { useMedia, useLanguage, useHover } from "hooks";
+import { useRef } from "react";
 
 export function App() {
   // Set JS Media Queries //
@@ -39,6 +40,8 @@ export function App() {
     isMedia: mediaSettings.isMedia,
     setMedia: mediaSettings.setMedia,
     setMediaByStep: mediaSettings.setMediaByStep,
+    useHover,
+    hoverRef: useRef(null),
   };
 
   /////////////////////////////////////////

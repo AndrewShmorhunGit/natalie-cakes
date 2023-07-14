@@ -17,6 +17,7 @@ import {
   RateAndTasteContainer,
   UpDownArrow,
   MenuCategoryContainer,
+  MainHeader,
 } from "components";
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
@@ -54,6 +55,15 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
   return (
     <MenuSection>
+      <MainHeader
+        className={css({
+          ...container,
+          paddingBottom: "8rem",
+          textTransform: "capitalize",
+        })}
+      >
+        Menu
+      </MainHeader>
       <Container
         className={css({
           ...container,

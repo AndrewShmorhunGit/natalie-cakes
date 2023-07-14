@@ -20,7 +20,16 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox, IHeroSelectors, ISelectorParams, ILogos } from "interfaces";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia, isMedia, isLanguage } = appBox;
+  const {
+    innerContent: content,
+    setMedia,
+    isMedia,
+    isLanguage,
+    useHover,
+    // hoverRef,
+  } = appBox;
+  // const selectorRef = useRef(null)
+  // const isHover = useHover(selectorRef);
   const textColor: string = palette.white;
 
   const logoProps: ILogos = {
@@ -37,6 +46,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
     ringColor: palette.main_primary,
     textPadding: +setMedia(11.6, 10.6, 9.2),
     decoProps: {
+      transition: "all 0.4s",
       borderRadius: "50%",
       position: "absolute",
       top: isMedia.mini ? "calc(50% + 2rem)" : "50%",
@@ -55,7 +65,10 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
       name: content.heroSelectors.cakesAndPies,
       icon: HeroCakesAndPiesLogo(logoProps),
     },
-    { name: content.heroSelectors.cupCakes, icon: HeroCupCakesLogo(logoProps) },
+    {
+      name: content.heroSelectors.cupCakes,
+      icon: HeroCupCakesLogo(logoProps),
+    },
     {
       name: content.heroSelectors.gingerBread,
       icon: HeroGingerbreadLogo(logoProps),
@@ -150,6 +163,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
                 clickHandler={() => console.log(selector.name)}
                 selector={selector}
                 selectorParams={selectorParams}
+                useHover={useHover}
               />
             ))}
           </Container>

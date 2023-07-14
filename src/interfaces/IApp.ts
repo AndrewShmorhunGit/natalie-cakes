@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import { IInnerContent } from "./IContent";
 
 export interface IMedia {
@@ -25,4 +26,8 @@ export interface IAppBox {
     minParam?: number | string
   ): string | number;
   setMediaByStep(param: number, step: number): number;
+  useHover<T extends HTMLElement = HTMLElement>(
+    elementRef: RefObject<T>
+  ): boolean;
+  hoverRef: React.MutableRefObject<null>;
 }

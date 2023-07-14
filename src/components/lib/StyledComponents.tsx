@@ -21,6 +21,7 @@ import { IHeroSelectors, ISelectorParams } from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
+import { useRef } from "react";
 
 // STYLED APP COMPONENTS //
 // NAV
@@ -215,82 +216,109 @@ function HeroSelectorDecoContainer({
   selector,
   selectorParams,
   clickHandler,
+  useHover,
   style,
 }: {
   selector: IHeroSelectors;
   selectorParams: ISelectorParams;
   clickHandler?: () => void;
+  useHover: <T extends HTMLElement = HTMLElement>(
+    elementRef: React.RefObject<T>
+  ) => boolean;
   style?: React.CSSProperties | undefined;
 }): EmotionJSX.Element {
+  const hoverRef = useRef(null);
+  const isHover = useHover(hoverRef);
   return (
-    <RelativeContainer
+    <Container
       className={css({
-        cursor: "pointer",
-        position: "absolute",
-        borderRadius: "50%",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        [mq.mini]: {
-          top: "0%",
-          left: "0%",
-          transform: "rotate(-45deg)",
-        },
+        transition: selectorParams.decoProps.transition,
+        transform: `translateY(${isHover ? "-1px" : "0px"} )`,
       })}
-      onClick={(e) => {
-        typeof clickHandler !== "undefined" && clickHandler();
-      }}
     >
-      <AbsoluteCenterContainer className={css({ overflow: "hidden" })}>
-        {selector.icon}
-      </AbsoluteCenterContainer>
-      <DecoContainer
-        width={selectorParams.width}
-        height={selectorParams.height}
-        color={selectorParams.color}
-        style={{
-          ...selectorParams.decoProps,
-          // border: `solid ${palette.main_primary_dark} .2rem`,
-        }}
-      />
-      <DecoContainer
-        width={selectorParams.width - selectorParams.step}
-        height={selectorParams.height - selectorParams.step}
-        color={selectorParams.ringColor}
-        style={{
-          ...selectorParams.decoProps,
-          // '&:hover':'',
-        }}
-      />
-      <DecoContainer
-        width={selectorParams.width - 2 * selectorParams.step}
-        height={selectorParams.height - 2 * selectorParams.step}
-        color={selectorParams.color}
-        style={{
-          ...selectorParams.decoProps,
-        }}
-      />
-      <Container
+      <RelativeContainer
+        ref={hoverRef}
         className={css({
-          ...styles.flexCenter,
-          transform: `translateY(${selectorParams.textPadding}rem)`,
+          cursor: "pointer",
+          position: "absolute",
+          borderRadius: "50%",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+
           [mq.mini]: {
-            transform: `translateY(11.2rem)`,
+            top: "0%",
+            left: "0%",
+            transform: "rotate(-45deg)",
           },
         })}
+        onClick={(e) => {
+          typeof clickHandler !== "undefined" && clickHandler();
+        }}
       >
-        <p
+        <AbsoluteCenterContainer
           className={css({
-            width: `12rem`,
-            textAlign: "center",
-            textTransform: "capitalize",
-            fontSize: `${selectorParams.font}`,
+            overflow: "hidden",
           })}
         >
-          {selector.name}
-        </p>
-      </Container>
-    </RelativeContainer>
+          {selector.icon}
+        </AbsoluteCenterContainer>
+        <DecoContainer
+          width={selectorParams.width}
+          height={selectorParams.height}
+          color={selectorParams.color}
+          style={{
+            ...selectorParams.decoProps,
+            // border: `solid ${palette.main_primary_dark} .2rem`,
+          }}
+        />
+
+        <DecoContainer
+          width={selectorParams.width - selectorParams.step}
+          height={selectorParams.height - selectorParams.step}
+          color={selectorParams.ringColor}
+          style={
+            isHover
+              ? {
+                  ...selectorParams.decoProps,
+                  background: palette.main_primary_dark,
+                  // border: ` dotted ${selectorParams.step}rem ${palette.white}`,
+                }
+              : {
+                  ...selectorParams.decoProps,
+                }
+          }
+        />
+        <DecoContainer
+          width={selectorParams.width - 2 * selectorParams.step}
+          height={selectorParams.height - 2 * selectorParams.step}
+          color={selectorParams.color}
+          style={{
+            ...selectorParams.decoProps,
+          }}
+        />
+        <Container
+          className={css({
+            ...styles.flexCenter,
+            transform: `translateY(${selectorParams.textPadding}rem)`,
+            [mq.mini]: {
+              transform: `translateY(11.2rem)`,
+            },
+          })}
+        >
+          <p
+            className={css({
+              width: `12rem`,
+              textAlign: "center",
+              textTransform: "capitalize",
+              fontSize: `${selectorParams.font}`,
+            })}
+          >
+            {selector.name}
+          </p>
+        </Container>
+      </RelativeContainer>
+    </Container>
   );
 }
 
@@ -722,14 +750,17 @@ function DecoContainer({
   height,
   color,
   style,
+  ref,
 }: {
   width: number;
   height: number;
   color: string;
   style?: React.CSSProperties | undefined;
+  ref?: React.MutableRefObject<null>;
 }) {
   return (
     <FlexCenterContainer
+      ref={ref}
       className={css({
         width: `${width}rem`,
         height: `${height}rem`,
