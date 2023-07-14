@@ -59,14 +59,14 @@ export function App() {
         color: palette.text_dark,
       })}
     >
-      <Navigation appBox={appBox}></Navigation>
-      <Hero appBox={appBox}></Hero>
-      <Information appBox={appBox}></Information>
-      <Menu appBox={appBox}></Menu>
+      <Navigation appBox={appBox} />
+      <Hero appBox={appBox} />
+      <Information appBox={appBox} />
+      <Menu appBox={appBox} />
+      <Modal appBox={appBox} />
       <Gallery></Gallery>
-      <Modal appBox={appBox}></Modal>
       <CallToAction></CallToAction>
-      <Footer appBox={appBox}></Footer>
+      <Footer appBox={appBox} />
     </Container>
   );
 }

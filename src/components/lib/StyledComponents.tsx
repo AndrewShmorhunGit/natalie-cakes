@@ -46,6 +46,19 @@ const NavigationSection = styled.main({
   // overflow: "hidden",
 });
 
+const LanguageDropdownContainer = styled.div({
+  position: "absolute",
+  overflow: "hidden",
+  maxHeight: "4rem",
+  gap: "0.4rem",
+
+  transition: "max-height 1.4s ease-in",
+  ":hover": {
+    maxHeight: "25rem",
+    transition: "max-height 1.4s ease-out",
+  },
+});
+
 function UpDownArrow({
   circleRadius = 5.2,
   rotate,
@@ -125,19 +138,10 @@ function NavButtonsContainer({
         <Button variant="secondary">{content.about}</Button>
         <Button variant="secondary">{content.contacts}</Button>
         <RelativeContainer>
-          <FlexColumnContainer
+          <LanguageDropdownContainer
             className={css({
-              position: "absolute",
-              overflow: "hidden",
-              maxHeight: "4rem",
               left: isLanguage === "hb" ? "-4rem" : 0,
               top: "-2rem",
-              zIndex: 2,
-              transition: "max-height 1.4s ease-in",
-              ":hover": {
-                maxHeight: "25rem",
-                transition: "max-height 1.4s ease-out",
-              },
             })}
           >
             <Button variant="language">{setFlag(isLanguage)}</Button>
@@ -168,7 +172,7 @@ function NavButtonsContainer({
             >
               {setFlag(languages.hb)}
             </Button>
-          </FlexColumnContainer>
+          </LanguageDropdownContainer>
         </RelativeContainer>
       </Container>
     </Container>

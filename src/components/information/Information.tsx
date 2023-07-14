@@ -99,6 +99,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             />
           </Container>
           {/* DESIGN */}
+          {/* setMedia, logoSettings, isMedia, {content x 5}, type('left'/'right) */}
           <Container
             className={css({
               gridRow: "2",
@@ -159,6 +160,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               />
             </Container>
           </Container>
+          {/* IMPORTANT */}
           <FlexCenterContainer>
             <InfoContainer
               className={css(
@@ -183,7 +185,8 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>
-                {/* IMPORTANT */}
+                {/* REFACTORING AS A DECORATED TITLE */}
+                {/* (isMedia, setMedia, text)  */}
                 <InformationImportantContainer
                   className={css({
                     minWidth: `${setMedia(32, 30, 28)}rem`,

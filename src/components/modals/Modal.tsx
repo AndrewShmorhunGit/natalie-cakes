@@ -23,21 +23,18 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
   } = appBox;
   return (
     <FlexCenterContainer
-      className={css(
-        isMedia.medium || isMedia.big
-          ? { display: "none" }
-          : {
-              position: "fixed",
-              maxWidth: "100%",
-              maxHeight: "100%",
-              inset: 0,
-              background: "rgba(0, 0, 0, 0.7)",
-              zIndex: isModal ? 99 : -1,
-              overflow: "auto",
-              opacity: isModal ? 1 : 0,
-              transition: "all 0.5s ease",
-            }
-      )}
+      className={css({
+        display: `${isMedia.big || isMedia.medium ? "none" : "block"}`,
+        position: "fixed",
+        maxWidth: "100%",
+        maxHeight: "100%",
+        inset: 0,
+        background: "rgba(0, 0, 0, 0.7)",
+        zIndex: isModal ? 99 : -1,
+        // overflow: "auto",
+        opacity: isModal ? 1 : 0,
+        transition: "all 0.5s ease",
+      })}
     >
       <Container
         className={css({
@@ -52,7 +49,7 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({ padding: "8rem 6rem", gap: "6rem" })}
           >
-            <MainHeader>Modal Title</MainHeader>
+            <MainHeader>Modal Burger</MainHeader>
             <NavButtonsContainer
               content={content}
               setFlag={setFlag}

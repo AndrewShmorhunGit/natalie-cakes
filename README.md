@@ -71,11 +71,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 // Marks
 
-### Current Task (feachure/content)
+### Current Task (feature/content)
 
-- [ ] Information refactoring
+- [ ] Information refactoring 😎
 - [ ] Menu states types problem solution
-- [ ] Burger modal
+- [ ] Set lang dropdown position in BurgerModal
 
 ### Hero
 
@@ -83,7 +83,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Menu
 
-- [ ] Sizes toggle functionality
+- [ ] Add "Menu" to the context
+- [ ] XL, L, M, S toggle functionality
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
 
@@ -93,31 +94,37 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Nav
 
+- [ ] Nav opacity background
 - [ ] Advanced nav with dropdowns
-- [ ] Language dropdown refactoring
 
 ### Modals
 
 - [ ] useModals hook
-- [ ] dinamicaly create a modals state based on modals data
+- [ ] Dinamicaly create a modals state based on modals data
+- [ ] Reusable Modal component
+- [ ] Click outside
 
 ### Styling
 
+- [ ] Custom scroll bar
+
 ### General
 
-- [ ] Custom scroll bar
-- [ ] Stylred Components sort by folders
+- [ ] Styled Components sort by folders
 - [ ] Add app public icons as 'Bookshelf' example
 - [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
-      Have problems with React 18v
 - [ ] Use local storage for current lang
 - [ ] Global grid setup
 - [ ] Handle Fonts
 - [ ] Delete Logos from content/logos folder
-- [ ] Remove unused fonts
 
 ### Done
+
+_15.07_
+
+- [x] Language dropdown refactoring
+- [x] Burger modal
 
 _14.07_
 
