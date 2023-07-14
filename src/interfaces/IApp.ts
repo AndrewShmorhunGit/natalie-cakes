@@ -7,6 +7,14 @@ export interface IMedia {
   small: boolean;
   mini: boolean;
 }
+
+export interface ISetMediaArgs {
+  bigParam: number | string;
+  mediumParam?: number | string;
+  smallParam?: number | string;
+  minParam?: number | string;
+}
+
 export interface ILanguages {
   en: string;
   ru: string;

@@ -21,14 +21,19 @@ import {
   IHeroSelectors,
   IInnerContent,
   ILanguages,
+  IMedia,
   ISelectorParams,
 } from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 import { useRef } from "react";
+import { IInfoBlock } from "components/information/Information";
 
+///////////////////////////
 // STYLED APP COMPONENTS //
+///////////////////////////
+
 // NAV
 
 const NavigationSection = styled.main({
@@ -491,6 +496,66 @@ const InfoParagraph = styled.li({
   },
 });
 
+function InfoBlock({
+  infContentData,
+  isMedia,
+  setMedia,
+  index,
+}: {
+  infContentData: IInfoBlock;
+  isMedia: IMedia;
+  setMedia: (
+    bigParam: string | number,
+    mediumParam?: string | number | undefined,
+    smallParam?: string | number | undefined,
+    minParam?: string | number | undefined
+  ) => string | number;
+  index: number;
+}) {
+  const { text, title, logo } = infContentData;
+
+  return (
+    <Container
+      className={css({
+        gridRow: "2",
+        ...createGrid(index % 2 === 0 ? "1fr 3fr" : "3fr 1fr", 1),
+      })}
+    >
+      {index % 2 === 0 && (
+        <InfoLogoContainer
+          Logo={logo}
+          isCondition={isMedia.mini}
+          setMedia={setMedia}
+          type={"left"}
+          step={+setMedia(2.4, 2, 1.6, 1)}
+        />
+      )}
+      <InfoContainer
+        className={css({
+          display: "flex",
+          flexDirection: "column",
+        })}
+      >
+        <InfoHeader>{title}</InfoHeader>
+        <InfoDecoLine />
+        <InfoSubHeader>{text.h1}</InfoSubHeader>
+        <InfoParagraph>{text.p1}</InfoParagraph>
+        <InfoSubHeader>{text.h2}</InfoSubHeader>
+        <InfoParagraph>{text.p2}</InfoParagraph>
+      </InfoContainer>
+      {index % 2 === 1 && (
+        <InfoLogoContainer
+          Logo={logo}
+          isCondition={isMedia.mini}
+          setMedia={setMedia}
+          type={"right"}
+          step={+setMedia(2.4, 2, 1.6, 1)}
+        />
+      )}
+    </Container>
+  );
+}
+
 function InfoLogoContainer({
   Logo,
   type,
@@ -584,6 +649,7 @@ function InfoDecoLine() {
 }
 
 // MENU
+
 const MenuSection = styled.div({
   backgroundColor: palette.background_main,
   ...paddingTopBottom(4),
@@ -737,8 +803,13 @@ function IconAndTextFooterContacts({
     </FlexRowContainer>
   );
 }
-// STYLED COMPONENTS
+
+///////////////////////
+// STYLED COMPONENTS //
+///////////////////////
+
 // BUTTONS
+
 const buttonVariants: any = {
   primary: {
     width: "24rem",
@@ -804,9 +875,6 @@ const Button = styled.button(
 const Container = styled.div({
   marginLeft: "auto",
   marginRight: "auto",
-  // display: "flex",
-  // overflow: "hidden",
-  // height: "auto",
 });
 
 const RelativeContainer = styled.div({
@@ -943,6 +1011,7 @@ export {
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,
+  InfoBlock,
   InfoLogoContainer,
   InfoDecoLine,
   // Menu

@@ -90,6 +90,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Info
 
+- [ ] Fix hebrew bags at mini mq
 - [ ] Refactoring structure
 
 ### Nav

@@ -16,9 +16,10 @@ import {
   InfoContainer,
   InfoSubHeader,
   InfoHeader,
+  InfoDecoLine,
+  InfoBlock,
   InfoParagraph,
   InfoLogoContainer,
-  InfoDecoLine,
   // Menu
   MenuSection,
   MenuCategoryContainer,
@@ -136,6 +137,7 @@ export {
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,
+  InfoBlock,
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
