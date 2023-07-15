@@ -93,7 +93,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Nav
 
-- [ ] Nav opacity background
 - [ ] Advanced nav with dropdowns
 
 ### Modals
@@ -125,6 +124,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _15.07_
 
+- [x] Nav opacity background
 - [x] Custom scroll bar
 - [x] Information refactoring 😎
 - [x] Language dropdown refactoring

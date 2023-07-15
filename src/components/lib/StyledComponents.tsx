@@ -290,6 +290,8 @@ const HeroSection = styled.main({
   backgroundRepeat: "none",
   backgroundSize: "cover",
   paddingBottom: "12rem",
+  [mq.large]: { backgroundPositionY: "50%" },
+  [mq.mini]: { backgroundPositionX: "50%" },
 });
 
 const HeroBackDropFilterContainer = styled.div({

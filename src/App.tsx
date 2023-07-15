@@ -45,7 +45,7 @@ export function App() {
     setModal,
   };
 
-  /////////////////////////////////////////
+  ////////////////////////////////////////////////
 
   return (
     <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
