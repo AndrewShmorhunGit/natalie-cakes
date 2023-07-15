@@ -1,12 +1,12 @@
 import {
   Button,
-  Container,
   FlexCenterContainer,
   FlexColumnContainer,
   MainHeader,
   NavButtonsContainer,
+  ScrollYContainer,
 } from "components";
-import { css, palette } from "styles";
+import { css } from "styles";
 import { IAppBox } from "interfaces";
 // Helpers
 import { setFlag } from "utils/functions";
@@ -31,18 +31,15 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
         inset: 0,
         background: "rgba(0, 0, 0, 0.7)",
         zIndex: isModal ? 99 : -1,
-        // overflow: "auto",
         opacity: isModal ? 1 : 0,
         transition: "all 0.5s ease",
       })}
     >
-      <Container
+      <ScrollYContainer
         className={css({
-          margin: "2vh 2vw",
+          margin: "5vh 5vw",
           minWidth: "90vw",
           minHeight: "90vh",
-          background: palette.background_main,
-          borderRadius: "2rem",
         })}
       >
         <FlexCenterContainer>
@@ -65,7 +62,7 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
             </FlexCenterContainer>
           </FlexColumnContainer>
         </FlexCenterContainer>
-      </Container>
+      </ScrollYContainer>
     </FlexCenterContainer>
   );
 }

@@ -36,6 +36,14 @@ import heroBgImage from "content/images/hero/hero-background-img.jpg";
 // STYLED APP COMPONENTS //
 ///////////////////////////
 
+// APP
+
+const AppContainer = styled.main({
+  minHeight: "100vh",
+  ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),
+  color: palette.text_dark,
+});
+
 // NAV
 
 const NavigationSection = styled.main({
@@ -701,7 +709,7 @@ function InfoDecoLine() {
 
 // MENU
 
-const MenuSection = styled.div({
+const MenuSection = styled.main({
   backgroundColor: palette.background_main,
   ...paddingTopBottom(4),
 });
@@ -959,6 +967,28 @@ const FlexCenterContainer = styled.div({
   ...styles.flexCenter,
 });
 
+const ScrollYContainer = styled.div({
+  background: palette.background_main,
+  borderRadius: "0.6rem",
+  overflowY: "scroll",
+  "&::-webkit-scrollbar": {
+    height: "0.4rem",
+    width: "1.6rem",
+  },
+  "&::-webkit-scrollbar-track": {
+    background: palette.background_main,
+    borderRadius: "2.4rem",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: palette.main_primary,
+    borderRadius: "2.4rem",
+    border: `4px solid ${palette.background_main}`,
+
+    ":active": {
+      background: palette.main_primary_dark,
+    },
+  },
+});
 // COMPONENTS
 
 function DecoContainer({
@@ -1045,6 +1075,8 @@ function MainLogoText({
 }
 
 export {
+  // App
+  AppContainer,
   // Navigation
   NavigationSection,
   NavBurger,
@@ -1090,6 +1122,7 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 };

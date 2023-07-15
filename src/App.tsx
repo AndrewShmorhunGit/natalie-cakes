@@ -8,14 +8,11 @@ import {
   Menu,
   Modal,
   Navigation,
-  Container,
+  AppContainer,
 } from "components";
 import { contents } from "content/text/text.content";
 // Styles
 import "./styles/App.css";
-import { css } from "@emotion/css";
-import { createGrid } from "styles/styles";
-import { palette } from "styles/palette";
 // Interfaces
 import { IAppBox } from "interfaces/IApp";
 // Hooks
@@ -51,14 +48,7 @@ export function App() {
   /////////////////////////////////////////
 
   return (
-    <Container
-      dir={appBox.isLanguage === "hb" ? "rtl" : "ltr"}
-      className={css({
-        minHeight: "100vh",
-        ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),
-        color: palette.text_dark,
-      })}
-    >
+    <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
       <Navigation appBox={appBox} />
       <Hero appBox={appBox} />
       <Information appBox={appBox} />
@@ -67,7 +57,7 @@ export function App() {
       <Gallery></Gallery>
       <CallToAction></CallToAction>
       <Footer appBox={appBox} />
-    </Container>
+    </AppContainer>
   );
 }
 

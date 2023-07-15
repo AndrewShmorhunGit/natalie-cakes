@@ -1,5 +1,7 @@
 // Styled Components Library
 import {
+  // App
+  AppContainer,
   // Navigation
   NavigationSection,
   NavBurger,
@@ -45,6 +47,7 @@ import {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 } from "./lib/StyledComponents";
@@ -121,6 +124,8 @@ export {
   flagHb,
   flagUa,
   // Styled Components
+  // App
+  AppContainer,
   // Navigation
   NavigationSection,
   NavBurger,
@@ -166,6 +171,7 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 };
