@@ -73,7 +73,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feature/content)
 
-- [ ] Information refactoring 😎
 - [ ] Menu states types problem solution
 - [ ] Set lang dropdown position in BurgerModal
 
@@ -91,7 +90,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Info
 
 - [ ] Fix hebrew bags at mini mq
-- [ ] Refactoring structure
 
 ### Nav
 
@@ -108,6 +106,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Styling
 
 - [ ] Custom scroll bar
+- [ ] Download fonts
+- [ ] Spinners
+- [ ] Hero animation
+- [ ] Fix transition when window size changes
 
 ### General
 
@@ -124,6 +126,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _15.07_
 
+- [x] Information refactoring 😎
 - [x] Language dropdown refactoring
 - [x] Burger modal
 
@@ -136,7 +139,7 @@ _14.07_
 
 _12.07_
 
-- [x] Language dropdown
+- [x] Language dropdown with flags
 
 _10.07_
 

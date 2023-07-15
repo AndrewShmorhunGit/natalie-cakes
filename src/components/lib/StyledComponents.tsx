@@ -1,12 +1,15 @@
+import { useRef } from "react";
+// Logos
 import {
   RateFilledStarLogo,
   RateEmptyStarLogo,
   ArrowDownLogo,
 } from "components";
 // Styles
-import styled from "@emotion/styled/macro";
+
 import {
   css,
+  styled,
   palette,
   appShadows,
   mq,
@@ -23,12 +26,11 @@ import {
   ILanguages,
   IMedia,
   ISelectorParams,
+  IInfoBlock,
 } from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
-import { useRef } from "react";
-import { IInfoBlock } from "components/information/Information";
 
 ///////////////////////////
 // STYLED APP COMPONENTS //
@@ -495,6 +497,55 @@ const InfoParagraph = styled.li({
     fontSize: "1.5rem",
   },
 });
+
+function InfoImportantTitle({
+  isMedia,
+  setMedia,
+  title,
+}: {
+  isMedia: IMedia;
+  setMedia: (
+    bigParam: string | number,
+    mediumParam?: string | number | undefined,
+    smallParam?: string | number | undefined,
+    minParam?: string | number | undefined
+  ) => string | number;
+  title: string;
+}): EmotionJSX.Element {
+  return (
+    <InformationImportantContainer
+      className={css({
+        minWidth: `${setMedia(32, 30, 28)}rem`,
+        marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
+        marginBottom: `${isMedia.mini ? "4rem" : "2rem"}`,
+      })}
+    >
+      <DecoContainer
+        width={4}
+        height={30}
+        color={palette.main_primary}
+        style={{
+          position: "absolute",
+          left: "calc(50% - 4rem)",
+          bottom: "-7rem",
+          transform: "rotate(45deg)",
+        }}
+      />
+      <DecoContainer
+        width={4}
+        height={30}
+        color={palette.main_primary}
+        style={{
+          position: "absolute",
+          left: "calc(50% + 8rem)",
+          bottom: "-7rem",
+          transform: "rotate(45deg)",
+        }}
+      />
+      <InfoHeader>{title}</InfoHeader>
+    </InformationImportantContainer>
+  );
+}
 
 function InfoBlock({
   infContentData,
@@ -1011,6 +1062,7 @@ export {
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,
+  InfoImportantTitle,
   InfoBlock,
   InfoLogoContainer,
   InfoDecoLine,

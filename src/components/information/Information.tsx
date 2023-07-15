@@ -1,21 +1,18 @@
 // Components
 import {
   Container,
-  DecoContainer,
   FlexCenterContainer,
   InfoContainer,
   InfoDecoLine,
   InfoHeader,
-  // InfoLogoContainer,
   InfoParagraph,
-  // InfoSubHeader,
   InformationSection,
   MainHeader,
   DesignLogo,
   IngredientsLogo,
   OrderLogo,
-  InformationImportantContainer,
   InfoBlock,
+  InfoImportantTitle,
 } from "components";
 // Styles
 import {
@@ -27,19 +24,7 @@ import {
   paddingTopBottom,
 } from "styles";
 // Interfaces
-import { IAppBox } from "interfaces/IApp";
-import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-
-export interface IInfoBlock {
-  title: string;
-  text: {
-    h1: string;
-    p1: string;
-    h2: string;
-    p2: string;
-  };
-  logo: EmotionJSX.Element;
-}
+import { IAppBox, IInfoBlock } from "interfaces";
 
 export function Information({ appBox }: { appBox: IAppBox }) {
   const { innerContent: content, setMedia, isMedia } = appBox;
@@ -133,39 +118,11 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>
-                {/* REFACTORING AS A DECORATED TITLE */}
-                {/* (isMedia, setMedia, text)  */}
-                <InformationImportantContainer
-                  className={css({
-                    minWidth: `${setMedia(32, 30, 28)}rem`,
-                    marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
-                    marginBottom: `${isMedia.mini ? "4rem" : "2rem"}`,
-                  })}
-                >
-                  <DecoContainer
-                    width={4}
-                    height={30}
-                    color={palette.main_primary}
-                    style={{
-                      position: "absolute",
-                      left: "calc(50% - 4rem)",
-                      bottom: "-7rem",
-                      transform: "rotate(45deg)",
-                    }}
-                  />
-                  <DecoContainer
-                    width={4}
-                    height={30}
-                    color={palette.main_primary}
-                    style={{
-                      position: "absolute",
-                      left: "calc(50% + 8rem)",
-                      bottom: "-7rem",
-                      transform: "rotate(45deg)",
-                    }}
-                  />
-                  <InfoHeader>{content.importantText.h1}</InfoHeader>
-                </InformationImportantContainer>
+                <InfoImportantTitle
+                  isMedia={isMedia}
+                  setMedia={setMedia}
+                  title={content.importantText.h1}
+                />
               </Container>
               <Container>
                 <FlexCenterContainer
