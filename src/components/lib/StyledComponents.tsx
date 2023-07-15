@@ -157,6 +157,10 @@ function NavButtonsContainer({
             className={css({
               left: isLanguage === "hb" ? "-4rem" : 0,
               top: "-2rem",
+              transform:
+                variant !== "navigation"
+                  ? `translate(${isLanguage !== "hb" ? 150 : -160}%, -11.2rem)`
+                  : "",
             })}
           >
             <Button variant="language">{setFlag(isLanguage)}</Button>

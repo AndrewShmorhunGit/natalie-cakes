@@ -105,7 +105,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Styling
 
-- [ ] Custom scroll bar
 - [ ] Download fonts
 - [ ] Spinners
 - [ ] Hero animation
@@ -126,6 +125,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _15.07_
 
+- [x] Custom scroll bar
 - [x] Information refactoring 😎
 - [x] Language dropdown refactoring
 - [x] Burger modal
