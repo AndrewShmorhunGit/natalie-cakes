@@ -1,19 +1,18 @@
 // Components
 import {
   Container,
-  DecoContainer,
   FlexCenterContainer,
   InfoContainer,
   InfoDecoLine,
   InfoHeader,
-  InfoLogoContainer,
   InfoParagraph,
-  InfoSubHeader,
   InformationSection,
   MainHeader,
   DesignLogo,
   IngredientsLogo,
   OrderLogo,
+  InfoBlock,
+  InfoImportantTitle,
 } from "components";
 // Styles
 import {
@@ -25,12 +24,30 @@ import {
   paddingTopBottom,
 } from "styles";
 // Interfaces
-import { IAppBox } from "interfaces/IApp";
+import { IAppBox, IInfoBlock } from "interfaces";
 
 export function Information({ appBox }: { appBox: IAppBox }) {
   const { innerContent: content, setMedia, isMedia } = appBox;
 
   const logoSettings = setMedia(128, 100, 84, 48);
+
+  const infContentData: IInfoBlock[] = [
+    {
+      title: content.ingredients,
+      text: content.ingredientsText,
+      logo: IngredientsLogo({ width: logoSettings, height: logoSettings }),
+    },
+    {
+      title: content.design,
+      text: content.designText,
+      logo: DesignLogo({ width: logoSettings, height: logoSettings }),
+    },
+    {
+      title: content.order,
+      text: content.orderText,
+      logo: OrderLogo({ width: logoSettings, height: logoSettings }),
+    },
+  ];
 
   return (
     <InformationSection>
@@ -67,94 +84,16 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             [mq.mini]: { padding: "1.2rem 1.6rem" },
           })}
         >
-          <Container
-            className={css({
-              gridRow: "1",
-              ...createGrid("3fr 1fr", 1),
-            })}
-          >
-            <InfoContainer
-              className={css({
-                display: "flex",
-                flexDirection: "column",
-              })}
-            >
-              <InfoHeader>{content.ingredients}</InfoHeader>
-              <InfoDecoLine />
-              <InfoSubHeader>{content.ingredientsText.h1}</InfoSubHeader>
-              <InfoParagraph>{content.ingredientsText.p1}</InfoParagraph>
-              <InfoSubHeader>{content.ingredientsText.h2}</InfoSubHeader>
-              <InfoParagraph>{content.ingredientsText.p2}</InfoParagraph>
-            </InfoContainer>
-            <InfoLogoContainer
-              Logo={
-                <IngredientsLogo height={logoSettings} width={logoSettings} />
-              }
-              isCondition={isMedia.mini}
-              setMedia={setMedia}
-              type={"right"}
-              step={+setMedia(2.4, 2, 1.6, 1)}
-            />
-          </Container>
-          <Container
-            className={css({
-              gridRow: "2",
-              ...createGrid("1fr 3fr", 1),
-            })}
-          >
-            <InfoLogoContainer
-              Logo={<DesignLogo height={logoSettings} width={logoSettings} />}
-              isCondition={isMedia.mini}
-              setMedia={setMedia}
-              type={"left"}
-              step={+setMedia(2.4, 2, 1.6, 1)}
-            />
-            <InfoContainer
-              className={css({
-                display: "flex",
-                flexDirection: "column",
-              })}
-            >
-              <InfoHeader>{content.design}</InfoHeader>
-              <InfoDecoLine />
-              <InfoSubHeader>{content.designText.h1}</InfoSubHeader>
-              <InfoParagraph>{content.designText.p1}</InfoParagraph>
-              <InfoSubHeader>{content.designText.h2}</InfoSubHeader>
-              <InfoParagraph>{content.designText.p2}</InfoParagraph>
-            </InfoContainer>
-          </Container>
-          <Container
-            className={css({
-              gridRow: "3",
-            })}
-          >
-            <Container
-              className={css({
-                ...createGrid("3fr 1fr", 1),
-              })}
-            >
-              <InfoContainer
-                className={css({
-                  display: "flex",
-                  flexDirection: "column",
-                })}
-              >
-                <InfoHeader>{content.order}</InfoHeader>
-                <InfoDecoLine />
-                <InfoSubHeader>{content.orderText.h1}</InfoSubHeader>
-                <InfoParagraph>{content.orderText.p1}</InfoParagraph>
-                <InfoSubHeader>{content.orderText.h2}</InfoSubHeader>
-                <InfoParagraph>{content.orderText.p2}</InfoParagraph>
-              </InfoContainer>
-              <InfoLogoContainer
-                Logo={<OrderLogo height={logoSettings} width={logoSettings} />}
-                isCondition={isMedia.mini}
+          {infContentData.map((data, index) => {
+            return (
+              <InfoBlock
+                infContentData={data}
+                isMedia={isMedia}
                 setMedia={setMedia}
-                type={"right"}
-                step={+setMedia(2.4, 2, 1.6, 1)}
+                index={index}
               />
-            </Container>
-          </Container>
+            );
+          })}
           <FlexCenterContainer>
             <InfoContainer
               className={css(
@@ -179,45 +118,11 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>
-                {/* Reformat This Code */}
-                <Container
-                  className={css({
-                    display: "grid",
-                    minWidth: `${setMedia(32, 30, 28)}rem`,
-                    height: "8rem",
-                    borderRadius: "4rem",
-                    border: `solid 0.2rem ${palette.text_dark}`,
-                    marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
-                    marginBottom: `${isMedia.mini ? "4rem" : "2rem"}`,
-                    backgroundColor: palette.background_third,
-                    overflow: "hidden",
-                    position: "relative",
-                  })}
-                >
-                  <DecoContainer
-                    width={4}
-                    height={30}
-                    color={palette.main_primary}
-                    style={{
-                      position: "absolute",
-                      left: "calc(50% - 4rem)",
-                      bottom: "-7rem",
-                      transform: "rotate(45deg)",
-                    }}
-                  />
-                  <DecoContainer
-                    width={4}
-                    height={30}
-                    color={palette.main_primary}
-                    style={{
-                      position: "absolute",
-                      left: "calc(50% + 8rem)",
-                      bottom: "-7rem",
-                      transform: "rotate(45deg)",
-                    }}
-                  />
-                  <InfoHeader>{content.importantText.h1}</InfoHeader>
-                </Container>
+                <InfoImportantTitle
+                  isMedia={isMedia}
+                  setMedia={setMedia}
+                  title={content.importantText.h1}
+                />
               </Container>
               <Container>
                 <FlexCenterContainer

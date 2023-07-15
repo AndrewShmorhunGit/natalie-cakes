@@ -1,8 +1,11 @@
 // Styled Components Library
 import {
+  // App
+  AppContainer,
   // Navigation
   NavigationSection,
   NavBurger,
+  NavButtonsContainer,
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
@@ -11,12 +14,15 @@ import {
   HeroSelectorDecoContainer,
   // Information
   InformationSection,
+  InformationImportantContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,
+  InfoDecoLine,
+  InfoImportantTitle,
+  InfoBlock,
   InfoParagraph,
   InfoLogoContainer,
-  InfoDecoLine,
   // Menu
   MenuSection,
   MenuCategoryContainer,
@@ -41,6 +47,7 @@ import {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 } from "./lib/StyledComponents";
@@ -117,9 +124,12 @@ export {
   flagHb,
   flagUa,
   // Styled Components
+  // App
+  AppContainer,
   // Navigation
   NavigationSection,
   NavBurger,
+  NavButtonsContainer,
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
@@ -128,10 +138,13 @@ export {
   HeroSelectorDecoContainer,
   // Information
   InformationSection,
+  InformationImportantContainer,
   InfoContainer,
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,
+  InfoImportantTitle,
+  InfoBlock,
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
@@ -158,6 +171,7 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 };

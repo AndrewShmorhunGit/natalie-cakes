@@ -20,7 +20,13 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox, IHeroSelectors, ISelectorParams, ILogos } from "interfaces";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia, isMedia, isLanguage } = appBox;
+  const {
+    innerContent: content,
+    setMedia,
+    isMedia,
+    isLanguage,
+    useHover,
+  } = appBox;
   const textColor: string = palette.white;
 
   const logoProps: ILogos = {
@@ -33,10 +39,11 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
     height: +setMedia(14, 12, 10, 16),
     step: +setMedia(1.6, 1.6, 1.4, 1.8),
     font: `${setMedia(2.2, 2, 1.8)}rem`,
-    color: palette.white,
-    ringColor: palette.main_primary,
-    textPadding: +setMedia(11.6, 10.6, 9.2),
+    color: palette.gradient_background_main_to_second,
+    ringColor: palette.gradient_primary_to_primary_dark,
+    textPadding: +setMedia(11.6, 10.6, 9.2, 11.2),
     decoProps: {
+      transition: "all 1s",
       borderRadius: "50%",
       position: "absolute",
       top: isMedia.mini ? "calc(50% + 2rem)" : "50%",
@@ -55,7 +62,10 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
       name: content.heroSelectors.cakesAndPies,
       icon: HeroCakesAndPiesLogo(logoProps),
     },
-    { name: content.heroSelectors.cupCakes, icon: HeroCupCakesLogo(logoProps) },
+    {
+      name: content.heroSelectors.cupCakes,
+      icon: HeroCupCakesLogo(logoProps),
+    },
     {
       name: content.heroSelectors.gingerBread,
       icon: HeroGingerbreadLogo(logoProps),
@@ -96,6 +106,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           >
             {content.heroTagline}
           </HeroTagLine> */}
+
           {!isMedia.mini && (
             <Container className={css({ display: "grid" })}>
               <h2
@@ -129,7 +140,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
                 ? {
                     transform: "rotate(45deg)",
                     fontWeight: 600,
-                    color: palette.text_dark,
+                    color: palette.black,
                     columnGap: "2rem",
                     rowGap: "2rem",
                     ...createGrid(
@@ -150,6 +161,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
                 clickHandler={() => console.log(selector.name)}
                 selector={selector}
                 selectorParams={selectorParams}
+                useHover={useHover}
               />
             ))}
           </Container>

@@ -71,47 +71,79 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 // Marks
 
-### Current Task (feachure/content)
+### Current Task (feature/content)
 
-- [ ] Type problem solution
-- [ ] Burger modal
-- [ ] Language dropdown
+- [ ] Menu states types problem solution
+- [ ] Set lang dropdown position in BurgerModal
+
+### Hero
+
+- [ ] Image for large and small screens
 
 ### Menu
 
-- [ ] Sizes toggle functionality
+- [ ] Add "Menu" to the context
+- [ ] XL, L, M, S toggle functionality
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
 
 ### Info
 
-- [ ] Refactoring structure
+- [ ] Fix hebrew bags at mini mq
 
 ### Nav
 
-- [ ] Language dropdown
+- [ ] Nav opacity background
 - [ ] Advanced nav with dropdowns
+
+### Modals
+
+- [ ] useModals hook
+- [ ] Dinamicaly create a modals state based on modals data
+- [ ] Reusable Modal component
+- [ ] Click outside
 
 ### Styling
 
-- [ ] Add gradients to the palette
+- [ ] Download fonts
+- [ ] Spinners
+- [ ] Hero animation
+- [ ] Fix transition when window size changes
 
 ### General
 
+- [ ] Styled Components sort by folders
 - [ ] Add app public icons as 'Bookshelf' example
 - [ ] Set Up page routing in `./public` folder(optional)
 - [ ] Use "Dialog" for modals
-      Have problems with React 18v
 - [ ] Use local storage for current lang
-- [ ] Add use hover hook
-  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
-  - [useHover](https://usehooks.com/usehover)
 - [ ] Global grid setup
 - [ ] Handle Fonts
 - [ ] Delete Logos from content/logos folder
-- [ ] Remove unused fonts
 
 ### Done
+
+_15.07_
+
+- [x] Custom scroll bar
+- [x] Information refactoring 😎
+- [x] Language dropdown refactoring
+- [x] Burger modal
+
+_14.07_
+
+- [x] Add gradients to the palette
+- [x] Add use hover hook
+  - [hover](https://stackabuse.com/how-to-style-hover-in-react/)
+  - [useHover](https://usehooks.com/usehover)
+
+_12.07_
+
+- [x] Language dropdown with flags
+
+_10.07_
+
+- [x] Language dropdown
 
 _09.07_
 

@@ -1,3 +1,4 @@
 import { useLanguage } from "./useLanguage";
 import { useMedia } from "./useMedia";
-export { useLanguage, useMedia };
+import { useHover } from "./useHover";
+export { useLanguage, useMedia, useHover };

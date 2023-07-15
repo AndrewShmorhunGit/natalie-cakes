@@ -1,12 +1,15 @@
+import { useRef } from "react";
+// Logos
 import {
   RateFilledStarLogo,
   RateEmptyStarLogo,
   ArrowDownLogo,
 } from "components";
 // Styles
-import styled from "@emotion/styled/macro";
+
 import {
   css,
+  styled,
   palette,
   appShadows,
   mq,
@@ -17,28 +20,58 @@ import {
   container,
 } from "styles";
 // Interfaces
-import { IHeroSelectors, ISelectorParams } from "interfaces";
+import {
+  IHeroSelectors,
+  IInnerContent,
+  ILanguages,
+  IMedia,
+  ISelectorParams,
+  IInfoBlock,
+} from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 
+///////////////////////////
 // STYLED APP COMPONENTS //
+///////////////////////////
+
+// APP
+
+const AppContainer = styled.main({
+  minHeight: "100vh",
+  ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),
+  color: palette.text_dark,
+});
+
 // NAV
 
 const NavigationSection = styled.main({
   ...container,
   position: "fixed",
   top: 0,
-  zIndex: 99,
+  zIndex: 2,
   width: "100vw",
   minWidth: "100dvw",
-  background: "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)",
-  backgroundColor:
-    "radial-gradient(562% 18036% at 115.87% 50%, #FF8E8E 0%, #995555 100%)",
+  background: palette.background_nav_transparent,
+  backgroundColor: palette.gradient_primary_to_primary_dark,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   // overflow: "hidden",
+});
+
+const LanguageDropdownContainer = styled.div({
+  position: "absolute",
+  overflow: "hidden",
+  maxHeight: "4rem",
+  gap: "0.4rem",
+
+  transition: "max-height 1.4s ease-in",
+  ":hover": {
+    maxHeight: "25rem",
+    transition: "max-height 1.4s ease-out",
+  },
 });
 
 function UpDownArrow({
@@ -90,17 +123,102 @@ function UpDownArrow({
   );
 }
 
+function NavButtonsContainer({
+  content,
+  setFlag,
+  languages,
+  isLanguage,
+  setLanguage,
+  variant,
+}: {
+  content: IInnerContent;
+  setFlag(language: string): string | JSX.Element;
+  languages: ILanguages;
+  isLanguage: string;
+  setLanguage(value: React.SetStateAction<string>): void;
+  variant: string;
+}) {
+  return (
+    <Container>
+      <Container
+        className={css({
+          display: "flex",
+          flexDirection: variant === "navigation" ? "row" : "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "2rem",
+        })}
+      >
+        <Button variant="primary">{content.makeSweet}</Button>
+        <Button variant="secondary">{content.about}</Button>
+        <Button variant="secondary">{content.contacts}</Button>
+        <RelativeContainer>
+          <LanguageDropdownContainer
+            className={css({
+              left: isLanguage === "hb" ? "-4rem" : 0,
+              top: "-2rem",
+              transform:
+                variant !== "navigation"
+                  ? `translate(${isLanguage !== "hb" ? 150 : -160}%, -11.2rem)`
+                  : "",
+            })}
+          >
+            <Button variant="language">{setFlag(isLanguage)}</Button>
+            <Button
+              variant="language"
+              onClick={() => setLanguage("en")}
+              className={css({
+                display: `${isLanguage === "en" ? "none" : "flex"}`,
+              })}
+            >
+              {setFlag(languages.en)}
+            </Button>
+            <Button
+              variant="language"
+              onClick={() => setLanguage("ru")}
+              className={css({
+                display: `${isLanguage === "ru" ? "none" : "flex"}`,
+              })}
+            >
+              {setFlag(languages.ru)}
+            </Button>
+            <Button
+              variant="language"
+              onClick={() => setLanguage("hb")}
+              className={css({
+                display: `${isLanguage === "hb" ? "none" : "flex"}`,
+              })}
+            >
+              {setFlag(languages.hb)}
+            </Button>
+          </LanguageDropdownContainer>
+        </RelativeContainer>
+      </Container>
+    </Container>
+  );
+}
+
 function NavBurger({
   gap = 0.8,
   lineHight = 0.4,
   lineWidth = 2.8,
   circleRadius = 5.2,
+  clickHandler,
+}: {
+  gap?: number;
+  lineHight?: number;
+  lineWidth?: number;
+  circleRadius?: number;
+  clickHandler?: () => void;
 }) {
   return (
     <Container
       className={css({
         display: "grid",
       })}
+      onClick={(e) => {
+        typeof clickHandler !== "undefined" && clickHandler();
+      }}
     >
       <RelativeContainer
         className={css({
@@ -215,33 +333,45 @@ function HeroSelectorDecoContainer({
   selector,
   selectorParams,
   clickHandler,
+  useHover,
   style,
 }: {
   selector: IHeroSelectors;
   selectorParams: ISelectorParams;
   clickHandler?: () => void;
+  useHover: <T extends HTMLElement = HTMLElement>(
+    elementRef: React.RefObject<T>
+  ) => boolean;
   style?: React.CSSProperties | undefined;
 }): EmotionJSX.Element {
+  const hoverRef = useRef(null);
+  const isHover = useHover(hoverRef);
   return (
     <RelativeContainer
+      ref={hoverRef}
       className={css({
         cursor: "pointer",
         position: "absolute",
         borderRadius: "50%",
         top: "50%",
         left: "50%",
-        transform: "translate(-50%, -50%)",
+        transform: `translate(-50%, ${isHover ? "calc(-50% - 1px)" : "-50%"})`,
+        transition: selectorParams.decoProps.transition,
         [mq.mini]: {
           top: "0%",
           left: "0%",
-          transform: "rotate(-45deg)",
+          transform: `rotate(-45deg) translateY(${isHover ? "-1px" : "0"})`,
         },
       })}
       onClick={(e) => {
         typeof clickHandler !== "undefined" && clickHandler();
       }}
     >
-      <AbsoluteCenterContainer className={css({ overflow: "hidden" })}>
+      <AbsoluteCenterContainer
+        className={css({
+          overflow: "hidden",
+        })}
+      >
         {selector.icon}
       </AbsoluteCenterContainer>
       <DecoContainer
@@ -250,17 +380,24 @@ function HeroSelectorDecoContainer({
         color={selectorParams.color}
         style={{
           ...selectorParams.decoProps,
-          // border: `solid ${palette.main_primary_dark} .2rem`,
+          boxShadow: isHover ? appShadows.buttonActive : "none",
         }}
       />
+
       <DecoContainer
         width={selectorParams.width - selectorParams.step}
         height={selectorParams.height - selectorParams.step}
         color={selectorParams.ringColor}
-        style={{
-          ...selectorParams.decoProps,
-          // '&:hover':'',
-        }}
+        style={
+          isHover
+            ? {
+                ...selectorParams.decoProps,
+                transform: `translate(-50%, -50%) rotate(1turn)`,
+              }
+            : {
+                ...selectorParams.decoProps,
+              }
+        }
       />
       <DecoContainer
         width={selectorParams.width - 2 * selectorParams.step}
@@ -274,9 +411,6 @@ function HeroSelectorDecoContainer({
         className={css({
           ...styles.flexCenter,
           transform: `translateY(${selectorParams.textPadding}rem)`,
-          [mq.mini]: {
-            transform: `translateY(11.2rem)`,
-          },
         })}
       >
         <p
@@ -313,6 +447,16 @@ const InfoContainer = styled.div({
   borderRadius: "1.2rem",
   backgroundColor: `${palette.background_second}`,
   [mq.mini]: { margin: "0" },
+});
+
+const InformationImportantContainer = styled.div({
+  display: "grid",
+  height: "8rem",
+  borderRadius: "4rem",
+  border: `solid 0.2rem ${palette.text_dark}`,
+  backgroundColor: palette.background_third,
+  overflow: "hidden",
+  position: "relative",
 });
 
 const InfoHeader = styled.ul({
@@ -365,6 +509,115 @@ const InfoParagraph = styled.li({
     fontSize: "1.5rem",
   },
 });
+
+function InfoImportantTitle({
+  isMedia,
+  setMedia,
+  title,
+}: {
+  isMedia: IMedia;
+  setMedia: (
+    bigParam: string | number,
+    mediumParam?: string | number | undefined,
+    smallParam?: string | number | undefined,
+    minParam?: string | number | undefined
+  ) => string | number;
+  title: string;
+}): EmotionJSX.Element {
+  return (
+    <InformationImportantContainer
+      className={css({
+        minWidth: `${setMedia(32, 30, 28)}rem`,
+        marginTop: `${isMedia.mini ? "4rem" : "2rem"}`,
+        marginBottom: `${isMedia.mini ? "4rem" : "2rem"}`,
+      })}
+    >
+      <DecoContainer
+        width={4}
+        height={30}
+        color={palette.main_primary}
+        style={{
+          position: "absolute",
+          left: "calc(50% - 4rem)",
+          bottom: "-7rem",
+          transform: "rotate(45deg)",
+        }}
+      />
+      <DecoContainer
+        width={4}
+        height={30}
+        color={palette.main_primary}
+        style={{
+          position: "absolute",
+          left: "calc(50% + 8rem)",
+          bottom: "-7rem",
+          transform: "rotate(45deg)",
+        }}
+      />
+      <InfoHeader>{title}</InfoHeader>
+    </InformationImportantContainer>
+  );
+}
+
+function InfoBlock({
+  infContentData,
+  isMedia,
+  setMedia,
+  index,
+}: {
+  infContentData: IInfoBlock;
+  isMedia: IMedia;
+  setMedia: (
+    bigParam: string | number,
+    mediumParam?: string | number | undefined,
+    smallParam?: string | number | undefined,
+    minParam?: string | number | undefined
+  ) => string | number;
+  index: number;
+}) {
+  const { text, title, logo } = infContentData;
+
+  return (
+    <Container
+      className={css({
+        gridRow: "2",
+        ...createGrid(index % 2 === 0 ? "1fr 3fr" : "3fr 1fr", 1),
+      })}
+    >
+      {index % 2 === 0 && (
+        <InfoLogoContainer
+          Logo={logo}
+          isCondition={isMedia.mini}
+          setMedia={setMedia}
+          type={"left"}
+          step={+setMedia(2.4, 2, 1.6, 1)}
+        />
+      )}
+      <InfoContainer
+        className={css({
+          display: "flex",
+          flexDirection: "column",
+        })}
+      >
+        <InfoHeader>{title}</InfoHeader>
+        <InfoDecoLine />
+        <InfoSubHeader>{text.h1}</InfoSubHeader>
+        <InfoParagraph>{text.p1}</InfoParagraph>
+        <InfoSubHeader>{text.h2}</InfoSubHeader>
+        <InfoParagraph>{text.p2}</InfoParagraph>
+      </InfoContainer>
+      {index % 2 === 1 && (
+        <InfoLogoContainer
+          Logo={logo}
+          isCondition={isMedia.mini}
+          setMedia={setMedia}
+          type={"right"}
+          step={+setMedia(2.4, 2, 1.6, 1)}
+        />
+      )}
+    </Container>
+  );
+}
 
 function InfoLogoContainer({
   Logo,
@@ -459,7 +712,8 @@ function InfoDecoLine() {
 }
 
 // MENU
-const MenuSection = styled.div({
+
+const MenuSection = styled.main({
   backgroundColor: palette.background_main,
   ...paddingTopBottom(4),
 });
@@ -612,8 +866,13 @@ function IconAndTextFooterContacts({
     </FlexRowContainer>
   );
 }
-// STYLED COMPONENTS
+
+///////////////////////
+// STYLED COMPONENTS //
+///////////////////////
+
 // BUTTONS
+
 const buttonVariants: any = {
   primary: {
     width: "24rem",
@@ -679,9 +938,6 @@ const Button = styled.button(
 const Container = styled.div({
   marginLeft: "auto",
   marginRight: "auto",
-  // display: "flex",
-  // overflow: "hidden",
-  // height: "auto",
 });
 
 const RelativeContainer = styled.div({
@@ -715,6 +971,28 @@ const FlexCenterContainer = styled.div({
   ...styles.flexCenter,
 });
 
+const ScrollYContainer = styled.div({
+  background: palette.background_main,
+  borderRadius: "0.6rem",
+  overflowY: "scroll",
+  "&::-webkit-scrollbar": {
+    height: "0.4rem",
+    width: "1.6rem",
+  },
+  "&::-webkit-scrollbar-track": {
+    background: palette.background_main,
+    borderRadius: "2.4rem",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: palette.main_primary,
+    borderRadius: "2.4rem",
+    border: `4px solid ${palette.background_main}`,
+
+    ":active": {
+      background: palette.main_primary_dark,
+    },
+  },
+});
 // COMPONENTS
 
 function DecoContainer({
@@ -722,14 +1000,17 @@ function DecoContainer({
   height,
   color,
   style,
+  ref,
 }: {
   width: number;
   height: number;
   color: string;
   style?: React.CSSProperties | undefined;
+  ref?: React.MutableRefObject<null>;
 }) {
   return (
     <FlexCenterContainer
+      ref={ref}
       className={css({
         width: `${width}rem`,
         height: `${height}rem`,
@@ -798,9 +1079,12 @@ function MainLogoText({
 }
 
 export {
+  // App
+  AppContainer,
   // Navigation
   NavigationSection,
   NavBurger,
+  NavButtonsContainer,
   // Hero
   HeroSection,
   HeroBackDropFilterContainer,
@@ -810,9 +1094,12 @@ export {
   // Information
   InformationSection,
   InfoContainer,
+  InformationImportantContainer,
   InfoSubHeader,
   InfoHeader,
   InfoParagraph,
+  InfoImportantTitle,
+  InfoBlock,
   InfoLogoContainer,
   InfoDecoLine,
   // Menu
@@ -839,6 +1126,7 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 };
