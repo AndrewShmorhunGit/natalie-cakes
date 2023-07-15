@@ -1,28 +1,5 @@
 /* Global */
 
-/*Fonts*/
-
-@font-face {
-  font-family: "Galada";
-  src: url("./styles/fonts/Galada/Galada-Regular.eot");
-  src: local("./styles/fonts/Galada/Galada Regular"),
-    local("./styles/fonts/Galada/Galada-Regular"),
-    url("./styles/fonts/Galada/Galada-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("./styles/fonts/Galada/Galada-Regular.woff2") format("woff2"),
-    url("./styles/fonts/Galada/Galada-Regular.woff") format("woff"),
-    url("./styles/fonts/Galada/Galada-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lobster";
-  src: url("./styles/fonts/Lobster/Lobster-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -34,12 +11,42 @@ html {
 }
 
 body {
-  font-family: "Lobster", "Galada", "Franklin Gothic Medium", "Arial Narrow",
-    Arial, sans-serif;
+  font-family: "Nunito", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
 }
 
-body {
-  font-family: sans-serif;
+body::-webkit-scrollbar {
+  margin: 1 1rem;
+  height: 0.4rem;
+  width: 1.6rem;
 }
+
+body::-webkit-scrollbar-track {
+  background: rgb(251, 243, 243);
+  border-radius: "2.4rem";
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(255, 153, 153);
+  border-radius: 2.4rem;
+  border: 4px solid rgb(251, 243, 243);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: rgb(230, 128, 128);
+  border-radius: 1rem;
+}
+
+/*Fonts*/
+
+/* body {
+  font-family: 
+  Spectral, Sansita, Rubik,   Rosario,
+   "Segoe UI",
+    Pacifico,
+   Petrona, 
+   Nunito,
+    Noto Sans, Montaga, Merge One, Marcellus, Lobster Two, Tahoma, sans-serif;
+} */
 
 /* Custom Classes */

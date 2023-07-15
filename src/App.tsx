@@ -8,24 +8,24 @@ import {
   Menu,
   Modal,
   Navigation,
-  Container,
+  AppContainer,
 } from "components";
 import { contents } from "content/text/text.content";
 // Styles
 import "./styles/App.css";
-import { css } from "@emotion/css";
-import { createGrid } from "styles/styles";
-import { palette } from "styles/palette";
 // Interfaces
 import { IAppBox } from "interfaces/IApp";
 // Hooks
-import { useMedia, useLanguage } from "hooks";
+import { useMedia, useLanguage, useHover } from "hooks";
+import { useRef, useState } from "react";
 
 export function App() {
   // Set JS Media Queries //
   const mediaSettings = useMedia();
   // Set Language Content & Functionality//
   const languageSettings = useLanguage(contents);
+  // Modal state
+  const [isModal, setModal] = useState(false);
 
   // Main Application params and functions Box
   const appBox: IAppBox = {
@@ -39,30 +39,25 @@ export function App() {
     isMedia: mediaSettings.isMedia,
     setMedia: mediaSettings.setMedia,
     setMediaByStep: mediaSettings.setMediaByStep,
+    useHover,
+    hoverRef: useRef(null),
+    isModal,
+    setModal,
   };
 
   /////////////////////////////////////////
 
   return (
-    <Container
-      dir={appBox.isLanguage === "hb" ? "rtl" : "ltr"}
-      className={css({
-        minHeight: "100vh",
-        ...createGrid("minmax(0, 1fr)", "minmax(1fr, 3fr)"),
-        color: palette.text_dark,
-      })}
-    >
-      {/* <div className={css({ height: "calc(100vh + 12rem)" })}> */}
-      <Navigation appBox={appBox}></Navigation>
-      <Hero appBox={appBox}></Hero>
-      {/* </div> */}
-      <Information appBox={appBox}></Information>
-      <Menu appBox={appBox}></Menu>
+    <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
+      <Navigation appBox={appBox} />
+      <Hero appBox={appBox} />
+      <Information appBox={appBox} />
+      <Menu appBox={appBox} />
+      <Modal appBox={appBox} />
       <Gallery></Gallery>
-      <Modal></Modal>
       <CallToAction></CallToAction>
-      <Footer appBox={appBox}></Footer>
-    </Container>
+      <Footer appBox={appBox} />
+    </AppContainer>
   );
 }
 

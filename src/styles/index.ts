@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import { palette } from "./palette";
 import { mq } from "./media-queries";
+import styled from "@emotion/styled/macro";
 import * as styles from "./styles";
 import {
   infoLogoContainerAbsoluteSettings,
@@ -21,6 +22,7 @@ import {
 
 export {
   css,
+  styled,
   palette,
   mq,
   styles,

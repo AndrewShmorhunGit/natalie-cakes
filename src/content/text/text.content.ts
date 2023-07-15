@@ -18,8 +18,8 @@ const contentEn: IInnerContent = {
     "Delight yourself and your loved ones with birthday cakes from famous chefs, as well as from recipes and classic combinations worked out over the years.",
   slogan: "Choose the way",
   heroSelectors: {
-    birthdayCake: "birthday cake",
-    cakesAndPies: "cakes and pies",
+    birthdayCake: "birthday cakes",
+    cakesAndPies: "cakes & pies",
     cupCakes: "cup cakes",
     gingerBread: "gingerbread",
   },
@@ -89,7 +89,7 @@ const contentRu: IInnerContent = {
   mainHeader: "Сделайте свой день сладким!",
   heroTagline:
     "Порадуйте себя и своих близких празднечными тортами как от известных шеф-поваров, так и от отработанныч годами рецептами и классическими сочетаниями.",
-  slogan: "Cделайте себе праздник",
+  slogan: "Сделайте себе праздник",
   heroSelectors: {
     birthdayCake: "авторские торты",
     cakesAndPies: "торты & пироги",
@@ -109,7 +109,7 @@ const contentRu: IInnerContent = {
   designText: {
     h1: "Базовый декор",
     p1: "В зависимости от пожеланий торт может быть любого цвета и оттенка, муссовые коржи покрываются зеркальной глазурью, бисквитные с кремом на основе сливочного сыра. В стоимость украшения входит лаконичный декор, это может быть небольшая композиция из макарон, бизе, простой шоколадный декор (перья, шары), надпись на торте белым или темным шоколадом.",
-    h2: "Aвторский декор",
+    h2: "Авторский декор",
     p2: "Дополнительный декор оплачивается отдельно - живые цветы, ягодный декор, печать тематических изображений, авторские пряники, рисунок глазурью и т.д.",
   },
   order: "Заказ",
