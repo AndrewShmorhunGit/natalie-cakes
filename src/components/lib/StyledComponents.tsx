@@ -53,7 +53,7 @@ const NavigationSection = styled.main({
   zIndex: 2,
   width: "100vw",
   minWidth: "100dvw",
-  background: palette.gradient_primary_to_primary_dark,
+  background: palette.background_nav_transparent,
   backgroundColor: palette.gradient_primary_to_primary_dark,
   display: "flex",
   alignItems: "center",

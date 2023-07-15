@@ -7,6 +7,7 @@ export class ColorSettings {
   background_main: string = "#FBF3F3";
   background_second: string = "#FFFCF3";
   background_third: string = "#F9FFFC";
+  background_nav_transparent: string = "rgb(230, 128, 128, 0.7)";
   gradient_primary_to_primary_dark: string =
     "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)";
   gradient_primary_dark_to_primary: string =
