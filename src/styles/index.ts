@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { css } from "@emotion/css/macro";
 import { palette } from "./palette";
 import { mq } from "./media-queries";
 import styled from "@emotion/styled/macro";
