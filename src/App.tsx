@@ -10,7 +10,7 @@ import {
   Navigation,
   AppContainer,
 } from "components";
-import { contents } from "content/text/text.content";
+
 // Styles
 import "./styles/App.css";
 // Interfaces
@@ -23,7 +23,7 @@ export function App() {
   // Set JS Media Queries //
   const mediaSettings = useMedia();
   // Set Language Content & Functionality//
-  const languageSettings = useLanguage(contents);
+  const languageSettings = useLanguage();
   // Modal state
   const [isModal, setModal] = useState(false);
 

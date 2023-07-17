@@ -1,42 +1,57 @@
 import { ILanguages } from "interfaces/IApp";
-import { IContent, IInnerContent } from "interfaces/IContent";
+import { IInnerContent } from "interfaces/IContent";
 import { useCallback, useEffect, useState } from "react";
-import { client } from "utils/http.client";
+import { useAsync } from "./useAsync";
+import { contentEn } from "content/text/text.content";
+import { httpGetContents } from "utils/http.request";
 
 interface ILanguageSettings {
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
   innerContent: IInnerContent;
   languages: ILanguages;
+  isLoadingTextContent: boolean;
 }
 
-export const useLanguage = (contents: IContent): ILanguageSettings => {
+export const useLanguage = (): ILanguageSettings => {
   const [isLanguage, setLanguage] = useState("en");
-  const { contentEn, contentRu, contentHb } = contents;
+  const defaultContent = contentEn;
+  const [isContents, setContents] = useState({
+    contentEn: defaultContent,
+    contentRu: null,
+    contentHb: null,
+  });
 
-  useEffect(() => {
-    client("contents");
-  }, []);
+  const { data, run, isLoading: isLoadingTextContent, isSuccess } = useAsync();
 
+  // console.log(isSuccess);
   const checkLanguage = useCallback(
     (language: string): IInnerContent => {
-      if (language === "en") {
-        return contentEn;
+      if (language === "ru" && isContents.contentRu) {
+        return isContents.contentRu;
       }
-      if (language === "ru") {
-        return contentRu;
+      if (language === "hb" && isContents.contentHb) {
+        return isContents.contentHb;
       }
-      if (language === "hb") {
-        return contentHb;
-      }
-      return contentEn;
+      return isContents.contentEn;
     },
-    [contentRu, contentEn, contentHb]
+    [isContents.contentEn, isContents.contentRu, isContents.contentHb]
   );
+
+  useEffect(() => {
+    run(httpGetContents());
+    isSuccess && setContents(data);
+  }, []);
 
   // Set languages
   const innerContent = checkLanguage(isLanguage);
   const languages = { en: "en", ru: "ru", hb: "hb" };
 
-  return { isLanguage, setLanguage, innerContent, languages };
+  return {
+    isLanguage,
+    setLanguage,
+    innerContent,
+    languages,
+    isLoadingTextContent,
+  };
 };

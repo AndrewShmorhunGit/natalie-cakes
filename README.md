@@ -61,6 +61,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feature/content)
 
+- [ ] Contents http Promise<any> fix
 - [ ] Menu states types problem solution
 
 ### Hero
