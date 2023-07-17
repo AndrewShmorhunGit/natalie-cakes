@@ -1,6 +1,7 @@
 import { ILanguages } from "interfaces/IApp";
 import { IContent, IInnerContent } from "interfaces/IContent";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { client } from "utils/http.client";
 
 interface ILanguageSettings {
   isLanguage: string;
@@ -12,6 +13,10 @@ interface ILanguageSettings {
 export const useLanguage = (contents: IContent): ILanguageSettings => {
   const [isLanguage, setLanguage] = useState("en");
   const { contentEn, contentRu, contentHb } = contents;
+
+  useEffect(() => {
+    client("contents");
+  }, []);
 
   const checkLanguage = useCallback(
     (language: string): IInnerContent => {

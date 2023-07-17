@@ -6,18 +6,6 @@
 
 [Depliyed App](https://natalie-cakes.netlify.app/)
 
-## Content
-
-Structure:
-
-- Nav Bar
-- Hero Section
-- General Info
-- Call to Action
-- Gallery
-- La Carte
-- Footer Information
-
 ## Styles
 
 Styled with [emotion](https://emotion.sh)
@@ -74,11 +62,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Current Task (feature/content)
 
 - [ ] Menu states types problem solution
-- [ ] Set lang dropdown position in BurgerModal
 
 ### Hero
 
-- [ ] Image for large and small screens
+- [ ] Hero animation
 
 ### Menu
 
@@ -86,6 +73,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] XL, L, M, S toggle functionality
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
+- [ ] add useMenu hook for back request (Node.js course video 92)
 
 ### Info
 
@@ -93,7 +81,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Nav
 
-- [ ] Nav opacity background
 - [ ] Advanced nav with dropdowns
 
 ### Modals
@@ -107,7 +94,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [ ] Download fonts
 - [ ] Spinners
-- [ ] Hero animation
+- [ ] Hero animation (237 Video)
 - [ ] Fix transition when window size changes
 
 ### General
@@ -125,6 +112,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 _15.07_
 
+- [x] Set lang dropdown position in BurgerModal
+- [x] Image for large and small screens
+- [x] Nav opacity background
 - [x] Custom scroll bar
 - [x] Information refactoring 😎
 - [x] Language dropdown refactoring
