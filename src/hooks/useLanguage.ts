@@ -1,6 +1,7 @@
 import { ILanguages } from "interfaces/IApp";
 import { IContent, IInnerContent } from "interfaces/IContent";
 import { useCallback, useEffect, useState } from "react";
+import { client } from "utils/http.client";
 
 interface ILanguageSettings {
   isLanguage: string;
@@ -14,15 +15,7 @@ export const useLanguage = (contents: IContent): ILanguageSettings => {
   const { contentEn, contentRu, contentHb } = contents;
 
   useEffect(() => {
-    window.fetch("http://localhost:5000/contents").then(async (res) => {
-      const data = res;
-      console.log(data);
-      if (data.ok) {
-        return data;
-      } else {
-        Promise.reject(data);
-      }
-    });
+    client("contents");
   }, []);
 
   const checkLanguage = useCallback(
