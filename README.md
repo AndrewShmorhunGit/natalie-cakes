@@ -74,6 +74,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
 - [ ] add useMenu hook for back request (Node.js course video 92)
+- [ ] Menu states same for the all languages
 
 ### Info
 
@@ -97,6 +98,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Hero animation (237 Video)
 - [ ] Fix transition when window size changes
 
+### Http
+
+- [ ] Handle Language loading and error
+- [ ] Create loading text.content
+
 ### General
 
 - [ ] Styled Components sort by folders
@@ -109,6 +115,16 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Delete Logos from content/logos folder
 
 ### Done
+
+_17.07_
+
+- [x] Contents http Promise<any> fix
+- [x] Set app text content fetching
+- [x] Add client http
+
+_16.07_
+
+- [x] Fix env variables
 
 _15.07_
 

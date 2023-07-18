@@ -25,6 +25,9 @@ export interface IAppBox {
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
   innerContent: IInnerContent;
   languages: ILanguages;
+  isLanguageLoading: boolean;
+  isLangTransition: boolean;
+  // Media
   windowSize: number;
   isMedia: IMedia;
   setMedia(

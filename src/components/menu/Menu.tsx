@@ -70,10 +70,10 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
         })}
       >
         {/* {Iteration from menuData object} */}
-        {menuData.categories.map((category) => {
+        {menuData.categories.map((category, index) => {
           const isArrowProp = toCamelCase(category.name);
           return (
-            <FlexColumnContainer key={category.name}>
+            <FlexColumnContainer key={category.name + index}>
               <MenuCategoryContainer
                 className={css({
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
@@ -119,7 +119,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                 {category.positions.map((item, index) => {
                   return (
                     <MenuPositionContainer
-                      key={item.itemName}
+                      key={item.itemName + index}
                       className={css({
                         gridRow: `${
                           isMedia.big ? ((index + 1) * 2) % 2 : index + 1
@@ -193,7 +193,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                         {item.variants.map((variant) => {
                           return (
                             <PositionVariantContainer
-                              key={variant.size}
+                              key={variant.size + index}
                               className={css({
                                 ...createGrid(
                                   `0.5fr ${

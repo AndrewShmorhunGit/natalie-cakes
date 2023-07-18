@@ -18,6 +18,7 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
     innerContent: content,
     languages,
     isLanguage,
+    isLangTransition,
     setLanguage,
     isMedia,
   } = appBox;
@@ -54,6 +55,7 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
               isLanguage={isLanguage}
               setLanguage={setLanguage}
               variant={"burger"}
+              isLangTransition={isLangTransition}
             />
             <FlexCenterContainer>
               <Button variant="primary" onClick={() => setModal(false)}>

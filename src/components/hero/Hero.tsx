@@ -155,9 +155,9 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
             )}
           >
             {/* HeroSelectors */}
-            {heroSelectors.map((selector) => (
+            {heroSelectors.map((selector, index) => (
               <HeroSelectorDecoContainer
-                key={selector.name}
+                key={selector.name + index}
                 clickHandler={() => console.log(selector.name)}
                 selector={selector}
                 selectorParams={selectorParams}

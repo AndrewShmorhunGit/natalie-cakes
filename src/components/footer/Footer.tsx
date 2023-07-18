@@ -82,13 +82,13 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
             })}
           >
             <FooterHeader>{content.footerOther.contacts}</FooterHeader>
-            {footerContacts.map(({ name, icon }) => {
+            {footerContacts.map(({ name, icon }, index) => {
               return (
                 <Container
                   className={css({
                     cursor: "pointer",
                   })}
-                  key={name}
+                  key={name + index}
                 >
                   <IconAndTextFooterContacts icon={icon} text={name} />
                 </Container>
@@ -155,12 +155,12 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               ...createGrid(4, 1),
             })}
           >
-            {content.footerOther.cart.map((position, idx) => {
+            {content.footerOther.cart.map((position, index) => {
               return (
                 <Container
-                  key={position}
+                  key={position + index}
                   className={css({
-                    gridColumn: idx + 1,
+                    gridColumn: index + 1,
                     alignSelf: "center",
                     textTransform: "capitalize",
                     textAlign: "center",

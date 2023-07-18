@@ -72,7 +72,7 @@ function MainLogo({
 
 /// Navigation Logos
 
-function flagEn({
+function FlagEn({
   width = "48",
   height = "48",
 }: {
@@ -130,7 +130,7 @@ function flagEn({
     </svg>
   );
 }
-function flagHb({
+function FlagHb({
   width = "48",
   height = "48",
 }: {
@@ -176,7 +176,7 @@ function flagHb({
     </svg>
   );
 }
-function flagRu({
+function FlagRu({
   width = "48",
   height = "48",
 }: {
@@ -245,7 +245,7 @@ function flagRu({
     </svg>
   );
 }
-function flagUa({
+function FlagUa({
   width = "48",
   height = "48",
 }: {
@@ -1282,8 +1282,8 @@ export {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
-  flagEn,
-  flagRu,
-  flagHb,
-  flagUa,
+  FlagEn,
+  FlagRu,
+  FlagHb,
+  FlagUa,
 };
