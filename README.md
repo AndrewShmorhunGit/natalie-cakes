@@ -61,7 +61,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feature/content)
 
-- [ ] Contents http Promise<any> fix
 - [ ] Menu states types problem solution
 
 ### Hero
@@ -116,6 +115,16 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Delete Logos from content/logos folder
 
 ### Done
+
+_17.07_
+
+- [x] Contents http Promise<any> fix
+- [x] Set app text content fetching
+- [x] Add client http
+
+_16.07_
+
+- [x] Fix env variables
 
 _15.07_
 

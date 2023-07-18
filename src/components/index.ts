@@ -73,11 +73,12 @@ import {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
-  flagEn,
-  flagRu,
-  flagHb,
-  flagUa,
+  FlagEn,
+  FlagRu,
+  FlagHb,
+  FlagUa,
 } from "./logos/Logos";
+import { DecoLoader } from "./logos/DecoLogos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
 import { Footer } from "./footer/Footer";
@@ -119,10 +120,11 @@ export {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
-  flagEn,
-  flagRu,
-  flagHb,
-  flagUa,
+  FlagEn,
+  FlagRu,
+  FlagHb,
+  FlagUa,
+  DecoLoader,
   // Styled Components
   // App
   AppContainer,

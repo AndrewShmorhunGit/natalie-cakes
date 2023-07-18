@@ -13,24 +13,31 @@ interface ILanguageSettings {
   languages: ILanguages;
   isLanguageLoading: boolean;
   isLanguageError: boolean;
+  isLangTransition: boolean;
 }
 
 export const useLanguage = (): ILanguageSettings => {
   const userLanguage = "hb";
   const { run, isLoading, isError } = useAsync();
   const [isLanguage, setLanguage] = useState(userLanguage);
+  const [isLangTransition, setLangTransition] = useState(false);
 
   useEffect(() => {
     run(
       httpGetContents(isLanguage).then((data) => {
-        // setContent(contentEmpty);
+        setContent(contentEmpty);
         setTimeout(() => {
           setContent(data);
         }, 1000);
       })
     );
-    // isLoading && setContent(contentEmpty);
-  }, [isLanguage]);
+
+    setLangTransition(true);
+
+    setTimeout(() => {
+      setLangTransition(false);
+    }, 1000);
+  }, [isLanguage, run]);
 
   const [isContent, setContent] = useState(contentEmpty);
 
@@ -44,5 +51,6 @@ export const useLanguage = (): ILanguageSettings => {
     languages,
     isLanguageLoading: isLoading,
     isLanguageError: isError,
+    isLangTransition,
   };
 };

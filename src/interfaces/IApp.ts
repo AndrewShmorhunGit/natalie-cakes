@@ -26,6 +26,7 @@ export interface IAppBox {
   innerContent: IInnerContent;
   languages: ILanguages;
   isLanguageLoading: boolean;
+  isLangTransition: boolean;
   // Media
   windowSize: number;
   isMedia: IMedia;
@@ -42,6 +43,4 @@ export interface IAppBox {
   hoverRef: React.MutableRefObject<null>;
   isModal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-  // Effects
-  isLangTransition: boolean;
 }

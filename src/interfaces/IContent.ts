@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 interface IMenuItemData {
   itemName: string;
   description: string;
@@ -13,13 +15,13 @@ export interface IMenuContent {
 
 export interface IInnerContent {
   // Nav
-  about: string;
-  contacts: string;
-  makeSweet: string;
+  about: string | ReactNode;
+  contacts: string | ReactNode;
+  makeSweet: string | ReactNode;
   // Hero
-  mainHeader: string;
+  mainHeader: string | ReactNode;
   heroTagline: string;
-  slogan: string;
+  slogan: string | ReactNode;
   heroSelectors: {
     birthdayCake: string;
     cakesAndPies: string;
@@ -27,13 +29,13 @@ export interface IInnerContent {
     gingerBread: string;
   };
   // Info
-  infoHeader: string;
-  ingredients: string;
+  infoHeader: string | ReactNode;
+  ingredients: string | ReactNode;
   ingredientsText: {
-    h1: string;
-    p1: string;
-    h2: string;
-    p2: string;
+    h1: string | ReactNode;
+    p1: string | ReactNode;
+    h2: string | ReactNode;
+    p2: string | ReactNode;
   };
   design: string;
   designText: {

@@ -87,7 +87,9 @@ export function Information({ appBox }: { appBox: IAppBox }) {
           {infContentData.map((data, index) => {
             return (
               <InfoBlock
-                key={data.title + index}
+                key={
+                  typeof data.title === "string" ? data.title + index : index
+                }
                 infContentData={data}
                 isMedia={isMedia}
                 setMedia={setMedia}
