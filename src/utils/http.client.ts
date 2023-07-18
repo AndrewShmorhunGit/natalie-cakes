@@ -1,3 +1,5 @@
+import { env } from "config/env.config";
+
 async function client(endpoint: string, customConfig = {}): Promise<Response> {
   const config = {
     method: "GET",
@@ -5,10 +7,7 @@ async function client(endpoint: string, customConfig = {}): Promise<Response> {
     ...customConfig,
   };
 
-  const response = await window.fetch(
-    process.env.REACT_APP_API_URL + endpoint,
-    config
-  );
+  const response = await window.fetch(env.api.server + endpoint, config);
   const data = response;
   if (response.ok) {
     return Promise.resolve(data);
