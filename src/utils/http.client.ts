@@ -11,8 +11,7 @@ async function client(endpoint: string, customConfig = {}): Promise<Response> {
   );
   const data = response;
   if (response.ok) {
-    console.log(data);
-    return data;
+    return Promise.resolve(data);
   } else {
     return Promise.reject(data);
   }

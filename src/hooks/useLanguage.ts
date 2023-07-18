@@ -1,57 +1,48 @@
 import { ILanguages } from "interfaces/IApp";
 import { IInnerContent } from "interfaces/IContent";
-import { useCallback, useEffect, useState } from "react";
-import { useAsync } from "./useAsync";
-import { contentEn } from "content/text/text.content";
+import { useEffect, useState } from "react";
+import { contentEmpty } from "content/text/text.content";
 import { httpGetContents } from "utils/http.request";
+import { useAsync } from "./useAsync";
 
 interface ILanguageSettings {
+  userLanguage: string;
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
   innerContent: IInnerContent;
   languages: ILanguages;
-  isLoadingTextContent: boolean;
+  isLanguageLoading: boolean;
+  isLanguageError: boolean;
 }
 
 export const useLanguage = (): ILanguageSettings => {
-  const [isLanguage, setLanguage] = useState("en");
-  const defaultContent = contentEn;
-  const [isContents, setContents] = useState({
-    contentEn: defaultContent,
-    contentRu: null,
-    contentHb: null,
-  });
-
-  const { data, run, isLoading: isLoadingTextContent, isSuccess } = useAsync();
-
-  // console.log(isSuccess);
-  const checkLanguage = useCallback(
-    (language: string): IInnerContent => {
-      if (language === "ru" && isContents.contentRu) {
-        return isContents.contentRu;
-      }
-      if (language === "hb" && isContents.contentHb) {
-        return isContents.contentHb;
-      }
-      return isContents.contentEn;
-    },
-    [isContents.contentEn, isContents.contentRu, isContents.contentHb]
-  );
+  const userLanguage = "hb";
+  const { run, isLoading, isError } = useAsync();
+  const [isLanguage, setLanguage] = useState(userLanguage);
 
   useEffect(() => {
-    run(httpGetContents());
-    isSuccess && setContents(data);
-  }, []);
+    run(
+      httpGetContents(isLanguage).then((data) => {
+        // setContent(contentEmpty);
+        setTimeout(() => {
+          setContent(data);
+        }, 1000);
+      })
+    );
+    // isLoading && setContent(contentEmpty);
+  }, [isLanguage]);
 
-  // Set languages
-  const innerContent = checkLanguage(isLanguage);
+  const [isContent, setContent] = useState(contentEmpty);
+
   const languages = { en: "en", ru: "ru", hb: "hb" };
 
   return {
+    userLanguage,
     isLanguage,
     setLanguage,
-    innerContent,
+    innerContent: isContent,
     languages,
-    isLoadingTextContent,
+    isLanguageLoading: isLoading,
+    isLanguageError: isError,
   };
 };

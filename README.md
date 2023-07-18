@@ -75,6 +75,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
 - [ ] add useMenu hook for back request (Node.js course video 92)
+- [ ] Menu states same for the all languages
 
 ### Info
 
@@ -97,6 +98,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Spinners
 - [ ] Hero animation (237 Video)
 - [ ] Fix transition when window size changes
+
+### Http
+
+- [ ] Handle Language loading and error
+- [ ] Create loading text.content
 
 ### General
 

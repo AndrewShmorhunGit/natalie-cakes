@@ -130,6 +130,7 @@ function NavButtonsContainer({
   isLanguage,
   setLanguage,
   variant,
+  isLangTransition,
 }: {
   content: IInnerContent;
   setFlag(language: string): string | JSX.Element;
@@ -137,6 +138,7 @@ function NavButtonsContainer({
   isLanguage: string;
   setLanguage(value: React.SetStateAction<string>): void;
   variant: string;
+  isLangTransition: boolean;
 }) {
   return (
     <Container>
@@ -166,7 +168,7 @@ function NavButtonsContainer({
             <Button variant="language">{setFlag(isLanguage)}</Button>
             <Button
               variant="language"
-              onClick={() => setLanguage("en")}
+              onClick={() => !isLangTransition && setLanguage("en")}
               className={css({
                 display: `${isLanguage === "en" ? "none" : "flex"}`,
               })}
@@ -175,7 +177,7 @@ function NavButtonsContainer({
             </Button>
             <Button
               variant="language"
-              onClick={() => setLanguage("ru")}
+              onClick={() => !isLangTransition && setLanguage("ru")}
               className={css({
                 display: `${isLanguage === "ru" ? "none" : "flex"}`,
               })}
@@ -184,7 +186,7 @@ function NavButtonsContainer({
             </Button>
             <Button
               variant="language"
-              onClick={() => setLanguage("hb")}
+              onClick={() => !isLangTransition && setLanguage("hb")}
               className={css({
                 display: `${isLanguage === "hb" ? "none" : "flex"}`,
               })}
