@@ -66,6 +66,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Hero
 
 - [ ] Hero animation
+- [ ] Round text form at the mini mq
 
 ### Menu
 
@@ -86,8 +87,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Modals
 
-- [ ] useModals hook
-- [ ] Dinamicaly create a modals state based on modals data
+- [ ] useModals hook or string modal state for all the modals
+- [ ] Styled modal
 - [ ] Reusable Modal component
 - [ ] Click outside
 
@@ -102,6 +103,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [ ] Handle Language loading and error
 - [ ] Create loading text.content
+- [ ] Menu request
 
 ### General
 

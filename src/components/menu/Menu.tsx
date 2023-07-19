@@ -36,6 +36,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     isMedia,
     setMedia,
     setMediaByStep,
+    setModal,
   } = appBox;
 
   const menuData = createMenuData(menuContent);
@@ -137,9 +138,11 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                           src={item.imgSrc}
                           alt={item.description}
                           className={css({
+                            cursor: "pointer",
                             height: "100%",
                             minWidth: "28rem",
                           })}
+                          onClick={() => setModal("any")}
                         />
                       </FlexCenterContainer>
                       {/* // From Here // */}

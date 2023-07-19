@@ -4,10 +4,6 @@ import {
   HeroSection,
   HeroSelectorDecoContainer,
   // HeroTagLine,
-  HeroBirthdayCakesLogo,
-  HeroCakesAndPiesLogo,
-  HeroCupCakesLogo,
-  HeroGingerbreadLogo,
   MainHeader,
   Container,
   DecoContainer,
@@ -17,7 +13,8 @@ import {
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
-import { IAppBox, IHeroSelectors, ISelectorParams, ILogos } from "interfaces";
+import { IAppBox } from "interfaces";
+import { heroData } from "data/static.data";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
   const {
@@ -29,48 +26,10 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
   } = appBox;
   const textColor: string = palette.white;
 
-  const logoProps: ILogos = {
-    width: setMedia(72, 60, 52, 60),
-    height: setMedia(72, 60, 52, 60),
-  };
-
-  const selectorParams: ISelectorParams = {
-    width: +setMedia(14, 12, 10, 16),
-    height: +setMedia(14, 12, 10, 16),
-    step: +setMedia(1.6, 1.6, 1.4, 1.8),
-    font: `${setMedia(2.2, 2, 1.8)}rem`,
-    color: palette.gradient_background_main_to_second,
-    ringColor: palette.gradient_primary_to_primary_dark,
-    textPadding: +setMedia(11.6, 10.6, 9.2, 11.2),
-    decoProps: {
-      transition: "all 1s",
-      borderRadius: "50%",
-      position: "absolute",
-      top: isMedia.mini ? "calc(50% + 2rem)" : "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      zIndex: "-1",
-    },
-  };
-
-  const heroSelectors: IHeroSelectors[] = [
-    {
-      name: content.heroSelectors.birthdayCake,
-      icon: HeroBirthdayCakesLogo(logoProps),
-    },
-    {
-      name: content.heroSelectors.cakesAndPies,
-      icon: HeroCakesAndPiesLogo(logoProps),
-    },
-    {
-      name: content.heroSelectors.cupCakes,
-      icon: HeroCupCakesLogo(logoProps),
-    },
-    {
-      name: content.heroSelectors.gingerBread,
-      icon: HeroGingerbreadLogo(logoProps),
-    },
-  ];
+  const {
+    heroSelectorParamsData: selectorParams,
+    heroSelectorsData: heroSelectors,
+  } = heroData(content, setMedia, isMedia);
 
   return (
     <HeroSection

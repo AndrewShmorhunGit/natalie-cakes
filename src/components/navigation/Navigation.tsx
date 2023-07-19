@@ -69,7 +69,7 @@ export function Navigation({
           />
         ) : (
           <Container className={css({ width: "8rem" })}>
-            <NavBurger clickHandler={() => setModal(true)} />
+            <NavBurger clickHandler={() => setModal("burger")} />
           </Container>
         )}
       </FlexRowContainer>

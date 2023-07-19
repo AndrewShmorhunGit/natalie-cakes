@@ -25,7 +25,7 @@ export function App() {
   // Set Language Content & Functionality//
   const languageSettings = useLanguage();
   // Modal state
-  const [isModal, setModal] = useState(false);
+  const [isModal, setModal] = useState('none');
 
   // Effects
   // Language change transition

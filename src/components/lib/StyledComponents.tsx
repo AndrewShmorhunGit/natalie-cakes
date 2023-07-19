@@ -899,7 +899,7 @@ const buttonVariants: any = {
     color: palette.white,
     border: `0.2rem solid ${palette.white}`,
     [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
-    [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
+    // [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
   },
   language: {
     height: "4rem",

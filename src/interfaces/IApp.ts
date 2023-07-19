@@ -20,6 +20,16 @@ export interface ILanguages {
   ru: string;
   hb: string;
 }
+
+export interface ISetMedia {
+  (
+    bigParam: string | number,
+    mediumParam?: string | number | undefined,
+    smallParam?: string | number | undefined,
+    minParam?: string | number | undefined
+  ): string | number;
+}
+
 export interface IAppBox {
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
@@ -30,17 +40,12 @@ export interface IAppBox {
   // Media
   windowSize: number;
   isMedia: IMedia;
-  setMedia(
-    bigParam: number | string,
-    mediumParam?: number | string,
-    smallParam?: number | string,
-    minParam?: number | string
-  ): string | number;
+  setMedia: ISetMedia;
   setMediaByStep(param: number, step: number): number;
   useHover<T extends HTMLElement = HTMLElement>(
     elementRef: RefObject<T>
   ): boolean;
   hoverRef: React.MutableRefObject<null>;
-  isModal: boolean;
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  isModal: string;
+  setModal: React.Dispatch<React.SetStateAction<string>>;
 }

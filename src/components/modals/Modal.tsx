@@ -1,17 +1,18 @@
 import {
-  Button,
+  Container,
   FlexCenterContainer,
   FlexColumnContainer,
-  MainHeader,
+  InfoHeader,
   NavButtonsContainer,
   ScrollYContainer,
+  CloseLogo,
 } from "components";
-import { css } from "styles";
+import { css, palette } from "styles";
 import { IAppBox } from "interfaces";
 // Helpers
 import { setFlag } from "utils/functions";
 
-export function Modal({ appBox }: { appBox: IAppBox }) {
+function Modal({ appBox }: { appBox: IAppBox }) {
   const {
     isModal,
     setModal,
@@ -22,6 +23,17 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
     setLanguage,
     isMedia,
   } = appBox;
+
+  const openModalConditions: any = {
+    burger: isModal === "burger" && (isMedia.small || isMedia.mini),
+    any: isModal === "any" && (isMedia.big || isMedia.medium),
+  };
+
+  const titleConditions: any = {
+    burger: "modal.burgerContent.title",
+    any: "Any modal Title",
+  };
+
   return (
     <FlexCenterContainer
       className={css({
@@ -31,13 +43,16 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
         maxHeight: "100%",
         inset: 0,
         background: "rgba(0, 0, 0, 0.7)",
-        zIndex: isModal ? 99 : -1,
-        opacity: isModal ? 1 : 0,
+        // Open/close conditions
+        zIndex: openModalConditions[isModal] ? 99 : -1,
+        opacity: openModalConditions[isModal] ? 1 : 0,
         transition: "all 0.5s ease",
       })}
     >
       <ScrollYContainer
         className={css({
+          position: "relative",
+          // Content size
           margin: "5vh 5vw",
           minWidth: "90vw",
           minHeight: "90vh",
@@ -47,24 +62,45 @@ export function Modal({ appBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({ padding: "8rem 6rem", gap: "6rem" })}
           >
-            <MainHeader>Modal Burger</MainHeader>
-            <NavButtonsContainer
-              content={content}
-              setFlag={setFlag}
-              languages={languages}
-              isLanguage={isLanguage}
-              setLanguage={setLanguage}
-              variant={"burger"}
-              isLangTransition={isLangTransition}
-            />
-            <FlexCenterContainer>
-              <Button variant="primary" onClick={() => setModal(false)}>
-                Close Modal
-              </Button>
-            </FlexCenterContainer>
+            <InfoHeader>{titleConditions[isModal]}</InfoHeader>
+            <Container
+              className={css({
+                cursor: "pointer",
+                position: "absolute",
+                top: "2rem",
+                right: "2rem",
+              })}
+              onClick={() => setModal("none")}
+            >
+              <CloseLogo
+                height={42}
+                width={42}
+                fill={palette.main_primary_dark}
+              />
+            </Container>
+            {/* Content */}
+            {isModal === "burger" && (
+              <NavButtonsContainer
+                content={content}
+                setFlag={setFlag}
+                languages={languages}
+                isLanguage={isLanguage}
+                setLanguage={setLanguage}
+                variant={"burger"}
+                isLangTransition={isLangTransition}
+              />
+            )}
+            {isModal === "any" && (
+              <Container>
+                <h2>Here is your dynamic modal!</h2>
+              </Container>
+            )}
+            <FlexCenterContainer></FlexCenterContainer>
           </FlexColumnContainer>
         </FlexCenterContainer>
       </ScrollYContainer>
     </FlexCenterContainer>
   );
 }
+
+export { Modal };

@@ -77,6 +77,7 @@ import {
   FlagRu,
   FlagHb,
   FlagUa,
+  CloseLogo,
 } from "./logos/Logos";
 import { DecoLoader } from "./logos/DecoLogos";
 // Components
@@ -124,6 +125,7 @@ export {
   FlagRu,
   FlagHb,
   FlagUa,
+  CloseLogo,
   DecoLoader,
   // Styled Components
   // App

@@ -1,10 +1,7 @@
 // Components
 import {
   MainLogo,
-  EnvelopLogo,
   InstagramLogo,
-  LocationLogo,
-  PhoneLogo,
   FooterSection,
   Container,
   FlexCenterContainer,
@@ -20,31 +17,13 @@ import {
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
-import { IAppBox, IFooterContacts, ILogos } from "interfaces";
+import { IAppBox } from "interfaces";
+import { footerContactsData } from "data/static.data";
 
 export function Footer({ appBox }: { appBox: IAppBox }) {
   const { innerContent: content, setMedia } = appBox;
 
-  const logoPropsContacts: ILogos = {
-    width: "32",
-    height: "32",
-    fill: palette.main_primary_dark,
-  };
-
-  const footerContacts: IFooterContacts[] = [
-    {
-      name: `${content.footerContacts.address}`,
-      icon: LocationLogo(logoPropsContacts),
-    },
-    {
-      name: `${content.footerContacts.phone}`,
-      icon: PhoneLogo(logoPropsContacts),
-    },
-    {
-      name: `${content.footerContacts.email}`,
-      icon: EnvelopLogo(logoPropsContacts),
-    },
-  ];
+  const footerContacts = footerContactsData(content);
 
   return (
     <FooterSection>
@@ -113,7 +92,7 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({
               gridColumn: setMedia("3/-1", "3/-1", "3/-1", "1"),
-              gridRow: setMedia("1", "1", "1", "3"),
+              gridRow: setMedia(1, 1, 1, 3),
               gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >
