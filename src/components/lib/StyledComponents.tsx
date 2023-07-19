@@ -44,7 +44,11 @@ const AppContainer = styled.main({
   color: palette.text_dark,
 });
 
-// NAV
+/////////
+/////////
+// NAV //
+/////////
+/////////
 
 const NavigationSection = styled.main({
   ...container,
@@ -284,7 +288,11 @@ function NavBurger({
   );
 }
 
-// HERO
+//////////
+//////////
+// HERO //
+//////////
+//////////
 
 const HeroSection = styled.main({
   // minHeight: "100vh",
@@ -432,7 +440,11 @@ function HeroSelectorDecoContainer({
   );
 }
 
-// INFO
+//////////
+//////////
+// INFO //
+//////////
+//////////
 
 const InformationSection = styled.main({
   marginTop: "-12rem",
@@ -715,7 +727,11 @@ function InfoDecoLine() {
   );
 }
 
-// MENU
+//////////
+//////////
+// MENU //
+//////////
+//////////
 
 const MenuSection = styled.main({
   backgroundColor: palette.background_main,
@@ -819,7 +835,11 @@ function GetRateStars(
   );
 }
 
-// FOOTER
+////////////
+////////////
+// FOOTER //
+////////////
+////////////
 
 const FooterSection = styled.div({
   backgroundColor: palette.background_second,
@@ -870,6 +890,20 @@ function IconAndTextFooterContacts({
     </FlexRowContainer>
   );
 }
+
+///////////
+///////////
+// MODAL //
+///////////
+///////////
+
+const ModalBackground = styled.main({
+  position: "fixed",
+  maxWidth: "100%",
+  maxHeight: "100%",
+  inset: 0,
+  background: "rgba(0, 0, 0, 0.7)",
+});
 
 ///////////////////////
 // STYLED COMPONENTS //
@@ -1123,6 +1157,8 @@ export {
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
+  // Modal
+  ModalBackground,
   // Styled and Custom Reusable Components
   Button,
   Container,

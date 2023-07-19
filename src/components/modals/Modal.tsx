@@ -135,10 +135,14 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   return (
     <FlexCenterContainer
       className={css({
+<<<<<<< features/main
 <<<<<<< Updated upstream
         display: `${isMedia.big || isMedia.medium ? "none" : "block"}`,
 =======
 >>>>>>> Stashed changes
+=======
+        display: isModal === "none" ? "none" : "flex",
+>>>>>>> back look commit
         position: "fixed",
         maxWidth: "100%",
         maxHeight: "100%",

@@ -38,6 +38,8 @@ import {
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
+  // Modal
+  ModalBackground,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -166,6 +168,8 @@ export {
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
+  // Modal
+  ModalBackground,
   // Styled and Custom Reusable Components
   Button,
   Container,
