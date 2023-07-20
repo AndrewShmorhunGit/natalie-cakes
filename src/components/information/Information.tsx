@@ -22,10 +22,11 @@ import {
 } from "styles";
 // Interfaces
 import { IAppBox } from "interfaces";
-import { infoData } from "data/static.data";
+import { infoData } from "data/components.static.data";
+import { loading } from "utils/functions";
 
 export function Information({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia, isMedia } = appBox;
+  const { innerContent: content, isLanguage, setMedia, isMedia } = appBox;
 
   const { infoContentData } = infoData(content, setMedia);
 
@@ -71,6 +72,7 @@ export function Information({ appBox }: { appBox: IAppBox }) {
                   typeof data.title === "string" ? data.title + index : index
                 }
                 infContentData={data}
+                isLanguage={isLanguage}
                 isMedia={isMedia}
                 setMedia={setMedia}
                 index={index}
@@ -97,7 +99,9 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               >
                 <Container>
                   <InfoHeader className={css({ paddingTop: "4rem" })}>
-                    {content.important}
+                    {content.important === "Loading"
+                      ? loading(isLanguage)
+                      : content.important}
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>

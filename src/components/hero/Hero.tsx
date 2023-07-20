@@ -14,7 +14,8 @@ import {
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
 import { IAppBox } from "interfaces";
-import { heroData } from "data/static.data";
+import { heroData } from "data/components.static.data";
+import { loading } from "utils/functions";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
   const {
@@ -54,18 +55,6 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           >
             {content.mainHeader}
           </MainHeader>
-
-          {/* <HeroTagLine
-            className={css({
-              // ...paddingTopBottom(4, 4),
-              maxWidth: `${setMedia(68, 56, 52, 32)}rem`,
-              fontSize: "2.8rem",
-              fontWeight: 400,
-            })}
-          >
-            {content.heroTagline}
-          </HeroTagLine> */}
-
           {!isMedia.mini && (
             <Container className={css({ display: "grid" })}>
               <h2
@@ -77,7 +66,9 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
                   fontWeight: 400,
                 })}
               >
-                {content.slogan}
+                {content.slogan === "Loading"
+                  ? loading(isLanguage)
+                  : content.slogan}
               </h2>
             </Container>
           )}
@@ -116,7 +107,11 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
             {/* HeroSelectors */}
             {heroSelectors.map((selector, index) => (
               <HeroSelectorDecoContainer
-                key={selector.name + index}
+                key={
+                  typeof selector.name === "string"
+                    ? selector.name + index
+                    : index
+                }
                 clickHandler={() => console.log(selector.name)}
                 selector={selector}
                 selectorParams={selectorParams}

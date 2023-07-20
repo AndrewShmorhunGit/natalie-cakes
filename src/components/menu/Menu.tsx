@@ -25,9 +25,14 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
+<<<<<<< features/main
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 import { toCamelCase } from "utils/functions";
+=======
+import { loading, toCamelCase } from "utils/functions";
+import { contentEmpty } from "content/text/text.content";
+>>>>>>> set content loaders
 // React
 =======
 <<<<<<< Updated upstream
@@ -55,6 +60,7 @@ import { useState } from "react";
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
     innerContent: content,
+    isLanguage,
     isMedia,
     setMedia,
     setMediaByStep,
@@ -70,6 +76,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
   // Fix types
+<<<<<<< features/main
   const categories: any = menuData.categories.reduce((total, category) => {
     total = {
       ...total,
@@ -84,6 +91,8 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> set content loaders
   const categories: { [x: string]: boolean } | null =
     menuData.categories.reduce((total, category) => {
       total = {
@@ -92,12 +101,13 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
       };
       return total;
     }, {});
+<<<<<<< features/main
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
+=======
+>>>>>>> set content loaders
 
   const [isArrow, setIsArrow] = useState({ ...categories });
-
-  // console.log(isArrow);
 
   return (
     <MenuSection>
@@ -108,7 +118,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
           textTransform: "capitalize",
         })}
       >
-        Menu
+        Menu /*Translate*/
       </MainHeader>
       <Container
         className={css({
@@ -118,7 +128,13 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
         {menuData.categories.map((category, index) => {
           const isArrowProp = toCamelCase(category.name);
           return (
-            <FlexColumnContainer key={category.name + index}>
+            <FlexColumnContainer
+              key={
+                typeof category.name !== "string"
+                  ? index
+                  : category.name + index
+              }
+            >
               <MenuCategoryContainer
                 className={css({
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
@@ -144,7 +160,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                     fontSize: `${setMediaByStep(4, 0.4)}rem`,
                   })}
                 >
-                  {category.name}
+                  {category.name === "Loading"
+                    ? loading(isLanguage)
+                    : category.name}
                 </MenuCategoryHeader>
               </MenuCategoryContainer>
 
@@ -161,31 +179,24 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   ...createGrid(setMedia(2, 1), 1),
                 })}
               >
-                {category.positions.map((item, index) => {
-                  return (
-                    <MenuPositionContainer
-                      key={item.itemName + index}
-                      className={css({
-                        gridRow: `${
-                          isMedia.big ? ((index + 1) * 2) % 2 : index + 1
-                        }`,
-                      })}
-                    >
-                      <MenuPositionHeader>{item.itemName}</MenuPositionHeader>
-                      <FlexCenterContainer
+                {content !== contentEmpty &&
+                  category.positions.map((item, index) => {
+                    return (
+                      <MenuPositionContainer
+                        key={item.itemName + index}
                         className={css({
-                          ...paddingTopBottom(2.4),
-                          height: "auto",
+                          gridRow: `${
+                            isMedia.big ? ((index + 1) * 2) % 2 : index + 1
+                          }`,
                         })}
                       >
-                        <img
-                          src={item.imgSrc}
-                          alt={item.description}
+                        <MenuPositionHeader>{item.itemName}</MenuPositionHeader>
+                        <FlexCenterContainer
                           className={css({
-                            cursor: "pointer",
-                            height: "100%",
-                            minWidth: "28rem",
+                            ...paddingTopBottom(2.4),
+                            height: "auto",
                           })}
+<<<<<<< features/main
 <<<<<<< Updated upstream
                           onClick={() => setModal("any")}
                         />
@@ -201,6 +212,8 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                       >
                         <Container
 =======
+=======
+>>>>>>> set content loaders
                         >
                           <img
                             src={item.imgSrc}
@@ -210,125 +223,142 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               height: "100%",
                               minWidth: "28rem",
                             })}
+<<<<<<< features/main
                             onClick={() => setModal("test")}
+=======
+                            onClick={() => setModal("any")}
+>>>>>>> set content loaders
                           />
                         </FlexCenterContainer>
                         {/* // From Here // */}
                         <RateAndTasteContainer
+<<<<<<< features/main
 >>>>>>> Stashed changes
+=======
+>>>>>>> set content loaders
                           className={css({
-                            textTransform: "capitalize",
-                            alignSelf: "center",
+                            ...createGrid(
+                              isMedia.mini ? 1 : 2,
+                              isMedia.mini ? 2 : 1
+                            ),
                           })}
                         >
-                          {GetRateStars(
-                            item.sweetness,
-                            5,
-                            content.sweetness,
-                            appBox.isLanguage === "hb"
-                              ? 6.8
-                              : isMedia.mini
-                              ? 8.8
-                              : 11.2
-                          )}
-                          {GetRateStars(
-                            item.sourness,
-                            5,
-                            content.sourness,
-                            appBox.isLanguage === "hb"
-                              ? 6.8
-                              : isMedia.mini
-                              ? 8.8
-                              : 11.2
-                          )}
-                        </Container>
-                        <Container>
-                          <h3
+                          <Container
                             className={css({
-                              ":first-letter": { textTransform: "uppercase" },
+                              textTransform: "capitalize",
+                              alignSelf: "center",
                             })}
                           >
-                            {content.taste} -
-                          </h3>
-                          <p>{item.tasteAccent}</p>
-                        </Container>
-                      </RateAndTasteContainer>
-                      <FlexColumnContainer className={css({ gap: "1.2rem" })}>
-                        {item.variants.map((variant) => {
-                          return (
-                            <PositionVariantContainer
-                              key={variant.size + index}
+                            {GetRateStars(
+                              item.sweetness,
+                              5,
+                              content.sweetness,
+                              appBox.isLanguage === "hb"
+                                ? 6.8
+                                : isMedia.mini
+                                ? 8.8
+                                : 11.2
+                            )}
+                            {GetRateStars(
+                              item.sourness,
+                              5,
+                              content.sourness,
+                              appBox.isLanguage === "hb"
+                                ? 6.8
+                                : isMedia.mini
+                                ? 8.8
+                                : 11.2
+                            )}
+                          </Container>
+                          <Container>
+                            <h3
                               className={css({
-                                ...createGrid(
-                                  `0.5fr ${
-                                    isMedia.mini ? "1.5fr" : "1fr"
-                                  } 1fr 1fr 1fr`,
-                                  1
-                                ),
+                                ":first-letter": {
+                                  textTransform: "uppercase",
+                                },
                               })}
                             >
-                              <FlexCenterContainer>
-                                <h3
-                                  className={css({
-                                    color: palette.main_primary,
-                                    fontSize: `${setMedia(
-                                      2.8,
-                                      2.6,
-                                      2.4,
-                                      2.2
-                                    )}rem`,
-                                  })}
-                                >
-                                  {variant.size}
-                                </h3>
-                              </FlexCenterContainer>
-                              <FlexCenterContainer
-                                className={css({ flexDirection: "column" })}
+                              {content.taste} -
+                            </h3>
+                            <p>{item.tasteAccent}</p>
+                          </Container>
+                        </RateAndTasteContainer>
+                        <FlexColumnContainer className={css({ gap: "1.2rem" })}>
+                          {item.variants.map((variant) => {
+                            return (
+                              <PositionVariantContainer
+                                key={variant.size + index}
+                                className={css({
+                                  ...createGrid(
+                                    `0.5fr ${
+                                      isMedia.mini ? "1.5fr" : "1fr"
+                                    } 1fr 1fr 1fr`,
+                                    1
+                                  ),
+                                })}
                               >
                                 <FlexCenterContainer>
-                                  <RadiusLogo
-                                    height={setMediaByStep(16, 1)}
-                                    width={setMediaByStep(16, 1)}
-                                  />
+                                  <h3
+                                    className={css({
+                                      color: palette.main_primary,
+                                      fontSize: `${setMedia(
+                                        2.8,
+                                        2.6,
+                                        2.4,
+                                        2.2
+                                      )}rem`,
+                                    })}
+                                  >
+                                    {variant.size}
+                                  </h3>
                                 </FlexCenterContainer>
-                                <p className={css({ textAlign: "center" })}>
-                                  {variant.radius}mm
-                                </p>
-                              </FlexCenterContainer>
-                              <FlexRowContainer
-                                className={css({ gap: ".8rem" })}
-                              >
-                                <PersonsLogo
-                                  height={setMediaByStep(32, 2)}
-                                  width={setMediaByStep(32, 2)}
-                                />
-                                <p>{variant.persons}</p>
-                              </FlexRowContainer>
-                              <FlexRowContainer
-                                className={css({ gap: ".8rem" })}
-                              >
-                                <WeightLogo
-                                  height={setMediaByStep(24, 2)}
-                                  width={setMediaByStep(24, 2)}
-                                />
-                                <p>{variant.weight}</p>
-                              </FlexRowContainer>
-                              <FlexRowContainer
-                                className={css({ gap: ".8rem" })}
-                              >
-                                <IsraeliShekel
-                                  height={setMediaByStep(24, 2)}
-                                  width={setMediaByStep(24, 2)}
-                                />
-                                <p>{variant.price}</p>
-                              </FlexRowContainer>
-                            </PositionVariantContainer>
-                          );
-                        })}
-                      </FlexColumnContainer>
-                    </MenuPositionContainer>
-                  );
-                })}
+                                <FlexCenterContainer
+                                  className={css({ flexDirection: "column" })}
+                                >
+                                  <FlexCenterContainer>
+                                    <RadiusLogo
+                                      height={setMediaByStep(16, 1)}
+                                      width={setMediaByStep(16, 1)}
+                                    />
+                                  </FlexCenterContainer>
+                                  <p className={css({ textAlign: "center" })}>
+                                    {variant.radius}mm
+                                  </p>
+                                </FlexCenterContainer>
+                                <FlexRowContainer
+                                  className={css({ gap: ".8rem" })}
+                                >
+                                  <PersonsLogo
+                                    height={setMediaByStep(32, 2)}
+                                    width={setMediaByStep(32, 2)}
+                                  />
+                                  <p>{variant.persons}</p>
+                                </FlexRowContainer>
+                                <FlexRowContainer
+                                  className={css({ gap: ".8rem" })}
+                                >
+                                  <WeightLogo
+                                    height={setMediaByStep(24, 2)}
+                                    width={setMediaByStep(24, 2)}
+                                  />
+                                  <p>{variant.weight}</p>
+                                </FlexRowContainer>
+                                <FlexRowContainer
+                                  className={css({ gap: ".8rem" })}
+                                >
+                                  <IsraeliShekel
+                                    height={setMediaByStep(24, 2)}
+                                    width={setMediaByStep(24, 2)}
+                                  />
+                                  <p>{variant.price}</p>
+                                </FlexRowContainer>
+                              </PositionVariantContainer>
+                            );
+                          })}
+                        </FlexColumnContainer>
+                      </MenuPositionContainer>
+                    );
+                  })}
               </Container>
             </FlexColumnContainer>
           );

@@ -18,10 +18,11 @@ import {
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
 import { IAppBox } from "interfaces";
-import { footerContactsData } from "data/static.data";
+import { footerContactsData } from "data/components.static.data";
+import { loading } from "utils/functions";
 
 export function Footer({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia } = appBox;
+  const { innerContent: content, isLanguage, setMedia } = appBox;
 
   const footerContacts = footerContactsData(content);
 
@@ -117,7 +118,11 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               justifyContent: "center",
             })}
           >
-            <FooterHeader>{content.footerOther.menu}</FooterHeader>
+            <FooterHeader>
+              {content.footerOther.menu === "Loading"
+                ? loading(isLanguage)
+                : content.footerOther.menu}
+            </FooterHeader>
             <MenuLogo height={"52"} width={"32"} fill={palette.text_dark} />
           </Container>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
@@ -137,7 +142,7 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
             {content.footerOther.cart.map((position, index) => {
               return (
                 <Container
-                  key={position + index}
+                  key={typeof position === "string" ? position + index : index}
                   className={css({
                     gridColumn: index + 1,
                     alignSelf: "center",

@@ -1,67 +1,61 @@
 import { IInnerContent } from "interfaces/IContent";
 import { menuContentEmpty } from "./menu.content";
-import { DecoLoader } from "components";
-
+import { HeaderDecoLoader, BlockDecoLoader } from "components";
+import {
+  decoBlockPropsData,
+  decoHeaderPropsData,
+} from "data/settings.static.data";
+const decoHeaderProps = decoHeaderPropsData;
+const decoBlockProps = decoBlockPropsData;
 const address = "Natalie 23 str, Eilat";
 const phone = "972-54-283-07777";
 const email = "nataliecakes@gmail.com";
 const rights =
   "Natalie Cakes, all rights reserved. Designed and developed by Andrew Shmorhun. 2023";
 
-const props = {
-  width: 620,
-  height: 60,
-};
-
 export const contentEmpty: IInnerContent = {
   // Navigation
-  about: DecoLoader(props),
-  contacts: DecoLoader(props),
-  makeSweet: DecoLoader(props),
+  about: HeaderDecoLoader(decoHeaderProps),
+  contacts: HeaderDecoLoader(decoHeaderProps),
+  makeSweet: HeaderDecoLoader(decoHeaderProps),
   // Hero
-  mainHeader: DecoLoader(props),
+  mainHeader: HeaderDecoLoader(decoHeaderProps),
   heroTagline: "",
-  slogan: DecoLoader(props),
+  slogan: "Loading",
   heroSelectors: {
-    birthdayCake: "   ",
-    cakesAndPies: "   ",
-    cupCakes: "   ",
-    gingerBread: "   ",
+    birthdayCake: HeaderDecoLoader(decoHeaderProps),
+    cakesAndPies: HeaderDecoLoader(decoHeaderProps),
+    cupCakes: HeaderDecoLoader(decoHeaderProps),
+    gingerBread: HeaderDecoLoader(decoHeaderProps),
   },
   /// Info
-  infoHeader: DecoLoader(props),
-  ingredients: DecoLoader({
-    width: 620,
-    height: 280,
-  }),
+  infoHeader: HeaderDecoLoader(decoHeaderProps),
+  ingredients: "Loading",
   ingredientsText: {
-    h1: DecoLoader({
-      width: 620,
-      height: 280,
-    }),
-    p1: DecoLoader(props),
-    h2: DecoLoader(props),
-    p2: DecoLoader(props),
+    h1: HeaderDecoLoader(decoHeaderProps),
+    p1: BlockDecoLoader(decoBlockProps),
+    h2: HeaderDecoLoader(decoHeaderProps),
+    p2: BlockDecoLoader(decoBlockProps),
   },
-  design: "   ",
+  design: "Loading",
   designText: {
-    h1: "   ",
-    p1: "   ",
-    h2: "   ",
-    p2: "   ",
+    h1: HeaderDecoLoader(decoHeaderProps),
+    p1: BlockDecoLoader(decoBlockProps),
+    h2: HeaderDecoLoader(decoHeaderProps),
+    p2: BlockDecoLoader(decoBlockProps),
   },
-  order: "   ",
+  order: "Loading",
   orderText: {
-    h1: "   ",
-    p1: "   ",
-    h2: "   ",
-    p2: "   ",
+    h1: HeaderDecoLoader(decoHeaderProps),
+    p1: BlockDecoLoader(decoBlockProps),
+    h2: HeaderDecoLoader(decoHeaderProps),
+    p2: BlockDecoLoader(decoBlockProps),
   },
-  important: "   ",
+  important: "Loading",
   importantText: {
-    h1: "   ",
-    p1: "   ",
-    p2: "   ",
+    h1: HeaderDecoLoader(decoHeaderProps),
+    p1: BlockDecoLoader(decoBlockProps),
+    p2: BlockDecoLoader(decoBlockProps),
   },
   // Footer
   footerContacts: {
@@ -71,18 +65,23 @@ export const contentEmpty: IInnerContent = {
   },
 
   footerOther: {
-    contacts: "   ",
-    question: "   ",
-    callBack: "   ",
-    follow: "   ",
-    menu: "   ",
-    cart: ["   ", "   ", "   ", "   "],
+    contacts: HeaderDecoLoader(decoHeaderProps),
+    question: HeaderDecoLoader(decoHeaderProps),
+    callBack: "",
+    follow: HeaderDecoLoader(decoHeaderProps),
+    menu: "Loading",
+    cart: [
+      HeaderDecoLoader(decoHeaderProps),
+      HeaderDecoLoader(decoHeaderProps),
+      HeaderDecoLoader(decoHeaderProps),
+      HeaderDecoLoader(decoHeaderProps),
+    ],
     rights,
   },
-  callBackBtn: "   ",
+  callBackBtn: HeaderDecoLoader(decoHeaderProps),
   //Menu
   menuContent: menuContentEmpty,
-  sweetness: "   ",
-  sourness: "   ",
-  taste: "   ",
+  sweetness: "",
+  sourness: "",
+  taste: "",
 };

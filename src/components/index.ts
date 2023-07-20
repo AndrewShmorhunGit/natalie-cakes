@@ -81,7 +81,7 @@ import {
   FlagUa,
   CloseLogo,
 } from "./logos/Logos";
-import { DecoLoader } from "./logos/DecoLogos";
+import { HeaderDecoLoader, BlockDecoLoader } from "./logos/DecoLogos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
 import { Footer } from "./footer/Footer";
@@ -128,7 +128,8 @@ export {
   FlagHb,
   FlagUa,
   CloseLogo,
-  DecoLoader,
+  HeaderDecoLoader,
+  BlockDecoLoader,
   // Styled Components
   // App
   AppContainer,
