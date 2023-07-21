@@ -12,10 +12,16 @@ import {
 import { css, palette } from "styles";
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 =======
@@ -27,9 +33,15 @@ import { useClickOutside } from "hooks/useClickOutside";
 import { useRef } from "react";
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -63,7 +75,10 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     isMedia,
   } = appBox;
 
+<<<<<<< Updated upstream
 <<<<<<< features/main
+=======
+>>>>>>> Stashed changes
   const refClickOutside = useRef<HTMLDivElement | null>(null);
   useClickOutside(refClickOutside, () => setModal("none"));
 
@@ -77,6 +92,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -87,6 +105,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   // const menuItem = "menuItem";
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 
   const none = "none";
@@ -95,6 +116,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   // const callBack = "call back";
   // const menuItem = "menuItem";
 
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -117,6 +141,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       title: "Test modal Title",
       size: "small",
     },
+<<<<<<< Updated upstream
 =======
   const openModalConditions: { [x: string]: boolean } = {
     burger: isModal === "burger" && (isMedia.small || isMedia.mini),
@@ -127,6 +152,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     burger: "modal.burgerContent.title",
     any: "Any modal Title",
 >>>>>>> set content loaders
+=======
+>>>>>>> Stashed changes
   };
 >>>>>>> Stashed changes
 
@@ -138,10 +165,13 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   const modalSize = modals[isModal].size;
   const modalShow = modals[isModal].condition && isModal !== none;
   const modalTitle = modals[isModal].title;
+<<<<<<< Updated upstream
 
   const modalSize = modals[isModal].size;
   const modalShow = modals[isModal].condition && isModal !== none;
   const modalTitle = modals[isModal].title;
+=======
+>>>>>>> Stashed changes
 
   return (
     <FlexCenterContainer
@@ -203,6 +233,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       })}
     >
       <ScrollYContainer
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         ref={refClickOutside}
@@ -229,9 +262,15 @@ function Modal({ appBox }: { appBox: IAppBox }) {
         )}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -242,20 +281,32 @@ function Modal({ appBox }: { appBox: IAppBox }) {
           >
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <InfoHeader>{title}</InfoHeader>
 =======
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             <InfoHeader>{title}</InfoHeader>
 =======
+=======
+            <InfoHeader>{title}</InfoHeader>
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+            <InfoHeader>{title}</InfoHeader>
+=======
+>>>>>>> Stashed changes
             <InfoHeader>{modalTitle}</InfoHeader>
 >>>>>>> Stashed changes
 =======
             <InfoHeader>{modalTitle}</InfoHeader>
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
             <InfoHeader>{modalTitle}</InfoHeader>
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             <Container
               className={css({

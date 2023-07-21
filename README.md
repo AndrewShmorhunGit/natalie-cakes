@@ -123,6 +123,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -135,6 +138,9 @@ _19.07_
 <<<<<<< Updated upstream
 =======
 =======
+=======
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 =======
@@ -151,9 +157,15 @@ _19.07_
 - [x] Modal solution
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

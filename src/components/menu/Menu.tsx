@@ -25,8 +25,11 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
+<<<<<<< Updated upstream
 <<<<<<< features/main
 <<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 <<<<<<< Updated upstream
 import { toCamelCase } from "utils/functions";
 =======
@@ -50,10 +53,13 @@ import { loading, toCamelCase } from "utils/functions";
 // Hooks
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
 import { contentEmpty } from "content/text/text.content";
 import { loading, toCamelCase } from "utils/functions";
 // Hooks
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import { useState } from "react";
 
@@ -71,6 +77,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -89,10 +98,13 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 =======
 =======
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 =======
 >>>>>>> set content loaders
+=======
+>>>>>>> Stashed changes
   const categories: { [x: string]: boolean } | null =
     menuData.categories.reduce((total, category) => {
       total = {
@@ -101,11 +113,16 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
       };
       return total;
     }, {});
+<<<<<<< Updated upstream
 <<<<<<< features/main
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
 =======
 >>>>>>> set content loaders
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 
