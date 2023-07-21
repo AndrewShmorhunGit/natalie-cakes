@@ -23,10 +23,10 @@ export interface IInnerContent {
   heroTagline: string;
   slogan: string | ReactNode;
   heroSelectors: {
-    birthdayCake: string;
-    cakesAndPies: string;
-    cupCakes: string;
-    gingerBread: string;
+    birthdayCake: string | ReactNode;
+    cakesAndPies: string | ReactNode;
+    cupCakes: string | ReactNode;
+    gingerBread: string | ReactNode;
   };
   // Info
   infoHeader: string | ReactNode;
@@ -39,23 +39,23 @@ export interface IInnerContent {
   };
   design: string;
   designText: {
-    h1: string;
-    p1: string;
-    h2: string;
-    p2: string;
+    h1: string | ReactNode;
+    p1: string | ReactNode;
+    h2: string | ReactNode;
+    p2: string | ReactNode;
   };
   order: string;
   orderText: {
-    h1: string;
-    p1: string;
-    h2: string;
-    p2: string;
+    h1: string | ReactNode;
+    p1: string | ReactNode;
+    h2: string | ReactNode;
+    p2: string | ReactNode;
   };
   important: string;
   importantText: {
-    h1: string;
-    p1: string;
-    p2: string;
+    h1: string | ReactNode;
+    p1: string | ReactNode;
+    p2: string | ReactNode;
   };
   // Footer
   footerContacts: {
@@ -64,15 +64,15 @@ export interface IInnerContent {
     email: string;
   };
   footerOther: {
-    contacts: string;
-    question: string;
-    callBack: string;
-    follow: string;
-    menu: string;
-    cart: string[];
+    contacts: string | ReactNode;
+    question: string | ReactNode;
+    callBack: string | ReactNode;
+    follow: string | ReactNode;
+    menu: string | ReactNode;
+    cart: string[] | ReactNode[];
     rights: string;
   };
-  callBackBtn: string;
+  callBackBtn: string | ReactNode;
   // Menu
   menuContent: IMenuContent;
   sweetness: string;

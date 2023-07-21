@@ -117,6 +117,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Global grid setup
 - [ ] Handle Fonts
 - [ ] Delete Logos from content/logos folder
+- [ ] HeroTagLine remove all connected: context, styled
 
 ### Done
 

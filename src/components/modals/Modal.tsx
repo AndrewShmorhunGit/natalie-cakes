@@ -63,6 +63,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     isMedia,
   } = appBox;
 
+<<<<<<< features/main
   const refClickOutside = useRef<HTMLDivElement | null>(null);
   useClickOutside(refClickOutside, () => setModal("none"));
 
@@ -116,6 +117,16 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       title: "Test modal Title",
       size: "small",
     },
+=======
+  const openModalConditions: { [x: string]: boolean } = {
+    burger: isModal === "burger" && (isMedia.small || isMedia.mini),
+    any: isModal === "any" && (isMedia.big || isMedia.medium),
+  };
+
+  const titleConditions: { [x: string]: string } = {
+    burger: "modal.burgerContent.title",
+    any: "Any modal Title",
+>>>>>>> set content loaders
   };
 >>>>>>> Stashed changes
 
@@ -135,17 +146,25 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   return (
     <FlexCenterContainer
       className={css({
+<<<<<<< features/main
 <<<<<<< Updated upstream
         display: `${isMedia.big || isMedia.medium ? "none" : "block"}`,
 =======
 >>>>>>> Stashed changes
+=======
+        display: isModal === "none" ? "none" : "flex",
+>>>>>>> back look commit
         position: "fixed",
         maxWidth: "100%",
         maxHeight: "100%",
         inset: 0,
         background: "rgba(0, 0, 0, 0.7)",
+<<<<<<< features/main
 <<<<<<< Updated upstream
         // Open/close conditions
+=======
+        // open/close conditions
+>>>>>>> set content loaders
         zIndex: openModalConditions[isModal] ? 99 : -1,
         opacity: openModalConditions[isModal] ? 1 : 0,
 =======
@@ -268,11 +287,15 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             )}
             {isModal === test && (
               <Container>
+<<<<<<< features/main
 <<<<<<< Updated upstream
                 <h2>Here is your dynamic modal!</h2>
 =======
                 <h2>Here is modal content!</h2>
 >>>>>>> Stashed changes
+=======
+                <h2>Here is your modal!</h2>
+>>>>>>> set content loaders
               </Container>
             )}
             <FlexCenterContainer></FlexCenterContainer>

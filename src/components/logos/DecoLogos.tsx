@@ -4,7 +4,9 @@ import { ILogos } from "interfaces/ILogos";
 import { css, palette } from "styles";
 // import { mq } from "styles";
 
-function DecoLoader({
+const decoStyle = { padding: "0.4rem 1.2rem", opacity: 0.5 };
+
+function HeaderDecoLoader({
   width = "24",
   height = "24",
   fill = palette.white,
@@ -12,15 +14,12 @@ function DecoLoader({
   color2 = palette.main_primary_dark,
 }: ILogos): JSX.Element {
   return (
-    <FlexCenterContainer
-      className={css({ padding: "0.4rem 1.2rem", opacity: 0.5 })}
-    >
+    <FlexCenterContainer className={css(decoStyle)}>
       <svg
-        viewBox={"0 0 " + width + " " + height}
+        viewBox={"0 0 630 60"}
         version="1.1"
         preserveAspectRatio="none"
         speed="2"
-        className="loader-placeholder--address"
       >
         <rect
           clipPath="url(#zpo4yqmgm9)"
@@ -55,7 +54,7 @@ function DecoLoader({
               <animate
                 attributeName="offset"
                 values="-1.5; 1.5"
-                dur="1s"
+                dur="2s"
                 repeatCount="indefinite"
               ></animate>
             </stop>
@@ -74,4 +73,71 @@ function DecoLoader({
   );
 }
 
-export { DecoLoader };
+function BlockDecoLoader({
+  width = "24",
+  height = "24",
+  fill = palette.white,
+  color1 = palette.main_primary,
+  color2 = palette.main_primary_dark,
+}: ILogos): JSX.Element {
+  return (
+    <FlexCenterContainer className={css(decoStyle)}>
+      <svg
+        viewBox="0 0 60 30"
+        version="1.1"
+        preserveAspectRatio="xMidYMid meet"
+        speed="2"
+      >
+        <rect
+          clipPath="url(#04newtx18l89)"
+          x="0"
+          y="0"
+          width={width}
+          height={height}
+          style={{ fill: "url(#45hreojiq42)" }}
+        ></rect>
+        <defs>
+          <clipPath id="04newtx18l89">
+            <rect
+              x="0"
+              y="0"
+              rx="5"
+              ry="5"
+              width={60}
+              height={30}
+              fill={fill}
+            ></rect>
+          </clipPath>
+          <linearGradient id="45hreojiq42">
+            <stop offset="0%" stopColor={color1} stopOpacity="1">
+              <animate
+                attributeName="offset"
+                values="-2; 1"
+                dur="2s"
+                repeatCount="indefinite"
+              ></animate>
+            </stop>
+            <stop offset="50%" stopColor={color2} stopOpacity="1">
+              <animate
+                attributeName="offset"
+                values="-1.5; 1.5"
+                dur="2s"
+                repeatCount="indefinite"
+              ></animate>
+            </stop>
+            <stop offset="100%" stopColor={color1} stopOpacity="1">
+              <animate
+                attributeName="offset"
+                values="-1; 2"
+                dur="2s"
+                repeatCount="indefinite"
+              ></animate>
+            </stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </FlexCenterContainer>
+  );
+}
+
+export { HeaderDecoLoader, BlockDecoLoader };

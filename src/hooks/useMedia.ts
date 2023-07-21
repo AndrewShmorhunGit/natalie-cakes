@@ -1,15 +1,10 @@
-import { IMedia } from "interfaces/IApp";
+import { IMedia, ISetMedia } from "interfaces/IApp";
 import { useState, useEffect, useCallback } from "react";
 
 interface IMediaSettings {
   windowSize: number;
   isMedia: IMedia;
-  setMedia(
-    bigParam: number | string,
-    mediumParam?: number | string,
-    smallParam?: number | string,
-    minParam?: number | string
-  ): string | number;
+  setMedia: ISetMedia;
   setMediaByStep(param: number, step: number): number;
 }
 

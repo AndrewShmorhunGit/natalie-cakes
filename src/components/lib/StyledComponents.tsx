@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 // Logos
 import {
   RateFilledStarLogo,
@@ -31,6 +31,7 @@ import {
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
+import { loading } from "utils/functions";
 
 ///////////////////////////
 // STYLED APP COMPONENTS //
@@ -44,7 +45,11 @@ const AppContainer = styled.main({
   color: palette.text_dark,
 });
 
-// NAV
+/////////
+/////////
+// NAV //
+/////////
+/////////
 
 const NavigationSection = styled.main({
   ...container,
@@ -284,7 +289,11 @@ function NavBurger({
   );
 }
 
-// HERO
+//////////
+//////////
+// HERO //
+//////////
+//////////
 
 const HeroSection = styled.main({
   // minHeight: "100vh",
@@ -432,7 +441,11 @@ function HeroSelectorDecoContainer({
   );
 }
 
-// INFO
+//////////
+//////////
+// INFO //
+//////////
+//////////
 
 const InformationSection = styled.main({
   marginTop: "-12rem",
@@ -463,7 +476,7 @@ const InformationImportantContainer = styled.div({
   position: "relative",
 });
 
-const InfoHeader = styled.ul({
+const InfoHeader = styled.h3({
   textAlign: "center",
   textTransform: "capitalize",
   fontSize: "3.2rem",
@@ -498,8 +511,8 @@ const InfoSubHeader = styled.h4({
   },
 });
 
-const InfoParagraph = styled.li({
-  listStyleType: "circle",
+const InfoParagraph = styled.p({
+  // listStyleType: "circle",
   fontSize: "2rem",
   fontWeight: 400,
   paddingLeft: "1.2rem",
@@ -526,7 +539,7 @@ function InfoImportantTitle({
     smallParam?: string | number | undefined,
     minParam?: string | number | undefined
   ) => string | number;
-  title: string;
+  title: string | ReactNode;
 }): EmotionJSX.Element {
   return (
     <InformationImportantContainer
@@ -565,11 +578,13 @@ function InfoImportantTitle({
 
 function InfoBlock({
   infContentData,
+  isLanguage,
   isMedia,
   setMedia,
   index,
 }: {
   infContentData: IInfoBlock;
+  isLanguage: string;
   isMedia: IMedia;
   setMedia: (
     bigParam: string | number,
@@ -603,7 +618,9 @@ function InfoBlock({
           flexDirection: "column",
         })}
       >
-        <InfoHeader>{title}</InfoHeader>
+        <InfoHeader>
+          {title === "Loading" ? loading(isLanguage) : title}
+        </InfoHeader>
         <InfoDecoLine />
         <InfoSubHeader>{text.h1}</InfoSubHeader>
         <InfoParagraph>{text.p1}</InfoParagraph>
@@ -715,7 +732,11 @@ function InfoDecoLine() {
   );
 }
 
-// MENU
+//////////
+//////////
+// MENU //
+//////////
+//////////
 
 const MenuSection = styled.main({
   backgroundColor: palette.background_main,
@@ -819,7 +840,11 @@ function GetRateStars(
   );
 }
 
-// FOOTER
+////////////
+////////////
+// FOOTER //
+////////////
+////////////
 
 const FooterSection = styled.div({
   backgroundColor: palette.background_second,
@@ -871,6 +896,20 @@ function IconAndTextFooterContacts({
   );
 }
 
+///////////
+///////////
+// MODAL //
+///////////
+///////////
+
+const ModalBackground = styled.main({
+  position: "fixed",
+  maxWidth: "100%",
+  maxHeight: "100%",
+  inset: 0,
+  background: "rgba(0, 0, 0, 0.7)",
+});
+
 ///////////////////////
 // STYLED COMPONENTS //
 ///////////////////////
@@ -888,8 +927,12 @@ const buttonVariants: any = {
     "&:hover": {
       background: palette.background_second,
     },
-    [mq.medium]: { width: "20rem", height: "5.2rem", fontSize: "2rem" },
-    [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
+    [mq.medium && mq.small]: {
+      width: "20rem",
+      height: "5.2rem",
+      fontSize: "2rem",
+    },
+    // [mq.small]: { width: "16rem", height: "4rem", fontSize: "1.6rem" },
   },
   secondary: {
     width: "12rem",
@@ -1123,6 +1166,8 @@ export {
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
+  // Modal
+  ModalBackground,
   // Styled and Custom Reusable Components
   Button,
   Container,
