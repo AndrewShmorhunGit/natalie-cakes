@@ -118,6 +118,37 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Done
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+_19.07_
+
+- [x] Reusable Modal component
+- [x] Add runModal function that recive component of modal content! 😎
+- [x] useModals hook and string modal state for all the modals
+<<<<<<< Updated upstream
+=======
+=======
+=======
+>>>>>>> Stashed changes
+_20.07_
+
+- [x] Modal static data refacoring
+- [x] Click outside
+- [x] Content loaders
+
+_19.07_
+
+- [x] Menu states types problem solution
+- [x] Modal solution
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+
 _17.07_
 
 - [x] Contents http Promise<any> fix

@@ -25,8 +25,25 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces/IApp";
 // Data
 import { createMenuData } from "data/menu.data";
+<<<<<<< Updated upstream
 import { toCamelCase } from "utils/functions";
 // React
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+import { toCamelCase } from "utils/functions";
+// React
+=======
+import { contentEmpty } from "content/text/text.content";
+import { loading, toCamelCase } from "utils/functions";
+// Hooks
+>>>>>>> Stashed changes
+=======
+import { contentEmpty } from "content/text/text.content";
+import { loading, toCamelCase } from "utils/functions";
+// Hooks
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
@@ -41,6 +58,11 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
   const menuData = createMenuData(menuContent);
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   // Fix types
   const categories: any = menuData.categories.reduce((total, category) => {
     total = {
@@ -49,6 +71,21 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     };
     return total;
   }, {});
+<<<<<<< Updated upstream
+=======
+=======
+=======
+>>>>>>> Stashed changes
+  const categories: { [x: string]: boolean } | null =
+    menuData.categories.reduce((total, category) => {
+      total = {
+        ...total,
+        [toCamelCase(category.name)]: false,
+      };
+      return total;
+    }, {});
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 
