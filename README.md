@@ -61,7 +61,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feature/content)
 
-
+- [ ] Fix menu loaders
 - [ ] Add "Menu" to the context
 - [ ] Add price fix function
 - [ ] Add price corecting variables environment
@@ -92,7 +92,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] useModals hook or string modal state for all the modals
 - [ ] Styled modal
 - [ ] Reusable Modal component
-- [ ] Click outside
 
 ### Styling
 
@@ -121,30 +120,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Done
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-_19.07_
-
-- [x] Reusable Modal component
-- [x] Add runModal function that recive component of modal content! 😎
-- [x] useModals hook and string modal state for all the modals
-<<<<<<< Updated upstream
-=======
-=======
-=======
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 _20.07_
 
 - [x] Modal static data refacoring
@@ -155,20 +130,6 @@ _19.07_
 
 - [x] Menu states types problem solution
 - [x] Modal solution
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 _17.07_
 

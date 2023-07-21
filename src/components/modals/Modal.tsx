@@ -150,7 +150,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 <h2>Here is your modal!</h2>
               </Container>
             )}
-            <FlexCenterContainer></FlexCenterContainer>
           </FlexColumnContainer>
         </FlexCenterContainer>
       </ScrollYContainer>
