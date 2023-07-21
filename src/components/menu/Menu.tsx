@@ -25,46 +25,14 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
-<<<<<<< Updated upstream
-<<<<<<< features/main
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-import { toCamelCase } from "utils/functions";
-=======
-import { loading, toCamelCase } from "utils/functions";
-import { contentEmpty } from "content/text/text.content";
->>>>>>> set content loaders
-// React
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import { toCamelCase } from "utils/functions";
-// React
-=======
 import { contentEmpty } from "content/text/text.content";
 import { loading, toCamelCase } from "utils/functions";
-// Hooks
->>>>>>> Stashed changes
-=======
-import { contentEmpty } from "content/text/text.content";
-import { loading, toCamelCase } from "utils/functions";
-// Hooks
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
-import { contentEmpty } from "content/text/text.content";
-import { loading, toCamelCase } from "utils/functions";
-// Hooks
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+//  Hooks
 import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
+    innerContent: { menuContent },
     innerContent: content,
     isLanguage,
     isMedia,
@@ -73,38 +41,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     setModal,
   } = appBox;
 
-  const menuData = createMenuData(content.menuContent);
+  const menuData = createMenuData(menuContent);
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
   // Fix types
-<<<<<<< features/main
-  const categories: any = menuData.categories.reduce((total, category) => {
-    total = {
-      ...total,
-      [toCamelCase(category.name)]: false,
-    };
-    return total;
-  }, {});
-<<<<<<< Updated upstream
-=======
-=======
-=======
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> set content loaders
-=======
->>>>>>> Stashed changes
   const categories: { [x: string]: boolean } | null =
     menuData.categories.reduce((total, category) => {
       total = {
@@ -113,16 +52,6 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
       };
       return total;
     }, {});
-<<<<<<< Updated upstream
-<<<<<<< features/main
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-=======
->>>>>>> set content loaders
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 
@@ -142,6 +71,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
           ...container,
         })}
       >
+        {/* {Iteration from menuData object} */}
         {menuData.categories.map((category, index) => {
           const isArrowProp = toCamelCase(category.name);
           return (
@@ -213,24 +143,6 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             ...paddingTopBottom(2.4),
                             height: "auto",
                           })}
-<<<<<<< features/main
-<<<<<<< Updated upstream
-                          onClick={() => setModal("any")}
-                        />
-                      </FlexCenterContainer>
-                      {/* // From Here // */}
-                      <RateAndTasteContainer
-                        className={css({
-                          ...createGrid(
-                            isMedia.mini ? 1 : 2,
-                            isMedia.mini ? 2 : 1
-                          ),
-                        })}
-                      >
-                        <Container
-=======
-=======
->>>>>>> set content loaders
                         >
                           <img
                             src={item.imgSrc}
@@ -240,19 +152,11 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               height: "100%",
                               minWidth: "28rem",
                             })}
-<<<<<<< features/main
                             onClick={() => setModal("test")}
-=======
-                            onClick={() => setModal("any")}
->>>>>>> set content loaders
                           />
                         </FlexCenterContainer>
                         {/* // From Here // */}
                         <RateAndTasteContainer
-<<<<<<< features/main
->>>>>>> Stashed changes
-=======
->>>>>>> set content loaders
                           className={css({
                             ...createGrid(
                               isMedia.mini ? 1 : 2,

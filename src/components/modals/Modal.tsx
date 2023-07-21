@@ -10,59 +10,14 @@ import {
 } from "components";
 // Styles
 import { css, palette } from "styles";
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 // Interfaces
 import { IAppBox } from "interfaces";
 // Hooks
 import { useClickOutside } from "hooks/useClickOutside";
 import { useRef } from "react";
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 // Helpers
 import { setFlag } from "utils/functions";
 
-function Modal({
-  setModal,
-  titleConditions,
-  component,
-  size = "large",
-}: {
-  setModal: React.Dispatch<React.SetStateAction<string>>;
-  titleConditions: string;
-  component: EmotionJSX.Element | null;
-  size: string;
-}) {
-  const title = titleConditions;
-<<<<<<< Updated upstream
-=======
-=======
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
     isModal,
@@ -75,10 +30,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     isMedia,
   } = appBox;
 
-<<<<<<< Updated upstream
-<<<<<<< features/main
-=======
->>>>>>> Stashed changes
   const refClickOutside = useRef<HTMLDivElement | null>(null);
   useClickOutside(refClickOutside, () => setModal("none"));
 
@@ -90,13 +41,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       size: "large" | "middle" | "small" | "none";
     };
   }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
   const none = "none";
   const burger = "burger";
@@ -104,24 +48,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   // const callBack = "call back";
   // const menuItem = "menuItem";
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
-
-  const none = "none";
-  const burger = "burger";
-  const test = "test";
-  // const callBack = "call back";
-  // const menuItem = "menuItem";
-
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   const modals: IModalSettings = {
     none: {
       state: none,
@@ -141,85 +67,15 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       title: "Test modal Title",
       size: "small",
     },
-<<<<<<< Updated upstream
-=======
-  const openModalConditions: { [x: string]: boolean } = {
-    burger: isModal === "burger" && (isMedia.small || isMedia.mini),
-    any: isModal === "any" && (isMedia.big || isMedia.medium),
   };
 
-  const titleConditions: { [x: string]: string } = {
-    burger: "modal.burgerContent.title",
-    any: "Any modal Title",
->>>>>>> set content loaders
-=======
->>>>>>> Stashed changes
-  };
->>>>>>> Stashed changes
-
   const modalSize = modals[isModal].size;
   const modalShow = modals[isModal].condition && isModal !== none;
   const modalTitle = modals[isModal].title;
->>>>>>> Stashed changes
-
-  const modalSize = modals[isModal].size;
-  const modalShow = modals[isModal].condition && isModal !== none;
-  const modalTitle = modals[isModal].title;
-<<<<<<< Updated upstream
-
-  const modalSize = modals[isModal].size;
-  const modalShow = modals[isModal].condition && isModal !== none;
-  const modalTitle = modals[isModal].title;
-=======
->>>>>>> Stashed changes
 
   return (
     <FlexCenterContainer
       className={css({
-<<<<<<< features/main
-<<<<<<< Updated upstream
-        display: `${isMedia.big || isMedia.medium ? "none" : "block"}`,
-=======
->>>>>>> Stashed changes
-=======
-        display: isModal === "none" ? "none" : "flex",
->>>>>>> back look commit
-        position: "fixed",
-        maxWidth: "100%",
-        maxHeight: "100%",
-        inset: 0,
-        background: "rgba(0, 0, 0, 0.7)",
-<<<<<<< features/main
-<<<<<<< Updated upstream
-        // Open/close conditions
-=======
-        // open/close conditions
->>>>>>> set content loaders
-        zIndex: openModalConditions[isModal] ? 99 : -1,
-        opacity: openModalConditions[isModal] ? 1 : 0,
-=======
->>>>>>> Stashed changes
-        transition: "all 0.5s ease",
-        // open/close conditions
-        display: isModal === "none" ? "none" : "flex",
-        zIndex: modalShow ? 99 : -1,
-        opacity: modalShow ? 1 : 0,
-      })}
-    >
-      <ScrollYContainer
-<<<<<<< Updated upstream
-        className={css({
-          position: "relative",
-          // Content size
-          margin: "5vh 5vw",
-          minWidth: "90vw",
-          minHeight: "90vh",
-        })}
-<<<<<<< Updated upstream
-=======
-=======
-    <FlexCenterContainer
-      className={css({
         position: "fixed",
         maxWidth: "100%",
         maxHeight: "100%",
@@ -233,11 +89,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       })}
     >
       <ScrollYContainer
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         ref={refClickOutside}
         className={css(
           modalSize === "large" && {
@@ -260,54 +111,12 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             minHeight: "100%",
           }
         )}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       >
         <FlexCenterContainer>
           <FlexColumnContainer
             className={css({ padding: "8rem 6rem", gap: "6rem" })}
           >
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <InfoHeader>{title}</InfoHeader>
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <InfoHeader>{title}</InfoHeader>
-=======
-=======
-            <InfoHeader>{title}</InfoHeader>
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <InfoHeader>{title}</InfoHeader>
-=======
->>>>>>> Stashed changes
             <InfoHeader>{modalTitle}</InfoHeader>
->>>>>>> Stashed changes
-=======
-            <InfoHeader>{modalTitle}</InfoHeader>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-=======
-            <InfoHeader>{modalTitle}</InfoHeader>
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             <Container
               className={css({
                 cursor: "pointer",
@@ -338,15 +147,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             )}
             {isModal === test && (
               <Container>
-<<<<<<< features/main
-<<<<<<< Updated upstream
-                <h2>Here is your dynamic modal!</h2>
-=======
-                <h2>Here is modal content!</h2>
->>>>>>> Stashed changes
-=======
                 <h2>Here is your modal!</h2>
->>>>>>> set content loaders
               </Container>
             )}
             <FlexCenterContainer></FlexCenterContainer>
