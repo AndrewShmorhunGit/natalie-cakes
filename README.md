@@ -61,7 +61,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feature/content)
 
-- [ ] Menu states types problem solution
+
+- [ ] Add "Menu" to the context
+- [ ] Add price fix function
+- [ ] Add price corecting variables environment
 
 ### Hero
 
@@ -70,7 +73,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Menu
 
-- [ ] Add "Menu" to the context
 - [ ] XL, L, M, S toggle functionality
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
@@ -119,6 +121,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Done
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -133,6 +136,8 @@ _19.07_
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 _20.07_
 
 - [x] Modal static data refacoring
@@ -144,9 +149,12 @@ _19.07_
 - [x] Menu states types problem solution
 - [x] Modal solution
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 _17.07_

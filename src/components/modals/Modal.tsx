@@ -1,3 +1,4 @@
+// Components
 import {
   Container,
   FlexCenterContainer,
@@ -7,12 +8,16 @@ import {
   ScrollYContainer,
   CloseLogo,
 } from "components";
+// Styles
 import { css, palette } from "styles";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 // Interfaces
@@ -21,9 +26,12 @@ import { IAppBox } from "interfaces";
 import { useClickOutside } from "hooks/useClickOutside";
 import { useRef } from "react";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // Helpers
 import { setFlag } from "utils/functions";
@@ -67,6 +75,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     };
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
   const none = "none";
   const burger = "burger";
@@ -74,6 +85,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   // const callBack = "call back";
   // const menuItem = "menuItem";
 
+<<<<<<< Updated upstream
 =======
 
   const none = "none";
@@ -82,6 +94,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   // const callBack = "call back";
   // const menuItem = "menuItem";
 
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   const modals: IModalSettings = {
     none: {
@@ -114,22 +128,37 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   const modalShow = modals[isModal].condition && isModal !== none;
   const modalTitle = modals[isModal].title;
 
+  const modalSize = modals[isModal].size;
+  const modalShow = modals[isModal].condition && isModal !== none;
+  const modalTitle = modals[isModal].title;
+
   return (
     <FlexCenterContainer
       className={css({
+<<<<<<< Updated upstream
         display: `${isMedia.big || isMedia.medium ? "none" : "block"}`,
+=======
+>>>>>>> Stashed changes
         position: "fixed",
         maxWidth: "100%",
         maxHeight: "100%",
         inset: 0,
         background: "rgba(0, 0, 0, 0.7)",
+<<<<<<< Updated upstream
         // Open/close conditions
         zIndex: openModalConditions[isModal] ? 99 : -1,
         opacity: openModalConditions[isModal] ? 1 : 0,
+=======
+>>>>>>> Stashed changes
         transition: "all 0.5s ease",
+        // open/close conditions
+        display: isModal === "none" ? "none" : "flex",
+        zIndex: modalShow ? 99 : -1,
+        opacity: modalShow ? 1 : 0,
       })}
     >
       <ScrollYContainer
+<<<<<<< Updated upstream
         className={css({
           position: "relative",
           // Content size
@@ -155,6 +184,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       })}
     >
       <ScrollYContainer
+=======
+>>>>>>> Stashed changes
         ref={refClickOutside}
         className={css(
           modalSize === "large" && {
@@ -178,9 +209,12 @@ function Modal({ appBox }: { appBox: IAppBox }) {
           }
         )}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       >
         <FlexCenterContainer>
@@ -188,6 +222,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             className={css({ padding: "8rem 6rem", gap: "6rem" })}
           >
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <InfoHeader>{title}</InfoHeader>
 =======
 <<<<<<< Updated upstream
@@ -199,6 +234,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
 =======
             <InfoHeader>{modalTitle}</InfoHeader>
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
+            <InfoHeader>{modalTitle}</InfoHeader>
 >>>>>>> Stashed changes
             <Container
               className={css({
@@ -216,7 +254,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
               />
             </Container>
             {/* Content */}
-            {isModal === "burger" && (
+
+            {isModal === burger && (
               <NavButtonsContainer
                 content={content}
                 setFlag={setFlag}
@@ -227,9 +266,13 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 isLangTransition={isLangTransition}
               />
             )}
-            {isModal === "any" && (
+            {isModal === test && (
               <Container>
+<<<<<<< Updated upstream
                 <h2>Here is your dynamic modal!</h2>
+=======
+                <h2>Here is modal content!</h2>
+>>>>>>> Stashed changes
               </Container>
             )}
             <FlexCenterContainer></FlexCenterContainer>

@@ -28,7 +28,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AndrewShmorhunGit/cakes"
+    "url": "https://github.com/AndrewShmorhunGit/natalie-cakes-web",
+    "ssh": "git@github.com:AndrewShmorhunGit/natalie-cakes.git"
   },
   "eslintConfig": {
     "extends": [

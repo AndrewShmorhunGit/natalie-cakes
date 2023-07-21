@@ -976,6 +976,8 @@ const FlexCenterContainer = styled.div({
 });
 
 const ScrollYContainer = styled.div({
+  transition: "all 0.5s ease",
+  position: "relative",
   background: palette.background_main,
   borderRadius: "0.6rem",
   overflowY: "scroll",

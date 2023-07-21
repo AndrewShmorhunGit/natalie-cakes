@@ -22,10 +22,11 @@ import {
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
-import { IAppBox } from "interfaces/IApp";
+import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { toCamelCase } from "utils/functions";
 // React
 =======
@@ -43,12 +44,16 @@ import { contentEmpty } from "content/text/text.content";
 import { loading, toCamelCase } from "utils/functions";
 // Hooks
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
+import { contentEmpty } from "content/text/text.content";
+import { loading, toCamelCase } from "utils/functions";
+// Hooks
 >>>>>>> Stashed changes
 import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
-    innerContent: { menuContent },
     innerContent: content,
     isMedia,
     setMedia,
@@ -56,8 +61,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     setModal,
   } = appBox;
 
-  const menuData = createMenuData(menuContent);
+  const menuData = createMenuData(content.menuContent);
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
 <<<<<<< Updated upstream
@@ -74,6 +80,8 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 <<<<<<< Updated upstream
 =======
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   const categories: { [x: string]: boolean } | null =
@@ -107,7 +115,6 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
           ...container,
         })}
       >
-        {/* {Iteration from menuData object} */}
         {menuData.categories.map((category, index) => {
           const isArrowProp = toCamelCase(category.name);
           return (
@@ -179,6 +186,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             height: "100%",
                             minWidth: "28rem",
                           })}
+<<<<<<< Updated upstream
                           onClick={() => setModal("any")}
                         />
                       </FlexCenterContainer>
@@ -192,6 +200,22 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                         })}
                       >
                         <Container
+=======
+                        >
+                          <img
+                            src={item.imgSrc}
+                            alt={item.description}
+                            className={css({
+                              cursor: "pointer",
+                              height: "100%",
+                              minWidth: "28rem",
+                            })}
+                            onClick={() => setModal("test")}
+                          />
+                        </FlexCenterContainer>
+                        {/* // From Here // */}
+                        <RateAndTasteContainer
+>>>>>>> Stashed changes
                           className={css({
                             textTransform: "capitalize",
                             alignSelf: "center",
