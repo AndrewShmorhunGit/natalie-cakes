@@ -5,8 +5,8 @@ import {
   FlexColumnContainer,
   InfoHeader,
   NavButtonsContainer,
-  ScrollYContainer,
   CloseLogo,
+  ModalContentContainer,
 } from "components";
 // Styles
 import { css, palette } from "styles";
@@ -45,7 +45,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   const none = "none";
   const burger = "burger";
   const test = "test";
-  // const callBack = "call back";
+  const call = "call";
   // const menuItem = "menuItem";
 
   const modals: IModalSettings = {
@@ -59,6 +59,12 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       state: burger,
       condition: isModal === burger && (isMedia.small || isMedia.mini),
       title: "Navigation",
+      size: "large",
+    },
+    call: {
+      state: call,
+      condition: isModal === call,
+      title: "Tell your contacts",
       size: "large",
     },
     test: {
@@ -88,7 +94,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
         opacity: modalShow ? 1 : 0,
       })}
     >
-      <ScrollYContainer
+      <ModalContentContainer
         ref={refClickOutside}
         className={css(
           modalSize === "large" && {
@@ -133,7 +139,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
               />
             </Container>
             {/* Content */}
-
             {isModal === burger && (
               <NavButtonsContainer
                 content={content}
@@ -145,6 +150,11 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 isLangTransition={isLangTransition}
               />
             )}
+            {isModal === call && (
+              <Container>
+                <h2>Call back info form</h2>
+              </Container>
+            )}
             {isModal === test && (
               <Container>
                 <h2>Here is your modal!</h2>
@@ -152,7 +162,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             )}
           </FlexColumnContainer>
         </FlexCenterContainer>
-      </ScrollYContainer>
+      </ModalContentContainer>
     </FlexCenterContainer>
   );
 }

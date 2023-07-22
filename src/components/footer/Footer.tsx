@@ -22,7 +22,7 @@ import { footerContactsData } from "data/components.static.data";
 import { loading } from "utils/functions";
 
 export function Footer({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, isLanguage, setMedia } = appBox;
+  const { innerContent: content, isLanguage, setMedia, setModal } = appBox;
 
   const footerContacts = footerContactsData(content);
 
@@ -87,7 +87,9 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               {content.footerOther.callBack}
             </FooterParagraph>
             <FlexCenterContainer>
-              <Button variant="primary">{content.callBackBtn}</Button>
+              <Button variant="primary" onClick={() => setModal("call")}>
+                {content.callBackBtn}
+              </Button>
             </FlexCenterContainer>
           </FlexColumnContainer>
           <FlexColumnContainer

@@ -39,7 +39,8 @@ import {
   FooterHeader,
   IconAndTextFooterContacts,
   // Modal
-  ModalBackground,
+  ModalBackgroundContainer,
+  ModalContentContainer,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -49,7 +50,6 @@ import {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
-  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 } from "./lib/StyledComponents";
@@ -170,7 +170,8 @@ export {
   FooterHeader,
   IconAndTextFooterContacts,
   // Modal
-  ModalBackground,
+  ModalBackgroundContainer,
+  ModalContentContainer,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -180,7 +181,6 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
-  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 };
