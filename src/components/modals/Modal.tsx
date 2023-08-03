@@ -187,7 +187,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
               <>
                 <img
                   src={images.get(isModal)}
-                  alt="gallery image"
+                  alt="gallery"
                   className={css({
                     maxWidth: "96rem",
                     border: `solid 0.2rem ${palette.main_primary_dark}`,
