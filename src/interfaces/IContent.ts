@@ -1,15 +1,30 @@
+import { MenuItem } from "content/text/menu.content";
 import { ReactNode } from "react";
-
-interface IMenuItemData {
-  itemName: string;
-  description: string;
-  tasteAccent: string;
-}
 
 export interface IMenuContent {
   moussesCakes: {
     name: string;
-    chocolatePassionFruit: IMenuItemData;
+    chocolatePassionFruit: MenuItem;
+    strawberriesWithTops: MenuItem;
+    chocolateCherry: MenuItem;
+    berryYogurt: MenuItem;
+  };
+  biscuitCakes: {
+    name: string;
+    berryVanilla: MenuItem;
+    chocolateCaramel: MenuItem;
+    chocolateRaspberry: MenuItem;
+    lemonBlueberry: MenuItem;
+  };
+  classicCakes: {
+    name: string;
+    napoleon: MenuItem;
+    honeyCake: MenuItem;
+  };
+  cheesecakes: {
+    name: string;
+    cheesecake: MenuItem;
+    cheesecakeCaramel: MenuItem;
   };
 }
 
@@ -74,6 +89,7 @@ export interface IInnerContent {
   };
   callBackBtn: string | ReactNode;
   // Menu
+  menuTitle: string | ReactNode;
   menuContent: IMenuContent;
   sweetness: string;
   sourness: string;

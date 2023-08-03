@@ -1,15 +1,13 @@
 // Components
+import { IconAndTextFooterContacts } from "./Components";
+import { FooterSection, FooterHeader, FooterParagraph } from "./Styled";
 import {
   MainLogo,
   InstagramLogo,
-  FooterSection,
   Container,
   FlexCenterContainer,
   MainLogoText,
   FlexColumnContainer,
-  FooterHeader,
-  IconAndTextFooterContacts,
-  FooterParagraph,
   Button,
   DecoContainer,
   MenuLogo,

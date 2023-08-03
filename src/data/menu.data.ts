@@ -1,175 +1,182 @@
-import { IMenuContent } from "interfaces/IContent";
+import { IInnerContent } from "interfaces/IContent";
 
 // Images import
-import MoussesChocolatePassionFruit from "content/images/menu/mousses/chocolate-passion-fruit.png";
+import {
+  moussesChocolatePassionFruit,
+  moussesStrawberriesWithTops,
+  moussesChocolateCherry,
+  moussesBerryYogurt,
+  biscuitsBerryVanilla,
+  biscuitsChocolateCaramel,
+  biscuitsChocolateRaspberry,
+  biscuitsLemonBlueberry,
+  napoleon,
+  honeyCake,
+  cheesecake,
+  cheesecakeCaramel,
+} from "content";
 
-export function createMenuData(content: IMenuContent) {
+import {
+  createCategoryVariantsArrayData,
+  getCategoryParams,
+} from "./static.settings.data";
+
+const createCategoryVariantsArray = createCategoryVariantsArrayData;
+const { biscuitParams, classicParams, cheesecakesParams } = getCategoryParams();
+
+export function createMenuData(content: IInnerContent) {
+  const menuContent = content.menuContent;
+  const birthdayCakes = content.heroSelectors.birthdayCake;
+  const cakesAndPies = content.heroSelectors.cakesAndPies;
   return {
     categories: [
       {
-        group: "birthday cakes",
-        name: content.moussesCakes.name,
+        group: birthdayCakes,
+        name: menuContent.moussesCakes.name,
         positions: [
           {
-            itemName: content.moussesCakes.chocolatePassionFruit.itemName,
-            imgSrc: MoussesChocolatePassionFruit,
-            description: content.moussesCakes.chocolatePassionFruit.description,
+            itemName: menuContent.moussesCakes.chocolatePassionFruit.itemName,
+            imgSrc: moussesChocolatePassionFruit,
+            description:
+              menuContent.moussesCakes.chocolatePassionFruit.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: [
-              { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
-              { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
-              {
-                size: "S",
-                radius: 200,
-                persons: 10,
-                weight: 1.6,
-                price: 140,
-              },
-              {
-                size: "XS",
-                radius: 180,
-                persons: 8,
-                weight: 1.2,
-                price: 110,
-              },
-            ],
+            tasteAccent:
+              menuContent.moussesCakes.chocolatePassionFruit.tasteAccent,
+            variants: createCategoryVariantsArray(),
           },
           {
-            itemName: content.moussesCakes.chocolatePassionFruit.itemName + "1",
-            imgSrc: MoussesChocolatePassionFruit,
-            description: content.moussesCakes.chocolatePassionFruit.description,
-            sourness: 3,
+            itemName: menuContent.moussesCakes.strawberriesWithTops.itemName,
+            imgSrc: moussesStrawberriesWithTops,
+            description:
+              menuContent.moussesCakes.strawberriesWithTops.description,
+            sourness: 2,
             sweetness: 4,
-            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: [
-              { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
-              { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
-              {
-                size: "S",
-                radius: 200,
-                persons: 10,
-                weight: 1.6,
-                price: 140,
-              },
-              {
-                size: "XS",
-                radius: 180,
-                persons: 8,
-                weight: 1.2,
-                price: 110,
-              },
-            ],
+            tasteAccent:
+              menuContent.moussesCakes.strawberriesWithTops.tasteAccent,
+            variants: createCategoryVariantsArray(),
           },
           {
-            itemName: content.moussesCakes.chocolatePassionFruit.itemName + "2",
-            imgSrc: MoussesChocolatePassionFruit,
-            description: content.moussesCakes.chocolatePassionFruit.description,
-            sourness: 3,
-            sweetness: 4,
-            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: [
-              { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
-              { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
-              {
-                size: "S",
-                radius: 200,
-                persons: 10,
-                weight: 1.6,
-                price: 140,
-              },
-              {
-                size: "XS",
-                radius: 180,
-                persons: 8,
-                weight: 1.2,
-                price: 110,
-              },
-            ],
+            itemName: menuContent.moussesCakes.chocolateCherry.itemName,
+            imgSrc: moussesChocolateCherry,
+            description: menuContent.moussesCakes.chocolateCherry.description,
+            sourness: 4,
+            sweetness: 2,
+            tasteAccent: menuContent.moussesCakes.chocolateCherry.tasteAccent,
+            variants: createCategoryVariantsArray(),
+          },
+          {
+            itemName: menuContent.moussesCakes.berryYogurt.itemName,
+            imgSrc: moussesBerryYogurt,
+            description: menuContent.moussesCakes.berryYogurt.description,
+            sourness: 4,
+            sweetness: 2,
+            tasteAccent: menuContent.moussesCakes.berryYogurt.tasteAccent,
+            variants: createCategoryVariantsArray([10, 20, 15, 20]),
           },
         ],
       },
       {
-        name: content.moussesCakes.name + "_test",
+        group: birthdayCakes,
+        name: menuContent.biscuitCakes.name,
         positions: [
           {
-            itemName: content.moussesCakes.chocolatePassionFruit.itemName,
-            imgSrc: MoussesChocolatePassionFruit,
-            description: content.moussesCakes.chocolatePassionFruit.description,
+            itemName: menuContent.biscuitCakes.berryVanilla.itemName,
+            imgSrc: biscuitsBerryVanilla,
+            description: menuContent.biscuitCakes.berryVanilla.description,
             sourness: 3,
             sweetness: 4,
-            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: [
-              { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
-              { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
-              {
-                size: "S",
-                radius: 200,
-                persons: 10,
-                weight: 1.6,
-                price: 140,
-              },
-              {
-                size: "XS",
-                radius: 180,
-                persons: 8,
-                weight: 1.2,
-                price: 110,
-              },
-            ],
+            tasteAccent: menuContent.biscuitCakes.berryVanilla.tasteAccent,
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
           {
-            itemName: content.moussesCakes.chocolatePassionFruit.itemName + "1",
-            imgSrc: MoussesChocolatePassionFruit,
-            description: content.moussesCakes.chocolatePassionFruit.description,
-            sourness: 3,
-            sweetness: 4,
-            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: [
-              { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
-              { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
-              {
-                size: "S",
-                radius: 200,
-                persons: 10,
-                weight: 1.6,
-                price: 140,
-              },
-              {
-                size: "XS",
-                radius: 180,
-                persons: 8,
-                weight: 1.2,
-                price: 110,
-              },
-            ],
+            itemName: menuContent.biscuitCakes.chocolateCaramel.itemName,
+            imgSrc: biscuitsChocolateCaramel,
+            description: menuContent.biscuitCakes.chocolateCaramel.description,
+            sourness: 0,
+            sweetness: 5,
+            tasteAccent: menuContent.biscuitCakes.chocolateCaramel.tasteAccent,
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
           {
-            itemName: content.moussesCakes.chocolatePassionFruit.itemName + "2",
-            imgSrc: MoussesChocolatePassionFruit,
-            description: content.moussesCakes.chocolatePassionFruit.description,
-            sourness: 3,
+            itemName: menuContent.biscuitCakes.chocolateRaspberry.itemName,
+            imgSrc: biscuitsChocolateRaspberry,
+            description:
+              menuContent.biscuitCakes.chocolateRaspberry.description,
+            sourness: 2,
+            sweetness: 2,
+            tasteAccent:
+              menuContent.biscuitCakes.chocolateRaspberry.tasteAccent,
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
+          },
+          {
+            itemName: menuContent.biscuitCakes.lemonBlueberry.itemName,
+            imgSrc: biscuitsLemonBlueberry,
+            description: menuContent.biscuitCakes.lemonBlueberry.description,
+            sourness: 2,
+            sweetness: 3,
+            tasteAccent: menuContent.biscuitCakes.lemonBlueberry.tasteAccent,
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
+          },
+        ],
+      },
+      {
+        group: cakesAndPies,
+        name: menuContent.classicCakes.name,
+        positions: [
+          {
+            itemName: menuContent.classicCakes.napoleon.itemName,
+            imgSrc: napoleon,
+            description: menuContent.classicCakes.napoleon.description,
+            sourness: 0,
+            sweetness: 2,
+            tasteAccent: menuContent.classicCakes.napoleon.tasteAccent,
+            variants: createCategoryVariantsArray(
+              [0, null, 0, null],
+              classicParams
+            ),
+          },
+          {
+            itemName: menuContent.classicCakes.honeyCake.itemName,
+            imgSrc: honeyCake,
+            description: menuContent.classicCakes.honeyCake.description,
+            sourness: 2,
+            sweetness: 2,
+            tasteAccent: menuContent.classicCakes.honeyCake.tasteAccent,
+            variants: createCategoryVariantsArray(
+              [0, null, 0, null],
+              classicParams
+            ),
+          },
+        ],
+      },
+      {
+        group: cakesAndPies,
+        name: menuContent.cheesecakes.name,
+        positions: [
+          {
+            itemName: menuContent.cheesecakes.cheesecake.itemName,
+            imgSrc: cheesecake,
+            description: menuContent.cheesecakes.cheesecake.description,
+            sourness: 1,
+            sweetness: 3,
+            tasteAccent: menuContent.cheesecakes.cheesecake.tasteAccent,
+            variants: createCategoryVariantsArray(
+              [0, null, 0, null],
+              cheesecakesParams
+            ),
+          },
+          {
+            itemName: menuContent.cheesecakes.cheesecakeCaramel.itemName,
+            imgSrc: cheesecakeCaramel,
+            description: menuContent.cheesecakes.cheesecakeCaramel.description,
+            sourness: 1,
             sweetness: 4,
-            tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: [
-              { size: "L", radius: 260, persons: 22, weight: 3.3, price: 280 },
-              { size: "M", radius: 220, persons: 12, weight: 2, price: 175 },
-              {
-                size: "S",
-                radius: 200,
-                persons: 10,
-                weight: 1.6,
-                price: 140,
-              },
-              {
-                size: "XS",
-                radius: 180,
-                persons: 8,
-                weight: 1.2,
-                price: 110,
-              },
-            ],
+            tasteAccent: menuContent.cheesecakes.cheesecakeCaramel.tasteAccent,
+            variants: createCategoryVariantsArray(
+              [20, null, 20, null],
+              cheesecakesParams
+            ),
           },
         ],
       },

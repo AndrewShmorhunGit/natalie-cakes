@@ -10,7 +10,6 @@ import {
   Navigation,
   AppContainer,
 } from "components";
-
 // Styles
 import "./styles/App.css";
 // Interfaces
@@ -25,7 +24,7 @@ export function App() {
   // Set Language Content & Functionality//
   const languageSettings = useLanguage();
   // Modal state
-  const [isModal, setModal] = useState('none');
+  const [isModal, setModal] = useState("none");
 
   // Effects
   // Language change transition
@@ -37,7 +36,7 @@ export function App() {
     setLanguage: languageSettings.setLanguage,
     innerContent: languageSettings.innerContent,
     languages: languageSettings.languages,
-    isLanguageLoading: languageSettings.isLanguageLoading,
+    // isLanguageLoading: languageSettings.isLanguageLoading,
     isLangTransition: languageSettings.isLangTransition,
     // useMedia
     windowSize: mediaSettings.windowSize,
@@ -60,7 +59,7 @@ export function App() {
       <Information appBox={appBox} />
       <Menu appBox={appBox} />
       <Modal appBox={appBox} />
-      <Gallery></Gallery>
+      <Gallery appBox={appBox} />
       <CallToAction></CallToAction>
       <Footer appBox={appBox} />
     </AppContainer>

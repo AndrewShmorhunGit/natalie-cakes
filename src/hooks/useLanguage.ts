@@ -1,45 +1,35 @@
 import { ILanguages } from "interfaces/IApp";
-import { IInnerContent } from "interfaces/IContent";
-import { useEffect, useState } from "react";
-import { contentEmpty } from "content/text/text.content";
-import { httpGetContents } from "utils/http.request";
-import { useAsync } from "./useAsync";
+import { IContent } from "interfaces/IContent";
+import { useState } from "react";
+// import { useAsync } from "./useAsync";
+import { contentsData } from "content/text/text.content";
 
 interface ILanguageSettings {
   userLanguage: string;
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
-  innerContent: IInnerContent;
+  innerContent: IContent;
   languages: ILanguages;
-  isLanguageLoading: boolean;
-  isLanguageError: boolean;
+  // isLanguageLoading: boolean;
+  // isLanguageError: boolean;
   isLangTransition: boolean;
 }
 
 export const useLanguage = (): ILanguageSettings => {
-  const userLanguage = "hb";
-  const { run, isLoading, isError } = useAsync();
+  const userLanguage = "ru";
+  // const { run, isLoading, isError } = useAsync();
   const [isLanguage, setLanguage] = useState(userLanguage);
   const [isLangTransition, setLangTransition] = useState(false);
 
-  useEffect(() => {
-    run(
-      httpGetContents(isLanguage).then((data) => {
-        setContent(contentEmpty);
-        setTimeout(() => {
-          setContent(data);
-        }, 1000);
-      })
-    );
+  const innerContent: IContent = contentsData;
 
-    setLangTransition(true);
+  // useEffect(() => {
 
-    setTimeout(() => {
-      setLangTransition(false);
-    }, 1000);
-  }, [isLanguage, run]);
-
-  const [isContent, setContent] = useState(contentEmpty);
+  //   setLangTransition(true);
+  //   setTimeout(() => {
+  //     setLangTransition(false);
+  //   }, 1000);
+  // }, [isLanguage]);
 
   const languages = { en: "en", ru: "ru", hb: "hb" };
 
@@ -47,10 +37,10 @@ export const useLanguage = (): ILanguageSettings => {
     userLanguage,
     isLanguage,
     setLanguage,
-    innerContent: isContent,
+    innerContent,
     languages,
-    isLanguageLoading: isLoading,
-    isLanguageError: isError,
+    // isLanguageLoading: isLoading,
+    // isLanguageError: isError,
     isLangTransition,
   };
 };

@@ -1,16 +1,12 @@
 // Components
+import { InfoBlock, InfoDecoLine, InfoImportantTitle } from "./Components";
 import {
-  Container,
-  FlexCenterContainer,
+  InformationSection,
   InfoContainer,
-  InfoDecoLine,
   InfoHeader,
   InfoParagraph,
-  InformationSection,
-  MainHeader,
-  InfoBlock,
-  InfoImportantTitle,
-} from "components";
+} from "./Styled";
+import { Container, FlexCenterContainer, MainHeader } from "components";
 // Styles
 import {
   css,

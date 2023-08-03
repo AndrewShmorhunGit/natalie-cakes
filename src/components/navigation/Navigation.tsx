@@ -1,16 +1,14 @@
 // Components
+import { NavBurger, NavButtonsContainer } from "./Components";
+import { NavigationSection } from "./Styled";
 import {
   Container,
   FlexRowContainer,
   MainLogoText,
-  NavBurger,
-  NavigationSection,
   MainLogo,
-  NavButtonsContainer,
 } from "components";
 // Styles
-import { css } from "@emotion/css";
-import { palette, mq } from "styles";
+import { palette, mq, css } from "styles";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Interfaces
 import { IAppBox } from "interfaces/IApp";

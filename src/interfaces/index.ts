@@ -5,8 +5,10 @@ import { DialogEnum } from "./IEnums";
 import { IContent, IInnerContent } from "./IContent";
 import { IAppBox, ILanguages, IMedia, ISetMedia } from "./IApp";
 import { IInfoBlock } from "./IInfo";
+import { ICarouselParams } from "./IGallery";
 
 export type {
+  ICarouselParams,
   IAppBox,
   ILanguages,
   IMedia,
