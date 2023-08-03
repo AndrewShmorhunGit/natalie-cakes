@@ -6,18 +6,6 @@
 
 [Depliyed App](https://natalie-cakes.netlify.app/)
 
-## Content
-
-Structure:
-
-- Nav Bar
-- Hero Section
-- General Info
-- Call to Action
-- Gallery
-- La Carte
-- Footer Information
-
 ## Styles
 
 Styled with [emotion](https://emotion.sh)
@@ -73,19 +61,23 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Current Task (feature/content)
 
-- [ ] Menu states types problem solution
-- [ ] Set lang dropdown position in BurgerModal
+- [ ] Fix menu loaders
+- [ ] Add "Menu" to the context
+- [ ] Add price fix function
+- [ ] Add price corecting variables environment
 
 ### Hero
 
-- [ ] Image for large and small screens
+- [ ] Hero animation
+- [ ] Round text form at the mini mq
 
 ### Menu
 
-- [ ] Add "Menu" to the context
 - [ ] XL, L, M, S toggle functionality
 - [ ] Add price corecting variables environment
 - [ ] Manage hero selector classes links
+- [ ] add useMenu hook for back request (Node.js course video 92)
+- [ ] Menu states same for the all languages
 
 ### Info
 
@@ -93,22 +85,26 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Nav
 
-- [ ] Nav opacity background
 - [ ] Advanced nav with dropdowns
 
 ### Modals
 
-- [ ] useModals hook
-- [ ] Dinamicaly create a modals state based on modals data
+- [ ] useModals hook or string modal state for all the modals
+- [ ] Styled modal
 - [ ] Reusable Modal component
-- [ ] Click outside
 
 ### Styling
 
 - [ ] Download fonts
 - [ ] Spinners
-- [ ] Hero animation
+- [ ] Hero animation (237 Video)
 - [ ] Fix transition when window size changes
+
+### Http
+
+- [ ] Handle Language loading and error
+- [ ] Create loading text.content
+- [ ] Menu request
 
 ### General
 
@@ -120,11 +116,36 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] Global grid setup
 - [ ] Handle Fonts
 - [ ] Delete Logos from content/logos folder
+- [ ] HeroTagLine remove all connected: context, styled
 
 ### Done
 
+_20.07_
+
+- [x] Modal static data refacoring
+- [x] Click outside
+- [x] Content loaders
+
+_19.07_
+
+- [x] Menu states types problem solution
+- [x] Modal solution
+
+_17.07_
+
+- [x] Contents http Promise<any> fix
+- [x] Set app text content fetching
+- [x] Add client http
+
+_16.07_
+
+- [x] Fix env variables
+
 _15.07_
 
+- [x] Set lang dropdown position in BurgerModal
+- [x] Image for large and small screens
+- [x] Nav opacity background
 - [x] Custom scroll bar
 - [x] Information refactoring 😎
 - [x] Language dropdown refactoring

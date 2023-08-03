@@ -1,4 +1,12 @@
 import { useLanguage } from "./useLanguage";
 import { useMedia } from "./useMedia";
 import { useHover } from "./useHover";
-export { useLanguage, useMedia, useHover };
+import { useEventListener } from "./useEventListener";
+import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
+export {
+  useLanguage,
+  useMedia,
+  useHover,
+  useEventListener,
+  useIsomorphicLayoutEffect,
+};

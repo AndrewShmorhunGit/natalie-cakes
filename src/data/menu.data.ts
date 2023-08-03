@@ -7,6 +7,7 @@ export function createMenuData(content: IMenuContent) {
   return {
     categories: [
       {
+        group: "birthday cakes",
         name: content.moussesCakes.name,
         positions: [
           {

@@ -21,14 +21,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx cross-env STAGE=dev react-scripts start",
-    "build": "npx cross-env STAGE=prod react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AndrewShmorhunGit/cakes"
+    "url": "https://github.com/AndrewShmorhunGit/natalie-cakes-web",
+    "ssh": "git@github.com:AndrewShmorhunGit/natalie-cakes.git"
   },
   "eslintConfig": {
     "extends": [

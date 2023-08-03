@@ -3,13 +3,14 @@ import { IHeroSelectors, ISelectorParams } from "./IHero";
 import { IFooterContacts } from "./IFooter";
 import { DialogEnum } from "./IEnums";
 import { IContent, IInnerContent } from "./IContent";
-import { IAppBox, ILanguages, IMedia } from "./IApp";
+import { IAppBox, ILanguages, IMedia, ISetMedia } from "./IApp";
 import { IInfoBlock } from "./IInfo";
 
 export type {
   IAppBox,
   ILanguages,
   IMedia,
+  ISetMedia,
   ILogos,
   IFooterContacts,
   IContent,

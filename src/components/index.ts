@@ -38,6 +38,9 @@ import {
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
+  // Modal
+  ModalBackgroundContainer,
+  ModalContentContainer,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -47,7 +50,6 @@ import {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
-  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 } from "./lib/StyledComponents";
@@ -73,11 +75,13 @@ import {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
-  flagEn,
-  flagRu,
-  flagHb,
-  flagUa,
+  FlagEn,
+  FlagRu,
+  FlagHb,
+  FlagUa,
+  CloseLogo,
 } from "./logos/Logos";
+import { HeaderDecoLoader, BlockDecoLoader } from "./logos/DecoLogos";
 // Components
 import { CallToAction } from "./call-to-action/CallToAction";
 import { Footer } from "./footer/Footer";
@@ -119,10 +123,13 @@ export {
   RateEmptyStarLogo,
   RateFilledStarLogo,
   ArrowDownLogo,
-  flagEn,
-  flagRu,
-  flagHb,
-  flagUa,
+  FlagEn,
+  FlagRu,
+  FlagHb,
+  FlagUa,
+  CloseLogo,
+  HeaderDecoLoader,
+  BlockDecoLoader,
   // Styled Components
   // App
   AppContainer,
@@ -162,6 +169,9 @@ export {
   FooterParagraph,
   FooterHeader,
   IconAndTextFooterContacts,
+  // Modal
+  ModalBackgroundContainer,
+  ModalContentContainer,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -171,7 +181,6 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
-  ScrollYContainer,
   MainLogoText,
   DecoContainer,
 };

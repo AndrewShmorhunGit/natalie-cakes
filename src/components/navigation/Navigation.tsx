@@ -27,6 +27,8 @@ export function Navigation({
     languages,
     isLanguage,
     setLanguage,
+    isLangTransition,
+    // Media
     setMedia,
     isMedia,
     setModal,
@@ -63,10 +65,11 @@ export function Navigation({
             isLanguage={isLanguage}
             setLanguage={setLanguage}
             variant="navigation"
+            isLangTransition={isLangTransition}
           />
         ) : (
           <Container className={css({ width: "8rem" })}>
-            <NavBurger clickHandler={() => setModal(true)} />
+            <NavBurger clickHandler={() => setModal("burger")} />
           </Container>
         )}
       </FlexRowContainer>

@@ -8,9 +8,6 @@ import {
   InfoParagraph,
   InformationSection,
   MainHeader,
-  DesignLogo,
-  IngredientsLogo,
-  OrderLogo,
   InfoBlock,
   InfoImportantTitle,
 } from "components";
@@ -24,30 +21,14 @@ import {
   paddingTopBottom,
 } from "styles";
 // Interfaces
-import { IAppBox, IInfoBlock } from "interfaces";
+import { IAppBox } from "interfaces";
+import { infoData } from "data/components.static.data";
+import { loading } from "utils/functions";
 
 export function Information({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia, isMedia } = appBox;
+  const { innerContent: content, isLanguage, setMedia, isMedia } = appBox;
 
-  const logoSettings = setMedia(128, 100, 84, 48);
-
-  const infContentData: IInfoBlock[] = [
-    {
-      title: content.ingredients,
-      text: content.ingredientsText,
-      logo: IngredientsLogo({ width: logoSettings, height: logoSettings }),
-    },
-    {
-      title: content.design,
-      text: content.designText,
-      logo: DesignLogo({ width: logoSettings, height: logoSettings }),
-    },
-    {
-      title: content.order,
-      text: content.orderText,
-      logo: OrderLogo({ width: logoSettings, height: logoSettings }),
-    },
-  ];
+  const { infoContentData } = infoData(content, setMedia);
 
   return (
     <InformationSection>
@@ -84,10 +65,14 @@ export function Information({ appBox }: { appBox: IAppBox }) {
             [mq.mini]: { padding: "1.2rem 1.6rem" },
           })}
         >
-          {infContentData.map((data, index) => {
+          {infoContentData.map((data, index) => {
             return (
               <InfoBlock
+                key={
+                  typeof data.title === "string" ? data.title + index : index
+                }
                 infContentData={data}
+                isLanguage={isLanguage}
                 isMedia={isMedia}
                 setMedia={setMedia}
                 index={index}
@@ -114,7 +99,9 @@ export function Information({ appBox }: { appBox: IAppBox }) {
               >
                 <Container>
                   <InfoHeader className={css({ paddingTop: "4rem" })}>
-                    {content.important}
+                    {content.important === "Loading"
+                      ? loading(isLanguage)
+                      : content.important}
                   </InfoHeader>
                   <InfoDecoLine />
                 </Container>
