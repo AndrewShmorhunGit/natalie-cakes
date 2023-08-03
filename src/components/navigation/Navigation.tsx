@@ -25,7 +25,7 @@ export function Navigation({
     languages,
     isLanguage,
     setLanguage,
-    isLangTransition,
+    // isLangTransition,
     // Media
     setMedia,
     isMedia,
@@ -63,7 +63,7 @@ export function Navigation({
             isLanguage={isLanguage}
             setLanguage={setLanguage}
             variant="navigation"
-            isLangTransition={isLangTransition}
+            // isLangTransition={isLangTransition}
           />
         ) : (
           <Container className={css({ width: "8rem" })}>

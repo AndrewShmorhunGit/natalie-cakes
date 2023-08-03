@@ -1,6 +1,8 @@
 import { IMenuContent } from "interfaces/IContent";
 
 export class MenuItem {
+  [x: string]: any;
+  tasteAccent: any;
   constructor(name: string, accent: string) {
     return {
       itemName: name,

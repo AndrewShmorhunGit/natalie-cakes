@@ -38,7 +38,7 @@ import {
 import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
-import { contentEmpty } from "content/text/text.content";
+// import { contentEmpty } from "content/text/text.content";
 import { loading, toCamelCase } from "utils/functions";
 //  Hooks
 import { useState } from "react";
@@ -174,177 +174,173 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   ...createGrid(setMedia(2, 1), 1),
                 })}
               >
-                {content !== contentEmpty &&
-                  category.positions.map((item, index) => {
-                    return (
-                      <MenuPositionContainer
-                        key={
-                          typeof item.itemName === "string"
-                            ? item.itemName + index
-                            : index
-                        }
+                {category.positions.map((item, index) => {
+                  return (
+                    <MenuPositionContainer
+                      key={
+                        typeof item.itemName === "string"
+                          ? item.itemName + index
+                          : index
+                      }
+                      className={css({
+                        gridRow: `${
+                          isMedia.big ? ((index + 1) * 2) % 2 : index + 1
+                        }`,
+                      })}
+                    >
+                      <MenuPositionHeader>
+                        {typeof item.itemName === "string"
+                          ? item.itemName
+                          : null}
+                      </MenuPositionHeader>
+                      <FlexCenterContainer
                         className={css({
-                          gridRow: `${
-                            isMedia.big ? ((index + 1) * 2) % 2 : index + 1
-                          }`,
+                          ...paddingTopBottom(2.4),
+                          height: "auto",
                         })}
                       >
-                        <MenuPositionHeader>
-                          {typeof item.itemName === "string"
-                            ? item.itemName
-                            : null}
-                        </MenuPositionHeader>
-                        <FlexCenterContainer
+                        <img
+                          src={item.imgSrc}
+                          alt={item.description}
                           className={css({
-                            ...paddingTopBottom(2.4),
-                            height: "auto",
+                            cursor: "pointer",
+                            // minWidth: "28rem",
+                            overflow: "hidden",
+                            minHeight:
+                              category.name === "biscuit cakes"
+                                ? "42rem"
+                                : "18rem",
+                          })}
+                          onClick={() => setModal("test")}
+                        />
+                      </FlexCenterContainer>
+                      {/* // From Here // */}
+                      <RateAndTasteContainer
+                        className={css({
+                          ...createGrid(
+                            isMedia.mini ? 1 : 2,
+                            isMedia.mini ? 2 : 1
+                          ),
+                        })}
+                      >
+                        <Container
+                          className={css({
+                            textTransform: "capitalize",
+                            alignSelf: "center",
+                            minHeight: "10rem",
                           })}
                         >
-                          <img
-                            src={item.imgSrc}
-                            alt={item.description}
+                          {GetRateStars(
+                            item.sweetness,
+                            5,
+                            content.sweetness,
+                            appBox.isLanguage === "hb"
+                              ? 6.8
+                              : isMedia.mini
+                              ? 8.8
+                              : 11.2
+                          )}
+                          {GetRateStars(
+                            item.sourness,
+                            5,
+                            content.sourness,
+                            appBox.isLanguage === "hb"
+                              ? 6.8
+                              : isMedia.mini
+                              ? 8.8
+                              : 11.2
+                          )}
+                        </Container>
+                        <Container>
+                          <h3
                             className={css({
-                              cursor: "pointer",
-                              // minWidth: "28rem",
-                              overflow: "hidden",
-                              minHeight:
-                                category.name === "biscuit cakes"
-                                  ? "42rem"
-                                  : "18rem",
-                            })}
-                            onClick={() => setModal("test")}
-                          />
-                        </FlexCenterContainer>
-                        {/* // From Here // */}
-                        <RateAndTasteContainer
-                          className={css({
-                            ...createGrid(
-                              isMedia.mini ? 1 : 2,
-                              isMedia.mini ? 2 : 1
-                            ),
-                          })}
-                        >
-                          <Container
-                            className={css({
-                              textTransform: "capitalize",
-                              alignSelf: "center",
-                              minHeight: "10rem",
+                              ":first-letter": {
+                                textTransform: "uppercase",
+                              },
                             })}
                           >
-                            {GetRateStars(
-                              item.sweetness,
-                              5,
-                              content.sweetness,
-                              appBox.isLanguage === "hb"
-                                ? 6.8
-                                : isMedia.mini
-                                ? 8.8
-                                : 11.2
-                            )}
-                            {GetRateStars(
-                              item.sourness,
-                              5,
-                              content.sourness,
-                              appBox.isLanguage === "hb"
-                                ? 6.8
-                                : isMedia.mini
-                                ? 8.8
-                                : 11.2
-                            )}
-                          </Container>
-                          <Container>
-                            <h3
+                            {content.taste} -
+                          </h3>
+                          <p>{item.tasteAccent}</p>
+                        </Container>
+                      </RateAndTasteContainer>
+                      <FlexColumnContainer
+                        className={css({ gap: "1.2rem", alignSelf: "end" })}
+                      >
+                        {item.variants.map((variant) => {
+                          return (
+                            <PositionVariantContainer
+                              key={
+                                typeof variant.size === "string"
+                                  ? `${variant.size + index}`
+                                  : index
+                              }
                               className={css({
-                                ":first-letter": {
-                                  textTransform: "uppercase",
-                                },
+                                ...createGrid(
+                                  `0.5fr ${
+                                    isMedia.mini ? "1.5fr" : "1fr"
+                                  } 1fr 1fr 1fr`,
+                                  1
+                                ),
                               })}
                             >
-                              {content.taste} -
-                            </h3>
-                            <p>{item.tasteAccent}</p>
-                          </Container>
-                        </RateAndTasteContainer>
-                        <FlexColumnContainer
-                          className={css({ gap: "1.2rem", alignSelf: "end" })}
-                        >
-                          {item.variants.map((variant) => {
-                            return (
-                              <PositionVariantContainer
-                                key={
-                                  typeof variant.size === "string"
-                                    ? `${variant.size + index}`
-                                    : index
-                                }
-                                className={css({
-                                  ...createGrid(
-                                    `0.5fr ${
-                                      isMedia.mini ? "1.5fr" : "1fr"
-                                    } 1fr 1fr 1fr`,
-                                    1
-                                  ),
-                                })}
+                              <FlexCenterContainer>
+                                <h3
+                                  className={css({
+                                    color: palette.main_primary,
+                                    fontSize: `${setMediaByStep(2.8, 0.2)}rem`,
+                                  })}
+                                >
+                                  {variant.size}
+                                </h3>
+                              </FlexCenterContainer>
+                              <FlexCenterContainer
+                                className={css({ flexDirection: "column" })}
                               >
                                 <FlexCenterContainer>
-                                  <h3
-                                    className={css({
-                                      color: palette.main_primary,
-                                      fontSize: `${setMediaByStep(
-                                        2.8,
-                                        0.2
-                                      )}rem`,
-                                    })}
-                                  >
-                                    {variant.size}
-                                  </h3>
+                                  <RadiusLogo
+                                    height={setMediaByStep(16, 1)}
+                                    width={setMediaByStep(16, 1)}
+                                  />
                                 </FlexCenterContainer>
-                                <FlexCenterContainer
-                                  className={css({ flexDirection: "column" })}
-                                >
-                                  <FlexCenterContainer>
-                                    <RadiusLogo
-                                      height={setMediaByStep(16, 1)}
-                                      width={setMediaByStep(16, 1)}
-                                    />
-                                  </FlexCenterContainer>
-                                  <p className={css({ textAlign: "center" })}>
-                                    {variant.radius}mm
-                                  </p>
-                                </FlexCenterContainer>
-                                <FlexRowContainer
-                                  className={css({ gap: ".8rem" })}
-                                >
-                                  <PersonsLogo
-                                    height={setMediaByStep(32, 2)}
-                                    width={setMediaByStep(32, 2)}
-                                  />
-                                  <p>{variant.persons}</p>
-                                </FlexRowContainer>
-                                <FlexRowContainer
-                                  className={css({ gap: ".8rem" })}
-                                >
-                                  <WeightLogo
-                                    height={setMediaByStep(24, 2)}
-                                    width={setMediaByStep(24, 2)}
-                                  />
-                                  <p>{variant.weight}</p>
-                                </FlexRowContainer>
-                                <FlexRowContainer
-                                  className={css({ gap: ".8rem" })}
-                                >
-                                  <IsraeliShekel
-                                    height={setMediaByStep(24, 2)}
-                                    width={setMediaByStep(24, 2)}
-                                  />
-                                  <p>{variant.price}</p>
-                                </FlexRowContainer>
-                              </PositionVariantContainer>
-                            );
-                          })}
-                        </FlexColumnContainer>
-                      </MenuPositionContainer>
-                    );
-                  })}
+                                <p className={css({ textAlign: "center" })}>
+                                  {variant.radius}mm
+                                </p>
+                              </FlexCenterContainer>
+                              <FlexRowContainer
+                                className={css({ gap: ".8rem" })}
+                              >
+                                <PersonsLogo
+                                  height={setMediaByStep(32, 2)}
+                                  width={setMediaByStep(32, 2)}
+                                />
+                                <p>{variant.persons}</p>
+                              </FlexRowContainer>
+                              <FlexRowContainer
+                                className={css({ gap: ".8rem" })}
+                              >
+                                <WeightLogo
+                                  height={setMediaByStep(24, 2)}
+                                  width={setMediaByStep(24, 2)}
+                                />
+                                <p>{variant.weight}</p>
+                              </FlexRowContainer>
+                              <FlexRowContainer
+                                className={css({ gap: ".8rem" })}
+                              >
+                                <IsraeliShekel
+                                  height={setMediaByStep(24, 2)}
+                                  width={setMediaByStep(24, 2)}
+                                />
+                                <p>{variant.price}</p>
+                              </FlexRowContainer>
+                            </PositionVariantContainer>
+                          );
+                        })}
+                      </FlexColumnContainer>
+                    </MenuPositionContainer>
+                  );
+                })}
               </Container>
             </FlexColumnContainer>
           );

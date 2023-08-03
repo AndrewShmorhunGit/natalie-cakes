@@ -1,35 +1,36 @@
 import { ILanguages } from "interfaces/IApp";
-import { IContent } from "interfaces/IContent";
-import { useState } from "react";
+import { IInnerContent } from "interfaces/IContent";
+import { useEffect, useState } from "react";
 // import { useAsync } from "./useAsync";
 import { contentsData } from "content/text/text.content";
+import { useAsync } from "./useAsync";
 
 interface ILanguageSettings {
   userLanguage: string;
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
-  innerContent: IContent;
+  innerContent: IInnerContent;
   languages: ILanguages;
-  // isLanguageLoading: boolean;
+  isLanguageLoading: boolean;
   // isLanguageError: boolean;
-  isLangTransition: boolean;
 }
 
 export const useLanguage = (): ILanguageSettings => {
   const userLanguage = "ru";
-  // const { run, isLoading, isError } = useAsync();
+  const { isLoading } = useAsync();
   const [isLanguage, setLanguage] = useState(userLanguage);
-  const [isLangTransition, setLangTransition] = useState(false);
 
-  const innerContent: IContent = contentsData;
+  const [isContent, setContent] = useState(contentsData.contentEn);
 
-  // useEffect(() => {
-
-  //   setLangTransition(true);
-  //   setTimeout(() => {
-  //     setLangTransition(false);
-  //   }, 1000);
-  // }, [isLanguage]);
+  useEffect(() => {
+    setContent(
+      isLanguage === "en"
+        ? contentsData.contentEn
+        : isLanguage === "ru"
+        ? contentsData.contentRu
+        : contentsData.contentHb
+    );
+  }, [isLanguage]);
 
   const languages = { en: "en", ru: "ru", hb: "hb" };
 
@@ -37,10 +38,9 @@ export const useLanguage = (): ILanguageSettings => {
     userLanguage,
     isLanguage,
     setLanguage,
-    innerContent,
+    innerContent: isContent,
     languages,
-    // isLanguageLoading: isLoading,
+    isLanguageLoading: isLoading,
     // isLanguageError: isError,
-    isLangTransition,
   };
 };

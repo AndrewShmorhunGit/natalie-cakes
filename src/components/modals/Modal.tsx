@@ -26,7 +26,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     innerContent: content,
     languages,
     isLanguage,
-    isLangTransition,
     setLanguage,
     isMedia,
   } = appBox;
@@ -172,7 +171,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 isLanguage={isLanguage}
                 setLanguage={setLanguage}
                 variant={"burger"}
-                isLangTransition={isLangTransition}
               />
             )}
             {isModal === call && (

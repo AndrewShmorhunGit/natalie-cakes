@@ -37,7 +37,6 @@ export function App() {
     innerContent: languageSettings.innerContent,
     languages: languageSettings.languages,
     // isLanguageLoading: languageSettings.isLanguageLoading,
-    isLangTransition: languageSettings.isLangTransition,
     // useMedia
     windowSize: mediaSettings.windowSize,
     isMedia: mediaSettings.isMedia,

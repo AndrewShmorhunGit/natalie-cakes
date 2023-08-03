@@ -1,5 +1,5 @@
 import { RefObject } from "react";
-import { IContent, IInnerContent } from "./IContent";
+import { IInnerContent } from "./IContent";
 
 export interface IMedia {
   big: boolean;
@@ -33,10 +33,10 @@ export interface ISetMedia {
 export interface IAppBox {
   isLanguage: string;
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
-  innerContent: IContent;
+  innerContent: IInnerContent;
   languages: ILanguages;
   // isLanguageLoading: boolean;
-  isLangTransition: boolean;
+  // isLangTransition: boolean;
   // Media
   windowSize: number;
   isMedia: IMedia;
