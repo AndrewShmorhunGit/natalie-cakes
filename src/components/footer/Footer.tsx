@@ -1,18 +1,13 @@
 // Components
+import { IconAndTextFooterContacts } from "./Components";
+import { FooterSection, FooterHeader, FooterParagraph } from "./Styled";
 import {
   MainLogo,
-  EnvelopLogo,
   InstagramLogo,
-  LocationLogo,
-  PhoneLogo,
-  FooterSection,
   Container,
   FlexCenterContainer,
   MainLogoText,
   FlexColumnContainer,
-  FooterHeader,
-  IconAndTextFooterContacts,
-  FooterParagraph,
   Button,
   DecoContainer,
   MenuLogo,
@@ -20,31 +15,14 @@ import {
 // Styles
 import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
-import { IAppBox, IFooterContacts, ILogos } from "interfaces";
+import { IAppBox } from "interfaces";
+import { footerContactsData } from "data/components.static.data";
+import { loading } from "utils/functions";
 
 export function Footer({ appBox }: { appBox: IAppBox }) {
-  const { innerContent: content, setMedia } = appBox;
+  const { innerContent: content, isLanguage, setMedia, setModal } = appBox;
 
-  const logoPropsContacts: ILogos = {
-    width: "32",
-    height: "32",
-    fill: palette.main_primary_dark,
-  };
-
-  const footerContacts: IFooterContacts[] = [
-    {
-      name: `${content.footerContacts.address}`,
-      icon: LocationLogo(logoPropsContacts),
-    },
-    {
-      name: `${content.footerContacts.phone}`,
-      icon: PhoneLogo(logoPropsContacts),
-    },
-    {
-      name: `${content.footerContacts.email}`,
-      icon: EnvelopLogo(logoPropsContacts),
-    },
-  ];
+  const footerContacts = footerContactsData(content);
 
   return (
     <FooterSection>
@@ -82,13 +60,13 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
             })}
           >
             <FooterHeader>{content.footerOther.contacts}</FooterHeader>
-            {footerContacts.map(({ name, icon }) => {
+            {footerContacts.map(({ name, icon }, index) => {
               return (
                 <Container
                   className={css({
                     cursor: "pointer",
                   })}
-                  key={name}
+                  key={name + index}
                 >
                   <IconAndTextFooterContacts icon={icon} text={name} />
                 </Container>
@@ -107,13 +85,15 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               {content.footerOther.callBack}
             </FooterParagraph>
             <FlexCenterContainer>
-              <Button variant="primary">{content.callBackBtn}</Button>
+              <Button variant="primary" onClick={() => setModal("call")}>
+                {content.callBackBtn}
+              </Button>
             </FlexCenterContainer>
           </FlexColumnContainer>
           <FlexColumnContainer
             className={css({
               gridColumn: setMedia("3/-1", "3/-1", "3/-1", "1"),
-              gridRow: setMedia("1", "1", "1", "3"),
+              gridRow: setMedia(1, 1, 1, 3),
               gap: setMedia("2rem", "1.6rem", "1.2rem"),
             })}
           >
@@ -138,7 +118,11 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               justifyContent: "center",
             })}
           >
-            <FooterHeader>{content.footerOther.menu}</FooterHeader>
+            <FooterHeader>
+              {content.footerOther.menu === "Loading"
+                ? loading(isLanguage)
+                : content.footerOther.menu}
+            </FooterHeader>
             <MenuLogo height={"52"} width={"32"} fill={palette.text_dark} />
           </Container>
           <FlexCenterContainer className={css({ ...paddingTopBottom(1, 0) })}>
@@ -155,12 +139,12 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
               ...createGrid(4, 1),
             })}
           >
-            {content.footerOther.cart.map((position, idx) => {
+            {content.footerOther.cart.map((position, index) => {
               return (
                 <Container
-                  key={position}
+                  key={typeof position === "string" ? position + index : index}
                   className={css({
-                    gridColumn: idx + 1,
+                    gridColumn: index + 1,
                     alignSelf: "center",
                     textTransform: "capitalize",
                     textAlign: "center",

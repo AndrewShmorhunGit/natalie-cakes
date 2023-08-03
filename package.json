@@ -11,7 +11,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.36",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "react": "^18.2.0",
@@ -21,14 +20,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx cross-env STAGE=dev react-scripts start",
-    "build": "npx cross-env STAGE=prod react-scripts build",
+    "start": "react-scripts start",
+    "build": "BUILD_PATH=../server/public react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AndrewShmorhunGit/cakes"
+    "url": "https://github.com/AndrewShmorhunGit/natalie-cakes-web",
+    "ssh": "git@github.com:AndrewShmorhunGit/natalie-cakes.git"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.4"
   }
 }

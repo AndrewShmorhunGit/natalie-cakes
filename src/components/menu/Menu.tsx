@@ -1,4 +1,14 @@
 // Components
+import { UpDownArrow, GetRateStars } from "./Components";
+import {
+  MenuSection,
+  MenuCategoryContainer,
+  MenuCategoryHeader,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  RateAndTasteContainer,
+  PositionVariantContainer,
+} from "./Styled";
 import {
   IsraeliShekel,
   PersonsLogo,
@@ -7,88 +17,133 @@ import {
   FlexCenterContainer,
   FlexColumnContainer,
   FlexRowContainer,
-  GetRateStars,
-  MenuCategoryHeader,
   Container,
-  MenuPositionContainer,
-  MenuPositionHeader,
-  PositionVariantContainer,
-  MenuSection,
-  RateAndTasteContainer,
-  UpDownArrow,
-  MenuCategoryContainer,
   MainHeader,
+  HeroBirthdayCakesLogo,
+  HeroCakesAndPiesLogo,
+  HeroCupCakesLogo,
+  HeroGingerbreadLogo,
+  LogoTitleBlock,
 } from "components";
 // Styles
-import { css, palette, container, createGrid, paddingTopBottom } from "styles";
+import {
+  css,
+  palette,
+  container,
+  createGrid,
+  paddingTopBottom,
+  appShadows,
+} from "styles";
 // Interfaces
-import { IAppBox } from "interfaces/IApp";
+import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
-import { toCamelCase } from "utils/functions";
-// React
+// import { contentEmpty } from "content/text/text.content";
+import { loading, toCamelCase } from "utils/functions";
+//  Hooks
 import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
-    innerContent: { menuContent },
     innerContent: content,
+    isLanguage,
     isMedia,
     setMedia,
     setMediaByStep,
+    setModal,
   } = appBox;
 
-  const menuData = createMenuData(menuContent);
+  const menuData = createMenuData(content);
 
   // Fix types
-  const categories: any = menuData.categories.reduce((total, category) => {
-    total = {
-      ...total,
-      [toCamelCase(category.name)]: false,
-    };
-    return total;
-  }, {});
+  const categories: { [x: string]: boolean } | null =
+    menuData.categories.reduce((total, category) => {
+      total = {
+        ...total,
+        [toCamelCase(category.name)]: false,
+      };
+      return total;
+    }, {});
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 
-  // console.log(isArrow);
-
   return (
     <MenuSection>
-      <MainHeader
-        className={css({
-          ...container,
-          paddingBottom: "8rem",
-          textTransform: "capitalize",
-        })}
-      >
-        Menu
-      </MainHeader>
       <Container
         className={css({
           ...container,
         })}
       >
+        <MainHeader
+          className={css({
+            marginBottom: "4rem",
+            textTransform: "capitalize",
+          })}
+        >
+          {content.menuTitle}
+        </MainHeader>
         {/* {Iteration from menuData object} */}
-        {menuData.categories.map((category) => {
+        {menuData.categories.map((category, index) => {
           const isArrowProp = toCamelCase(category.name);
           return (
-            <FlexColumnContainer key={category.name}>
+            <FlexColumnContainer
+              key={
+                typeof category.name !== "string"
+                  ? index
+                  : category.name + index
+              }
+            >
+              {index === 0 ||
+              (index > 1 &&
+                menuData.categories[index - 1].group !== category.group) ? (
+                <div>
+                  <Container
+                    className={css({
+                      paddingBottom: "4rem",
+                    })}
+                  >
+                    <LogoTitleBlock
+                      Logo={
+                        category.group ===
+                        content.heroSelectors.birthdayCake ? (
+                          <HeroBirthdayCakesLogo height={40} width={40} />
+                        ) : category.group ===
+                          content.heroSelectors.cakesAndPies ? (
+                          <HeroCakesAndPiesLogo height={40} width={40} />
+                        ) : category.group ===
+                          content.heroSelectors.cupCakes ? (
+                          <HeroCupCakesLogo height={40} width={40} />
+                        ) : (
+                          <HeroGingerbreadLogo height={40} width={40} />
+                        )
+                      }
+                      title={category.group}
+                      setMediaByStep={setMediaByStep}
+                      isLanguage={isLanguage}
+                    />
+                  </Container>
+                </div>
+              ) : null}
+
               <MenuCategoryContainer
                 className={css({
+                  transition: "all 0.5s",
+                  transform: `translateY(${
+                    isArrow[isArrowProp] ? "-1px" : "0"
+                  })`,
+                  boxShadow: isArrow[isArrowProp] ? appShadows.button : "",
+                  cursor: "pointer",
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
                   ...createGrid("1fr 100fr", 1),
                 })}
+                onClick={() =>
+                  setIsArrow({
+                    ...isArrow,
+                    [isArrowProp]: !isArrow[isArrowProp],
+                  })
+                }
               >
-                <Container
-                  className={css({ alignSelf: "center" })}
-                  onClick={() =>
-                    setIsArrow({
-                      ...isArrow,
-                      [isArrowProp]: !isArrow[isArrowProp],
-                    })
-                  }
-                >
+                <Container className={css({ alignSelf: "center" })}>
                   <UpDownArrow
                     circleRadius={setMediaByStep(5.2, 0.2)}
                     rotate={isArrow[isArrowProp] ? 0.5 : 0}
@@ -99,15 +154,18 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                     fontSize: `${setMediaByStep(4, 0.4)}rem`,
                   })}
                 >
-                  {category.name}
+                  {category.name === "Loading"
+                    ? loading(isLanguage)
+                    : category.name}
                 </MenuCategoryHeader>
               </MenuCategoryContainer>
 
               <Container
                 className={css({
                   margin: "2rem 0",
+                  paddingBottom: isArrow[isArrowProp] ? "0.4rem" : "0",
                   overflow: "hidden",
-                  maxHeight: `${isArrow[isArrowProp] ? "200rem" : "0"}`,
+                  maxHeight: `${isArrow[isArrowProp] ? "500rem" : "0"}`,
                   transition: `max-height ${
                     isArrow[isArrowProp] ? ".4s ease-in" : ".8s ease-out"
                   }`,
@@ -119,14 +177,22 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                 {category.positions.map((item, index) => {
                   return (
                     <MenuPositionContainer
-                      key={item.itemName}
+                      key={
+                        typeof item.itemName === "string"
+                          ? item.itemName + index
+                          : index
+                      }
                       className={css({
                         gridRow: `${
                           isMedia.big ? ((index + 1) * 2) % 2 : index + 1
                         }`,
                       })}
                     >
-                      <MenuPositionHeader>{item.itemName}</MenuPositionHeader>
+                      <MenuPositionHeader>
+                        {typeof item.itemName === "string"
+                          ? item.itemName
+                          : null}
+                      </MenuPositionHeader>
                       <FlexCenterContainer
                         className={css({
                           ...paddingTopBottom(2.4),
@@ -137,9 +203,15 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                           src={item.imgSrc}
                           alt={item.description}
                           className={css({
-                            height: "100%",
-                            minWidth: "28rem",
+                            cursor: "pointer",
+                            // minWidth: "28rem",
+                            overflow: "hidden",
+                            minHeight:
+                              category.name === "biscuit cakes"
+                                ? "42rem"
+                                : "18rem",
                           })}
+                          onClick={() => setModal("test")}
                         />
                       </FlexCenterContainer>
                       {/* // From Here // */}
@@ -155,6 +227,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                           className={css({
                             textTransform: "capitalize",
                             alignSelf: "center",
+                            minHeight: "10rem",
                           })}
                         >
                           {GetRateStars(
@@ -181,7 +254,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                         <Container>
                           <h3
                             className={css({
-                              ":first-letter": { textTransform: "uppercase" },
+                              ":first-letter": {
+                                textTransform: "uppercase",
+                              },
                             })}
                           >
                             {content.taste} -
@@ -189,11 +264,17 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                           <p>{item.tasteAccent}</p>
                         </Container>
                       </RateAndTasteContainer>
-                      <FlexColumnContainer className={css({ gap: "1.2rem" })}>
+                      <FlexColumnContainer
+                        className={css({ gap: "1.2rem", alignSelf: "end" })}
+                      >
                         {item.variants.map((variant) => {
                           return (
                             <PositionVariantContainer
-                              key={variant.size}
+                              key={
+                                typeof variant.size === "string"
+                                  ? `${variant.size + index}`
+                                  : index
+                              }
                               className={css({
                                 ...createGrid(
                                   `0.5fr ${
@@ -207,12 +288,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                                 <h3
                                   className={css({
                                     color: palette.main_primary,
-                                    fontSize: `${setMedia(
-                                      2.8,
-                                      2.6,
-                                      2.4,
-                                      2.2
-                                    )}rem`,
+                                    fontSize: `${setMediaByStep(2.8, 0.2)}rem`,
                                   })}
                                 >
                                   {variant.size}

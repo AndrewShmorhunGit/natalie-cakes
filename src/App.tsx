@@ -10,7 +10,6 @@ import {
   Navigation,
   AppContainer,
 } from "components";
-import { contents } from "content/text/text.content";
 // Styles
 import "./styles/App.css";
 // Interfaces
@@ -23,9 +22,12 @@ export function App() {
   // Set JS Media Queries //
   const mediaSettings = useMedia();
   // Set Language Content & Functionality//
-  const languageSettings = useLanguage(contents);
+  const languageSettings = useLanguage();
   // Modal state
-  const [isModal, setModal] = useState(false);
+  const [isModal, setModal] = useState("none");
+
+  // Effects
+  // Language change transition
 
   // Main Application params and functions Box
   const appBox: IAppBox = {
@@ -34,6 +36,7 @@ export function App() {
     setLanguage: languageSettings.setLanguage,
     innerContent: languageSettings.innerContent,
     languages: languageSettings.languages,
+    // isLanguageLoading: languageSettings.isLanguageLoading,
     // useMedia
     windowSize: mediaSettings.windowSize,
     isMedia: mediaSettings.isMedia,
@@ -43,9 +46,10 @@ export function App() {
     hoverRef: useRef(null),
     isModal,
     setModal,
+    // Effects
   };
 
-  /////////////////////////////////////////
+  ////////////////////////////////////////////////
 
   return (
     <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
@@ -54,7 +58,7 @@ export function App() {
       <Information appBox={appBox} />
       <Menu appBox={appBox} />
       <Modal appBox={appBox} />
-      <Gallery></Gallery>
+      <Gallery appBox={appBox} />
       <CallToAction></CallToAction>
       <Footer appBox={appBox} />
     </AppContainer>

@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export interface IHeroSelectors {
-  name: string;
+  name: string | ReactNode;
   icon: ReactElement<any, any>;
 }
 
